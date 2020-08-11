@@ -1,0 +1,2121 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="每天2个Linux命令 sudo wget">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>每天2个Linux命令 sudo wget | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">每天2个Linux命令 sudo wget</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
+                            </a>
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux2/" class="post-category">
+                                linux每天2个命令
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-08-16
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    25 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="2017-08-15-每天2个Linux命令-sudo命令"><a href="#2017-08-15-每天2个Linux命令-sudo命令" class="headerlink" title="2017-08-15 每天2个Linux命令 sudo命令"></a><center>2017-08-15 每天2个Linux命令 sudo命令</center></h2><p>sudo命令用来以其他身份来执行命令，预设的身份为root。</p>
+<p>(1)用法:</p>
+<pre><code>用法:  sudo  [参数]  [命令]</code></pre>
+<p>(2)功能:</p>
+<pre><code>功能:  sudo可以针对单个命令授予临时权限。用户也可以通过su切换到root用户运行命令，su启动一个root shell允许用户运行之后的所有的命令。
+
+1)sudo与su的不同之处:sudo仅在需要时授予用户权限，减少了用户因为错误执行命令损坏系统的可能性；
+sudo也可以用来以其他用户身份执行命令。此外，sudo可以记录用户执行的命令，以及失败的特权获取。
+
+2)提醒：在/etc/sudoers中设置了可执行sudo指令的用户。若其未经授权的用户企图使用sudo，
+则会发出警告的邮件给管理员。用户使用sudo时，必须先输入密码，之后有5分钟的有效期限，超过期限则必须重新输入密码。
+
+复制代码
+[sunmeng@localhost ~]$ yum update mysql　　　　　　　　　　　　　　　　　　　　　　//yum的执行需要root权限
+已加载插件：fastestmirror, langpacks
+您需要 root 权限执行此命令。
+[sunmeng@localhost ~]$ sudo yum update mysql　　　　　　　　　　　　　　　　　　 //默认情况下sudo获得root用户的权限
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for sunmeng: 
+sunmeng 不在 sudoers 文件中。此事将被报告。　　　　　　　　　　　　　　　　　　　　　//此时sunmeng还没有使用sudo的权限</code></pre>
+<p>3)[root@localhost etc]# cat sudoers  查看/etc下的只有root才能打开的文件配置文件sudoers</p>
+<pre><code>复制代码
+  1 ## Sudoers allows particular users to run various commands as
+  2 ## the root user, without needing the root password.
+  3 ## 该文件允许特定用户像root用户一样使用各种各样的命令，而不需要root用户的密码
+  4 ##
+  5 ## Examples are provided at the bottom of the file for collections
+  6 ## of related commands, which can then be delegated out to particular
+  7 ## users or groups.
+  8 ## 在文件的底部提供了很多相关命令的示例以供选择，这些示例都可以被特定用户或
+  9 ## 用户组所使用 
+ 10 ##
+ 11 ## This file must be edited with the 'visudo' command.
+ 12 ## 该文件必须使用"visudo"命令编辑
+ 13 
+ 14 ## Host Aliases
+ 15 ## Groups of machines. You may prefer to use hostnames (perhaps using 
+ 16 ## wildcards for entire domains) or IP addresses instead.
+ 17 ## 对于一组服务器，你可能会更喜欢使用主机名（可能是全域名的通配符）
+ 18 ## 、或IP地址，这时可以配置主机别名
+ 19 # Host_Alias     FILESERVERS = fs1, fs2
+ 20 # Host_Alias     MAILSERVERS = smtp, smtp2
+ 21 
+ 22 ## User Aliases
+ 23 ## These aren't often necessary, as you can use regular groups
+ 24 ## (ie, from files, LDAP, NIS, etc) in this file - just use %groupname 
+ 25 ## rather than USERALIAS
+ 26 ## 这并不很常用，因为你可以通过使用组来代替一组用户的别名
+ 27 # User_Alias ADMINS = jsmith, mikem
+ 28 
+ 29 ## Command Aliases
+ 30 ## These are groups of related commands...
+ 31 ## 指定一系列相互关联的命令（当然可以是一个）的别名，通过赋予该别名sudo权限，
+ 32 ## 可以通过sudo调用所有别名包含的命令，下面是一些示例
+ 33 
+ 34 ## Networking 网络操作相关命令别名
+ 35 # Cmnd_Alias NETWORKING = /sbin/route, /sbin/ifconfig, /bin/ping, /sbin/dhclient
+ 36 , /usr/bin/net, /sbin/iptables, /usr/bin/rfcomm, /usr/bin/wvdial, /sbin/iwconfig
+ 37 , /sbin/mii-tool
+ 38 
+ 39 ## Installation and management of software 软件安装管理相关命令别名
+ 40 # Cmnd_Alias SOFTWARE = /bin/rpm, /usr/bin/up2date, /usr/bin/yum
+ 41 
+ 42 ## Services 服务相关命令别名
+ 43 # Cmnd_Alias SERVICES = /sbin/service, /sbin/chkconfig
+ 44 
+ 45 ## Updating the locate database 本地数据库升级命令别名
+ 46 # Cmnd_Alias LOCATE = /usr/bin/updatedb
+ 47 
+ 48 ## Storage 磁盘操作相关命令别名
+ 49 # Cmnd_Alias STORAGE = /sbin/fdisk, /sbin/sfdisk, /sbin/parted, /sbin/partprobe
+ 50 , /bin/mount, /bin/umount
+ 51 
+ 52 ## Delegating permissions 代理权限相关命令别名
+ 53 # Cmnd_Alias DELEGATING = /usr/sbin/visudo, /bin/chown, /bin/chmod, /bin/chgrp 
+ 54 
+ 55 ## Processes 进程相关命令别名
+ 56 # Cmnd_Alias PROCESSES = /bin/nice, /bin/kill, /usr/bin/kill, /usr/bin/killall
+ 57 
+ 58 ## Drivers 驱动命令别名
+ 59 # Cmnd_Alias DRIVERS = /sbin/modprobe
+ 60 
+ 61 # Defaults specification
+ 62 
+ 63 #
+ 64 # Disable "ssh hostname sudo &lt;cmd&gt;", because it will show the password in clear. 
+ 65 #         You have to run "ssh -t hostname sudo &lt;cmd&gt;".
+ 66 # 一些环境变量的相关配置，具体情况可见man soduers
+ 67 Defaults    requiretty
+ 68 //设为默认的目标用户,69行是系统自带的，是对所有用户的默认，如果设sunmeng为默认目标用户，则语法为:Defaults:foobar runas_default=rene （冒号必不可少）
+ 69 Defaults    env_reset
+ 70 Defaults    env_keep =  "COLORS DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR LS_COLORS"
+ 71 Defaults    env_keep += "MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE"
+ 72 Defaults    env_keep += "LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES"
+ 73 Defaults    env_keep += "LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE"
+ 74 Defaults    env_keep += "LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY"
+ 75 
+ 76 Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin
+ 77 
+ 78 ## Next comes the main part: which users can run what software on 
+ 79 ## which machines (the sudoers file can be shared between multiple
+ 80 ## systems).
+ 81 ## 下面是规则配置：什么用户在哪台服务器上可以执行哪些命令（sudoers文件可以在多个系统上共享）
+ 82 ## Syntax(语法):
+ 83 ##
+ 84 ##     user    MACHINE=COMMANDS 用户 登录的主机=（可以变换的身份） 可以执行的命令
+ 85 ##
+ 86 ## The COMMANDS section may have other options added to it.
+ 87 ## 命令部分可以附带一些其它的选项
+ 88 ##
+ 89 ## Allow root to run any commands anywhere 
+ 90 ## 允许root用户执行任意路径下的任意命令
+ 91 root    ALL=(ALL)     ALL
+ 92 //第一个ALL是指网络中的主机，我们后面把它改成了主机名。第二个括号里的ALL是指目标用户，也就是以谁的身份去执行命令。最后一个ALL当然就是指命令名了。
+ 93 ## Allows members of the 'sys' group to run networking, software, 
+ 94 ## service management apps and more.
+ 95 ## 允许sys中户组中的用户使用NETWORKING等所有别名中配置的命令
+ 96 # %sys ALL = NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE
+ 97 , DRIVERS
+ 98 
+ 99 ## Allows people in group wheel to run all commands
+100 ## 允许wheel用户组中的用户执行所有命令
+101 %wheel    ALL=(ALL)    ALL
+102 
+103 ## Same thing without a password
+104 ## 允许wheel用户组中的用户在不输入该用户的密码的情况下使用所有命令
+105 # %wheel    ALL=(ALL)    NOPASSWD: ALL
+106 
+107 ## Allows members of the users group to mount and unmount the 
+108 ## cdrom as root
+109 ## 允许users用户组中的用户像root用户一样使用mount、unmount、chrom命令
+110 # %users  ALL=/sbin/mount /mnt/cdrom, /sbin/umount /mnt/cdrom
+111 
+112 ## Allows members of the users group to shutdown this system
+113 ## 允许users用户组中的用户关闭localhost这台服务器
+114 # %users  localhost=/sbin/shutdown -h now
+115 
+116 ## Read drop-in files from /etc/sudoers.d (the # here does not mean a comment)
+117 ## 读取放置在/etc/sudoers.d/文件夹中的文件（此处的#不意味着这是一个声明）
+118 #includedir /etc/sudoers.d</code></pre>
+<p>4)给普通用使用sudo命令的授权:</p>
+<pre><code>复制代码
+visudo后得到的格式为:
+  账户名                 主机名称=(可切换的身份)              可用的指令
+  //比如root账户
+  root                   ALL=(ALL)                                  ALL
+
+  对于新增的账户就在下面加上
+  test                   ALL=(root)                                 ALL
+  //允许test用sudo命令执行root的所有命令
+
+  同理对于组使用者也是一个,但是要加上%
+  %testgroup   　　　　　 ALL=(root)  　　　　　　　　　　　　　　　　　　 ALL
+
+  需要注意的是：每次切换，你都需要密码才可以，使用如下命令可以避免输入密码：
+  test                   ALL=(root) NOPASSWD: ALL 
+复制代码
+复制代码
+[root@localhost sunmeng]# visudo　　　　　　　　　　　　　　//这里的visudo不需要任何参数，因为它是打开sudoers的专属命令
+//改过的地方
+##      user    MACHINE=COMMANDS
+##
+## The COMMANDS section may have other options added to it.
+##
+## Allow root to run any commands anywhere
+root    ALL=(ALL)       ALL
+sunmeng ALL=(ALL)     ALL</code></pre>
+<p>5)简单的测试:</p>
+<pre><code>复制代码
+[sunmeng@localhost ~]$ ls　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　//当前身份执行命令
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos 
+[sunmeng@localhost ~]$ sudo ls　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   //利用root身份执行命令
+Desktop  Documents  Downloads  Music  Pictures    Public    Templates  Videos
+[sunmeng@localhost ~]$ yum update mysql　　　　　　　　　　　　　　　　　　　　　　　　　　 //当前身份执行命令，提醒需要root身份
+已加载插件：fastestmirror, langpacks
+您需要 root 权限执行此命令。
+[sunmeng@localhost ~]$ sudo yum update mysql　　　　　　　　　　　　　　　　　　　　　　　　//以root身份执行命令（在终端中第一次用这个命令时会提醒输入密码）
+已加载插件：fastestmirror, langpacks
+base                                                     | 3.6 kB     00:00     
+extras                                                   | 3.4 kB     00:00     
+updates                                                  | 3.4 kB     00:00     
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+No packages marked for update</code></pre>
+<p>(3)选项参数:</p>
+<pre><code>  1) -b 　　　　　　在后台运行命令
+
+  2) -u user 　　　 以指定用户身份运行命令(或编辑文件)
+
+  3) -l　　　　　　  查看当前用户可以执行的命令
+
+  4) -v　　　　　　 更新用户的时间戳而不执行命令(注意:在输入密码之后，5分钟内执行sudo不需要再次输入密码。)
+
+  5) -V　　　　　　 显示sudo的版本信息
+
+  6) -i　　　　　　  以目标用户登录一个shell</code></pre>
+<p>(4)实例:</p>
+<pre><code>  1)[sunmeng@localhost Desktop]$ sudo -u root yum install mysql-devel　　　　　　　　指定用户名
+
+复制代码
+[sunmeng@localhost Desktop]$ sudo -u root yum install mysql-devel　　　　　　　　　　　　　　　　　　-u参数比较有用的地方是在多用户时，可以临时获得权限打开用户独占的文件
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+正在解决依赖关系
+--&gt; 正在检查事务
+......
+--&gt; 解决依赖关系完成
+依赖关系解决
+=============================================================================================================
+ Package                        架构              版本                              源                  大小
+=============================================================================================================
+正在安装:
+ mariadb-devel                  x86_64            1:5.5.47-1.el7_2                  
+......
+作为依赖被升级:
+  krb5-libs.x86_64 0:1.13.2-12.el7_2                krb5-workstation.x86_64 0:1.13.2-12.el7_2               
+  openssl.x86_64 1:1.0.1e-51.el7_2.5                openssl-libs.x86_64 1:1.0.1e-51.el7_2.5                 
+  pcre.x86_64 0:8.32-15.el7_2.1                     zlib.x86_64 0:1.2.7-15.el7                              
+
+完毕！</code></pre>
+<p>2)sudo命令与rpm命令结合使用的几个例子</p>
+<pre><code>复制代码
+[sunmeng@localhost Desktop]$ sudo rpm -q MySQL-embedded-5.5.28-1.linux2.6.i386.rpm
+[sudo] password for sunmeng: 
+未安装软件包 MySQL-embedded-5.5.28-1.linux2.6.i386.rpm 
+[sunmeng@localhost Desktop]$ sudo rpm -qpR MySQL-embedded-5.5.28-1.linux2.6.i386.rpm
+MySQL-devel
+libaio.so.1
+libaio.so.1(LIBAIO_0.1)
+libaio.so.1(LIBAIO_0.4)
+libc.so.6
+libc.so.6(GLIBC_2.0)
+libc.so.6(GLIBC_2.1)
+libc.so.6(GLIBC_2.1.3)
+libc.so.6(GLIBC_2.2)
+libc.so.6(GLIBC_2.3)
+libc.so.6(GLIBC_2.3.3)
+libcrypt.so.1
+libcrypt.so.1(GLIBC_2.0)
+libdl.so.2
+libdl.so.2(GLIBC_2.0)
+libdl.so.2(GLIBC_2.1)
+libm.so.6
+libm.so.6(GLIBC_2.0)
+libm.so.6(GLIBC_2.1)
+libncurses.so.5
+libpthread.so.0
+libpthread.so.0(GLIBC_2.0)
+libpthread.so.0(GLIBC_2.1)
+libpthread.so.0(GLIBC_2.2)
+libpthread.so.0(GLIBC_2.3.2)
+librt.so.1
+librt.so.1(GLIBC_2.2)
+rpmlib(CompressedFileNames) &lt;= 3.0.4-1
+rpmlib(PayloadFilesHavePrefix) &lt;= 4.0-1</code></pre>
+<p>3)[sunmeng@localhost Desktop]$ sudo -l　　　　　　　　列出用户可以执行的命令</p>
+<pre><code>复制代码
+[sunmeng@localhost Desktop]$ sudo -l
+匹配此主机上 sunmeng 的默认条目：
+    requiretty, !visiblepw, always_set_home, env_reset, env_keep="COLORS DISPLAY HOSTNAME HISTSIZE INPUTRC
+    KDEDIR LS_COLORS", env_keep+="MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE",
+    env_keep+="LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES", env_keep+="LC_MONETARY LC_NAME
+    LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY",
+    secure_path=/sbin\:/bin\:/usr/sbin\:/usr/bin
+
+用户 sunmeng 可以在该主机上运行以下命令：
+    (ALL) ALL</code></pre>
+<p>4[root@localhost Desktop]# sudo -i　　　　　　　　　　　以目标身份登录一个shell　　　　　</p>
+<pre><code>[root@localhost Desktop]# sudo -i
+[root@localhost ~]# sudo -i</code></pre>
+<p>5)[root@localhost ~]# sudo -V　　　　　　　　　　　　　显示详细的sudo的版本信息</p>
+<pre><code>复制代码
+[root@localhost ~]# sudo -V
+Sudo 版本 1.8.6p7
+当前选项：--build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu --program-prefix=
+ --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --
+sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec
+ --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info
+ --prefix=/usr --sbindir=/usr/sbin --libdir=/usr/lib64 --docdir=/usr/share/doc/sudo-1.8.6p7 --with-
+logging=syslog --with-logfac=authpriv --with-pam --with-pam-login --with-editor=/bin/vi --with-env-editor 
+--with-ignore-dot --with-tty-tickets --with-ldap --with-ldap-conf-file=/etc/sudo-ldap.conf 
+--with-selinux --with-passprompt=[sudo] password for %p:  --with-linux-audit --with-sssd
+Sudoers 策略插件版本 1.8.6p7
+Sudoers 文件语法版本 42
+
+Sudoers 路径：/etc/sudoers
+nsswitch 路径：/etc/nsswitch.conf
+ldap.conf 路径：/etc/sudo-ldap.conf
+ldap.secret 路径：/etc/ldap.secret
+认证方法： 'pam'
+若使用了 syslog，用于记录日志的 syslog 设施：authpriv
+用户认证成功时使用的 syslog 优先级：notice
+用户认证不成功时使用的 syslog 优先级：alert
+忽略 $PATH 中的“.”
+在用户不在 sudoers 列表中时发送邮件
+对每个用户/终端组合使用独立的时间戳
+在用户第一次运行 sudo 时向他致辞
+默认要求用户认证
+root 可以运行 sudo
+总是将 $HOME 设为目标用户的主目录
+允许收集一些信息，以提供有用的错误消息
+只允许拥有终端的用户执行 sudo
+Visudo 将优先考虑 EDITOR 环境变量
+设置 LOGNAME 和 USER 环境变量
+日志文件折行的长度(0 则不折行)：80
+认证时间戳延时：5.0 分钟
+密码提示延时：5.0 分钟
+输入密码的尝试次数：3
+要使用的 umask，或 0777 使用用户的：022
+邮件程序路径：/usr/sbin/sendmail
+邮件程序标志：-t
+发送邮件的地址：root
+邮件消息的主题行：*** SECURITY information for %h ***
+密码错误消息：Sorry, try again.
+认证时间戳文件夹的路径：/var/db/sudo
+默认密码提示：[sudo] password for %p: 
+运行命令的默认用户：root
+覆盖用户的 $PATH 变量的值：/sbin:/bin:/usr/sbin:/usr/bin
+visudo 所使用的编辑器的路径：/bin/vi
+何时为“list”伪命令请求密码：any
+何时为“verify”伪命令请求密码：all
+&gt;= 3 的文件描述符将会在执行命令前关闭
+将环境重设为默认的变量集
+要检查完整性的环境变量：
+    TERM
+    LINGUAS
+    LC_*
+    LANGUAGE
+    LANG
+    COLORTERM
+要移除的环境变量：
+    RUBYOPT
+    RUBYLIB
+    PYTHONUSERBASE
+    PYTHONINSPECT
+    PYTHONPATH
+    PYTHONHOME
+    TMPPREFIX
+    ZDOTDIR
+    READNULLCMD
+    NULLCMD
+    FPATH
+    PERL5DB
+    PERL5OPT
+    PERL5LIB
+    PERLLIB
+    PERLIO_DEBUG 
+    JAVA_TOOL_OPTIONS
+    SHELLOPTS
+    GLOBIGNORE
+    PS4
+    BASH_ENV
+    ENV
+    TERMCAP
+    TERMPATH
+    TERMINFO_DIRS
+    TERMINFO
+    _RLD*
+    LD_*
+    PATH_LOCALE
+    NLSPATH
+    HOSTALIASES
+    RES_OPTIONS
+    LOCALDOMAIN
+    CDPATH
+    IFS
+要保留的环境变量：
+    XAUTHORITY
+    _XKB_CHARSET
+    LINGUAS
+    LANGUAGE
+    LC_ALL
+    LC_TIME
+    LC_TELEPHONE
+    LC_PAPER
+    LC_NUMERIC
+    LC_NAME
+    LC_MONETARY
+    LC_MESSAGES
+    LC_MEASUREMENT
+    LC_IDENTIFICATION
+    LC_COLLATE
+    LC_CTYPE
+    LC_ADDRESS
+    LANG
+    USERNAME
+    QTDIR
+    PS2
+    PS1
+    MAIL
+    LS_COLORS
+    KDEDIR
+    INPUTRC
+    HISTSIZE
+    HOSTNAME
+    DISPLAY
+    COLORS
+解析 sudoers 时使用的区域设置：C
+使用 zlib 压缩 I/O 日志
+用于保存输入/输出日志的目录：/var/log/sudo-io
+用于保存输入/输出日志的文件：%{seq}
+在分配伪终端时向 utmp/utmpx 文件中添加一条记录
+
+本地 IP 地址和网络掩码对：
+    192.168.0.15/255.255.255.0
+    fe80::20c:29ff:fe9f:bf8b/ffff:ffff:ffff:ffff::
+
+Sudoers I/O plugin version 1.8.6p7</code></pre>
+<h2 id="2017-08-15-每天2个Linux命令-wget命令"><a href="#2017-08-15-每天2个Linux命令-wget命令" class="headerlink" title="2017-08-15 每天2个Linux命令 wget命令"></a><center>2017-08-15 每天2个Linux命令 wget命令</center></h2><p>wget命令用来从指定的URL下载文件</p>
+<p>(1)用法:</p>
+<pre><code>用法:  wget  [参数]  [URL]</code></pre>
+<p>(2)功能:</p>
+<pre><code>功能:  wget命令用来从指定的URL下载文件。wget非常稳定，它在带宽很窄的情况下和不稳定网络中有很强的适应性，
+如果是由于网络的原因下载失败，wget会不断的尝试，直到整个文件下载完毕。如果是服务器打断下载过程，
+它会再次联到服务器上从停止的地方继续下载。这对从那些限定了链接时间的服务器上下载大文件非常有用。</code></pre>
+<p>(3)选项参数:</p>
+<pre><code>  1)  -O --output-document=FILE 　　　　　　　　　　　　将文档写入 FILE，等价于给文档指定名称
+
+  2) --limit-rate=[n]　　　　　　　　　　　　　　　　　　　限速下载，n为指定下载的速度
+
+  3) -c 　　　　　　　　　　　　　　　　　　　　　　　　     支持断点续传
+
+  4) -i　　　　　　　　　　　　　　　　　　　　　　　　　　 同时下载多个文件
+
+  5) -Q   [n]　　　　　　　　　　　　　　　　　　　　　　　 当下载文件大小超过n时退出下载　　　　　　　　　　　　
+
+  6) -o  　　　 　　　　　　　　　　　　　　　　　　　　　  把下载信息存入日志文件　
+
+  7) -P　　　　　　　　　　　　　　　　　　　　　　　　　　 指定目录下载
+
+  8) --tries=n　　　　　　　　　　　　　　　　　　　　　　  测试下载次数</code></pre>
+<p>(4)实例:</p>
+<pre><code>  1)[root@localhost ~]# wget http://files.cnblogs.com/files/MenAngel/GLTools-master.zip　　　直接从网址下载文件
+
+复制代码
+[root@localhost ~]# wget http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+--2016-06-23 02:31:01--  http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+正在解析主机 files.cnblogs.com (files.cnblogs.com)... 120.26.70.206
+正在连接 files.cnblogs.com (files.cnblogs.com)|120.26.70.206|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：64789 (63K) [application/x-zip-compressed]
+正在保存至: “GLTools-master.zip”
+
+100%[===================================================================&gt;] 64,789      --.-K/s 用时 0.1s    
+
+2016-06-23 02:31:08 (444 KB/s) - 已保存 “GLTools-master.zip” [64789/64789])
+
+[root@localhost ~]# find -name "GLTools-master.zip"　　　　　　//查看下载的文件存放的位置　　　　　　
+./GLTools-master.zip
+[root@localhost ~]# ls -l　　　　　　　　　　　　　　　　　　　　　//默认存放在当前目录下
+总用量 68
+-rw-------. 1 root root  2748 6月  21 11:30 anaconda-ks.cfg
+-rw-r--r--. 1 root root 64789 6月  22 01:42 GLTools-master.zip</code></pre>
+<p>2)[root@localhost ~]# wget -O GL_O <a target="_blank" rel="noopener" href="http://files.cnblogs.com/files/MenAngel/GLTools-master.zip">http://files.cnblogs.com/files/MenAngel/GLTools-master.zip</a>　　为下载的文件指定别名</p>
+<pre><code>复制代码
+[root@localhost ~]# wget -O GL_O http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+--2016-06-23 02:36:33--  http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+正在解析主机 files.cnblogs.com (files.cnblogs.com)... 120.26.70.206
+正在连接 files.cnblogs.com (files.cnblogs.com)|120.26.70.206|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：64789 (63K) [application/x-zip-compressed]
+正在保存至: “GL_O”
+
+100%[===================================================================&gt;] 64,789       364KB/s 用时 0.2s   
+
+2016-06-23 02:36:38 (364 KB/s) - 已保存 “GL_O” [64789/64789])
+
+[root@localhost ~]# ll
+总用量 132
+-rw-------. 1 root root  2748 6月  21 11:30 anaconda-ks.cfg
+-rw-r--r--. 1 root root 64789 6月  22 01:42 GL_O
+-rw-r--r--. 1 root root 64789 6月  22 01:42 GLTools-master.zip</code></pre>
+<p>3)[root@localhost ~]# wget –limit-rate=200k <a target="_blank" rel="noopener" href="http://files.cnblogs.com/files/MenAngel/GLTools-master.zip">http://files.cnblogs.com/files/MenAngel/GLTools-master.zip</a>　　　　限速下载</p>
+<pre><code>复制代码
+[root@localhost ~]# wget --limit-rate=200k http://files.cnblogs.com/files/MenAngel/GLTools-master.zip　　　　　　　　//注意速率单位，默认情况下是bit/s
+--2016-06-23 02:39:34--  http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+正在解析主机 files.cnblogs.com (files.cnblogs.com)... 120.26.70.206
+正在连接 files.cnblogs.com (files.cnblogs.com)|120.26.70.206|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：64789 (63K) [application/x-zip-compressed]
+正在保存至: “GLTools-master.zip.2”
+
+100%[===================================================================&gt;] 64,789      --.-K/s 用时 0.1s    
+
+2016-06-23 02:39:40 (435 KB/s) - 已保存 “GLTools-master.zip.2” [64789/64789])</code></pre>
+<p>4)[root@localhost ~]# wget –limit-rate=1k -c <a target="_blank" rel="noopener" href="http://files.cnblogs.com/files/MenAngel/GLTools-master.zip">http://files.cnblogs.com/files/MenAngel/GLTools-master.zip</a>　　　　断点续传</p>
+<pre><code>复制代码
+[root@localhost ~]# wget --limit-rate=1k -c http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+--2016-06-23 03:05:43--  http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+正在解析主机 files.cnblogs.com (files.cnblogs.com)... 120.26.70.206
+正在连接 files.cnblogs.com (files.cnblogs.com)|120.26.70.206|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：64789 (63K) [application/x-zip-compressed]
+正在保存至: “GLTools-master.zip”
+
+16% [=========&gt;                                                          ] 10,429      1024B/s 剩余 53s     ^Z
+[2]+  已停止               wget --limit-rate=1k -c http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+[root@localhost ~]# wget --limit-rate=1k -c http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+--2016-06-23 03:06:00--  http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+正在解析主机 files.cnblogs.com (files.cnblogs.com)... 120.26.70.206
+正在连接 files.cnblogs.com (files.cnblogs.com)|120.26.70.206|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 206 Partial Content
+长度：64789 (63K)，剩余 54236 (53K) [application/x-zip-compressed]
+正在保存至: “GLTools-master.zip”
+17%  [=========&gt;   //直接从先前断的地方开始</code></pre>
+<p>5)[root@localhost ~]# wget -b url　　　　　　　　　在后台下载</p>
+<pre><code>  6)[root@localhost ~]# tail -f wget-log.1　　　　　　查看文件下载的进度（动态的）
+
+复制代码
+[root@localhost ~]# wget -b http://jsdx.down.chinaz.com/201209/MySQL-embedded-5.5.28-1.linux2.6.i386.rpm
+继续在后台运行，pid 为 50518。
+将把输出写入至 “wget-log.1”。
+[root@localhost ~]# tail -f wget-log.1
+   500K .......... .......... .......... .......... ..........  0%  109K 15m12s
+   550K .......... .......... .......... .......... ..........  0%  148K 14m29s
+   600K .......... .......... .......... .......... ..........  1%  137K 13m55s
+   650K .......... .......... .......... .......... ..........  1%  108K 13m34s
+   700K .......... .......... .......... .......... ..........  1% 88.4K 13m24s
+   750K .......... .......... .......... .......... ..........  1%  102K 13m10s
+   800K .......... .......... .......... .......... ..........  1%  102K 12m57s
+   850K .......... .......... .......... .......... ..........  1% 81.2K 12m54s
+   900K .......... .......... .......... .......... ..........  1% 85.3K 12m50s
+   950K .......... .......... .......... .......... ..........  1% 21.7K 14m28s
+  1000K .......... .......... .......... .......... ..........  1% 24.1K 15m43s
+  1050K .......... .......... .......... .......... ..........  1% 80.4K 15m33s
+  1100K .......... .......... .......... .......... ..........  1% 91.4K 15m20s
+  1150K .......... .......... .......... .......... ..........  1%  126K 15m0s
+  1200K .......... .......... .......... .......... ..........  2%  127K 14m42s
+  1250K .......... .......... .......... .......... ..........  2% 34.4K 15m14s
+  1300K .......... .....^Z</code></pre>
+<p>7)[root@localhost ~]# wget –spider　　url　　　　　　</p>
+<pre><code>复制代码
+[root@localhost ~]# wget --spider http://jsdx.down.chinaz.com/201209/MySQL-embedded-5.5.28-1.linux2.6.i386.rpm
+开启 Spider 模式。检查是否存在远程文件。
+--2016-06-23 03:20:46--  http://jsdx.down.chinaz.com/201209/MySQL-embedded-5.5.28-1.linux2.6.i386.rpm
+正在解析主机 jsdx.down.chinaz.com (jsdx.down.chinaz.com)... 182.100.67.10
+正在连接 jsdx.down.chinaz.com (jsdx.down.chinaz.com)|182.100.67.10|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：61904663 (59M) [audio/x-pn-realaudio-plugin]
+存在远程文件。
+复制代码
+你可以在以下几种情况下使用--spider参数：
+  定时下载之前进行检查
+  间隔检测网站是否可用
+　检查网站页面的死链接</code></pre>
+<p>8)同时下载多个文件</p>
+<pre><code>cat &gt; filelist.txt 
+url1 
+url2 
+url3 
+url4
+wget -i filelist.txt</code></pre>
+<p>9)[root@localhost ~]# wget -o download.log <a href="ftp://magnet/?xt=urn:btih:211712D">ftp://magnet/?xt=urn:btih:211712D</a>　　　　将下载的输出信息存入日志</p>
+<pre><code>复制代码
+[root@localhost ~]# wget -o download.log ftp://magnet/?xt=urn:btih:211712D
+[root@localhost ~]# cat download.log
+--2016-06-23 03:30:06--  ftp://magnet/?xt=urn:btih:211712D
+           =&gt; “.listing”
+正在解析主机 magnet (magnet)... 失败：未知的名称或服务。
+wget: 无法解析主机地址 “magnet”
+[root@localhost ~]# </code></pre>
+<p>10)[root@localhost ~]# wegt -P /home/sunmeng <a target="_blank" rel="noopener" href="http://files.cnblogs.com/files/MenAngel/GLTools-master.zip">http://files.cnblogs.com/files/MenAngel/GLTools-master.zip</a>　　指定下载目录</p>
+<pre><code>复制代码
+[root@localhost ~]# wegt -P /home/sunmeng http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+bash: wegt: 未找到命令...
+相似命令是： 'wget'
+[root@localhost ~]# wget -P /home/sunmeng http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+--2016-06-23 03:42:36--  http://files.cnblogs.com/files/MenAngel/GLTools-master.zip
+正在解析主机 files.cnblogs.com (files.cnblogs.com)... 120.26.70.206
+正在连接 files.cnblogs.com (files.cnblogs.com)|120.26.70.206|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：64789 (63K) [application/x-zip-compressed]
+正在保存至: “/home/sunmeng/GLTools-master.zip”
+
+100%[======================================&gt;] 64,789      --.-K/s 用时 0.1s    
+
+2016-06-23 03:42:42 (456 KB/s) - 已保存 “/home/sunmeng/GLTools-master.zip” [64789/64789])
+
+[root@localhost ~]# ls -l /home/sunmeng
+总用量 64
+drwxr-xr-x. 2 sunmeng sunmeng     6 6月  23 02:29 Desktop
+drwxr-xr-x. 2 sunmeng sunmeng     6 6月  21 03:31 Documents
+drwxr-xr-x. 2 sunmeng sunmeng     6 6月  21 03:31 Downloads
+-rw-r--r--. 1 root    root    64789 6月  22 01:42 GLTools-master.zip
+drwxr-xr-x. 2 sunmeng sunmeng     6 6月  21 03:31 Music
+drwxr-xr-x. 2 sunmeng sunmeng     6 6月  21 03:31 Pictures
+drwxr-xr-x. 2 sunmeng sunmeng     6 6月  21 03:31 Public
+drwxr-xr-x. 2 sunmeng sunmeng     6 6月  21 03:31 Templates
+drwxr-xr-x. 2 sunmeng sunmeng     6 6月  21 03:31 Videos</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2017/08/16/mei-tian-2-ge-linux-ming-ling-sudo-wget/">http://dtbox.com/2017/08/16/mei-tian-2-ge-linux-ming-ling-sudo-wget/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
+                                </a>
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/08/16/centos7-yong-yuan-ma-bao-an-zhuang-jdk8.0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="centos7用源码包安装jdk8.0">
+                        
+                        <span class="card-title">centos7用源码包安装jdk8.0</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            centos7用源码包安装jdk8.0
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-08-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/software/" class="post-category">
+                                    centos和ubuntu软件包安装
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/centos7/">
+                        <span class="chip bg-color">centos7</span>
+                    </a>
+                    
+                    <a href="/tags/jdk8/">
+                        <span class="chip bg-color">jdk8</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/08/16/mei-tian-2-ge-linux-ming-ling-yum-rpm/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="每天2个Linux命令 yum rpm">
+                        
+                        <span class="card-title">每天2个Linux命令 yum rpm</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 yum rpm
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-08-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

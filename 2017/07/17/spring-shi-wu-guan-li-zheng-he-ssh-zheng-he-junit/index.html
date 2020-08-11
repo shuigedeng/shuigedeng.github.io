@@ -1,0 +1,2398 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="spring事物管理、整合SSH、整合Junit">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>spring事物管理、整合SSH、整合Junit | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">spring事物管理、整合SSH、整合Junit</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/spring/">
+                                <span class="chip bg-color">spring</span>
+                            </a>
+                        
+                            <a href="/tags/IOC/">
+                                <span class="chip bg-color">IOC</span>
+                            </a>
+                        
+                            <a href="/tags/DI/">
+                                <span class="chip bg-color">DI</span>
+                            </a>
+                        
+                            <a href="/tags/bean/">
+                                <span class="chip bg-color">bean</span>
+                            </a>
+                        
+                            <a href="/tags/xml/">
+                                <span class="chip bg-color">xml</span>
+                            </a>
+                        
+                            <a href="/tags/ssh/">
+                                <span class="chip bg-color">ssh</span>
+                            </a>
+                        
+                            <a href="/tags/junit/">
+                                <span class="chip bg-color">junit</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/spring/" class="post-category">
+                                spring
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-07-17
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    26 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="2017-07-17-spring事物管理、整合SSH、整合Junit"><a href="#2017-07-17-spring事物管理、整合SSH、整合Junit" class="headerlink" title="2017-07-17 spring事物管理、整合SSH、整合Junit"></a><center>2017-07-17 spring事物管理、整合SSH、整合Junit</center></h2><p>1 spring day02回顾</p>
+<pre><code>*    AOP ：切面编程&lt;br/&gt;
+    切面：切入点 和 通知 结合&lt;br/&gt;
+*    spring aop 编程&lt;br/&gt;
+    &lt;aop:config&gt;&lt;br/&gt;
+    方法1：&lt;br/&gt;
+      &lt;aop:pointcut expression="切入点表达式" id=""&gt;&lt;br/&gt;
+      &lt;aop:advisor  advice-ref="通知引用" pointcut-ref="切入点的引用"&gt;&lt;br/&gt;
+
+    方法2：&lt;br/&gt;
+       &lt;aop:advisor  advice-ref="通知引用" pointcut="切入点表达式"&gt;&lt;br/&gt;
+
+*    AspectJ xml&lt;br/&gt;
+    &lt;aop:config&gt;&lt;br/&gt;
+      &lt;aop:aspect ref="切面类"&gt;&lt;br/&gt;
+         &lt;aop:pointcut&gt;&lt;br/&gt;
+         &lt;aop:before&gt;  前置&lt;br/&gt;
+         &lt;aop:afterReturning  returning="第二个参数名称"&gt; 后置&lt;br/&gt;
+         &lt;aop:around&gt; 环绕&lt;br/&gt;
+         &lt;aop:afterThrowing throwing="第二。。。"&gt; 抛出异常&lt;br/&gt;
+         &lt;aop:after&gt; 最终&lt;br/&gt;
+
+*    AspectJ annotation &lt;br/&gt;
+    @Aspect&lt;br/&gt;
+    @Pointcut("表达式")  private void xxx(){}&lt;br/&gt;
+    @Before @...&lt;br/&gt;
+
+*    切入点表达式&lt;br/&gt;
+    &lt;aop:pointcut expression="execution(* com.itheima.crm.*.service..*.*(..))" id=""&gt;</code></pre>
+<hr>
+<p>2 事务管理</p>
+<p>2.1    回顾事务</p>
+<pre><code>*    事务：一组业务操作ABCD，要么全部成功，要么全部不成功。
+*    特性：ACID
+        原子性：整体
+        一致性：完成
+        隔离性：并发
+        持久性：结果
+*    隔离问题：
+        脏读：一个事务读到另一个事务没有提交的数据
+        不可重复读：一个事务读到另一个事务已提交的数据（update）
+        虚读(幻读)：一个事务读到另一个事务已提交的数据（insert）
+*    隔离级别：
+        read uncommitted：读未提交。存在3个问题
+        read committed：读已提交。解决脏读，存在2个问题
+        repeatable read：可重复读。解决：脏读、不可重复读，存在1个问题。
+        serializable ：串行化。都解决，单事务。</code></pre>
+<p><img src="/images/20170717/1.png"></p>
+<pre><code>*    mysql 事务操作--简单
+        ABCD 一个事务
+        Connection conn = null;
+        try{
+          //1 获得连接
+          conn = ...;
+          //2 开启事务
+          conn.setAutoCommit(false);
+          A
+          B
+          C
+          D
+          //3 提交事务
+          conn.commit();
+        } catche(){
+          //4 回滚事务
+          conn.rollback();
+        }
+
+
+*    mysql 事务操作--Savepoint
+    需求：AB（必须），CD（可选） 
+    Connection conn = null;
+    Savepoint savepoint = null;  //保存点，记录操作的当前位置，之后可以回滚到指定的位置。（可以回滚一部分）
+    try{
+      //1 获得连接
+      conn = ...;
+      //2 开启事务
+      conn.setAutoCommit(false);
+      A
+      B
+      savepoint = conn.setSavepoint();
+      C
+      D
+      //3 提交事务
+      conn.commit();
+    } catche(){
+      if(savepoint != null){   //CD异常
+         // 回滚到CD之前
+         conn.rollback(savepoint);
+         // 提交AB
+         conn.commit();
+      } else{   //AB异常
+         // 回滚AB
+         conn.rollback();
+      }
+    }</code></pre>
+<hr>
+<p>2.2    事务管理介绍</p>
+<p>2.2.1    导入jar包<br><br>    transaction  –&gt;  tx</p>
+<p><img src="/images/20170717/2.png"></p>
+<hr>
+<p>2.2.2    三个顶级接口</p>
+<p><img src="/images/20170717/3.png"></p>
+<pre><code>1.PlatformTransactionManager  平台事务管理器，spring要管理事务，必须使用事务管理器
+进行事务配置时，必须配置事务管理器。
+2.TransactionDefinition：事务详情（事务定义、事务属性），spring用于确定事务具体详情，
+例如：隔离级别、是否只读、超时时间 等
+3.进行事务配置时，必须配置详情。spring将配置项封装到该对象实例。
+TransactionStatus：事务状态，spring用于记录当前事务运行状态。例如：是否有保存点，事务是否完成。
+spring底层根据状态进行相应操作。</code></pre>
+<hr>
+<p>2.2.3    PlatformTransactionManager  事务管理器</p>
+<pre><code>*    导入jar包：需要时平台事务管理器的实现类</code></pre>
+<p><img src="/images/20170717/4.png"></p>
+<pre><code>常见的事务管理器
+DataSourceTransactionManager  ，jdbc开发时事务管理器，采用JdbcTemplate
+HibernateTransactionManager，hibernate开发时事务管理器，整合hibernate</code></pre>
+<p><img src="/images/20170717/5.png"></p>
+<pre><code>api详解
+
+TransactionStatus getTransaction(TransactionDefinition definition) ，
+事务管理器 通过“事务详情”，获得“事务状态”，从而管理事务。
+void commit(TransactionStatus status)  根据状态提交
+void rollback(TransactionStatus status) 根据状态回滚</code></pre>
+<hr>
+<p>2.2.4    TransactionStatus</p>
+<p><img src="/images/20170717/6.png"></p>
+<hr>
+<p>2.2.5    TransactionDefinition</p>
+<p><img src="/images/20170717/7.png"></p>
+<hr>
+<pre><code>传播行为：在两个业务之间如何共享事务。
+
+PROPAGATION_REQUIRED , required , 必须  【默认值】
+    支持当前事务，A如果有事务，B将使用该事务。
+    如果A没有事务，B将创建一个新的事务。
+PROPAGATION_SUPPORTS ，supports ，支持
+    支持当前事务，A如果有事务，B将使用该事务。
+    如果A没有事务，B将以非事务执行。
+PROPAGATION_MANDATORY，mandatory ，强制
+    支持当前事务，A如果有事务，B将使用该事务。
+    如果A没有事务，B将抛异常。
+PROPAGATION_REQUIRES_NEW ， requires_new ，必须新的
+    如果A有事务，将A的事务挂起，B创建一个新的事务
+    如果A没有事务，B创建一个新的事务
+PROPAGATION_NOT_SUPPORTED ，not_supported ,不支持
+    如果A有事务，将A的事务挂起，B将以非事务执行
+    如果A没有事务，B将以非事务执行
+PROPAGATION_NEVER ，never，从不
+    如果A有事务，B将抛异常
+    如果A没有事务，B将以非事务执行
+PROPAGATION_NESTED ，nested ，嵌套
+    A和B底层采用保存点机制，形成嵌套事务。
+
+掌握：PROPAGATION_REQUIRED、PROPAGATION_REQUIRES_NEW、PROPAGATION_NESTED </code></pre>
+<hr>
+<p>2.3    案例：转账</p>
+<p>2.3.1    搭建环境</p>
+<pre><code>2.3.1.1    创建表
+create database ee19_spring_day03;
+use ee19_spring_day03;
+create table account(
+  id int primary key auto_increment,
+  username varchar(50),
+  money int
+);
+insert into account(username,money) values('jack','10000');
+insert into account(username,money) values('rose','10000');</code></pre>
+<hr>
+<pre><code>2.3.1.2    导入jar包
+*    核心：4+1
+*    aop ： 4 (aop联盟、spring aop、aspectj规范、spring aspect)
+*    数据库：2  （jdbc/tx）
+*    驱动：mysql
+*    连接池：c3p0</code></pre>
+<p><img src="/images/20170717/8.png"></p>
+<hr>
+<pre><code>2.3.1.3    dao层
+public class AccountDaoImpl extends JdbcDaoSupport implements AccountDao {
+
+    @Override
+    public void out(String outer, Integer money) {
+        this.getJdbcTemplate().update("update account set money = money - ? where username = ?", money,outer);
+    }
+
+    @Override
+    public void in(String inner, Integer money) {
+        this.getJdbcTemplate().update("update account set money = money + ? where username = ?", money,inner);
+    }
+
+}</code></pre>
+<hr>
+<pre><code>2.3.1.4    service层
+public class AccountServiceImpl implements AccountService {
+
+    private AccountDao accountDao;
+    public void setAccountDao(AccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
+    @Override
+    public void transfer(String outer, String inner, Integer money) {
+        accountDao.out(outer, money);
+        //断电
+//        int i = 1/0;
+        accountDao.in(inner, money);
+    }
+
+}</code></pre>
+<hr>
+<pre><code>2.3.1.5    spring配置
+&lt;!-- 1 datasource --&gt;
+&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;
+    &lt;property name="driverClass" value="com.mysql.jdbc.Driver"&gt;&lt;/property&gt;
+    &lt;property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ee19_spring_day03"&gt;&lt;/property&gt;
+    &lt;property name="user" value="root"&gt;&lt;/property&gt;
+    &lt;property name="password" value="1234"&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- 2 dao  --&gt;
+&lt;bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl"&gt;
+    &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- 3 service --&gt;
+&lt;bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl"&gt;
+    &lt;property name="accountDao" ref="accountDao"&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+<hr>
+<pre><code>2.3.1.6    测试
+@Test
+public void demo01(){
+    String xmlPath = "applicationContext.xml";
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
+    AccountService accountService =  (AccountService) applicationContext.getBean("accountService");
+    accountService.transfer("jack", "rose", 1000);
+}</code></pre>
+<hr>
+<p>2.3.2    手动管理事务（了解）</p>
+<pre><code>*    spring底层使用 TransactionTemplate 事务模板进行操作。
+*    操作
+1.service 需要获得 TransactionTemplate 
+2.spring 配置模板，并注入给service
+3.模板需要注入事务管理器
+4.配置事务管理器：DataSourceTransactionManager ，需要注入DataSource</code></pre>
+<hr>
+<pre><code>2.3.2.1    修改service
+//需要spring注入模板
+private TransactionTemplate transactionTemplate;
+public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+    this.transactionTemplate = transactionTemplate;
+}
+@Override
+public void transfer(final String outer,final String inner,final Integer money) {
+    transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+
+        @Override
+        protected void doInTransactionWithoutResult(TransactionStatus arg0) {
+            accountDao.out(outer, money);
+            //断电
+//                int i = 1/0;
+            accountDao.in(inner, money);
+        }
+    });
+
+}</code></pre>
+<hr>
+<pre><code>2.3.2.2    修改spring配置
+&lt;!-- 3 service --&gt;
+&lt;bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl"&gt;
+    &lt;property name="accountDao" ref="accountDao"&gt;&lt;/property&gt;
+    &lt;property name="transactionTemplate" ref="transactionTemplate"&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- 4 创建模板 --&gt;
+&lt;bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate"&gt;
+    &lt;property name="transactionManager" ref="txManager"&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- 5 配置事务管理器 ,管理器需要事务，事务从Connection获得，连接从连接池DataSource获得 --&gt;
+&lt;bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+    &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+<hr>
+<p>2.3.3    工厂bean 生成代理：半自动</p>
+<pre><code>*    spring提供 管理事务的代理工厂bean TransactionProxyFactoryBean
+1.getBean() 获得代理对象
+2.spring 配置一个代理</code></pre>
+<hr>
+<pre><code>2.3.3.1    spring配置
+&lt;!-- 4 service 代理对象 
+    4.1 proxyInterfaces 接口 
+    4.2 target 目标类
+    4.3 transactionManager 事务管理器
+    4.4 transactionAttributes 事务属性（事务详情）
+        prop.key ：确定哪些方法使用当前事务配置
+        prop.text:用于配置事务详情
+            格式：PROPAGATION,ISOLATION,readOnly,-Exception,+Exception
+                传播行为        隔离级别    是否只读        异常回滚        异常提交
+            例如：
+                &lt;prop key="transfer"&gt;PROPAGATION_REQUIRED,ISOLATION_DEFAULT&lt;/prop&gt; 默认传播行为，和隔离级别
+                &lt;prop key="transfer"&gt;PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly&lt;/prop&gt; 只读
+                &lt;prop key="transfer"&gt;PROPAGATION_REQUIRED,ISOLATION_DEFAULT,+java.lang.ArithmeticException&lt;/prop&gt;  有异常扔提交
+--&gt;
+&lt;bean id="proxyAccountService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"&gt;
+    &lt;property name="proxyInterfaces" value="com.itheima.service.AccountService"&gt;&lt;/property&gt;
+    &lt;property name="target" ref="accountService"&gt;&lt;/property&gt;
+    &lt;property name="transactionManager" ref="txManager"&gt;&lt;/property&gt;
+    &lt;property name="transactionAttributes"&gt;
+        &lt;props&gt;
+            &lt;prop key="transfer"&gt;PROPAGATION_REQUIRED,ISOLATION_DEFAULT&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+
+&lt;!-- 5 事务管理器 --&gt;
+&lt;bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+    &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+<hr>
+<pre><code>2.3.3.2    测试</code></pre>
+<p><img src="/images/20170717/9.png">    </p>
+<hr>
+<p>2.3.4    AOP 配置基于xml【掌握】</p>
+<pre><code>*    在spring xml 配置aop 自动生成代理，进行事务的管理
+1.配置管理器
+2.配置事务详情
+3.配置aop
+
+&lt;!-- 4 事务管理 --&gt;
+    &lt;!-- 4.1 事务管理器 --&gt;
+    &lt;bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+        &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;!-- 4.2 事务详情（事务通知）  ， 在aop筛选基础上，对ABC三个确定使用什么样的事务。例如：AC读写、B只读 等
+        &lt;tx:attributes&gt; 用于配置事务详情（属性属性）
+            &lt;tx:method name=""/&gt; 详情具体配置
+                propagation 传播行为 ， REQUIRED：必须；REQUIRES_NEW:必须是新的
+                isolation 隔离级别
+    --&gt;
+    &lt;tx:advice id="txAdvice" transaction-manager="txManager"&gt;
+        &lt;tx:attributes&gt;
+            &lt;tx:method name="transfer" propagation="REQUIRED" isolation="DEFAULT"/&gt;
+        &lt;/tx:attributes&gt;
+    &lt;/tx:advice&gt;
+    &lt;!-- 4.3 AOP编程，目标类有ABCD（4个连接点），切入点表达式 确定增强的连接器，从而获得切入点：ABC --&gt;
+    &lt;aop:config&gt;
+        &lt;aop:advisor advice-ref="txAdvice" pointcut="execution(* com.itheima.service..*.*(..))"/&gt;
+    &lt;/aop:config&gt;</code></pre>
+<hr>
+<p>2.3.5    AOP配置基于注解【掌握】</p>
+<pre><code>*    1.配置事务管理器，将并事务管理器交予spring
+*    2.在目标类或目标方法添加注解即可 @Transactional</code></pre>
+<hr>
+<pre><code>2.3.5.1    spring配置
+&lt;!-- 4 事务管理 --&gt;
+&lt;!-- 4.1 事务管理器 --&gt;
+&lt;bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+    &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- 4.2 将管理器交予spring 
+    * transaction-manager 配置事务管理器
+    * proxy-target-class
+        true ： 底层强制使用cglib 代理
+--&gt;
+&lt;tx:annotation-driven transaction-manager="txManager"/&gt;</code></pre>
+<hr>
+<pre><code>2.3.5.2    service 层
+@Transactional
+public class AccountServiceImpl implements AccountService {</code></pre>
+<hr>
+<pre><code>2.3.5.3    事务详情配置</code></pre>
+<p><img src="/images/20170717/10.png"></p>
+<pre><code>@Transactional(propagation=Propagation.REQUIRED , isolation = Isolation.DEFAULT)
+public class AccountServiceImpl implements AccountService {</code></pre>
+<hr>
+<p>3    整合Junit<br>    *    导入jar包<br>        基本 ：4+1<br>        测试：spring-test…jar</p>
+<pre><code>1.让Junit通知spring加载配置文件
+2.让spring容器自动进行注入
+
+*    修改测试类
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:applicationContext.xml")
+public class TestApp {
+
+    @Autowired  //与junit整合，不需要在spring xml配置扫描
+    private AccountService accountService;
+
+    @Test
+    public void demo01(){
+//        String xmlPath = "applicationContext.xml";
+//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
+//        AccountService accountService =  (AccountService) applicationContext.getBean("accountService");
+        accountService.transfer("jack", "rose", 1000);
+    }
+
+}</code></pre>
+<hr>
+<p>4    整合web</p>
+<pre><code>0.导入jar包
+    spring-web.xml
+
+1.tomcat启动加载配置文件
+    servlet --&gt; init(ServletConfig) --&gt; &lt;load-on-startup&gt;2
+    filter --&gt; init(FilterConfig)  --&gt; web.xml注册过滤器自动调用初始化
+    listener --&gt; ServletContextListener --&gt; servletContext对象监听【】
+    spring提供监听器 ContextLoaderListener  --&gt; web.xml  &lt;listener&gt;&lt;listener-class&gt;....
+        如果只配置监听器，默认加载xml位置：/WEB-INF/applicationContext.xml</code></pre>
+<p><img src="/images/20170717/11.png"></p>
+<pre><code>2.确定配置文件位置，通过系统初始化参数
+ServletContext 初始化参数 web.xml  
+    &lt;context-param&gt;
+        &lt;param-name&gt;contextConfigLocation
+        &lt;param-value&gt;classpath:applicationContext.xml
+
+  &lt;!-- 确定配置文件位置 --&gt;
+  &lt;context-param&gt;
+      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+      &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;
+
+  &lt;!-- 配置spring 监听器，加载xml配置文件 --&gt;
+  &lt;listener&gt;
+      &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+
+3.从servletContext作用域 获得spring容器 （了解）
+// 从application作用域（ServletContext）获得spring容器
+    //方式1： 手动从作用域获取
+    ApplicationContext applicationContext = 
+            (ApplicationContext) this.getServletContext().getAttrib
+
+            (WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+    //方式2：通过工具获取
+    ApplicationContext apppApplicationContext2 = 
+            WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());</code></pre>
+<hr>
+<p>5    SSH整合</p>
+<pre><code>5.1    jar整合
+struts：2.3.15.3
+hibernate : 3.6.10
+spring: 3.2.0</code></pre>
+<hr>
+<pre><code>5.1.1    struts
+struts-2.3.15.3\apps\struts2-blank\WEB-INF\lib</code></pre>
+<p><img src="/images/20170717/12.png"></p>
+<pre><code>模板技术  ，一般用于页面静态化
+freemarker：扩展名：*.ftl
+velocity ：扩展名  *.vm</code></pre>
+<hr>
+<pre><code>5.1.2    spring
+*    基础：4+1 ， beans、core、context、expression ， commons-logging (struts已经导入)
+*    AOP：aop联盟、spring aop 、aspect规范、spring aspect
+*    db：jdbc、tx
+*    测试：test
+*    web开发：spring web
+
+*    驱动：mysql
+*    连接池：c3p0
+
+*    整合hibernate：spring orm </code></pre>
+<p><img src="/images/20170717/13.png"></p>
+<p><img src="/images/20170717/14.png"></p>
+<hr>
+<pre><code>5.1.3    hibernate
+%h%\hibernate3.jar            核心
+%h%\lib\required            必须</code></pre>
+<p><img src="/images/20170717/15.png"></p>
+<pre><code>%h%\lib\jpa                jpa规范 （java persistent api 持久api），hibernate注解开发 @Entity @Id 等
+
+*    整合log4j
+导入 log4j...jar (struts已经导入)
+整合（过渡）：slf4j-log4j12-1.7.5.jar</code></pre>
+<p><img src="/images/20170717/16.png"></p>
+<pre><code>*    二级缓存
+核心：ehcache-1.5.0.jar
+依赖：
+    backport-util-concurrent-2.1.jar
+    commons-logging  (存在)</code></pre>
+<hr>
+<pre><code>5.1.4    整合包
+*    spring整合hibernate： spring orm
+*    struts 整合spring：struts2-spring-plugin-2.3.15.3.jar
+
+删除重复jar包</code></pre>
+<p><img src="/images/20170717/17.png"></p>
+<hr>
+<p>5.2    spring整合hibernate：有hibernate.cfg.xml</p>
+<pre><code>5.2.1    创建表
+create table t_user(
+  id int primary key auto_increment,
+  username varchar(50),
+  password varchar(32),
+  age int 
+);</code></pre>
+<hr>
+<pre><code>5.2.2    PO 类</code></pre>
+<p><img src="/images/20170717/18.png"></p>
+<pre><code>*    javabean
+public class User {
+    private Integer id;
+    private String username;
+    private String password;
+    private Integer age;
+
+
+*    映射文件
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name="com.itheima.domain.User" table="t_user"&gt;
+        &lt;id name="id"&gt;
+            &lt;generator class="native"&gt;&lt;/generator&gt;
+        &lt;/id&gt;
+        &lt;property name="username"&gt;&lt;/property&gt;
+        &lt;property name="password"&gt;&lt;/property&gt;
+        &lt;property name="age"&gt;&lt;/property&gt;
+    &lt;/class&gt;
+
+&lt;/hibernate-mapping&gt;</code></pre>
+<hr>
+<pre><code>5.2.3    dao层
+*    spring提供 HibernateTemplate 用于操作PO对象，类似Hibernate Session对象。
+
+public class UserDaoImpl implements UserDao {
+
+    //需要spring注入模板
+    private HibernateTemplate hibernateTemplate;
+    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+        this.hibernateTemplate = hibernateTemplate;
+    }
+
+    @Override
+    public void save(User user) {
+        this.hibernateTemplate.save(user);
+    }
+
+}</code></pre>
+<hr>
+<pre><code>5.2.4    service层
+
+public class UserServiceImpl implements UserService {
+
+    private UserDao userDao;
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+    @Override
+    public void register(User user) {
+        userDao.save(user);
+    }
+
+}</code></pre>
+<hr>
+<pre><code>5.2.5    hibernate.cfg.xml
+&lt;session-factory&gt;
+    &lt;!-- 1基本4项 --&gt;
+    &lt;property name="hibernate.connection.driver_class"&gt;com.mysql.jdbc.Driver&lt;/property&gt;
+    &lt;property name="hibernate.connection.url"&gt;jdbc:mysql:///ee19_spring_day03&lt;/property&gt;
+    &lt;property name="hibernate.connection.username"&gt;root&lt;/property&gt;
+    &lt;property name="hibernate.connection.password"&gt;1234&lt;/property&gt;
+
+    &lt;!-- 2 配置方言 --&gt;
+    &lt;property name="hibernate.dialect"&gt;org.hibernate.dialect.MySQL5Dialect&lt;/property&gt;
+
+    &lt;!-- 3 sql语句 --&gt;
+    &lt;property name="hibernate.show_sql"&gt;true&lt;/property&gt;
+    &lt;property name="hibernate.format_sql"&gt;true&lt;/property&gt;
+
+    &lt;!-- 4 自动生成表(一般没用) --&gt;
+    &lt;property name="hibernate.hbm2ddl.auto"&gt;update&lt;/property&gt;
+
+    &lt;!-- 5本地线程绑定 --&gt;
+    &lt;property name="hibernate.current_session_context_class"&gt;thread&lt;/property&gt;
+
+    &lt;!-- 导入映射文件 --&gt;
+    &lt;mapping resource="com/itheima/domain/User.hbm.xml"/&gt;
+
+&lt;/session-factory&gt;</code></pre>
+<hr>
+<pre><code>5.2.6    applicationContext.xml
+
+
+    5.2.6.1    添加命名空间
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                              http://www.springframework.org/schema/beans/spring-beans.xsd
+                              http://www.springframework.org/schema/tx 
+                              http://www.springframework.org/schema/tx/spring-tx.xsd
+                              http://www.springframework.org/schema/aop 
+                              http://www.springframework.org/schema/aop/spring-aop.xsd
+                              http://www.springframework.org/schema/context 
+                              http://www.springframework.org/schema/context/spring-context.xsd"&gt;</code></pre>
+<hr>
+<pre><code>    5.2.6.2    加载hibernate配置文件
+    &lt;!-- 1 加载hibenrate.cfg.xml 获得SessionFactory 
+        * configLocation确定配置文件位置
+    --&gt;
+    &lt;bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"&gt;
+        &lt;property name="configLocation" value="classpath:hibernate.cfg.xml"&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 2创建模板 
+        * 底层使用session，session 有sessionFactory获得
+    --&gt;
+    &lt;bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate"&gt;
+        &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;
+    &lt;/bean&gt;</code></pre>
+<hr>
+<pre><code>    5.2.6.3    dao和service
+    &lt;!-- 3 dao --&gt;
+    &lt;bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"&gt;
+        &lt;property name="hibernateTemplate" ref="hibernateTemplate"&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 4 service --&gt;
+    &lt;bean id="userService" class="com.itheima.service.impl.UserServiceImpl"&gt;
+        &lt;property name="userDao" ref="userDao"&gt;&lt;/property&gt;
+    &lt;/bean&gt;</code></pre>
+<hr>
+<pre><code>    5.2.6.4    事务管理
+    &lt;!-- 5 事务管理 --&gt;
+    &lt;!-- 5.1 事务管理器 ：HibernateTransactionManager --&gt;
+    &lt;bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager" &gt;
+        &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;!-- 5.2 事务详情 ，给ABC进行具体事务设置 --&gt;
+    &lt;tx:advice id="txAdvice" transaction-manager="txManager"&gt;
+        &lt;tx:attributes&gt;
+            &lt;tx:method name="register"/&gt;
+        &lt;/tx:attributes&gt;
+    &lt;/tx:advice&gt;
+    &lt;!-- 5.3 AOP编程，ABCD 筛选 ＡＢＣ  --&gt;
+    &lt;aop:config&gt;
+        &lt;aop:advisor advice-ref="txAdvice" pointcut="execution(* com.itheima.service..*.*(..))"/&gt;
+    &lt;/aop:config&gt;</code></pre>
+<hr>
+<pre><code>    5.2.7    测试
+    @RunWith(SpringJUnit4ClassRunner.class)
+    @ContextConfiguration(locations="classpath:applicationContext.xml")
+    public class TestApp {
+
+        @Autowired
+        private UserService userService;
+
+        @Test
+        public void demo01(){
+            User user = new User();
+            user.setUsername("jack");
+            user.setPassword("1234");
+            user.setAge(18);
+
+            userService.register(user);
+        }
+    }</code></pre>
+<hr>
+<p>5.3    spring整合hibernate：没有hibernate.cfg.xml 【】</p>
+<pre><code>*    删除hibernate.cfg.xml文件，但需要保存文件内容，将其配置spring中
+*    修改dao层，继承HibernateDaoSupport</code></pre>
+<hr>
+<pre><code>5.3.1    修改spring，配置SessionFactory
+&lt;!-- 1.1加载properties文件 --&gt;
+&lt;!-- 1.2 配置数据源 --&gt;
+&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;
+    &lt;property name="driverClass" value="com.mysql.jdbc.Driver"&gt;&lt;/property&gt;
+    &lt;property name="jdbcUrl" value="jdbc:mysql:///ee19_spring_day03"&gt;&lt;/property&gt;
+    &lt;property name="user" value="root"&gt;&lt;/property&gt;
+    &lt;property name="password" value="1234"&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- 1.3配置 LocalSessionFactoryBean，获得SessionFactory 
+    * configLocation确定配置文件位置
+        &lt;property name="configLocation" value="classpath:hibernate.cfg.xml"&gt;&lt;/property&gt;
+    1)dataSource 数据源
+    2)hibernateProperties hibernate其他配置项
+    3) 导入映射文件
+        mappingLocations ，确定映射文件位置，需要“classpath:” ,支持通配符 【】
+            &lt;property name="mappingLocations" value="classpath:com/itheima/domain/User.hbm.xml"&gt;&lt;/property&gt;
+            &lt;property name="mappingLocations" value="classpath:com/itheima/domain/*.hbm.xml"&gt;&lt;/property&gt;
+        mappingResources ，加载执行映射文件，从src下开始 。不支持通配符*
+            &lt;property name="mappingResources" value="com/itheima/domain/User.hbm.xml"&gt;&lt;/property&gt;
+        mappingDirectoryLocations ，加载指定目录下的，所有配置文件
+            &lt;property name="mappingDirectoryLocations" value="classpath:com/itheima/domain/"&gt;&lt;/property&gt;
+        mappingJarLocations ， 从jar包中获得映射文件
+--&gt;
+&lt;bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"&gt;
+    &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+    &lt;property name="hibernateProperties"&gt;
+        &lt;props&gt;
+            &lt;prop key="hibernate.dialect"&gt;org.hibernate.dialect.MySQL5Dialect&lt;/prop&gt;
+            &lt;prop key="hibernate.show_sql"&gt;true&lt;/prop&gt;
+            &lt;prop key="hibernate.format_sql"&gt;true&lt;/prop&gt;
+            &lt;prop key="hibernate.hbm2ddl.auto"&gt;update&lt;/prop&gt;
+            &lt;prop key="hibernate.current_session_context_class"&gt;thread&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+    &lt;property name="mappingLocations" value="classpath:com/itheima/domain/*.hbm.xml"&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+<hr>
+<pre><code>5.3.2    修改dao，使用HibernateDaoSupport
+*    继承HibernateDaoSupport
+// 底层需要SessionFactory，自动创建HibernateTemplate模板
+public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+
+    @Override
+    public void save(User user) {
+        this.getHibernateTemplate().save(user);
+    }
+
+}
+*    spring 删除模板，给dao注入SessionFactory
+    &lt;!-- 3 dao --&gt;
+    &lt;bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"&gt;
+        &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;
+    &lt;/bean&gt;</code></pre>
+<p><img src="/images/20170717/19.png"></p>
+<hr>
+<p>5.4    struts整合spring：spring创建action</p>
+<pre><code>1.编写action类，并将其配置给spring ，spring可以注入service
+2.编写struts.xml 
+3.表单jsp页面
+4.web.xml 配置 
+    1.确定配置文件contextConfigLocation
+    2.配置监听器 ContextLoaderListener
+    3.配置前端控制器 StrutsPrepareAndExecuteFitler</code></pre>
+<hr>
+<pre><code>5.4.1    action类
+*    通用
+public class UserAction extends ActionSupport implements ModelDriven&lt;User&gt; {
+
+    //1 封装数据
+    private User user = new User();
+
+    @Override
+    public User getModel() {
+        return user;
+    }
+
+    //2 service
+    private UserService userService;
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    *    功能
+    /**
+         * 注册
+         * @return
+         */
+        public String register(){
+            userService.register(user);
+            return "success";
+        }</code></pre>
+<hr>
+<pre><code>5.4.2    spring配置
+&lt;!-- 6 配置action --&gt;
+&lt;bean id="userAction" class="com.itheima.web.action.UserAction" scope="prototype"&gt;
+    &lt;property name="userService" ref="userService"&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+<hr>
+<pre><code>5.4.3    struts配置
+&lt;struts&gt;
+    &lt;!-- 开发模式 --&gt;
+    &lt;constant name="struts.devMode" value="true" /&gt;
+
+    &lt;package name="default" namespace="/" extends="struts-default"&gt;
+        &lt;!-- 底层自动从spring容器中通过名称获得内容， getBean("userAction") --&gt;
+        &lt;action name="userAction_*" class="userAction" method="{1}"&gt;
+            &lt;result name="success"&gt;/messag.jsp&lt;/result&gt;
+        &lt;/action&gt;
+    &lt;/package&gt;
+&lt;/struts&gt;</code></pre>
+<hr>
+<pre><code>5.4.4    jsp表单
+&lt;form action="${pageContext.request.contextPath}/userAction_register" method="post"&gt;
+    用户名：&lt;input type="text" name="username"/&gt; &lt;br/&gt;
+    密码：&lt;input type="password" name="password"/&gt; &lt;br/&gt;
+    年龄：&lt;input type="text" name="age"/&gt; &lt;br/&gt;
+    &lt;input type="submit" /&gt;
+&lt;/form&gt;</code></pre>
+<hr>
+<pre><code>5.4.5    配置web.xml
+&lt;!-- 1 确定spring xml位置 --&gt;
+  &lt;context-param&gt;
+      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+      &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;
+  &lt;!-- 2 spring监听器 --&gt;
+  &lt;listener&gt;
+      &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+  &lt;!-- 3 struts 前端控制器 --&gt;
+  &lt;filter&gt;
+      &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+      &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+      &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+      &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;</code></pre>
+<hr>
+<p>5.5    struts整合spring：struts创建action 【】</p>
+<pre><code>*    删除spring action配置
+*    struts &lt;action class="全限定类名"&gt;
+
+&lt;package name="default" namespace="/" extends="struts-default"&gt;
+    &lt;!-- 底层自动从spring容器中通过名称获得内容， getBean("userAction") --&gt;
+    &lt;action name="userAction_*" class="com.itheima.web.action.UserAction" method="{1}"&gt;
+        &lt;result name="success"&gt;/messag.jsp&lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+
+
+*    要求：Action类中，必须提供service名称与 spring配置文件一致。（如果名称一样，将自动注入）</code></pre>
+<p><img src="/images/20170717/20.png"></p>
+<pre><code>分析：
+1. struts 配置文件
+    default.properties  ,常量配置文件
+    struts-default.xml ，默认核心配置文件
+    struts-plugins.xml ，插件配置文件
+    struts.xml，自定义核心配置文件
+    常量的使用，后面配置项，将覆盖前面的。
+2.default.properties  ，此配置文件中确定 按照【名称】自动注入
+    /org/apache/struts2/default.properties</code></pre>
+<p><img src="/images/20170717/21.png"></p>
+<pre><code>3. struts-plugins.xml ,struts整合spring</code></pre>
+<p><img src="/images/20170717/21.png"></p>
+<pre><code>&lt;constant name="struts.objectFactory" value="spring" /&gt;
+struts的action将有spring创建
+
+总结，之后action有spring创建，并按照名称自动注入</code></pre>
+<hr>
+<p>6    要求</p>
+<p><img src="/images/20170717/22.png">    </p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2017/07/17/spring-shi-wu-guan-li-zheng-he-ssh-zheng-he-junit/">http://dtbox.com/2017/07/17/spring-shi-wu-guan-li-zheng-he-ssh-zheng-he-junit/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/spring/">
+                                    <span class="chip bg-color">spring</span>
+                                </a>
+                            
+                                <a href="/tags/IOC/">
+                                    <span class="chip bg-color">IOC</span>
+                                </a>
+                            
+                                <a href="/tags/DI/">
+                                    <span class="chip bg-color">DI</span>
+                                </a>
+                            
+                                <a href="/tags/bean/">
+                                    <span class="chip bg-color">bean</span>
+                                </a>
+                            
+                                <a href="/tags/xml/">
+                                    <span class="chip bg-color">xml</span>
+                                </a>
+                            
+                                <a href="/tags/ssh/">
+                                    <span class="chip bg-color">ssh</span>
+                                </a>
+                            
+                                <a href="/tags/junit/">
+                                    <span class="chip bg-color">junit</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/07/18/mei-tian-2-ge-linux-ming-ling-cp-nl/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="每天2个Linux命令 cp nl">
+                        
+                        <span class="card-title">每天2个Linux命令 cp nl</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 cp nl
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-07-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/07/17/mei-tian-2-ge-linux-ming-ling-cat-mv/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="每天2个Linux命令 cat mv">
+                        
+                        <span class="card-title">每天2个Linux命令 cat mv</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 cat mv
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

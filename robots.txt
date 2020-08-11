@@ -1,0 +1,8 @@
+#hexo robots.txt
+User-agent: *
+
+Allow: /
+
+Sitemap: http://dtbox.top/sitemap.xml
+Sitemap: http://dtbox.top/baidusitemap.xml
+

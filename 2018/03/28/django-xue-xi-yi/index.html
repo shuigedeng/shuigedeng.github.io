@@ -1,0 +1,2388 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="django学习一">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>django学习一 | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">django学习一</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/django/">
+                                <span class="chip bg-color">django</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/django/" class="post-category">
+                                django
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-03-28
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    38 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、什么是web框架"><a href="#一、什么是web框架" class="headerlink" title="一、什么是web框架"></a>一、什么是web框架</h2><p>对于所有的Web应用，本质上其实就是一个socket服务端，用户的浏览器其实就是一个socket客户端。</p>
+<h2 id="二、MVC和MVT模式"><a href="#二、MVC和MVT模式" class="headerlink" title="二、MVC和MVT模式"></a>二、MVC和MVT模式</h2><p>著名的MVC模式：所谓MVC就是把web应用分为模型(M),控制器(C),视图(V)三层；他们之间以一种插件似的，松耦合的方式连接在一起。</p>
+<p>Django的MTV分别代表：</p>
+<pre><code>   Model(模型)：负责业务对象与数据库的对象(ORM)
+
+   Template(模版)：负责如何把页面展示给用户
+
+   View(视图)：负责业务逻辑，并在适当的时候调用Model和Template</code></pre>
+<h2 id="三、django的流程和命令行"><a href="#三、django的流程和命令行" class="headerlink" title="三、django的流程和命令行"></a>三、django的流程和命令行</h2><pre class="language-none"><code class="language-none">1 安装：conda/pip  install django
+2 创建project：django -admin startproject mydjango
+3 创建app：django manage.py startapp myapp
+4 settings配置：
+    TEMPLATES
+
+    STATICFILES_DIRS=(
+        os.path.join(BASE_DIR,"statics"),
+    )
+
+       STATIC_URL = '/static/' 
+      #  我们只能用 STATIC_URL，但STATIC_URL会按着你的STATICFILES_DIRS去找#4  根据需求设计代码
+       url.py
+       view.py
+5 使用模板：
+    render(req,"index.html") 
+6 启动项目：
+    python manage.py runserver 80
+7 链接数据库
+    查看model.py
+8 启动交互界面
+    python manage.py shell
+9 查看命令帮助 直接输入python manage.py 可以看到子命令 
+    在子命令后输入 --help 就可以查看命令的详细信息</code></pre>
+
+<h2 id="四、django的配置文件"><a href="#四、django的配置文件" class="headerlink" title="四、django的配置文件"></a>四、django的配置文件</h2><p>由于配置相太多 我没发一一列举出来 有兴趣的可以去官网查看 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/1.10/topics/settings/">djaongo配置文件</a></p>
+<h2 id="五、django的路由系统"><a href="#五、django的路由系统" class="headerlink" title="五、django的路由系统"></a>五、django的路由系统</h2><p>URL配置(URLconf)就像Django 所支撑网站的目录。它的本质是URL模式以及要为该URL模式调用的视图函数之间的映射表；你就是以这种方式告诉Django，对于这个URL调用这段代码，对于那个URL调用那段代码。</p>
+<pre class="language-none"><code class="language-none">django URL格式为：
+    urlpatterns = [
+        url(正则表达式, views视图函数，参数，别名),
+    ]
+
+参数说明：
+    一个正则表达式字符串
+    一个可调用对象，通常为一个视图函数或一个指定视图函数路径的字符串
+    可选的要传递给视图函数的默认参数（字典形式）
+    一个可选的name参数</code></pre>
+
+<h4 id="5-1-Here’s-a-sample-URLconf"><a href="#5-1-Here’s-a-sample-URLconf" class="headerlink" title="5.1 Here’s a sample URLconf:"></a>5.1 Here’s a sample URLconf:</h4><pre class="language-none"><code class="language-none">from django.conf.urls import url
+from django.contrib import admin
+
+from app01 import views
+
+urlpatterns = [
+
+    url(r'^articles/2003/$', views.special_case_2003),
+
+    #url(r'^articles/[0-9]{4}/$', views.year_archive),
+
+    url(r'^articles/([0-9]{4})/$', views.year_archive),  #no_named group
+
+    url(r'^articles/([0-9]{4})/([0-9]{2})/$', views.month_archive),
+
+    url(r'^articles/([0-9]{4})/([0-9]{2})/([0-9]+)/$', views.article_detail),
+
+]</code></pre>
+
+<h4 id="5-2-Named-groups-命名空间"><a href="#5-2-Named-groups-命名空间" class="headerlink" title="5.2 Named groups 命名空间"></a>5.2 Named groups 命名空间</h4><pre class="language-none"><code class="language-none">import re
+
+ret=re.search('(?P&lt;id&gt;\d{3})/(?P&lt;name&gt;\w{3})','weeew34ttt123/ooo')
+
+print(ret.group())
+print(ret.group('id'))
+print(ret.group('name'))</code></pre>
+<h4 id="5-3-name-param-名称参数"><a href="#5-3-name-param-名称参数" class="headerlink" title="5.3 name param 名称参数"></a>5.3 name param 名称参数</h4><pre class="language-none"><code class="language-none">urlpatterns = [
+    url(r'^index',views.index,name='bieming'),
+]
+
+在templates中可以这样使用：
+    &lt;form action="{% url 'bieming' %}" method="post"&gt;</code></pre>
+
+<h4 id="5-4-Including-other-URLconfs-包含其他的url"><a href="#5-4-Including-other-URLconfs-包含其他的url" class="headerlink" title="5.4 Including other URLconfs 包含其他的url"></a>5.4 Including other URLconfs 包含其他的url</h4><pre class="language-none"><code class="language-none">from django.conf.urls import include, url
+
+urlpatterns = [
+   url(r'^admin/', admin.site.urls),
+   url(r'^blog/', include('blog.urls')),
+]</code></pre>
+
+<h2 id="六-VIEWS-即（V）"><a href="#六-VIEWS-即（V）" class="headerlink" title="六 VIEWS 即（V）"></a>六 VIEWS 即（V）</h2><p>http请求中产生两个核心对象：</p>
+<ul>
+<li><p>http请求：HttpRequest对象</p>
+</li>
+<li><p>http响应：HttpResponse对象</p>
+</li>
+</ul>
+<p>所在位置：django.http</p>
+<p>之前我们用到的参数request就是HttpRequest    检测方法：isinstance(request,HttpRequest)</p>
+<h4 id="6-1-HttpRequest对象的属性和方法："><a href="#6-1-HttpRequest对象的属性和方法：" class="headerlink" title="6.1 HttpRequest对象的属性和方法："></a>6.1 HttpRequest对象的属性和方法：</h4><pre class="language-none"><code class="language-none">属性：
+    path：       请求页面的全路径，不包括域名
+    method：     请求中使用的HTTP方法的字符串表示。全大写表示
+    GET:         包含所有HTTP GET参数的类字典对象
+    POST：       包含所有HTTP POST参数的类字典对象
+    COOKIES:     包含所有cookies的标准Python字典对象；keys和values都是字符串。
+
+    FILES：      包含所有上传文件的类字典对象；FILES中的每一个Key都是&lt;input type="file" name="" /&gt;标签中                     name属性的值，FILES中的每一个value同时也是一个标准的python字典对象，包含下面三个Keys：
+        filename：      上传文件名，用字符串表示
+        content_type:   上传文件的Content Type
+        content：       上传文件的原始内容
+
+    user：       是一个django.contrib.auth.models.User对象，代表当前登陆的用户,可以通过user的is_authenticated()方法来辨别用户是否登陆
+
+    session：    唯一可读写的属性，代表当前会话的字典对象；自己有激活Django中的session支持时该属性才可用
+
+方法:
+    get_full_path(),   比如：http://127.0.0.1:8000/index33/?name=123 ,req.get_full_path()得到的结果就是/index33/?name=123
+
+    request.POST.getlist('')</code></pre>
+<h4 id="6-2HttpResponse对象："><a href="#6-2HttpResponse对象：" class="headerlink" title="6.2HttpResponse对象："></a>6.2HttpResponse对象：</h4><p>对于HttpRequest对象来说，是由django自动创建的，但是，HttpResponse对象就必须我们自己创建。每个view请求处理方法必须返回一个HttpResponse对象。</p>
+<p>  HttpResponse类在django.http.HttpResponse</p>
+<pre class="language-none"><code class="language-none">在HttpResponse对象上扩展的常用方法：
+    1.页面渲染：         render()（推荐）&lt;br&gt;                 render_to_response(),
+    2.页面跳转：         redirect("路径")
+    3.locals()：    可以直接将函数中所有的变量传给模板
+
+总结: render和redirect的区别:
+     1 if render的页面需要模板语言渲染,需要的将数据库的数据加载到html,那么所有的这一部分，除了写在yuan_back的视图函数中,必须还要写在login中,代码重复,没有解耦.
+
+     2 the most important: url没有跳转到/yuan_back/,而是还在/login/,所以当刷新后又得重新登录.</code></pre>
+<h2 id="七、Template基础-即（T）"><a href="#七、Template基础-即（T）" class="headerlink" title="七、Template基础 即（T）"></a>七、Template基础 即（T）</h2><p>模板主要是学习他的语法！</p>
+<h4 id="一模版的组成"><a href="#一模版的组成" class="headerlink" title="一模版的组成"></a>一模版的组成</h4><p>组成：HTML代码＋逻辑控制代码</p>
+<h4 id="二-逻辑控制代码的组成"><a href="#二-逻辑控制代码的组成" class="headerlink" title="二 逻辑控制代码的组成"></a>二 逻辑控制代码的组成</h4><ul>
+<li><p>1  变量（使用双大括号来引用变量）：</p>
+<pre><code>  * 语法格式：       {{var_name}}
+
+  * Template和Context对象：
+  同一模板，多个上下文，一旦有了模板对象，你就可以通过它渲染多个context，
+  无论何时我们都可以像这样使用同一模板源渲染多个context，只进行 一次模板创建然后多次调用render()方法渲染会
+  t = Template('Hello, {{ name }}')
+  for name in ('John', 'Julie', 'Pat'):
+      print t.render(Context({'name': name}))
+
+   Django 模板解析非常快捷。 大部分的解析工作都是在后台通过对简短正则表达式一次性调用来完成。 这和基于 XML 的模板引擎形成鲜明对比，那些引擎承担了 XML 解析器的开销，且往往比 Django 模板渲染引擎要慢上几个数量级。
+
+  * 深度变量的查找（万能的句点号）：
+      在到目前为止的例子中，我们通过 context 传递的简单参数值主要是字符串，然而，模板系统能够非常简洁地处理更加复杂的数据结构，例如list、dictionary和自定义的对象。
+
+      在 Django 模板中遍历复杂数据结构的关键是句点字符 (.)。
+
+      1.句点可用于访问列表索引
+      2.要通过字典键访问该字典的值，可使用一个句点
+      3.也可以通过句点来访问对象的属性。 比方说， Python 的 datetime.date 对象有year 、 month 和 day 几个属性，你同样可以在模板中使用句点来访问这些属性
+      4.使用了一个自定义的类，演示了通过实例变量加一点(dots)来访问它的属性，这个方法适用于任意的对象
+      5.点语法也可以用来引用对象的方法。 例如，每个 Python 字符串都有 upper() 和 isdigit()
+
+      6.注意这里调用方法时并* 没有* 使用圆括号 而且也无法给该方法传递参数；你只能调用不需参数的方法。
+
+  * 变量的过滤器(filter)的使用
+
+      语法格式：      {{obj|filter:param}}
+
+      1  add          ：   给变量加上相应的值
+      2  addslashes   :    给变量中的引号前加上斜线
+      3  capfirst     :    首字母大写
+      4  cut          ：   从字符串中移除指定的字符
+      5  date         ：   格式化日期字符串
+      6  default      ：   如果值是False,就替换成设置的默认值，否则就是用本来的值
+      7  default_if_none:  如果值是None，就替换成设置的默认值，否则就使用本来的值
+
+      #实例:
+
+          #value1="aBcDe"
+          {{ value1|upper }}&lt;br&gt;
+
+          #value2=5
+          {{ value2|add:3 }}&lt;br&gt;
+
+          #value3='he  llo wo r ld'
+          {{ value3|cut:' ' }}&lt;br&gt;</code></pre>
+</li>
+<li><p>2 标签(tag)的使用（使用大括号和百分比的组合来表示使用tag）<br>&lt;!–hexoPostRenderEscape:</p><pre class="language-none"><code class="language-none">{% tags %}<p></p>
+</code></pre></li><code class="language-none">
+</code></ul><code class="language-none">
+<ul>
+<li><p>{% if %} 的使用</p>
+<p>  {% if %}标签计算一个变量值，如果是“true”，即它存在、不为空并且不是false的boolean值,系统则会显示{% if %}和{% endif %}间的所有内容</p>
+<p>  {% if %} 标签接受and，or或者not来测试多个变量值或者否定一个给定的变量<br>  {% if %} 标签不允许同一标签里同时出现and和or，否则逻辑容易产生歧义，例如下面的标签是不合法的：</p>
+<p>  {% if obj1 and obj2 or obj3 %}</p>
+</li>
+<li><p>{% for %}的使用</p>
+<p>  {% for %}标签允许你按顺序遍历一个序列中的各个元素,每次循环模板系统都会渲染{% for %}和{% endfor %}之间的所有内容</p>
+<p>  &lt;ul&gt;</p>
+<pre><code>  &amp;#123;% for obj in list %&amp;#125;
+      &amp;lt;li&amp;gt;&amp;#123;&amp;#123; obj.name &amp;#125;&amp;#125;&amp;lt;&amp;#x2F;li&amp;gt;
+  &amp;#123;% endfor %&amp;#125;</code></pre>
+<p>  &lt;/ul&gt;</p>
+<p>  在标签里添加reversed来反序循环列表：<br>  {% for %}标签可以嵌套：<br>  统不支持中断循环，系统也不支持continue语句，{% for %}标签内置了一个forloop模板变量，这个变量含有一些属性可以提供给你一些关于循环的信息</p>
+</li>
+<li><p>{%csrf_token%}：csrf_token标签<br>  用于生成csrf_token的标签，用于防治跨站攻击验证。注意如果你在view的index里用的是render_to_response方法，不会生效</p>
+<pre><code>      其实，这里是会生成一个input标签，和其他表单标签一起提交给后台的。
+
+  * &amp;#123;% url %&amp;#125;:  引用路由配置的地址
+      &amp;lt;form action&amp;#x3D;&amp;quot;&amp;#123;% url &amp;quot;bieming&amp;quot;%&amp;#125;&amp;quot; &amp;gt;
+    &amp;lt;input type&amp;#x3D;&amp;quot;text&amp;quot;&amp;gt;
+    &amp;lt;input type&amp;#x3D;&amp;quot;submit&amp;quot;value&amp;#x3D;&amp;quot;提交&amp;quot;&amp;gt;
+    &amp;#123;%csrf_token%&amp;#125;</code></pre>
+<p>  &lt;/form&gt;</p>
+</li>
+<li><p>{% with %}:用更简单的变量名替代复杂的变量名<br>  {% with total=fhjsaldfhjsdfhlasdfhljsdal %} {{ total }} {% endwith %}</p>
+</li>
+<li><p>{% verbatim %}: 禁止render<br>  {% verbatim %}</p>
+<pre><code>   &amp;#123;&amp;#123; hello &amp;#125;&amp;#125;</code></pre>
+<p>  {% endverbatim %}</p>
+</li>
+<li><p>{% load %}: 加载标签库 </p>
+</li>
+</ul>
+<p>*** 自定义filter和simple_tag（重点）</p>
+<pre><code>a、在app中创建templatetags模块(必须的)
+b、创建任意 .py 文件，如：my_tags.py
+c、在使用自定义simple_tag和filter的html文件中导入之前创建的 my_tags.py ：&amp;#123;% load my_tags %&amp;#125;
+d、使用simple_tag和filter（如何调用）
+e、在settings中的INSTALLED_APPS配置当前app，不然django无法找到自定义的simple_tag.
+
+注意：
+    filter可以用在if等语句后，simple_tag不可以</code></pre>
+<ul>
+<li><p>extend模板继承<br> {% include %} 。该标签允许在（模板中）包含其它的模板的内容</p>
+<p> extend(继承)模板标签</p>
+<p> {% block %} 我们使用模板标签： {% block %} 。 所有的 {% block %} 标签告诉模板引擎，子模板可以重载这些部分。 每个{% block %}标签所要做的是告诉模板引擎，该模板下的这一块内容将有可能被子模板覆盖</p>
+</li>
+</ul>
+<pre><code>&amp;lt;1&amp;gt;如果在模板中使用 &amp;#123;% extends %&amp;#125; ，必须保证其为模板中的第一个模板标记。 否则，模板继承将不起作用。
+
+&amp;lt;2&amp;gt;一般来说，基础模板中的 &amp;#123;% block %&amp;#125; 标签越多越好。 记住，子模板不必定义父模板中所有的代码块，因此你可以用合理的缺省值对一些代码块进行填充，然后只对子模板所需的代码块进行（重）定义。 俗话说，钩子越多越好
+
+&amp;lt;3&amp;gt;如果发觉自己在多个模板之间拷贝代码，你应该考虑将该代码段放置到父模板的某个 &amp;#123;% block %&amp;#125; 中。如果你需要访问父模板中的块的内容，使用 &amp;#123;&amp;#123; block.super &amp;#125;&amp;#125;这个标签吧，这一个魔法变量将会表现出父模板中的内容。 如果只想在上级代码块基础上添加内容，而不是全部重载，该变量就显得非常有用了
+
+&amp;lt;4&amp;gt;不允许在同一个模板中定义多个同名的 &amp;#123;% block %&amp;#125; 。 存在这样的限制是因为block 标签的工作方式是双向的。也就是说，block 标签不仅挖了一个要填的坑，也定义了在父模板中这个坑所填充的内容。如果模板中出现了两个相同名称的 &amp;#123;% block %&amp;#125; 标签，父模板将无从得知要使用哪个块的内容</code></pre>
+</code><p><code class="language-none"></code>:hexoPostRenderEscape–&gt;</p>
+<h2 id="八、Models-即（M）"><a href="#八、Models-即（M）" class="headerlink" title="八、Models 即（M）"></a>八、Models 即（M）</h2><h4 id="1-数据库的配置"><a href="#1-数据库的配置" class="headerlink" title="1.数据库的配置"></a>1.数据库的配置</h4><pre class="language-none"><code class="language-none">1    django默认支持sqlite，mysql, oracle,postgresql数据库。
+
+    &lt;1&gt; sqlite    django默认使用sqlite的数据库，默认自带sqlite的数据库驱动 , 引擎名称：django.db.backends.sqlite3
+    &lt;2&gt; mysql    引擎名称：django.db.backends.mysql
+
+2    mysql驱动程序
+        MySQLdb(mysql python)
+        mysqlclient
+        MySQL
+        PyMySQL(纯python的mysql驱动程序)
+
+3  在django的项目中会默认使用MySQL数据库，在settings里有如下设置：
+
+    DATABASES = {
+        'default': {
+
+        'ENGINE': 'django.db.backends.mysql', 
+
+        'NAME': 'books',    #你的数据库名称
+
+        'USER': 'root',   #你的数据库用户名
+
+        'PASSWORD': '', #你的数据库密码
+
+        'HOST': '', #你的数据库主机，留空默认为localhost
+
+        'PORT': '3306', #你的数据库端口
+
+        }
+
+    }
+
+    注意：
+        所以，我们只需要找到项目名文件下的__init__,在里面写入：
+
+        import pymysql
+        pymysql.install_as_MySQLdb()</code></pre>
+
+<h4 id="2-ORM-对象关系映射"><a href="#2-ORM-对象关系映射" class="headerlink" title="2.ORM(对象关系映射)"></a>2.ORM(对象关系映射)</h4><p>用于实现面向对象编程语言里不同类型系统的数据之间的转换，换言之，就是用面向对象的方式去操作数据库的创建表以及增删改查等操作</p>
+<p>优点：</p>
+<ul>
+<li>1 ORM使得我们的通用数据库交互变得简单易行，而且完全不用考虑该死的SQL语句。快速开发，由此而来</li>
+<li>2 可以避免一些新手程序猿写sql语句带来的性能问题</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>1  性能有所牺牲，不过现在的各种ORM框架都在尝试各种方法，比如缓存，延迟加载登来减轻这个问题。效果很显著</li>
+<li>2  对于个别复杂查询，ORM仍然力不从心，为了解决这个问题，ORM一般也支持写raw sql</li>
+<li>3  通过QuerySet的query属性查询对应操作的sql语句</li>
+</ul>
+<h4 id="3-表-模型-的创建"><a href="#3-表-模型-的创建" class="headerlink" title="3.表(模型)的创建"></a>3.表(模型)的创建</h4><pre class="language-none"><code class="language-none">from django.db import models&lt;br&gt;
+class Publisher(models.Model):
+    name = models.CharField(max_length=30, verbose_name="名称")
+    address = models.CharField("地址", max_length=50)
+    city = models.CharField('城市',max_length=60)
+    state_province = models.CharField(max_length=30)
+    country = models.CharField(max_length=50)
+    website = models.URLField()
+
+    class Meta:
+        verbose_name = '出版商'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
+class Author(models.Model):
+    name = models.CharField(max_length=30)
+    def __str__(self):
+        return self.name
+
+class AuthorDetail(models.Model):
+    sex = models.BooleanField(max_length=1, choices=((0, '男'),(1, '女'),))
+    email = models.EmailField()
+    address = models.CharField(max_length=50)
+    birthday = models.DateField()
+    author = models.OneToOneField(Author)
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    authors = models.ManyToManyField(Author)
+    publisher = models.ForeignKey(Publisher)
+    publication_date = models.DateField()
+    price=models.DecimalField(max_digits=5,decimal_places=2,default=10)
+    def __str__(self):
+        return self.title</code></pre>
+
+<p>分析代码：</p>
+<p>&lt;1&gt;  每个数据模型都是django.db.models.Model的子类，它的父类Model包含了所有必要的和数据库交互的方法。并提供了一个简介漂亮的定义数据库字段的语法。</p>
+<p>&lt;2&gt;  每个模型相当于单个数据库表（多对多关系例外，会多生成一张关系表），每个属性也是这个表中的字段。属性名就是字段名，它的类型（例如CharField）相当于数据库的字段类型（例如varchar）。大家可以留意下其它的类型都和数据库里的什么字段对应</p>
+<p>&lt;3&gt;  模型之间的三种关系：一对一，一对多，多对多</p>
+<pre><code>一对一：实质就是在主外键（author_id就是foreign key）的关系基础上，给外键加了一个UNIQUE＝True的属性；
+
+一对多：就是主外键关系；（foreign key）
+
+多对多：(ManyToManyField) 自动创建第三张表(当然我们也可以自己创建第三张表：两个foreign key)</code></pre>
+<p>&lt;4&gt;  模型常用的字段类型参数</p>
+<pre class="language-none"><code class="language-none">&lt;1&gt; CharField
+        #字符串字段, 用于较短的字符串.
+        #CharField 要求必须有一个参数 maxlength, 用于从数据库层和Django校验层限制该字段所允许的最大字符数.
+
+&lt;2&gt; IntegerField
+       #用于保存一个整数.
+
+&lt;3&gt; FloatField
+        # 一个浮点数. 必须 提供两个参数:
+        #
+        # 参数    描述
+        # max_digits    总位数(不包括小数点和符号)
+        # decimal_places    小数位数
+                # 举例来说, 要保存最大值为 999 (小数点后保存2位),你要这样定义字段:
+                #
+                # models.FloatField(..., max_digits=5, decimal_places=2)
+                # 要保存最大值一百万(小数点后保存10位)的话,你要这样定义:
+                #
+                # models.FloatField(..., max_digits=19, decimal_places=10)
+                # admin 用一个文本框(&lt;input type="text"&gt;)表示该字段保存的数据.
+
+&lt;4&gt; AutoField
+        # 一个 IntegerField, 添加记录时它会自动增长. 你通常不需要直接使用这个字段; 
+        # 自定义一个主键：my_id=models.AutoField(primary_key=True)
+        # 如果你不指定主键的话,系统会自动添加一个主键字段到你的 model.
+&lt;5&gt; BooleanField
+        # A true/false field. admin 用 checkbox 来表示此类字段.
+
+&lt;6&gt; TextField
+        # 一个容量很大的文本字段.
+        # admin 用一个 &lt;textarea&gt; (文本区域)表示该字段数据.(一个多行编辑框).
+
+&lt;7&gt; EmailField
+        # 一个带有检查Email合法性的 CharField,不接受 maxlength 参数.
+
+&lt;8&gt; DateField
+        # 一个日期字段. 共有下列额外的可选参数:
+        # Argument    描述
+        # auto_now    当对象被保存时,自动将该字段的值设置为当前时间.通常用于表示 "last-modified" 时间戳.
+        # auto_now_add    当对象首次被创建时,自动将该字段的值设置为当前时间.通常用于表示对象创建时间.
+        #（仅仅在admin中有意义...)
+
+&lt;9&gt; DateTimeField
+        #  一个日期时间字段. 类似 DateField 支持同样的附加选项.
+
+&lt;10&gt; ImageField
+        # 类似 FileField, 不过要校验上传对象是否是一个合法图片.#它有两个可选参数:height_field和width_field,
+        # 如果提供这两个参数,则图片将按提供的高度和宽度规格保存. 
+
+ &lt;11&gt; FileField
+     # 一个文件上传字段.
+     #要求一个必须有的参数: upload_to, 一个用于保存上载文件的本地文件系统路径. 这个路径必须包含 strftime #formatting, 
+     #该格式将被上载文件的 date/time 
+     #替换(so that uploaded files don't fill up the given directory).
+     # admin 用一个&lt;input type="file"&gt;部件表示该字段保存的数据(一个文件上传部件) .
+
+     #注意：在一个 model 中使用 FileField 或 ImageField 需要以下步骤:
+            #（1）在你的 settings 文件中, 定义一个完整路径给 MEDIA_ROOT 以便让 Django在此处保存上传文件. 
+            # (出于性能考虑,这些文件并不保存到数据库.) 定义MEDIA_URL 作为该目录的公共 URL. 要确保该目录对 
+            #  WEB服务器用户帐号是可写的.
+            #（2） 在你的 model 中添加 FileField 或 ImageField, 并确保定义了 upload_to 选项,以告诉 Django
+            # 使用 MEDIA_ROOT 的哪个子目录保存上传文件.你的数据库中要保存的只是文件的路径(相对于 MEDIA_ROOT). 
+            # 出于习惯你一定很想使用 Django 提供的 get_&lt;#fieldname&gt;_url 函数.举例来说,如果你的 ImageField 
+            # 叫作 mug_shot, 你就可以在模板中以 {{ object.#get_mug_shot_url }} 这样的方式得到图像的绝对路径.
+
+&lt;12&gt; URLField
+      # 用于保存 URL. 若 verify_exists 参数为 True (默认), 给定的 URL 会预先检查是否存在( 即URL是否被有效装入且
+      # 没有返回404响应).
+      # admin 用一个 &lt;input type="text"&gt; 文本框表示该字段保存的数据(一个单行编辑框)
+
+&lt;13&gt; NullBooleanField
+       # 类似 BooleanField, 不过允许 NULL 作为其中一个选项. 推荐使用这个字段而不要用 BooleanField 加 null=True 选项
+       # admin 用一个选择框 &lt;select&gt; (三个可选择的值: "Unknown", "Yes" 和 "No" ) 来表示这种字段数据.           
+
+&lt;14&gt; SlugField
+       # "Slug" 是一个报纸术语. slug 是某个东西的小小标记(短签), 只包含字母,数字,下划线和连字符.#它们通常用于URLs
+       # 若你使用 Django 开发版本,你可以指定 maxlength. 若 maxlength 未指定, Django 会使用默认长度: 50.  #在
+       # 以前的 Django 版本,没有任何办法改变50 这个长度.
+       # 这暗示了 db_index=True.
+       # 它接受一个额外的参数: prepopulate_from, which is a list of fields from which to auto-#populate 
+       # the slug, via JavaScript,in the object's admin form: models.SlugField
+       # (prepopulate_from=("pre_name", "name"))prepopulate_from 不接受 DateTimeFields.
+
+&lt;13&gt; XMLField
+        #一个校验值是否为合法XML的 TextField,必须提供参数: schema_path, 它是一个用来校验文本的 RelaxNG schema #的文件系统路径.
+
+&lt;14&gt; FilePathField
+        # 可选项目为某个特定目录下的文件名. 支持三个特殊的参数, 其中第一个是必须提供的.
+        # 参数    描述
+        # path    必需参数. 一个目录的绝对文件系统路径. FilePathField 据此得到可选项目. 
+        # Example: "/home/images".
+        # match    可选参数. 一个正则表达式, 作为一个字符串, FilePathField 将使用它过滤文件名.  
+        # 注意这个正则表达式只会应用到 base filename 而不是
+        # 路径全名. Example: "foo.*\.txt^", 将匹配文件 foo23.txt 却不匹配 bar.txt 或 foo23.gif.
+        # recursive可选参数.要么 True 要么 False. 默认值是 False. 是否包括 path 下面的全部子目录.
+        # 这三个参数可以同时使用.
+        # match 仅应用于 base filename, 而不是路径全名. 那么,这个例子:
+        # FilePathField(path="/home/images", match="foo.*", recursive=True)
+        # ...会匹配 /home/images/foo.gif 而不匹配 /home/images/foo/bar.gif
+
+&lt;15&gt; IPAddressField
+        # 一个字符串形式的 IP 地址, (i.e. "24.124.1.30").
+&lt;16&gt;# CommaSeparatedIntegerField
+        # 用于存放逗号分隔的整数值. 类似 CharField, 必须要有maxlength参数.               </code></pre>
+
+<p>&lt;5&gt;  Field重要参数</p>
+<pre class="language-none"><code class="language-none">&lt;1&gt; null ： 数据库中字段是否可以为空
+
+&lt;2&gt; blank： django的 Admin 中添加数据时是否可允许空值
+
+&lt;3&gt; default：设定缺省值
+
+&lt;4&gt; editable：如果为假，admin模式下将不能改写。缺省为真
+
+&lt;5&gt; primary_key：设置主键，如果没有设置django创建表时会自动加上：
+    id = meta.AutoField('ID', primary_key=True)
+    primary_key=True implies blank=False, null=False and unique=True. Only one
+    primary key is allowed on an object.
+
+&lt;6&gt; unique：数据唯一
+
+&lt;7&gt; verbose_name　　Admin中字段的显示名称
+
+&lt;8&gt; validator_list：有效性检查。非有效产生 django.core.validators.ValidationError 错误
+
+
+&lt;9&gt; db_column，db_index 如果为真将为此字段创建索引
+
+&lt;10&gt;choices：一个用来选择值的2维元组。第一个值是实际存储的值，第二个用来方便进行选择。
+            如SEX_CHOICES= (( ‘F’,'Female’),(‘M’,'Male’),)
+            gender = models.CharField(max_length=2,choices = SEX_CHOICES)</code></pre>
+
+<h4 id="4表的操作-增删改查-："><a href="#4表的操作-增删改查-：" class="headerlink" title="4表的操作(增删改查)："></a>4表的操作(增删改查)：</h4><p>一、增(create  ,  save):</p>
+<pre class="language-none"><code class="language-none">    from app01.models import *
+
+    #create方式一:   Author.objects.create(name='Alvin')
+
+    #create方式二:   Author.objects.create(**{"name":"alex"})
+
+    #save方式一:     author=Author(name="alvin")
+                    author.save()
+
+    #save方式二:     author=Author()
+                    author.name="alvin"
+                    author.save()
+
+重点来了－－－－－－－&gt;那么如何创建存在一对多或多对多关系的一本书的信息呢？(如何处理外键关系的字段如一对多的publisher和多对多的authors)
+
+#一对多(ForeignKey):
+
+    #方式一: 由于绑定一对多的字段,比如publish,存到数据库中的字段名叫publish_id,所以我们可以直接给这个
+    #       字段设定对应值:
+           Book.objects.create(title='php',
+                               publisher_id=2,   #这里的2是指为该book对象绑定了Publisher表中id=2的行对象
+                               publication_date='2017-7-7',
+                               price=99)
+
+
+    #方式二:
+    #       &lt;1&gt; 先获取要绑定的Publisher对象:
+        pub_obj=Publisher(name='河大出版社',address='保定',city='保定',
+                state_province='河北',country='China',website='http://www.hbu.com')
+    OR  pub_obj=Publisher.objects.get(id=1)
+
+    #       &lt;2&gt;将 publisher_id=2 改为  publisher=pub_obj
+
+#多对多(ManyToManyField()):
+
+    author1=Author.objects.get(id=1)
+    author2=Author.objects.filter(name='alvin')[0]
+    book=Book.objects.get(id=1)
+    book.authors.add(author1,author2)
+    #等同于:
+    book.authors.add(*[author1,author2])
+    book.authors.remove(*[author1,author2])
+    #-------------------
+    book=models.Book.objects.filter(id__gt=1)
+    authors=models.Author.objects.filter(id=1)[0]
+    authors.book_set.add(*book)
+    authors.book_set.remove(*book)
+    #-------------------
+    book.authors.add(1)
+    book.authors.remove(1)
+    authors.book_set.add(1)
+    authors.book_set.remove(1)
+
+#注意: 如果第三张表是通过models.ManyToManyField()自动创建的,那么绑定关系只有上面一种方式
+#     如果第三张表是自己创建的:
+     class Book2Author(models.Model):
+            author=models.ForeignKey("Author")
+            Book=  models.ForeignKey("Book")
+#     那么就还有一种方式:
+            author_obj=models.Author.objects.filter(id=2)[0]
+            book_obj  =models.Book.objects.filter(id=3)[0]
+
+            s=models.Book2Author.objects.create(author_id=1,Book_id=2)
+            s.save()
+            s=models.Book2Author(author=author_obj,Book_id=1)
+            s.save()             </code></pre>
+
+<p>二、删（delete）</p>
+<pre class="language-none"><code class="language-none">&gt;&gt;&gt; Book.objects.filter(id=1).delete()
+(3, {'app01.Book_authors': 2, 'app01.Book': 1})
+
+我们表面上删除了一条信息，实际却删除了三条，因为我们删除的这本书在Book_authors表中有两条相关信息，这种删除方式就是django默认的级联删除。
+
+如果是多对多的关系： remove()和clear()方法：
+#正向
+book = models.Book.objects.filter(id=1)
+
+#删除第三张表中和女孩1关联的所有关联信息
+book.author.clear()        #清空与book中id=1 关联的所有数据
+book.author.remove(2)  #可以为id
+book.author.remove(*[1,2,3,4])     #可以为列表,前面加*
+
+#反向
+author = models.Author.objects.filter(id=1)
+author.book_set.clear() #清空与boy中id=1 关联的所有数据</code></pre>
+
+<p>三、改（update和save）</p>
+<pre class="language-none"><code class="language-none">&gt;&gt;&gt; author=Author.objects.get(id=5)
+&gt;&gt;&gt; author.name='hello'
+&gt;&gt;&gt; author.save()
+
+Publisher.objects.filter(id=2).update(name="hello") # 不能用get
+
+注意：
+    &lt;1&gt; 第二种方式修改不能用get的原因是：update是QuerySet对象的方法，get返回的是一个model对象，它没有update方法，而filter返回的是一个QuerySet对象(filter里面的条件可能有多个条件符合，比如name＝'alvin',可能有两个name＝'alvin'的行数据)
+
+    &lt;2&gt;在“插入和更新数据”小节中，我们有提到模型的save()方法，这个方法会更新一行里的所有列。 而某些情况下，我们只需要更新行里的某几列。
+
+
+#---------------- update方法直接设定对应属性----------------
+    models.Book.objects.filter(id=3).update(title="PHP")
+    ##sql:
+    ##UPDATE "app01_book" SET "title" = 'PHP' WHERE "app01_book"."id" = 3; args=('PHP', 3)
+
+#--------------- save方法会将所有属性重新设定一遍,效率低-----------
+    obj=models.Book.objects.filter(id=3)[0]
+    obj.title="Python"
+    obj.save()    
+
+在这个例子里我们可以看到Django的save()方法更新了不仅仅是title列的值，还有更新了所有的列。 若title以外的列有可能会被其他的进程所改动的情况下，只更改title列显然是更加明智的。更改某一指定的列，我们可以调用结果集（QuerySet）对象的update()方法,与之等同的SQL语句变得更高效，并且不会引起竞态条件。
+
+此外，update()方法对于任何结果集（QuerySet）均有效，这意味着你可以同时更新多条记录update()方法会返回一个整型数值，表示受影响的记录条数。
+
+注意，这里因为update返回的是一个整形，所以没法用query属性；对于每次创建一个对象，想显示对应的raw sql，需要在settings加上日志记录部分：
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+    }
+}
+
+注意：如果是多对多的改：
+    obj=Book.objects.filter(id=1)[0]
+    author=Author.objects.filter(id__gt=2)
+
+    obj.author.clear()
+    obj.author.add(*author)</code></pre>
+
+<p>四、查（filter，value等)<br>———-&gt;查询API：</p>
+<pre class="language-none"><code class="language-none"># 查询相关API：
+
+#  &lt;1&gt;filter(**kwargs):      它包含了与所给筛选条件相匹配的对象
+
+#  &lt;2&gt;all():                 查询所有结果
+
+#  &lt;3&gt;get(**kwargs):         返回与所给筛选条件相匹配的对象，返回结果有且只有一个，如果符合筛选条件的对象超过一个或者没有都会抛出错误。
+
+#-----------下面的方法都是对查询的结果再进行处理:比如 objects.filter.values()--------
+
+#  &lt;4&gt;values(*field):        返回一个ValueQuerySet——一个特殊的QuerySet，运行后得到的并不是一系列 model的实例化对象，而是一个可迭代的字典序列
+
+#  &lt;5&gt;exclude(**kwargs):     它包含了与所给筛选条件不匹配的对象
+
+#  &lt;6&gt;order_by(*field):      对查询结果排序
+
+#  &lt;7&gt;reverse():             对查询结果反向排序
+
+#  &lt;8&gt;distinct():            从返回结果中剔除重复纪录
+
+#  &lt;9&gt;values_list(*field):   它与values()非常相似，它返回的是一个元组序列，values返回的是一个字典序列
+
+#  &lt;10&gt;count():              返回数据库中匹配查询(QuerySet)的对象数量。
+
+# &lt;11&gt;first():               返回第一条记录
+
+# &lt;12&gt;last():                返回最后一条记录
+
+#  &lt;13&gt;exists():             如果QuerySet包含数据，就返回True，否则返回False。
+
+
+#扩展查询,有时候DJANGO的查询API不能方便的设置查询条件，提供了另外的扩展查询方法extra:
+#extra(select=None, where=None, params=None, tables=None,order_by=None, select_params=None
+
+(1)  Entry.objects.extra(select={'is_recent': "pub_date &gt; '2006-01-01'"})
+(2)  Blog.objects.extra(
+        select=SortedDict([('a', '%s'), ('b', '%s')]),
+        select_params=('one', 'two'))
+
+(3)  q = Entry.objects.extra(select={'is_recent': "pub_date &gt; '2006-01-01'"})
+     q = q.extra(order_by = ['-is_recent'])
+
+(4)  Entry.objects.extra(where=['headline=%s'], params=['Lennon']) </code></pre>
+
+<p>———-&gt;惰性机制：<br>所谓惰性机制：Publisher.objects.all()或者.filter()等都只是返回了一个QuerySet（查询结果集对象），它并不会马上执行sql，而是当调用QuerySet的时候才执行。</p>
+<p>QuerySet特点：</p>
+<ul>
+<li>可迭代的</li>
+<li>可切片</li>
+</ul>
+<p>QuerySet的高效使用：</p>
+<pre class="language-none"><code class="language-none">&lt;1&gt;Django的queryset是惰性的
+
+     Django的queryset对应于数据库的若干记录（row），通过可选的查询来过滤。例如，下面的代码会得
+     到数据库中名字为‘Dave’的所有的人:person_set = Person.objects.filter(first_name="Dave")
+     上面的代码并没有运行任何的数据库查询。你可以使用person_set，给它加上一些过滤条件，或者将它传给某个函数，
+     这些操作都不会发送给数据库。这是对的，因为数据库查询是显著影响web应用性能的因素之一。
+
+&lt;2&gt;要真正从数据库获得数据，你可以遍历queryset或者使用if queryset,总之你用到数据时就会执行sql.
+   为了验证这些,需要在settings里加入 LOGGING(验证方式)
+        obj=models.Book.objects.filter(id=3)
+        # for i in obj:
+        #     print(i)
+
+        # if obj:
+        #     print("ok")
+
+&lt;3&gt;queryset是具有cache的
+     当你遍历queryset时，所有匹配的记录会从数据库获取，然后转换成Django的model。这被称为执行
+    （evaluation）.这些model会保存在queryset内置的cache中，这样如果你再次遍历这个queryset，
+     你不需要重复运行通用的查询。
+        obj=models.Book.objects.filter(id=3)
+
+        # for i in obj:
+        #     print(i)
+                          ## models.Book.objects.filter(id=3).update(title="GO")
+                          ## obj_new=models.Book.objects.filter(id=3)
+        # for i in obj:
+        #     print(i)   #LOGGING只会打印一次
+
+&lt;4&gt;
+     简单的使用if语句进行判断也会完全执行整个queryset并且把数据放入cache，虽然你并不需要这些
+     数据！为了避免这个，可以用exists()方法来检查是否有数据：
+
+            obj = Book.objects.filter(id=4)
+            #  exists()的检查可以避免数据放入queryset的cache。
+            if obj.exists():
+                print("hello world!")
+
+&lt;5&gt;当queryset非常巨大时，cache会成为问题
+
+     处理成千上万的记录时，将它们一次装入内存是很浪费的。更糟糕的是，巨大的queryset可能会锁住系统
+     进程，让你的程序濒临崩溃。要避免在遍历数据的同时产生queryset cache，可以使用iterator()方法
+     来获取数据，处理完数据就将其丢弃。
+        objs = Book.objects.all().iterator()
+        # iterator()可以一次只从数据库获取少量数据，这样可以节省内存
+        for obj in objs:
+            print(obj.name)
+        #BUT,再次遍历没有打印,因为迭代器已经在上一次遍历(next)到最后一次了,没得遍历了
+        for obj in objs:
+            print(obj.name)
+
+     #当然，使用iterator()方法来防止生成cache，意味着遍历同一个queryset时会重复执行查询。所以使
+     #用iterator()的时候要当心，确保你的代码在操作一个大的queryset时没有重复执行查询
+
+总结:
+    queryset的cache是用于减少程序对数据库的查询，在通常的使用下会保证只有在需要的时候才会查询数据库。
+使用exists()和iterator()方法可以优化程序对内存的使用。不过，由于它们并不会生成queryset cache，可能
+会造成额外的数据库查询。                        </code></pre>
+
+<p>———-&gt;对象查询，单表条件查询，多表条件关联查询</p>
+<pre class="language-none"><code class="language-none">#--------------------对象形式的查找--------------------------
+    # 正向查找
+    ret1=models.Book.objects.first()
+    print(ret1.title)
+    print(ret1.price)
+    print(ret1.publisher)
+    print(ret1.publisher.name)  #因为一对多的关系所以ret1.publisher是一个对象,而不是一个queryset集合
+
+    # 反向查找
+    ret2=models.Publish.objects.last()
+    print(ret2.name)
+    print(ret2.city)
+    #如何拿到与它绑定的Book对象呢?
+    print(ret2.book_set.all()) #ret2.book_set是一个queryset集合
+
+#---------------了不起的双下划线(__)之单表条件查询----------------
+
+#    models.Tb1.objects.filter(id__lt=10, id__gt=1)   # 获取id大于1 且 小于10的值
+#
+#    models.Tb1.objects.filter(id__in=[11, 22, 33])   # 获取id等于11、22、33的数据
+#    models.Tb1.objects.exclude(id__in=[11, 22, 33])  # not in
+#
+#    models.Tb1.objects.filter(name__contains="ven")
+#    models.Tb1.objects.filter(name__icontains="ven") # icontains大小写不敏感
+#
+#    models.Tb1.objects.filter(id__range=[1, 2])   # 范围bettwen and
+#
+#    startswith，istartswith, endswith, iendswith,
+
+#----------------了不起的双下划线(__)之多表条件关联查询---------------
+
+# 正向查找(条件)
+
+#     ret3=models.Book.objects.filter(title='Python').values('id')
+#     print(ret3)#[{'id': 1}]
+
+      #正向查找(条件)之一对多
+
+      ret4=models.Book.objects.filter(title='Python').values('publisher__city')
+      print(ret4)  #[{'publisher__city': '北京'}]
+
+      #正向查找(条件)之多对多
+      ret5=models.Book.objects.filter(title='Python').values('author__name')
+      print(ret5)
+      ret6=models.Book.objects.filter(author__name="alex").values('title')
+      print(ret6)
+
+      #注意
+      #正向查找的publisher__city或者author__name中的publisher,author是book表中绑定的字段
+      #一对多和多对多在这里用法没区别
+
+# 反向查找(条件)
+
+    #反向查找之一对多:
+    ret8=models.Publisher.objects.filter(book__title='Python').values('name')
+    print(ret8)#[{'name': '人大出版社'}]  注意,book__title中的book就是Publisher的关联表名
+
+    ret9=models.Publisher.objects.filter(book__title='Python').values('book__authors')
+    print(ret9)#[{'book__authors': 1}, {'book__authors': 2}]
+
+    #反向查找之多对多:
+    ret10=models.Author.objects.filter(book__title='Python').values('name')
+    print(ret10)#[{'name': 'alex'}, {'name': 'alvin'}]
+
+    #注意
+    #正向查找的book__title中的book是表名Book
+    #一对多和多对多在这里用法没区别      </code></pre>
+
+<p>注意：条件查询即与对象查询对应，是指在filter，values等方法中的通过__来明确查询条件。</p>
+<p>———-&gt;聚合查询和分组查询</p>
+<pre class="language-none"><code class="language-none">&lt;1&gt; aggregate(*args,**kwargs):
+    通过对QuerySet进行计算，返回一个聚合值的字典。aggregate()中每一个参数都指定一个包含在字典中的返回值。即在查询集上生成聚合。
+
+    from django.db.models import Avg,Min,Sum,Max
+
+    从整个查询集生成统计值。比如，你想要计算所有在售书的平均价钱。Django的查询语法提供了一种方式描述所有
+    图书的集合。
+
+    &gt;&gt;&gt; Book.objects.all().aggregate(Avg('price'))
+    {'price__avg': 34.35}
+
+    aggregate()子句的参数描述了我们想要计算的聚合值，在这个例子中，是Book模型中price字段的平均值
+
+    aggregate()是QuerySet 的一个终止子句，意思是说，它返回一个包含一些键值对的字典。键的名称是聚合值的
+    标识符，值是计算出来的聚合值。键的名称是按照字段和聚合函数的名称自动生成出来的。如果你想要为聚合值指定
+    一个名称，可以向聚合子句提供它:
+    &gt;&gt;&gt; Book.objects.aggregate(average_price=Avg('price'))
+    {'average_price': 34.35}
+
+
+    如果你也想知道所有图书价格的最大值和最小值，可以这样查询：
+    &gt;&gt;&gt; Book.objects.aggregate(Avg('price'), Max('price'), Min('price'))
+    {'price__avg': 34.35, 'price__max': Decimal('81.20'), 'price__min': Decimal('12.99')}
+
+
+&lt;2&gt; annotate(*args,**kwargs):    
+    可以通过计算查询结果中每一个对象所关联的对象集合，从而得出总计值(也可以是平均值或总和)，即为查询集的每一项生成聚合。</code></pre>
+
+
+<p>———-&gt;F查询和Q查询<br>仅仅靠单一的关键字参数查询已经很难满足查询要求。此时Django为我们提供了F和Q查询：</p>
+<pre class="language-none"><code class="language-none"># F 使用查询条件的值,专门取对象中某列值的操作
+
+    # from django.db.models import F
+    # models.Tb1.objects.update(num=F('num')+1)
+
+# Q 构建搜索条件
+    from django.db.models import Q
+
+    #1 Q对象(django.db.models.Q)可以对关键字参数进行封装，从而更好地应用多个查询
+    q1=models.Book.objects.filter(Q(title__startswith='P')).all()
+    print(q1)#[&lt;Book: Python&gt;, &lt;Book: Perl&gt;]
+
+    # 2、可以组合使用&amp;,|操作符，当一个操作符是用于两个Q的对象,它产生一个新的Q对象。
+    Q(title__startswith='P') | Q(title__startswith='J')
+
+    # 3、Q对象可以用~操作符放在前面表示否定，也可允许否定与不否定形式的组合
+    Q(title__startswith='P') | ~Q(pub_date__year=2005)
+
+    # 4、应用范围：
+
+    # Each lookup function that takes keyword-arguments (e.g. filter(),
+    #  exclude(), get()) can also be passed one or more Q objects as
+    # positional (not-named) arguments. If you provide multiple Q object
+    # arguments to a lookup function, the arguments will be “AND”ed
+    # together. For example:
+
+    Book.objects.get(
+        Q(title__startswith='P'),
+        Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6))
+    )
+
+    #sql:
+    # SELECT * from polls WHERE question LIKE 'P%'
+    #     AND (pub_date = '2005-05-02' OR pub_date = '2005-05-06')
+
+    # import datetime
+    # e=datetime.date(2005,5,6)  #2005-05-06
+
+    # 5、Q对象可以与关键字参数查询一起使用，不过一定要把Q对象放在关键字参数查询的前面。
+    # 正确：
+    Book.objects.get(
+        Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6)),
+        title__startswith='P')
+    # 错误：
+    Book.objects.get(
+        question__startswith='P',
+        Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6)))   </code></pre>
+<p>—————-&gt; raw sql<br>django中models的操作,也是调用了ORM框架来实现的,pymysql 或者mysqldb,所以我们也可以使用原生的SQL语句来操作数据库!</p>
+<p>参考文献：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/yuanchenqi/articles/6083427.html">http://www.cnblogs.com/yuanchenqi/articles/6083427.html</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2018/03/28/django-xue-xi-yi/">http://dtbox.com/2018/03/28/django-xue-xi-yi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/django/">
+                                    <span class="chip bg-color">django</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/03/28/django-xue-xi-er/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="django学习二">
+                        
+                        <span class="card-title">django学习二</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            django学习二
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-03-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/django/" class="post-category">
+                                    django
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/03/27/hadoop-xue-xi-yi-zhi-gai-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="hadoop学习一之概述">
+                        
+                        <span class="card-title">hadoop学习一之概述</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            hadoop学习一之概述
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-03-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    大数据学习
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hadoop/" class="post-category">
+                                    hadoop
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/big-data/">
+                        <span class="chip bg-color">big_data</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

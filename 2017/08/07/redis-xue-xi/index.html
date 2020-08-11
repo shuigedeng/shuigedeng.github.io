@@ -1,0 +1,2846 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="redis学习">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>redis学习 | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">redis学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/redis/">
+                                <span class="chip bg-color">redis</span>
+                            </a>
+                        
+                            <a href="/tags/spring/">
+                                <span class="chip bg-color">spring</span>
+                            </a>
+                        
+                            <a href="/tags/spring-boot/">
+                                <span class="chip bg-color">spring-boot</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/redis/" class="post-category">
+                                redis
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-08-07
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    47 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="2017-08-07-redis学习笔记"><a href="#2017-08-07-redis学习笔记" class="headerlink" title="2017-08-07 redis学习笔记"></a><center>2017-08-07 redis学习笔记</center></h2><p>1    课程计划</p>
+<pre><code>1、    redis介绍
+    a)    什么是NoSql
+    b)    NoSql的分类
+    c)    什么是redis
+    d)    Redis应用场景
+2、    redis安装（重点）
+3、    redis客户端
+    a)    redis自带客户端
+    b)    图形界面的客户端（了解）
+    c)    Java客户端jedis（重点）
+4、    Redis数据类型（重点）
+    a)    String类型
+    b)    Map类型
+    c)    List类型
+    d)    Set类型
+    e)    SortedSet
+5、    Keys命令（了解）
+6、    Redis的持久化方案
+    a)    Rbd方式
+    b)    Aof方式
+7、    Redis的主从复制
+8、    Redis的集群（重点）
+9、    Jedis连接redis集群</code></pre>
+<p>2    Redis介绍</p>
+<pre><code>2.1    什么是NoSql
+为了解决高并发、高可用、高可扩展，大数据存储等一系列问题而产生的数据库解决方案，就是NoSql。
+
+NoSql，叫非关系型数据库，它的全名Not only sql。它不能替代关系型数据库，只能作为关系型数据库的一个良好补充。
+
+2.2    NoSql的分类
+1    键值(Key-Value)存储数据库
+相关产品： Tokyo Cabinet/Tyrant、Redis、Voldemort、Berkeley DB
+典型应用： 内容缓存，主要用于处理大量数据的高访问负载。 
+数据模型： 一系列键值对
+优势： 快速查询
+劣势： 存储的数据缺少结构化
+
+2    列存储数据库
+相关产品：Cassandra, HBase, Riak
+典型应用：分布式的文件系统
+数据模型：以列簇式存储，将同一列数据存在一起
+优势：查找速度快，可扩展性强，更容易进行分布式扩展
+ 劣势：功能相对局限
+
+3    文档型数据库
+相关产品：CouchDB、MongoDB
+典型应用：Web应用（与Key-Value类似，Value是结构化的）
+数据模型： 一系列键值对
+ 优势：数据结构要求不严格
+ 劣势： 查询性能不高，而且缺乏统一的查询语法
+
+4    图形(Graph)数据库
+相关数据库：Neo4J、InfoGrid、Infinite Graph
+典型应用：社交网络
+数据模型：图结构
+优势：利用图结构相关算法。
+劣势：需要对整个图做计算才能得出结果，不容易做分布式的集群方案。
+
+2.3    什么是redis
+Redis是使用c语言开发的一个高性能键值数据库。Redis可以通过一些键值类型来存储数据。
+键值类型：
+String字符类型
+map散列类型
+list列表类型
+set集合类型
+sortedset有序集合类型
+
+2.4    redis历史发展
+2008年，意大利的一家创业公司Merzia推出了一款基于MySQL的网站实时统计系统LLOOGG，
+然而没过多久该公司的创始人 Salvatore Sanfilippo便 对MySQL的性能感到失望，
+于是他决定亲自为LLOOGG量身定做一个数据库，并于2009年开发完成，这个数据库就是Redis。 
+不过Salvatore Sanfilippo并不满足只将Redis用于LLOOGG这一款产品，而是希望更多的人使用它，
+于是在同一年Salvatore Sanfilippo将Redis开源发布，并开始和Redis的另一名主要的代码贡献者
+Pieter Noordhuis一起继续着Redis的开发，直到今天。
+Salvatore Sanfilippo自己也没有想到，短短的几年时间，Redis就拥有了庞大的用户群体。
+Hacker News在2012年发布了一份数据库的使用情况调查，结果显示有近12%的公司在使用Redis。
+国内如新浪微博、街旁网、知乎网，国外如GitHub、Stack Overflow、Flickr等都是Redis的用户。
+VMware公司从2010年开始赞助Redis的开发， Salvatore Sanfilippo和Pieter Noordhuis也分别在3月和5月加入VMware，
+全职开发Redis。
+
+2.5    redis的应用场景
+缓存（数据查询、短连接、新闻内容、商品内容等等）。（最多使用）
+分布式集群架构中的session分离。
+聊天室的在线好友列表。
+任务队列。（秒杀、抢购、12306等等）
+应用排行榜。
+网站访问统计。
+数据过期处理（可以精确到毫秒）</code></pre>
+<p>3    redis安装</p>
+<pre><code>3.1    redis下载
+官网地址：http://redis.io/
+下载地址：http://download.redis.io/releases/redis-3.0.0.tar.gz</code></pre>
+<p><img src="/images/20170807/1.png"></p>
+<pre><code>3.2    redis的安装
+redis的安装环境会安装到linux系统中。
+
+第一步：安装VMware，并且在VMware中安装centos系统（参考linux教程）。
+第二步：将redis的压缩包，上传到linux系统
+第三步：对redis的压缩包进行解压缩
+Redis解压缩之后的文件是用c语言写的源码文件
+[root@itheima ~]# tar -zxf redis-3.0.0.tar.gz
+
+第四步：安装c语言环境（安装centos之后，自带c语言环境）
+[root@itheima ~]# yum install gcc-c++
+第五步：编译redis源码
+[root@itheima ~]# cd redis-3.0.0
+[root@itheima redis-3.0.0]# make
+
+第六步：安装redis
+[root@itheima redis-3.0.0]# make install PREFIX=/usr/local/redis19
+
+第七步：查看是否安装成功</code></pre>
+<p><img src="/images/20170807/2.png"></p>
+<pre><code>3.3    redis启动
+
+    3.3.1    前端启动
+    前端启动的命令：
+        [root@itheima bin]# ./redis-server
+    前端启动的关闭：
+        强制关闭：Ctrl+c
+        正常关闭：[root@itheima bin]# ./redis-cli shutdown
+
+    启动界面：
+
+    前端启动的问题：
+    一旦客户端关闭，则redis服务也停掉。</code></pre>
+<p><img src="/images/20170807/3.png"></p>
+<pre><code>    3.3.2    后端启动
+
+    第一步：需要将redis解压之后的源码包中的redis.conf文件拷贝到bin目录下
+    [root@itheima bin]# cp /root/redis-3.0.0/redis.conf ./
+
+    第二步：修改redis.conf文件，将daemonize改为yes
+    先要使用vim redis.conf</code></pre>
+<p><img src="/images/20170807/4.png"></p>
+<pre><code>    第三步：使用命令后端启动redis
+    [root@itheima bin]# ./redis-server redis.conf
+    第四步：查看是否启动成功</code></pre>
+<p><img src="/images/20170807/5.png"></p>
+<pre><code>    关闭后端启动的方式：
+
+    强制关闭：[root@itheima bin]# kill -9 5071
+    正常关闭：[root@itheima bin]# ./redis-cli shutdown
+
+    在项目中，建议使用正常关闭。
+    因为redis作为缓存来使用的话，将数据存储到内存中，如果使用正常关闭，则会将内存数据持久化到本地之后，再关闭。
+
+    如果是强制关闭，则不会进行持久化操作，可能会造成部分数据的丢失。</code></pre>
+<p>4    Redis客户端</p>
+<pre><code>4.1    Redis自带的客户端
+1    启动
+启动客户端命令：[root@itheima bin]# ./redis-cli -h 127.0.0.1 -p 6379
+-h：指定访问的redis服务器的ip地址
+-p：指定访问的redis服务器的port端口
+
+还可以写成：[root@itheima bin]# ./redis-cli
+使用默认配置：默认的ip【127.0.0.1】，默认的port【6379】
+2    关闭
+Ctrl+c
+127.0.0.1:6379&gt; quit
+
+4.2    图形界面客户端
+安装文件位置：</code></pre>
+<p><img src="/images/20170807/6.png"></p>
+<pre><code>安装之后，打开如下：</code></pre>
+<p><img src="/images/20170807/7.png"></p>
+<pre><code>防火墙设置：
+[root@itheima redis-3.0.0]# vim /etc/sysconfig/iptables
+# Firewall configuration written by system-config-firewall
+# Manual customization of this file is not recommended.
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+"/etc/sysconfig/iptables" 16L, 677C 已写入                                          
+[root@itheima redis-3.0.0]# service iptables restart
+iptables：清除防火墙规则：                                 [确定]
+iptables：将链设置为政策 ACCEPT：filter                    [确定]
+iptables：正在卸载模块：                                   [确定]
+iptables：应用防火墙规则：                                 [确定]
+[root@itheima redis-3.0.0]#</code></pre>
+<p><img src="/images/20170807/8.png"></p>
+<pre><code>Redis.conf中的数据库数量的设置：</code></pre>
+<p><img src="/images/20170807/9.png"></p>
+<pre><code>选择数据库的方式：
+使用select 加上数据库的下标 就可以选择指定的数据库来使用，下标从0开始
+127.0.0.1:6379&gt; select 15
+OK
+127.0.0.1:6379[15]&gt;
+
+4.3    Jedis客户端
+
+    4.3.1    jedis介绍
+        Redis不仅是使用命令来操作，现在基本上主流的语言都有客户端支持，比如java、C、C#、C++、php、Node.js、Go等。 
+        在官方网站里列一些Java的客户端，有Jedis、Redisson、Jredis、JDBC-Redis、等其中官方推荐使用Jedis和Redisson。
+         在企业中用的最多的就是Jedis，下面我们就重点学习下Jedis。 
+        Jedis同样也是托管在github上，地址：https://github.com/xetorthio/jedis
+
+    4.3.2    工程搭建
+        添加jar包</code></pre>
+<p><img src="/images/20170807/10.png"></p>
+<pre><code>    4.3.3    单实例连接redis</code></pre>
+<p><img src="/images/20170807/11.png"></p>
+<pre><code>    4.3.4    使用jedis连接池连接redis服务器</code></pre>
+<p><img src="/images/20170807/12.png"></p>
+<pre><code>    4.3.5    Spring整合jedisPool（自学）
+
+    1    添加spring的jar包
+    2    配置spring配置文件applicationContext.xml
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+            http://www.springframework.org/schema/mvc 
+            http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-3.2.xsd "&gt;
+
+        &lt;!-- 连接池配置 --&gt;
+        &lt;bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"&gt;
+            &lt;!-- 最大连接数 --&gt;
+            &lt;property name="maxTotal" value="30" /&gt;
+            &lt;!-- 最大空闲连接数 --&gt;
+            &lt;property name="maxIdle" value="10" /&gt;
+            &lt;!-- 每次释放连接的最大数目 --&gt;
+            &lt;property name="numTestsPerEvictionRun" value="1024" /&gt;
+            &lt;!-- 释放连接的扫描间隔（毫秒） --&gt;
+            &lt;property name="timeBetweenEvictionRunsMillis" value="30000" /&gt;
+            &lt;!-- 连接最小空闲时间 --&gt;
+            &lt;property name="minEvictableIdleTimeMillis" value="1800000" /&gt;
+            &lt;!-- 连接空闲多久后释放, 当空闲时间&gt;该值 且 空闲连接&gt;最大空闲连接数 时直接释放 --&gt;
+            &lt;property name="softMinEvictableIdleTimeMillis" value="10000" /&gt;
+            &lt;!-- 获取连接时的最大等待毫秒数,小于零:阻塞不确定的时间,默认-1 --&gt;
+            &lt;property name="maxWaitMillis" value="1500" /&gt;
+            &lt;!-- 在获取连接的时候检查有效性, 默认false --&gt;
+            &lt;property name="testOnBorrow" value="false" /&gt;
+            &lt;!-- 在空闲时检查有效性, 默认false --&gt;
+            &lt;property name="testWhileIdle" value="true" /&gt;
+            &lt;!-- 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true --&gt;
+            &lt;property name="blockWhenExhausted" value="false" /&gt;
+        &lt;/bean&gt;
+
+        &lt;!-- redis单机 通过连接池 --&gt;
+        &lt;bean id="jedisPool" class="redis.clients.jedis.JedisPool"
+            destroy-method="close"&gt;
+            &lt;constructor-arg name="poolConfig" ref="jedisPoolConfig" /&gt;
+            &lt;constructor-arg name="host" value="192.168.242.130" /&gt;
+            &lt;constructor-arg name="port" value="6379" /&gt;
+        &lt;/bean&gt;
+    &lt;/beans&gt;
+
+
+    3    测试代码
+
+    @Test
+        public void testJedisPool() {
+            JedisPool pool = (JedisPool) applicationContext.getBean("jedisPool");
+            Jedis jedis = null;
+            try {
+                jedis = pool.getResource();
+
+                jedis.set("name", "lisi");
+                String name = jedis.get("name");
+                System.out.println(name);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            } finally {
+                if (jedis != null) {
+                    // 关闭连接
+                    jedis.close();
+                }
+            }
+        }</code></pre>
+<p>5    Redis数据类型</p>
+<pre><code>5.1    String
+
+    5.1.1.1    命令
+
+    5.1.1.2    赋值
+        语法：SET key value
+        127.0.0.1:6379&gt; set test 123
+        OK
+
+    5.1.1.3    取值
+        语法：GET key
+        127.0.0.1:6379&gt; get test
+        "123“
+
+    5.1.1.4    取值并赋值
+        语法：GETSET key value
+        127.0.0.1:6379&gt; getset s2 222
+        "111"
+        127.0.0.1:6379&gt; get s2
+        "222"
+
+    5.1.1.5    设置/获取多个键值 
+        语法：
+        MSET key value [key value …]
+        MGET key [key …]
+
+        127.0.0.1:6379&gt; mset k1 v1 k2 v2 k3 v3
+        OK
+        127.0.0.1:6379&gt; get k1
+        "v1"
+        127.0.0.1:6379&gt; mget k1 k3
+        1) "v1"
+        2) "v3"
+
+    5.1.1.6    删除
+        语法：DEL key
+        127.0.0.1:6379&gt; del test
+        (integer) 1
+
+    5.1.1.7    数值增减
+        1    递增数字 
+        当存储的字符串是整数时，Redis提供了一个实用的命令INCR，其作用是让当前键值递增，并返回递增后的值。
+
+        语法：INCR key
+        127.0.0.1:6379&gt; incr num
+        (integer) 1
+        127.0.0.1:6379&gt; incr num
+        (integer) 2
+        127.0.0.1:6379&gt; incr num
+        (integer) 3
+
+        2    增加指定的整数
+        语法：INCRBY key increment
+        127.0.0.1:6379&gt; incrby num 2
+        (integer) 5
+        127.0.0.1:6379&gt; incrby num 2
+        (integer) 7
+        127.0.0.1:6379&gt; incrby num 2
+        (integer) 9
+
+        3    递减数值
+        语法：DECR key
+        127.0.0.1:6379&gt; decr num
+        (integer) 9
+        127.0.0.1:6379&gt; decr num
+        (integer) 8
+
+        4    减少指定的整数 
+        语法：DECRBY key decrement
+        127.0.0.1:6379&gt; decr num
+        (integer) 6
+        127.0.0.1:6379&gt; decr num
+        (integer) 5
+        127.0.0.1:6379&gt; decrby num 3
+        (integer) 2
+        127.0.0.1:6379&gt; decrby num 3
+        (integer) -1
+
+    5.1.1.8    其它命令(自学)
+
+        5.1.1.8.1    向尾部追加值 
+            APPEND的作用是向键值的末尾追加value。如果键不存在则将该键的值设置为value，
+            即相当于 SET key value。返回值是追加后字符串的总长度。 
+
+            语法：APPEND key value
+            127.0.0.1:6379&gt; set str hello
+            OK
+            127.0.0.1:6379&gt; append str " world!"
+            (integer) 12
+            127.0.0.1:6379&gt; get str 
+            "hello world!"
+
+        5.1.1.8.2    获取字符串长度 
+            STRLEN命令返回键值的长度，如果键不存在则返回0。
+
+            语法：STRLEN key
+            127.0.0.1:6379&gt; strlen str 
+            (integer) 0
+            127.0.0.1:6379&gt; set str hello
+            OK
+            127.0.0.1:6379&gt; strlen str 
+            (integer) 5
+
+    5.1.2    应用
+
+        5.1.2.1    自增主键
+        商品编号、订单号采用string的递增数字特性生成。
+
+        定义商品编号key：items:id
+        192.168.101.3:7003&gt; INCR items:id
+        (integer) 2
+        192.168.101.3:7003&gt; INCR items:id
+        (integer) 3
+
+
+5.2    Hash
+    散列类型
+
+    5.2.1    使用string的问题
+        假设有User对象以JSON序列化的形式存储到Redis中，User对象有id，username、password、age、name等属性，
+        存储的过程如下： 
+        保存、更新： 
+        User对象 à json(string) à redis 
+        如果在业务上只是更新age属性，其他的属性并不做更新我应该怎么做呢？ 
+        如果仍然采用上边的方法在传输、处理时会造成资源浪费，下边讲的hash可以很好的解决这个问题。
+
+    5.2.2    redis hash介绍
+        hash叫散列类型，它提供了字段和字段值的映射。字段值只能是字符串类型，不支持散列类型、集合类型等其它类型。如下：</code></pre>
+<p><img src="/images/20170807/13.png"></p>
+<pre><code>    5.2.3    命令
+
+        5.2.3.1    赋值
+            HSET命令不区分插入和更新操作，当执行插入操作时HSET命令返回1，当执行更新操作时返回0。
+
+            1    一次只能设置一个字段值
+            语法：HSET key field value    
+            127.0.0.1:6379&gt; hset user username zhangsan 
+            (integer) 1
+
+            2    一次可以设置多个字段值
+            语法：HMSET key field value [field value ...]        
+            127.0.0.1:6379&gt; hmset user age 20 username lisi 
+            OK
+
+            3    当字段不存在时赋值，类似HSET，区别在于如果字段存在，该命令不执行任何操作
+            语法：HSETNX key field value
+            127.0.0.1:6379&gt; hsetnx user age 30    如果user中没有age字段则设置age值为30，否则不做任何操作
+            (integer) 0
+
+        5.2.3.2    取值 
+            1    一次只能获取一个字段值
+            语法：HGET key field            
+            127.0.0.1:6379&gt; hget user username
+            "zhangsan“
+
+            2    一次可以获取多个字段值
+            语法：HMGET key field [field ...]                
+            127.0.0.1:6379&gt; hmget user age username
+            1) "20"
+            2) "lisi"
+
+            3    获取所有字段值
+            语法：HGETALL key
+            127.0.0.1:6379&gt; hgetall user
+            1) "age"
+            2) "20"
+            3) "username"
+            4) "lisi"
+
+        5.2.3.3    删除字段
+            可以删除一个或多个字段，返回值是被删除的字段个数 
+
+            语法：HDEL key field [field ...]
+            127.0.0.1:6379&gt; hdel user age
+            (integer) 1
+            127.0.0.1:6379&gt; hdel user age name
+            (integer) 0
+            127.0.0.1:6379&gt; hdel user age username
+            (integer) 1 
+
+        5.2.3.4    增加数字 
+            语法：HINCRBY key field increment
+            127.0.0.1:6379&gt; hincrby user age 2    将用户的年龄加2
+            (integer) 22
+            127.0.0.1:6379&gt; hget user age        获取用户的年龄
+            "22“
+
+        5.2.3.5    其它命令(自学)
+
+            5.2.3.5.1    判断字段是否存在
+            语法：HEXISTS key field
+            127.0.0.1:6379&gt; hexists user age        查看user中是否有age字段
+            (integer) 1
+            127.0.0.1:6379&gt; hexists user name    查看user中是否有name字段
+            (integer) 0
+
+            5.2.3.5.2    只获取字段名或字段值
+            语法：
+            HKEYS key
+            HVALS key
+            127.0.0.1:6379&gt; hmset user age 20 name lisi 
+            OK
+            127.0.0.1:6379&gt; hkeys user
+            1) "age"
+            2) "name"
+            127.0.0.1:6379&gt; hvals user
+            1) "20"
+            2) "lisi"
+
+        5.2.3.5.3    获取字段数量 
+            语法：HLEN key
+            127.0.0.1:6379&gt; hlen user
+            (integer) 2
+
+    5.2.4    应用
+
+        5.2.4.1    存储商品信息
+        1    商品字段
+        【商品id、商品名称、商品描述、商品库存、商品好评】
+
+        2    定义商品信息的key
+        商品1001的信息在 Redis中的key为：[items:1001]
+
+        3    存储商品信息
+        192.168.101.3:7003&gt; HMSET items:1001 id 3 name apple price 999.9
+        OK
+
+        4    获取商品信息
+        192.168.101.3:7003&gt; HGET items:1001 id
+        "3"
+        192.168.101.3:7003&gt; HGETALL items:1001
+        1) "id"
+        2) "3"
+        3) "name"
+        4) "apple"
+        5) "price"
+        6) "999.9"
+
+5.3    List
+
+    5.3.1    Arraylist和linkedlist的区别
+    Arraylist是使用数组来存储数据，特点：查询快、增删慢
+    Linkedlist是使用双向链表存储数据，特点：增删快、查询慢，但是查询链表两端的数据也很快。
+
+    Redis的list是采用来链表来存储的，所以对于redis的list数据类型的操作，是操作list的两端数据来操作的。
+
+    5.3.2    命令
+
+        5.3.2.1    向列表两端增加元素
+        1    向列表左边增加元素 
+        语法：LPUSH key value [value ...]
+        127.0.0.1:6379&gt; lpush list:1 1 2 3
+        (integer) 3
+
+        2    向列表右边增加元素 
+        语法：RPUSH key value [value ...]
+        127.0.0.1:6379&gt; rpush list:1 4 5 6
+        (integer) 3
+
+
+        5.3.2.2    查看列表 
+        LRANGE命令是列表类型最常用的命令之一，获取列表中的某一片段，将返回start、stop之间的所有元素（包含两端的元素），
+        索引从0开始。索引可以是负数，如：“-1”代表最后边的一个元素。
+
+        语法：LRANGE key start stop
+        127.0.0.1:6379&gt; lrange list:1 0 2
+        1) "2"
+        2) "1"
+        3) "4"
+
+        127.0.0.1:6379&gt; lrange list1 0 -1
+
+        5.3.2.3    从列表两端弹出元素 
+        LPOP命令从列表左边弹出一个元素，会分两步完成：
+        第一步是将列表左边的元素从列表中移除
+        第二步是返回被移除的元素值。
+
+        语法：
+        LPOP key
+        RPOP key
+        127.0.0.1:6379&gt; lpop list:1
+        "3“
+        127.0.0.1:6379&gt; rpop list:1
+        "6“
+
+        5.3.2.4    获取列表中元素的个数 
+        语法：LLEN key
+        127.0.0.1:6379&gt; llen list:1
+        (integer) 2
+
+        5.3.2.5    其它命令(自学)
+
+            5.3.2.5.1    删除列表中指定的值 
+            LREM命令会删除列表中前count个值为value的元素，返回实际删除的元素个数。根据count值的不同，
+            该命令的执行方式会有所不同： 
+            1    当count&gt;0时， LREM会从列表左边开始删除。 
+            2    当count&lt;0时， LREM会从列表后边开始删除。 
+            3    当count=0时， LREM删除所有值为value的元素。 
+
+            语法：LREM key count value
+
+            5.3.2.5.2    获得/设置指定索引的元素值 
+            1    获得指定索引的元素值
+            语法：LINDEX key index
+            127.0.0.1:6379&gt; lindex l:list 2
+            "1"
+
+            2    设置指定索引的元素值
+            语法：LSET key index value
+            127.0.0.1:6379&gt; lset l:list 2 2
+            OK
+            127.0.0.1:6379&gt; lrange l:list 0 -1
+            1) "6"
+            2) "5"
+            3) "2"
+            4) "2"
+
+            5.3.2.5.3    只保留列表指定片段
+            指定范围和LRANGE一致 
+
+            语法：LTRIM key start stop
+            127.0.0.1:6379&gt; lrange l:list 0 -1
+            1) "6"
+            2) "5"
+            3) "0"
+            4) "2"
+            127.0.0.1:6379&gt; ltrim l:list 0 2
+            OK
+            127.0.0.1:6379&gt; lrange l:list 0 -1
+            1) "6"
+            2) "5"
+            3) "0"
+
+            5.3.2.5.4    向列表中插入元素 
+            该命令首先会在列表中从左到右查找值为pivot的元素，
+            然后根据第二个参数是BEFORE还是AFTER来决定将value插入到该元素的前面还是后面。 
+
+
+            语法：LINSERT key BEFORE|AFTER pivot value
+            127.0.0.1:6379&gt; lrange list 0 -1
+            1) "3"
+            2) "2"
+            3) "1"
+            127.0.0.1:6379&gt; linsert list after 3 4
+            (integer) 4
+            127.0.0.1:6379&gt; lrange list 0 -1
+            1) "3"
+            2) "4"
+            3) "2"
+            4) "1"
+
+            5.3.2.5.5    将元素从一个列表转移到另一个列表中 
+            语法：RPOPLPUSH source destination
+            127.0.0.1:6379&gt; rpoplpush list newlist 
+            "1"
+            127.0.0.1:6379&gt; lrange newlist 0 -1
+            1) "1"
+            127.0.0.1:6379&gt; lrange list 0 -1
+            1) "3"
+            2) "4"
+            3) "2"
+
+    5.3.3    应用
+
+        5.3.3.1    商品评论列表
+        思路：
+        在Redis中创建商品评论列表
+        用户发布商品评论，将评论信息转成json存储到list中。
+        用户在页面查询评论列表，从redis中取出json数据展示到页面。
+
+        定义商品评论列表key：
+        商品编号为1001的商品评论key【items: comment:1001】
+        192.168.101.3:7001&gt; LPUSH items:comment:1001 '{"id":1,"name":"商品不错，很好！！","date":1430295077289}'
+
+5.4    Set
+
+    集合类型
+
+    集合类型：无序、不可重复
+    列表类型：有序、可重复
+
+    5.4.1    命令
+
+        5.4.1.1    增加/删除元素 
+        语法：SADD key member [member ...]
+        127.0.0.1:6379&gt; sadd set a b c
+        (integer) 3
+        127.0.0.1:6379&gt; sadd set a
+        (integer) 0
+
+        语法：SREM key member [member ...]
+        127.0.0.1:6379&gt; srem set c d
+        (integer) 1
+
+        5.4.1.2    获得集合中的所有元素 
+        语法：SMEMBERS key
+        127.0.0.1:6379&gt; smembers set
+        1) "b"
+        2) "a”
+
+        5.4.1.3    判断元素是否在集合中
+        语法：SISMEMBER key member
+        127.0.0.1:6379&gt; sismember set a
+        (integer) 1
+        127.0.0.1:6379&gt; sismember set h
+        (integer) 0
+
+    5.4.2    运算命令
+
+        5.4.2.1    集合的差集运算 A-B
+        属于A并且不属于B的元素构成的集合。
+        语法：SDIFF key [key ...]
+        127.0.0.1:6379&gt; sadd setA 1 2 3
+        (integer) 3
+        127.0.0.1:6379&gt; sadd setB 2 3 4
+        (integer) 3
+        127.0.0.1:6379&gt; sdiff setA setB 
+        1) "1"
+        127.0.0.1:6379&gt; sdiff setB setA 
+        1) "4"
+
+        5.4.2.2    集合的交集运算 A ∩ B
+        属于A且属于B的元素构成的集合。
+        语法：SINTER key [key ...]
+        127.0.0.1:6379&gt; sinter setA setB 
+        1) "2"
+        2) "3"
+
+        5.4.2.3    集合的并集运算 A ∪ B
+        属于A或者属于B的元素构成的集合
+        语法：SUNION key [key ...]
+        127.0.0.1:6379&gt; sunion setA setB
+        1) "1"
+        2) "2"
+        3) "3"
+        4) "4"
+
+    5.4.3    其它命令(自学)
+
+        5.4.3.1    获得集合中元素的个数 
+        语法：SCARD key
+        127.0.0.1:6379&gt; smembers setA 
+        1) "1"
+        2) "2"
+        3) "3"
+        127.0.0.1:6379&gt; scard setA 
+        (integer) 3
+
+        5.4.3.2    从集合中弹出一个元素
+        注意：由于集合是无序的，所有SPOP命令会从集合中随机选择一个元素弹出 
+
+        语法：SPOP key
+        127.0.0.1:6379&gt; spop setA 
+        "1“
+
+5.5    Sortedset
+
+    Sortedset又叫zset
+
+    Sortedset是有序集合，可排序的，但是唯一。
+
+    Sortedset和set的不同之处，是会给set中的元素添加一个分数，然后通过这个分数进行排
+
+    5.5.1    命令
+
+        5.5.1.1    增加元素
+        向有序集合中加入一个元素和该元素的分数，如果该元素已经存在则会用新的分数替换原有的分数。
+        返回值是新加入到集合中的元素个数，不包含之前已经存在的元素。 
+
+        语法：ZADD key score member [score member ...]
+        127.0.0.1:6379&gt; zadd scoreboard 80 zhangsan 89 lisi 94 wangwu 
+        (integer) 3
+        127.0.0.1:6379&gt; zadd scoreboard 97 lisi 
+        (integer) 0
+
+        5.5.1.2    获取元素的分数 
+        语法：ZSCORE key member
+        127.0.0.1:6379&gt; zscore scoreboard lisi 
+        "97"
+
+        5.5.1.3    删除元素
+        移除有序集key中的一个或多个成员，不存在的成员将被忽略。
+        当key存在但不是有序集类型时，返回一个错误。
+
+        语法：ZREM key member [member ...]
+        127.0.0.1:6379&gt; zrem scoreboard lisi
+        (integer) 1
+
+        5.5.1.4    获得排名在某个范围的元素列表
+        获得排名在某个范围的元素列表 
+        1    按照元素分数从小到大的顺序返回索引从start到stop之间的所有元素（包含两端的元素）
+
+        语法：ZRANGE key start stop [WITHSCORES]            
+        127.0.0.1:6379&gt; zrange scoreboard 0 2
+        1) "zhangsan"
+        2) "wangwu"
+        3) "lisi“
+
+        2    按照元素分数从大到小的顺序返回索引从start到stop之间的所有元素（包含两端的元素）
+
+        语法：ZREVRANGE key start stop [WITHSCORES]        
+        127.0.0.1:6379&gt; zrevrange scoreboard 0 2
+        1) " lisi "
+        2) "wangwu"
+        3) " zhangsan “
+
+        如果需要获得元素的分数的可以在命令尾部加上WITHSCORES参数 
+        127.0.0.1:6379&gt; zrange scoreboard 0 1 WITHSCORES
+        1) "zhangsan"
+        2) "80"
+        3) "wangwu"
+        4) "94"
+
+        5.5.1.5    获取元素的排名 
+        1    从小到大
+        语法：ZRANK key member
+        127.0.0.1:6379&gt; ZRANK scoreboard lisi 
+        (integer) 0
+
+        2    从大到小
+        语法：ZREVRANK key member
+        127.0.0.1:6379&gt; ZREVRANK scoreboard zhangsan 
+        (integer) 1
+
+        5.5.1.6    其它命令(自学)
+
+            5.5.1.6.1    获得指定分数范围的元素 
+            语法：ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
+            127.0.0.1:6379&gt; ZRANGEBYSCORE scoreboard 90 97 WITHSCORES
+            1) "wangwu"
+            2) "94"
+            3) "lisi"
+            4) "97"
+            127.0.0.1:6379&gt; ZRANGEBYSCORE scoreboard 70 100 limit 1 2
+            1) "wangwu"
+            2) "lisi"
+
+            5.5.1.6.2    增加某个元素的分数
+            返回值是更改后的分数 
+
+            语法：ZINCRBY  key increment member
+            127.0.0.1:6379&gt; ZINCRBY scoreboard 4 lisi 
+            "101“
+
+            5.5.1.6.3    获得集合中元素的数量 
+            语法：ZCARD key
+            127.0.0.1:6379&gt; ZCARD scoreboard
+            (integer) 3
+
+            5.5.1.6.4    获得指定分数范围内的元素个数 
+            语法：ZCOUNT key min max
+            127.0.0.1:6379&gt; ZCOUNT scoreboard 80 90
+            (integer) 1
+
+            5.5.1.6.5    按照排名范围删除元素 
+            语法：ZREMRANGEBYRANK key start stop
+            127.0.0.1:6379&gt; ZREMRANGEBYRANK scoreboard 0 1
+            (integer) 2 
+            127.0.0.1:6379&gt; ZRANGE scoreboard 0 -1
+            1) "lisi"
+
+            5.5.1.6.6    按照分数范围删除元素 
+            语法：ZREMRANGEBYSCORE key min max
+            127.0.0.1:6379&gt; zadd scoreboard 84 zhangsan    
+            (integer) 1
+            127.0.0.1:6379&gt; ZREMRANGEBYSCORE scoreboard 80 100
+            (integer) 1
+
+    5.5.2    应用
+
+        5.5.2.1    商品销售排行榜
+        需求：根据商品销售量对商品进行排行显示
+        思路：定义商品销售排行榜（sorted set集合），Key为items:sellsort，分数为商品销售量。
+
+        写入商品销售量：
+            商品编号1001的销量是9，商品编号1002的销量是10
+        192.168.101.3:7007&gt; ZADD items:sellsort 9 1001 10 1002
+
+            商品编号1001的销量加1
+        192.168.101.3:7001&gt; ZINCRBY items:sellsort 1 1001
+
+            商品销量前10名：
+        192.168.101.3:7001&gt; ZRANGE items:sellsort 0 9 withscores</code></pre>
+<p>6    Keys命令</p>
+<pre><code>6.1    常用命令
+
+    6.1.1    keys
+    返回满足给定pattern 的所有key
+    redis 127.0.0.1:6379&gt; keys mylist*
+    1) "mylist"
+    2) "mylist5"
+    3) "mylist6"
+    4) "mylist7"
+    5) "mylist8"
+
+    6.1.2    exists
+    确认一个key 是否存在
+    示例：从结果来看，数据库中不存在HongWan 这个key，但是age 这个key 是存在的
+    redis 127.0.0.1:6379&gt; exists HongWan
+    (integer) 0
+    redis 127.0.0.1:6379&gt; exists age
+    (integer) 1
+    redis 127.0.0.1:6379&gt;
+
+    6.1.3    del
+    删除一个key
+    redis 127.0.0.1:6379&gt; del age
+    (integer) 1
+    redis 127.0.0.1:6379&gt; exists age
+    (integer) 0
+
+    6.1.4    rename
+    重命名key
+    示例：age 成功的被我们改名为age_new 了
+    redis 127.0.0.1:6379[1]&gt; keys *
+    1) "age"
+    redis 127.0.0.1:6379[1]&gt; rename age age_new
+    OK
+    redis 127.0.0.1:6379[1]&gt; keys *
+    1) "age_new"
+    redis 127.0.0.1:6379[1]&gt;
+
+    6.1.5    type
+    返回值的类型
+    示例：这个方法可以非常简单的判断出值的类型
+    redis 127.0.0.1:6379&gt; type addr
+    string
+    redis 127.0.0.1:6379&gt; type myzset2
+    zset
+    redis 127.0.0.1:6379&gt; type mylist
+    list
+    redis 127.0.0.1:6379&gt;
+
+6.2    设置key的生存时间
+
+    Redis在实际使用过程中更多的用作缓存，然而缓存的数据一般都是需要设置生存时间的，即：到期后数据销毁。
+
+    EXPIRE key seconds             设置key的生存时间（单位：秒）key在多少秒后会自动删除
+    TTL key                     查看key生于的生存时间
+    PERSIST key                清除生存时间 
+    PEXPIRE key milliseconds    生存时间设置单位为：毫秒
+
+
+    例子：
+    192.168.101.3:7002&gt; set test 1        设置test的值为1
+    OK
+    192.168.101.3:7002&gt; get test            获取test的值
+    "1"
+    192.168.101.3:7002&gt; EXPIRE test 5    设置test的生存时间为5秒
+    (integer) 1
+    192.168.101.3:7002&gt; TTL test            查看test的生于生成时间还有1秒删除
+    (integer) 1
+    192.168.101.3:7002&gt; TTL test
+    (integer) -2
+    192.168.101.3:7002&gt; get test            获取test的值，已经删除
+    (nil)</code></pre>
+<p>7    Redis持久化方案</p>
+<pre><code>7.1    Rdb方式
+    Redis默认的方式，redis通过快照来将数据持久化到磁盘中。
+
+    7.1.1    设置持久化快照的条件
+        在redis.conf中修改持久化快照的条件，如下：</code></pre>
+<p><img src="/images/20170807/14.png"></p>
+<pre><code>    7.1.2    持久化文件存储的目录
+    在redis.conf中可以指定持久化文件存储的目录</code></pre>
+<p><img src="/images/20170807/15.png"></p>
+<pre><code>    7.1.3    Rdb问题
+    一旦redis非法关闭，那么会丢失最后一次持久化之后的数据。
+
+    如果数据不重要，则不必要关心。
+    如果数据不能允许丢失，那么要使用aof方式
+
+7.2    Aof方式
+
+    Redis默认是不使用该方式持久化的。Aof方式的持久化，是操作一次redis数据库，则将操作的记录存储到aof持久化文件中。
+
+    第一步：开启aof方式的持久化方案
+    将redis.conf中的appendonly改为yes，即开启aof方式的持久化方案。</code></pre>
+<p><img src="/images/20170807/16.png"></p>
+<pre><code>    Aof文件存储的目录和rdb方式的一样。
+
+    Aof文件存储的名称</code></pre>
+<p><img src="/images/20170807/17.png"></p>
+<pre><code>    7.2.1    结论
+    在使用aof和rdb方式时，如果redis重启，则数据从aof文件加载。</code></pre>
+<p>8    Redis的主从复制</p>
+<pre><code>8.1    什么是主从复制
+
+持久化保证了即使redis服务重启也不会丢失数据，因为redis服务重启后会将硬盘上持久化的数据恢复到内存中，
+但是当redis服务器的硬盘损坏了可能会导致数据丢失，如果通过redis的主从复制机制就可以避免这种单点故障，如下图：</code></pre>
+<p><img src="/images/20170807/18.png"></p>
+<pre><code>说明：
+1    主redis中的数据有两个副本（replication）即从redis1和从redis2，
+即使一台redis服务器宕机其它两台redis服务也可以继续提供服务。
+2    主redis中的数据和从redis上的数据保持实时同步，当主redis写入数据时通过主从复制机制会复制到两个从redis服务上。
+3    只有一个主redis，可以有多个从redis。
+4    主从复制不会阻塞master，在同步数据时，master 可以继续处理client 请求
+5    一个redis可以即是主又是从，如下图：</code></pre>
+<p><img src="/images/20170807/19.png"></p>
+<pre><code>8.2    主从复制设置
+
+    8.2.1    主机配置
+        无需配置
+
+    8.2.2    从机配置
+        第一步：复制出一个从机
+        [root@itheima redis19]# cp bin/ bin2 –r
+        第二步：修改从机的redis.conf
+        语法：Slaveof masterip masterport
+        slaveof 192.168.242.137 6379</code></pre>
+<p><img src="/images/20170807/20.png"></p>
+<pre><code>        第三步：修改从机的port地址为6380
+        在redis.conf中修改</code></pre>
+<p><img src="/images/20170807/21.png"></p>
+<pre><code>        第四步：清除从机中的持久化文件
+        [root@itheima bin2]# rm -rf appendonly.aof dump.rdb
+
+        第五步：启动从机
+        [root@itheima bin2]# ./redis-server redis.conf
+
+        第六步：启动6380的客户端
+        [root@itheima bin2]# ./redis-cli -p 6380  
+
+
+        注意：
+            主机一旦发生增删改操作，那么从机会将数据同步到从机中
+            从机不能执行写操作
+        127.0.0.1:6380&gt; set s2 222
+        (error) READONLY You can't write against a read only slave.</code></pre>
+<p>9    Redis集群</p>
+<pre><code>9.1    redis-cluster架构图</code></pre>
+<p><img src="/images/20170807/22.png"></p>
+<pre><code>架构细节:
+(1)所有的redis节点彼此互联(PING-PONG机制),内部使用二进制协议优化传输速度和带宽.
+(2)节点的fail是通过集群中超过半数的节点检测失效时才生效.
+(3)客户端与redis节点直连,不需要中间proxy层.客户端不需要连接集群所有节点,连接集群中任何一个可用节点即可
+(4)redis-cluster把所有的物理节点映射到[0-16383]slot上,cluster 负责维护node&lt;-&gt;slot&lt;-&gt;value
+Redis 集群中内置了 16384 个哈希槽，当需要在 Redis 集群中放置一个 key-value 时，
+redis 先对 key 使用 crc16 算法算出一个结果，然后把结果对 16384 求余数，
+这样每个 key 都会对应一个编号在 0-16383 之间的哈希槽，redis 会根据节点数量大致均等的将哈希槽映射到不同的节点
+
+示例如下：</code></pre>
+<p><img src="/images/20170807/23.png"></p>
+<pre><code>9.2    redis-cluster投票:容错</code></pre>
+<p><img src="/images/20170807/24.png"></p>
+<pre><code>集群中所有master参与投票,如果半数以上master节点与其中一个master节点通信超过(cluster-node-timeout),认为该master节点挂掉.
+(2):什么时候整个集群不可用(cluster_state:fail)? 
+    如果集群任意master挂掉,且当前master没有slave，则集群进入fail状态。
+也可以理解成集群的[0-16383]slot映射不完全时进入fail状态。
+    如果集群超过半数以上master挂掉，无论是否有slave，集群进入fail状态。
+
+9.3    安装ruby
+集群管理工具（redis-trib.rb）是使用ruby脚本语言编写的。
+
+第一步：安装ruby
+[root@itheima bin2]# yum install ruby
+[root@itheima bin2]# yum install rubygems
+
+第二步：将以下文件上传到linux系统</code></pre>
+<p><img src="/images/20170807/25.png"></p>
+<pre><code>第三步：安装ruby和redis接口
+[root@itheima ~]# gem install redis-3.0.0.gem
+
+第四步：将redis-3.0.0包下src目录中的以下文件拷贝到redis19/redis-cluster/</code></pre>
+<p><img src="/images/20170807/26.png"></p>
+<pre><code>[root@itheima src]# cd /usr/local/redis19/
+[root@itheima redis19]# mkdir redis-cluster
+[root@itheima redis19]# cd /root/redis-3.0.0/src/
+[root@itheima src]# cp redis-trib.rb  /usr/local/redis19/redis-cluster
+第五步：查看是否拷贝成功</code></pre>
+<p><img src="/images/20170807/27.png"></p>
+<pre><code>9.4    搭建集群
+搭建集群最少也得需要3台主机，如果每台主机再配置一台从机的话，则最少需要6台机器。
+
+端口设计如下：7001-7006
+
+第一步：复制出一个7001机器
+[root@itheima redis19]# cp bin ./redis-cluster/7001 –r
+
+第二步：如果存在持久化文件，则删除
+[root@itheima 7001]# rm -rf appendonly.aof dump.rdb
+
+第三步：设置集群参数</code></pre>
+<p><img src="/images/20170807/28.png"></p>
+<pre><code>第四步：修改端口</code></pre>
+<p><img src="/images/20170807/29.png"></p>
+<pre><code>第五步：复制出7002-7006机器
+[root@itheima redis-cluster]# cp 7001/ 7002 -r
+[root@itheima redis-cluster]# cp 7001/ 7003 -r
+[root@itheima redis-cluster]# cp 7001/ 7004 -r
+[root@itheima redis-cluster]# cp 7001/ 7005 -r
+[root@itheima redis-cluster]# cp 7001/ 7006 –r
+
+第六步：修改7002-7006机器的端口
+
+第七步：启动7001-7006这六台机器</code></pre>
+<p><img src="/images/20170807/30.png"></p>
+<pre><code>第八步：修改start-all.sh文件的权限
+[root@itheima redis-cluster]# chmod u+x start-all.sh
+
+[root@itheima redis-cluster]# ./start-all.sh
+
+第九步：创建集群
+
+[root@itheima redis-cluster]# ./redis-trib.rb create --replicas 1 192.168.242.137:7001 192.168.242.137:7002
+ 192.168.242.137:7003 192.168.242.137:7004 192.168.242.137:7005  192.168.242.137:7006
+&gt;&gt;&gt; Creating cluster
+Connecting to node 192.168.242.137:7001: OK
+Connecting to node 192.168.242.137:7002: OK
+Connecting to node 192.168.242.137:7003: OK
+Connecting to node 192.168.242.137:7004: OK
+Connecting to node 192.168.242.137:7005: OK
+Connecting to node 192.168.242.137:7006: OK
+&gt;&gt;&gt; Performing hash slots allocation on 6 nodes...
+Using 3 masters:
+192.168.242.137:7001
+192.168.242.137:7002
+192.168.242.137:7003
+Adding replica 192.168.242.137:7004 to 192.168.242.137:7001
+Adding replica 192.168.242.137:7005 to 192.168.242.137:7002
+Adding replica 192.168.242.137:7006 to 192.168.242.137:7003
+M: 8240cd0fe6d6f842faa42b0174fe7c5ddcf7ae24 192.168.242.137:7001
+   slots:0-5460 (5461 slots) master
+M: 4f52a974f64343fd9f1ee0388490b3c0647a4db7 192.168.242.137:7002
+   slots:5461-10922 (5462 slots) master
+M: cb7c5def8f61df2016b38972396a8d1f349208c2 192.168.242.137:7003
+   slots:10923-16383 (5461 slots) master
+S: 66adf006fed43b3b5e499ce2ff1949a756504a16 192.168.242.137:7004
+   replicates 8240cd0fe6d6f842faa42b0174fe7c5ddcf7ae24
+S: cbb0c9bc4b27dd85511a7ef2d01bec90e692793b 192.168.242.137:7005
+   replicates 4f52a974f64343fd9f1ee0388490b3c0647a4db7
+S: a908736eadd1cd06e86fdff8b2749a6f46b38c00 192.168.242.137:7006
+   replicates cb7c5def8f61df2016b38972396a8d1f349208c2
+Can I set the above configuration? (type 'yes' to accept): yes
+&gt;&gt;&gt; Nodes configuration updated
+&gt;&gt;&gt; Assign a different config epoch to each node
+&gt;&gt;&gt; Sending CLUSTER MEET messages to join the cluster
+Waiting for the cluster to join..
+&gt;&gt;&gt; Performing Cluster Check (using node 192.168.242.137:7001)
+M: 8240cd0fe6d6f842faa42b0174fe7c5ddcf7ae24 192.168.242.137:7001
+   slots:0-5460 (5461 slots) master
+M: 4f52a974f64343fd9f1ee0388490b3c0647a4db7 192.168.242.137:7002
+   slots:5461-10922 (5462 slots) master
+M: cb7c5def8f61df2016b38972396a8d1f349208c2 192.168.242.137:7003
+   slots:10923-16383 (5461 slots) master
+M: 66adf006fed43b3b5e499ce2ff1949a756504a16 192.168.242.137:7004
+   slots: (0 slots) master
+   replicates 8240cd0fe6d6f842faa42b0174fe7c5ddcf7ae24
+M: cbb0c9bc4b27dd85511a7ef2d01bec90e692793b 192.168.242.137:7005
+   slots: (0 slots) master
+   replicates 4f52a974f64343fd9f1ee0388490b3c0647a4db7
+M: a908736eadd1cd06e86fdff8b2749a6f46b38c00 192.168.242.137:7006
+   slots: (0 slots) master
+   replicates cb7c5def8f61df2016b38972396a8d1f349208c2
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
+[root@itheima redis-cluster]#
+
+9.5    连接集群
+[root@itheima 7001]# ./redis-cli -h 192.168.242.137 -p 7001 –c
+
+-c：指定是集群连接</code></pre>
+<p><img src="/images/20170807/31.png"></p>
+<pre><code>9.6    查看集群信息
+    查看集群信息
+    192.168.242.137:7002&gt; cluster info
+    cluster_state:ok
+    cluster_slots_assigned:16384
+    cluster_slots_ok:16384
+    cluster_slots_pfail:0
+    cluster_slots_fail:0
+    cluster_known_nodes:6
+    cluster_size:3
+    cluster_current_epoch:6
+    cluster_my_epoch:2
+    cluster_stats_messages_sent:2372
+    cluster_stats_messages_received:2372
+    192.168.242.137:7002&gt;
+
+    查看集群节点
+    192.168.242.137:7002&gt; cluster nodes
+    8240cd0fe6d6f842faa42b0174fe7c5ddcf7ae24 192.168.242.137:7001 master 
+- 0 1451581348093 1 connected 0-5460
+    cb7c5def8f61df2016b38972396a8d1f349208c2 192.168.242.137:7003 master 
+- 0 1451581344062 3 connected 10923-16383
+    66adf006fed43b3b5e499ce2ff1949a756504a16 192.168.242.137:7004 slave 8240cd0fe6d6f842faa42b0174fe7c5ddcf7ae24 0 1451581351115 1 connected
+    a908736eadd1cd06e86fdff8b2749a6f46b38c00 192.168.242.137:7006 slave cb7c5def8f61df2016b38972396a8d1f349208c2 0 1451581349101 3 connected
+    4f52a974f64343fd9f1ee0388490b3c0647a4db7 192.168.242.137:7002 myself,master - 0 0 2
+ connected 5461-10922
+    cbb0c9bc4b27dd85511a7ef2d01bec90e692793b 192.168.242.137:7005 slave 
+4f52a974f64343fd9f1ee0388490b3c0647a4db7 0 1451581350108 5 connected</code></pre>
+<p>10    jedis连接集群</p>
+<pre><code>10.1    设置防火墙
+[root@itheima redis-cluster]# vim /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT
+# Firewall configuration written by system-config-firewall
+# Manual customization of this file is not recommended.
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 7001 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 7002 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 7003 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 7004 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 7005 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 7006 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 7007 -j ACCEPT
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+~                                                                                                     
+"/etc/sysconfig/iptables" 23L, 1146C 已写入                                         
+[root@itheima redis-cluster]# service iptables restart
+iptables：清除防火墙规则：                                 [确定]
+iptables：将链设置为政策 ACCEPT：filter                    [确定]
+iptables：正在卸载模块：                                   [确定]
+iptables：应用防火墙规则：                                 [确定]
+[root@itheima redis-cluster]#
+
+10.2    代码</code></pre>
+<p><img src="/images/20170807/32.png"></p>
+<pre><code>10.3    使用spring
+    配置applicationContext.xml
+&lt;!-- 连接池配置 --&gt;
+&lt;bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"&gt;
+    &lt;!-- 最大连接数 --&gt;
+    &lt;property name="maxTotal" value="30" /&gt;
+    &lt;!-- 最大空闲连接数 --&gt;
+    &lt;property name="maxIdle" value="10" /&gt;
+    &lt;!-- 每次释放连接的最大数目 --&gt;
+    &lt;property name="numTestsPerEvictionRun" value="1024" /&gt;
+    &lt;!-- 释放连接的扫描间隔（毫秒） --&gt;
+    &lt;property name="timeBetweenEvictionRunsMillis" value="30000" /&gt;
+    &lt;!-- 连接最小空闲时间 --&gt;
+    &lt;property name="minEvictableIdleTimeMillis" value="1800000" /&gt;
+    &lt;!-- 连接空闲多久后释放, 当空闲时间&gt;该值 且 空闲连接&gt;最大空闲连接数 时直接释放 --&gt;
+    &lt;property name="softMinEvictableIdleTimeMillis" value="10000" /&gt;
+    &lt;!-- 获取连接时的最大等待毫秒数,小于零:阻塞不确定的时间,默认-1 --&gt;
+    &lt;property name="maxWaitMillis" value="1500" /&gt;
+    &lt;!-- 在获取连接的时候检查有效性, 默认false --&gt;
+    &lt;property name="testOnBorrow" value="true" /&gt;
+    &lt;!-- 在空闲时检查有效性, 默认false --&gt;
+    &lt;property name="testWhileIdle" value="true" /&gt;
+    &lt;!-- 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true --&gt;
+    &lt;property name="blockWhenExhausted" value="false" /&gt;
+&lt;/bean&gt;
+&lt;!-- redis集群 --&gt;
+&lt;bean id="jedisCluster" class="redis.clients.jedis.JedisCluster"&gt;
+    &lt;constructor-arg index="0"&gt;
+        &lt;set&gt;
+            &lt;bean class="redis.clients.jedis.HostAndPort"&gt;
+                &lt;constructor-arg index="0" value="192.168.101.3"&gt;&lt;/constructor-arg&gt;
+                &lt;constructor-arg index="1" value="7001"&gt;&lt;/constructor-arg&gt;
+            &lt;/bean&gt;
+            &lt;bean class="redis.clients.jedis.HostAndPort"&gt;
+                &lt;constructor-arg index="0" value="192.168.101.3"&gt;&lt;/constructor-arg&gt;
+                &lt;constructor-arg index="1" value="7002"&gt;&lt;/constructor-arg&gt;
+            &lt;/bean&gt;
+            &lt;bean class="redis.clients.jedis.HostAndPort"&gt;
+                &lt;constructor-arg index="0" value="192.168.101.3"&gt;&lt;/constructor-arg&gt;
+                &lt;constructor-arg index="1" value="7003"&gt;&lt;/constructor-arg&gt;
+            &lt;/bean&gt;
+            &lt;bean class="redis.clients.jedis.HostAndPort"&gt;
+                &lt;constructor-arg index="0" value="192.168.101.3"&gt;&lt;/constructor-arg&gt;
+                &lt;constructor-arg index="1" value="7004"&gt;&lt;/constructor-arg&gt;
+            &lt;/bean&gt;
+            &lt;bean class="redis.clients.jedis.HostAndPort"&gt;
+                &lt;constructor-arg index="0" value="192.168.101.3"&gt;&lt;/constructor-arg&gt;
+                &lt;constructor-arg index="1" value="7005"&gt;&lt;/constructor-arg&gt;
+            &lt;/bean&gt;
+            &lt;bean class="redis.clients.jedis.HostAndPort"&gt;
+                &lt;constructor-arg index="0" value="192.168.101.3"&gt;&lt;/constructor-arg&gt;
+                &lt;constructor-arg index="1" value="7006"&gt;&lt;/constructor-arg&gt;
+            &lt;/bean&gt;
+        &lt;/set&gt;
+    &lt;/constructor-arg&gt;
+    &lt;constructor-arg index="1" ref="jedisPoolConfig"&gt;&lt;/constructor-arg&gt;
+&lt;/bean&gt;
+
+
+    测试代码
+
+private ApplicationContext applicationContext;
+    @Before
+    public void init() {
+        applicationContext = new ClassPathXmlApplicationContext(
+                "classpath:applicationContext.xml");
+    }
+
+    // redis集群
+    @Test
+    public void testJedisCluster() {
+        JedisCluster jedisCluster = (JedisCluster) applicationContext
+                .getBean("jedisCluster");
+
+        jedisCluster.set("name", "zhangsan");
+        String value = jedisCluster.get("name");
+        System.out.println(value);
+    }</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2017/08/07/redis-xue-xi/">http://dtbox.com/2017/08/07/redis-xue-xi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/redis/">
+                                    <span class="chip bg-color">redis</span>
+                                </a>
+                            
+                                <a href="/tags/spring/">
+                                    <span class="chip bg-color">spring</span>
+                                </a>
+                            
+                                <a href="/tags/spring-boot/">
+                                    <span class="chip bg-color">spring-boot</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/08/08/mei-tian-2-ge-linux-ming-ling-top-free/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="每天2个Linux命令 top free">
+                        
+                        <span class="card-title">每天2个Linux命令 top free</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 top free
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-08-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/07/31/mei-tian-2-ge-linux-ming-ling-ps-kill/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="每天2个Linux命令 ps kill">
+                        
+                        <span class="card-title">每天2个Linux命令 ps kill</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 ps kill
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

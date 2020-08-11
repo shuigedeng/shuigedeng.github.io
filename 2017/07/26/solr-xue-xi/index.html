@@ -1,0 +1,2186 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="solr学习">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>solr学习 | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">solr学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/solr/">
+                                <span class="chip bg-color">solr</span>
+                            </a>
+                        
+                            <a href="/tags/spring/">
+                                <span class="chip bg-color">spring</span>
+                            </a>
+                        
+                            <a href="/tags/bean/">
+                                <span class="chip bg-color">bean</span>
+                            </a>
+                        
+                            <a href="/tags/xml/">
+                                <span class="chip bg-color">xml</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/solr/" class="post-category">
+                                solr
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-07-26
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="2017-07-22-solr"><a href="#2017-07-22-solr" class="headerlink" title=" 2017-07-22 solr"></a><center> 2017-07-22 solr</center></h2><p>1    课程计划</p>
+<pre><code>1、    solr介绍
+    a)    什么是solr
+    b)    Solr和lucene的区别
+2、    Solr的安装配置（重点）
+3、    Solr的基本使用（重点）
+4、    Solrj的使用（重点）
+5、    京东案例（重点）</code></pre>
+<p>2    Solr介绍</p>
+<pre><code>2.1    什么是solr
+    Solr是apache的顶级开源项目，它是使用java开发 ，基于lucene的全文检索服务器。
+
+    Solr比lucene提供了更多的查询语句，而且它可扩展、可配置，同时它对lucene的性能进行了优化。
+
+    Solr是如何实现全文检索的呢？
+
+    索引流程：solr客户端（浏览器、java程序）可以向solr服务端发送POST请求，
+    请求内容是包含Field等信息的一个xml文档，通过该文档，solr实现对索引的维护（增删改）
+
+    搜索流程：solr客户端（浏览器、java程序）可以向solr服务端发送GET请求，solr服务器返回一个xml文档。
+
+    Solr同样没有视图渲染的功能。
+
+2.2    Solr和lucene的区别
+    Lucene是一个全文检索引擎工具包，它只是一个jar包，不能独立运行，对外提供服务。
+
+    Solr是一个全文检索服务器，它可以单独运行在servlet容器，
+    可以单独对外提供搜索和索引功能。Solr比lucene在开发全文检索功能时，更快捷、更方便。</code></pre>
+<p><img src="/images/20170722/1.png"></p>
+<p>3    Solr安装配置</p>
+<pre><code>3.1    下载solr
+    Solr和lucene的版本是同步更新的，最新的版本是5.2.1
+    本课程使用的版本：4.10.3
+
+    下载地址：http://archive.apache.org/dist/lucene/solr/
+    下载版本：4.10.3
+    Linux下需要下载lucene-4.10.3.tgz，windows下需要下载lucene-4.10.3.zip。</code></pre>
+<p><img src="/images/20170722/2.png"></p>
+<p><img src="/images/20170722/3.png"></p>
+<p><img src="/images/20170722/4.png"></p>
+<pre><code>3.2    运行环境
+        Jdk：1.7及以上
+        Solr：4.10.3
+        Mysql：5X
+        Web服务器：tomcat 7
+
+    3.2.1    初始化数据库脚本</code></pre>
+<p><img src="/images/20170722/5.png"></p>
+<pre><code>3.3    Solr安装配置
+
+    3.3.1    Solr的安装部署
+        第一步：安装tomcat
+        第二步：将以下的war包，拷贝到tomcat的webapps目录下</code></pre>
+<p><img src="/images/20170722/6.png"></p>
+<pre><code>        第三步：解压缩war包
+            解压缩之后，将war包删掉</code></pre>
+<p><img src="/images/20170722/7.png"></p>
+<pre><code>        第四步：添加solr的扩展服务包</code></pre>
+<p><img src="/images/20170722/8.png"></p>
+<pre><code>        将以上jar包，添加到以下目录</code></pre>
+<p><img src="/images/20170722/9.png"></p>
+<pre><code>        第五步：添加log4j.properties
+            将以下目录的文件进行拷贝</code></pre>
+<p><img src="/images/20170722/10.png"></p>
+<pre><code>        复制到以下目录</code></pre>
+<p><img src="/images/20170722/11.png"></p>
+<pre><code>        第六步：在web.xml中指定solrhome的目录</code></pre>
+<p><img src="/images/20170722/12.png"></p>
+<p><img src="/images/20170722/13.png"></p>
+<pre><code>    3.3.2    Solrcore的安装
+
+        3.3.2.1    Solrcore和solrhome
+            Solrhome是solr服务运行的主目录，一个solrhome目录里面包含多个solrcore目录，
+            一个solrcore目录里面了一个solr实例运行时所需要的配置文件和数据文件。
+
+            每一个solrcore都可以单独对外提供搜索和索引服务。
+            多个solrcore之间没有关系。
+
+        3.3.2.2    Solrcore和solrhome的目录结构
+                Solrhome的目录结构</code></pre>
+<p><img src="/images/20170722/14.png"></p>
+<pre><code>                Solrcore目录</code></pre>
+<p><img src="/images/20170722/15.png"></p>
+<pre><code>    3.3.2.3    Solrcore的安装
+
+            安装solrcore需要先安装solrhome
+
+            将以下目录的文件进行拷贝</code></pre>
+<p><img src="/images/20170722/16.png"></p>
+<pre><code>            复制到以下目录</code></pre>
+<p><img src="/images/20170722/17.png"></p>
+<pre><code>            这样solrhome和solrcore就安装成功了。
+
+    3.3.2.4    Solrcore配置
+
+            在solrcore的conf目录下，有一个solrconfig.xml的配置文件，该配置文件，配置来solrcor的运行信息</code></pre>
+<p><img src="/images/20170722/18.png"></p>
+<pre><code>            在该文件中，主要配置三个标签：lib标签、datadir标签、requestHandler标签
+
+            如果对该文件不进行配置也可以，即使用默认的配置项。
+
+            3.3.2.4.1    Lib 标签
+
+                Solrcore需要添加一个扩展依赖包，通过lib标签来指定依赖包的地址
+
+                solr.install.dir：表示solrcore的安装目录
+
+                将以下目录的文件进行拷贝</code></pre>
+<p><img src="/images/20170722/19.png"></p>
+<pre><code>                复制到以下目录</code></pre>
+<p><img src="/images/20170722/20.png"></p>
+<pre><code>                修改lib标签</code></pre>
+<p><img src="/images/20170722/21.png"></p>
+<pre><code>            3.3.2.4.2    datadir标签
+
+                每个SolrCore都有自己的索引文件目录 ，默认在SolrCore目录下的data中。</code></pre>
+<p><img src="/images/20170722/22.png"></p>
+<pre><code>                data数据目录下包括了index索引目录 和tlog日志文件目录。
+                如果不想使用默认的目录也可以通过solrConfig.xml更改索引目录 ，如下：</code></pre>
+<p><img src="/images/20170722/23.png"></p>
+<pre><code>            3.3.2.4.3    requestHandler标签
+
+                    requestHandler请求处理器，定义了索引和搜索的访问方式。
+                    通过/update维护索引，可以完成索引的添加、修改、删除操作。</code></pre>
+<p><img src="/images/20170722/24.png"></p>
+<pre><code>                    提交xml、json数据完成索引维护，索引维护小节详细介绍。
+
+                    通过/select搜索索引。</code></pre>
+<p><img src="/images/20170722/25.png"></p>
+<pre><code>                    设置搜索参数完成搜索，搜索参数也可以设置一些默认值，如下：
+
+                    &lt;requestHandler name="/select" class="solr.SearchHandler"&gt;
+                        &lt;!-- 设置默认的参数值，可以在请求地址中修改这些参数--&gt;
+                        &lt;lst name="defaults"&gt;
+                            &lt;str name="echoParams"&gt;explicit&lt;/str&gt;
+                            &lt;int name="rows"&gt;10&lt;/int&gt;&lt;!--显示数量--&gt;
+                            &lt;str name="wt"&gt;json&lt;/str&gt;&lt;!--显示格式--&gt;
+                            &lt;str name="df"&gt;text&lt;/str&gt;&lt;!--默认搜索字段--&gt;
+                        &lt;/lst&gt;
+                    &lt;/requestHandler&gt;
+
+
+3.4    solr界面介绍
+
+        启动solr服务
+        http://localhost:8080/solr</code></pre>
+<p><img src="/images/20170722/26.png"></p>
+<pre><code>    3.4.1    Dashboard
+            仪表盘，显示了该Solr实例开始启动运行的时间、版本、系统资源、jvm等信息。
+
+    3.4.2    Logging
+            Solr运行日志信息
+
+    3.4.3    Cloud
+            Cloud即SolrCloud，即Solr云（集群），当使用Solr Cloud模式运行时会显示此菜单，该部分功能在第二个项目，即电商项目会讲解。
+
+    3.4.4    Core Admin
+            Solr Core的管理界面。在这里可以添加SolrCore实例。
+
+    3.4.5    java properties
+            Solr在JVM 运行环境中的属性信息，包括类路径、文件编码、jvm内存设置等信息。
+
+    3.4.6    Tread Dump
+            显示Solr Server中当前活跃线程信息，同时也可以跟踪线程运行栈信息。
+
+    3.4.7    Core selector（重点）
+            选择一个SolrCore进行详细操作，如下：</code></pre>
+<p><img src="/images/20170722/27.png"></p>
+<pre><code>        3.4.7.1    Analysis（重点）</code></pre>
+<p><img src="/images/20170722/28.png"></p>
+<pre><code>                通过此界面可以测试索引分析器和搜索分析器的执行情况。
+                注：solr中，分析器是绑定在域的类型中的。
+
+        3.4.7.2    dataimport
+                可以定义数据导入处理器，从关系数据库将数据导入到Solr索引库中。
+                默认没有配置，需要手工配置
+
+        3.4.7.3    Document（重点）
+                通过/update表示更新索引，solr默认根据id（唯一约束）域来更新Document的内容，
+                如果根据id值搜索不到id域则会执行添加操作，如果找到则更新。
+
+                通过此菜单可以创建索引、更新索引、删除索引等操作，界面如下：</code></pre>
+<p><img src="/images/20170722/29.png"></p>
+<pre><code>                    overwrite="true" ： solr在做索引的时候，如果文档已经存在，就用xml中的文档进行替换
+                    commitWithin="1000" ： solr 在做索引的时候，每个1000（1秒）毫秒，做一次文档提交。
+                    为了方便测试也可以在Document中立即提交，&lt;/doc&gt;后添加“&lt;commit/&gt;”
+
+        3.4.7.4    Query（重点）
+
+                通过/select执行搜索索引，必须指定“q”查询条件方可搜索。</code></pre>
+<p><img src="/images/20170722/30.png"></p>
+<pre><code>3.5    多solrcore的配置
+
+        配置多solrcore的好处：
+            1、    在进行solrcloud的时候，必须配置多solrcore
+            2、    每个solrcore之间是独立的，都可以单独对外提供服务。
+                不同的业务模块可以使用不同的solrcore来提供搜索和索引服务。
+
+            添加
+
+
+            第一步：复制solrhome下的collection1目录到本目录下，修改名称为collection2</code></pre>
+<p><img src="/images/20170722/31.png"></p>
+<pre><code>            第二步：修改solrcore目录下的core.properties</code></pre>
+<p><img src="/images/20170722/32.png"></p>
+<pre><code>            这样多solrcore就配置完成了</code></pre>
+<p>4    Solr的基本使用</p>
+<pre><code>    4.1    Schema.xml
+    在schema.xml文件中，主要配置了solrcore的一些数据信息，包括Field和FieldType的定义等信息，
+    在solr中，Field和FieldType都需要先定义后使用。</code></pre>
+<p><img src="/images/20170722/33.png"></p>
+<pre><code>        4.1.1    Filed
+            定义Field域
+
+            &lt;field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /&gt; 
+
+            Name：指定域的名称
+            Type：指定域的类型
+            Indexed：是否索引
+            Stored：是否存储
+            Required：是否必须
+            multiValued：是否多值，比如商品信息中，一个商品有多张图片，
+            一个Field像存储多个值的话，必须将multiValued设置为true。
+
+        4.1.2    dynamicField
+                动态域
+                &lt;dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/&gt;
+
+                Name：指定动态域的命名规则
+
+
+        4.1.3    uniqueKey
+                指定唯一键
+
+                &lt;uniqueKey&gt;id&lt;/uniqueKey&gt;
+
+                其中的id是在Field标签中已经定义好的域名，而且该域要设置为required为true。
+
+                一个schema.xml文件中必须有且仅有一个唯一键
+
+        4.1.4    copyField
+                复制域
+
+                &lt;copyField source="cat" dest="text"/&gt;
+
+                Source：要复制的源域的域名
+                Dest：目标域的域名
+
+                由dest指的的目标域，必须设置multiValued为true。</code></pre>
+<p><img src="/images/20170722/34.png"></p>
+<pre><code>        4.1.5    FieldType
+        定义域的类型
+
+        &lt;fieldType name="text_general" class="solr.TextField" positionIncrementGap="100"&gt;
+              &lt;analyzer type="index"&gt;
+                &lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;
+                &lt;filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" /&gt;
+                &lt;!-- in this example, we will only use synonyms at query time
+                &lt;filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/&gt;
+                --&gt;
+                &lt;filter class="solr.LowerCaseFilterFactory"/&gt;
+              &lt;/analyzer&gt;
+              &lt;analyzer type="query"&gt;
+                &lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;
+                &lt;filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" /&gt;
+                &lt;filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/&gt;
+                &lt;filter class="solr.LowerCaseFilterFactory"/&gt;
+              &lt;/analyzer&gt;
+            &lt;/fieldType&gt;
+        Name：指定域类型的名称
+        Class：指定该域类型对应的solr的类型
+        Analyzer：指定分析器
+        Type：index、query，分别指定搜索和索引时的分析器
+        Tokenizer：指定分词器
+        Filter：指定过滤器
+
+    4.2    中文分词器
+        使用ikanalyzer进行中文分词
+
+        第一步：将ikanalyzer的jar包拷贝到以下目录</code></pre>
+<p><img src="/images/20170722/35.png"></p>
+<pre><code>        第二步：将ikanalyzer的扩展词库的配置文件拷贝到 目录</code></pre>
+<p><img src="/images/20170722/36.png"></p>
+<pre><code>        第三步：配置FieldType</code></pre>
+<p><img src="/images/20170722/37.png"></p>
+<pre><code>        第四步：配置使用中文分词的Field</code></pre>
+<p><img src="/images/20170722/38.png"></p>
+<pre><code>        第五步：重启tomcat</code></pre>
+<p><img src="/images/20170722/39.png"></p>
+<pre><code>    4.3    配置业务Field
+
+        4.3.1    需求
+            对京东案例中的products表的数据进行索引，所以需要先定义对应的Field域。
+
+        4.3.2    分析配置
+                Products的表结构</code></pre>
+<p><img src="/images/20170722/40.png"></p>
+<pre><code>                需要往索引库添加的字段有：
+                pid、name、catalog、catalog_name、price、description、picture
+
+                FieldType：
+                经分析，由于中文分词器已经配置完FieldType，所以目前FieldType已经满足需要，无需配置。
+
+                Field：
+                Pid：
+                由于pid在products表中是唯一键，而且在solr的shema.xml中已有一个id的唯一键配置，所以不需要再重新定义pid域。
+
+                Name：
+                &lt;!-- 商品名称 --&gt;
+                &lt;field name="product_name" type="text_ik" indexed="true" stored="true"/&gt;
+
+                Catalog、catalog_name：
+                &lt;!-- 商品分类ID --&gt;
+                    &lt;field name="product_catalog" type="string" indexed="true" stored="true"/&gt; 
+                    &lt;!-- 商品分类名称 --&gt;
+                    &lt;field name="product_catalog_name" type="string" indexed="true" stored="false"/&gt;
+
+                Price：
+                &lt;!-- 商品价格 --&gt;
+                    &lt;field name="product_price" type="float" indexed="true" stored="true"/&gt;
+
+                Description：
+                &lt;!-- 商品描述 --&gt;
+                    &lt;field name="product_description" type="text_ik" indexed="true" stored="false"/&gt;
+
+                Picture：
+                &lt;!-- 商品图片地址 --&gt;
+                    &lt;field name="product_picture" type="string" indexed="false" stored="true"/&gt; </code></pre>
+<p><img src="/images/20170722/41.png"></p>
+<pre><code>    4.4    Dataimport
+        该插件可以将数据库中指定的sql语句的结果导入到solr索引库中。
+
+        4.4.1    第一步：添加jar包
+                    Dataimport的jar包
+                复制以下目录的jar包</code></pre>
+<p><img src="/images/20170722/42.png"></p>
+<pre><code>                添加到以下目录</code></pre>
+<p><img src="/images/20170722/43.png"></p>
+<pre><code>        修改solrconfig.xml文件，添加lib标签
+        &lt;lib dir="${solr.install.dir:../..}/contrib/dataimporthandler/lib" regex=".*\.jar" /&gt;
+            MySQL数据库驱动包
+        将mysql的驱动包，复制到以下目录</code></pre>
+<p><img src="/images/20170722/44.png"></p>
+<pre><code>        修改solrconfig.xml文件，添加lib标签
+        &lt;lib dir="${solr.install.dir:../..}/contrib/db/lib" regex=".*\.jar" /&gt;
+
+        4.4.2    第二步：配置requestHandler
+                在solrconfig.xml中，添加一个dataimport的requestHandler</code></pre>
+<p><img src="/images/20170722/45.png"></p>
+<pre><code>        4.4.3    第三步：创建data-config.xml
+                在solrconfig.xml同级目录下，创建data-config.xml</code></pre>
+<p><img src="/images/20170722/46.png"></p>
+<pre><code>        4.4.4    重启tomcat</code></pre>
+<p><img src="/images/20170722/47.png"></p>
+<p>5    Solrj的使用</p>
+<pre><code>    5.1    什么是solrj
+        Solrj就是solr服务器的java客户端。</code></pre>
+<p><img src="/images/20170722/48.png"></p>
+<pre><code>    5.2    环境准备
+            Jdk
+            Ide
+            Tomcat
+            Solrj
+
+    5.3    搭建工程
+            Solrj的依赖包和核心包</code></pre>
+<p><img src="/images/20170722/49.png"></p>
+<pre><code>            Solr的扩展服务包</code></pre>
+<p><img src="/images/20170722/50.png"></p>
+<p><img src="/images/20170722/51.png"></p>
+<pre><code>    5.4    使用solrj完成索引维护
+
+        5.4.1    添加/修改索引
+                在solr中，索引库中都会存在一个唯一键，如果一个Document的id存在，则执行修改操作，
+                如果不存在，则执行添加操作。</code></pre>
+<p><img src="/images/20170722/52.png"></p>
+<pre><code>        5.4.2    删除索引
+
+                5.4.2.1    根据指定ID来删除</code></pre>
+<p><img src="/images/20170722/53.png"></p>
+<pre><code>                5.4.2.2    根据条件删除</code></pre>
+<p><img src="/images/20170722/54.png"></p>
+<pre><code>        5.4.3    查询索引
+
+                5.4.3.1    简单查询</code></pre>
+<p><img src="/images/20170722/55.png"></p>
+<pre><code>                5.4.3.2    复杂查询
+
+                        5.4.3.2.1    solr的查询语法
+
+                                1.    q - 查询关键字，必须的，如果查询所有使用*:*。
+                                    请求的q是字符串</code></pre>
+<p><img src="/images/20170722/56.png"></p>
+<pre><code>                                2.    fq - （filter query）过虑查询，
+                                作用：在q查询符合结果中同时是fq查询符合的，例如：：
+                                请求fq是一个数组（多个值）</code></pre>
+<p><img src="/images/20170722/57.png"></p>
+<pre><code>                                过滤查询价格从1到20的记录。
+                                也可以在“q”查询条件中使用product_price:[1 TO 20]，如下：</code></pre>
+<p><img src="/images/20170722/58.png"></p>
+<pre><code>                                也可以使用“*”表示无限，例如：
+                                20以上：product_price:[20 TO *]
+                                20以下：product_price:[* TO 20]
+
+                                3.    sort - 排序，格式：sort=&lt;field name&gt;+&lt;desc|asc&gt;[,&lt;field name&gt;+&lt;desc|asc&gt;]… 。示例：  按价格降序</code></pre>
+<p><img src="/images/20170722/59.png"></p>
+<pre><code>                                4.    start - 分页显示使用，开始记录下标，从0开始 
+
+                                5.    rows - 指定返回结果最多有多少条记录，配合start来实现分页。
+                                    实际开发时，知道当前页码和每页显示的个数最后求出开始下标。
+
+                                6.    fl - 指定返回那些字段内容，用逗号或空格分隔多个。
+                                    显示商品图片、商品名称、商品价格</code></pre>
+<p><img src="/images/20170722/60.png"></p>
+<pre><code>                                7.    df-指定一个搜索Field
+                                    也可以在SolrCore目录 中conf/solrconfig.xml文件中指定默认搜索Field，
+                                    指定后就可以直接在“q”查询条件中输入关键字。</code></pre>
+<p><img src="/images/20170722/61.png"></p>
+<p><img src="/images/20170722/62.png"></p>
+<pre><code>                                8.    wt - (writer type)指定输出格式，可以有 xml, json, php, phps, 
+                                    后面 solr 1.3增加的，要用通知我们，因为默认没有打开。
+
+                                9.    hl 是否高亮 ,设置高亮Field，设置格式前缀和后缀。</code></pre>
+<p><img src="/images/20170722/63.png"></p>
+<pre><code>                        5.4.3.2.2    代码
+
+
+                                @Test
+                            public void search02() throws Exception {
+                                // 创建HttpSolrServer
+                                HttpSolrServer server = new HttpSolrServer("http://localhost:8080/solr");
+                                // 创建SolrQuery对象
+                                SolrQuery query = new SolrQuery();
+
+                                // 输入查询条件
+                                query.setQuery("product_name:小黄人");
+                                // query.set("q", "product_name:小黄人");
+
+                                // 设置过滤条件
+                                // 如果设置多个过滤条件的话，需要使用query.addFilterQuery(fq)
+                                query.setFilterQueries("product_price:[1 TO 10]");
+
+                                // 设置排序
+                                query.setSort("product_price", ORDER.asc);
+                                // 设置分页信息（使用默认的）
+                                query.setStart(0);
+                                query.setRows(10);
+
+                                // 设置显示的Field的域集合
+                                query.setFields("id,product_name,product_catalog,product_price,product_picture");
+
+                                // 设置默认域
+                                query.set("df", "product_keywords");
+
+                                // 设置高亮信息
+                                query.setHighlight(true);
+                                query.addHighlightField("product_name");
+                                query.setHighlightSimplePre("&lt;em&gt;");
+                                query.setHighlightSimplePost("&lt;/em&gt;");
+
+                                // 执行查询并返回结果
+                                QueryResponse response = server.query(query);
+                                // 获取匹配的所有结果
+                                SolrDocumentList list = response.getResults();
+                                // 匹配结果总数
+                                long count = list.getNumFound();
+                                System.out.println("匹配结果总数:" + count);
+
+                                // 获取高亮显示信息
+                                Map&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt; highlighting = response
+                                        .getHighlighting();
+                                for (SolrDocument doc : list) {
+                                    System.out.println(doc.get("id"));
+
+                                    List&lt;String&gt; list2 = highlighting.get(doc.get("id")).get(
+                                            "product_name");
+                                    if (list2 != null)
+                                        System.out.println("高亮显示的商品名称：" + list2.get(0));
+                                    else {
+                                        System.out.println(doc.get("product_name"));
+                                    }
+
+                                    System.out.println(doc.get("product_catalog"));
+                                    System.out.println(doc.get("product_price"));
+                                    System.out.println(doc.get("product_picture"));
+                                    System.out.println("=====================");
+                                }</code></pre>
+<p>6    京东案例</p>
+<pre><code>6.1    需求
+    使用Solr实现电商网站中商品信息搜索功能，可以根据关键字、分类、价格搜索商品信息，也可以根据价格进行排序，同时还可以分页。
+    界面如下：</code></pre>
+<p><img src="/images/20170722/64.png"></p>
+<pre><code>6.2    分析
+
+    6.2.1    UI分析</code></pre>
+<p><img src="/images/20170722/65.png"></p>
+<pre><code>    6.2.2    架构分析
+        应用服务器服务端：
+            表现层：使用springmvc接收前台搜索页面的查询条件等信息
+            业务层：调用dao层完成数据库持久化
+                    如果数据库数据发生变化，调用solrj的客户端同步索引库。
+            Dao层：使用mybatis完成数据库持久化
+
+        Solrj服务器：
+            提供搜索和索引服务
+
+        数据库服务器：
+            提供数据库服务</code></pre>
+<p><img src="/images/20170722/66.png"></p>
+<pre><code>6.3    工程搭建
+        Solrj的jar包
+        Solr的扩展包
+        Springmvc的包</code></pre>
+<p><img src="/images/20170722/67.png"></p>
+<pre><code>6.4    代码实现
+
+    6.4.1    Pojo</code></pre>
+<p><img src="/images/20170722/68.png"></p>
+<p><img src="/images/20170722/69.png"></p>
+<pre><code>    6.4.2    Service Service接口</code></pre>
+<p><img src="/images/20170722/70.png"></p>
+<pre><code>            Service实现类
+
+            @Service
+            public class ProductServiceImpl implements ProductService {
+
+                // 依赖注入HttpSolrServer
+                @Autowired
+                private HttpSolrServer server;
+
+                @Override
+                public ResultModel getProducts(String queryString, String catalogName,
+                        String price, String sort, Integer page) throws Exception {
+                    // 创建SolrQuery对象
+                    SolrQuery query = new SolrQuery();
+
+                    // 输入关键字
+                    if (StringUtils.isNotEmpty(queryString)) {
+                        query.setQuery(queryString);
+                    } else {
+                        query.setQuery("*:*");
+                    }
+
+                    // 输入商品分类过滤条件
+                    if (StringUtils.isNotEmpty(catalogName)) {
+                        query.addFilterQuery("product_catalog_name:" + catalogName);
+                    }
+
+                    // 输入价格区间过滤条件
+                    // price的值：0-9 10-19
+                    if (StringUtils.isNotEmpty(price)) {
+                        String[] ss = price.split("-");
+                        if (ss.length == 2) {
+                            query.addFilterQuery("product_price:[" + ss[0] + " TO " + ss[1]
+                                    + "]");
+                        }
+                    }
+
+                    // 设置排序
+                    if ("1".equals(sort)) {
+                        query.setSort("product_price", ORDER.desc);
+                    } else {
+                        query.setSort("product_price", ORDER.asc);
+                    }
+
+                    // 设置分页信息
+                    if (page == null)
+                        page = 1;
+
+                    query.setStart((page - 1) * 20);
+                    query.setRows(20);
+
+                    // 设置默认域
+                    query.set("df", "product_keywords");
+
+                    // 设置高亮信息
+                    query.setHighlight(true);
+                    query.addHighlightField("product_name");
+                    query.setHighlightSimplePre("&lt;font style=\"color:red\" &gt;");
+                    query.setHighlightSimplePost("&lt;/font&gt;");
+
+                    QueryResponse response = server.query(query);
+                    // 查询出的结果
+                    SolrDocumentList results = response.getResults();
+                    // 记录总数
+                    long count = results.getNumFound();
+
+                    List&lt;Products&gt; products = new ArrayList&lt;&gt;();
+                    Products prod;
+
+                    // 获取高亮信息
+                    Map&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt; highlighting = response
+                            .getHighlighting();
+                    for (SolrDocument doc : results) {
+                        prod = new Products();
+
+                        // 商品ID
+                        prod.setPid(doc.get("id").toString());
+
+                        List&lt;String&gt; list = highlighting.get(doc.get("id")).get(
+                                "product_name");
+                        // 商品名称
+                        if (list != null)
+                            prod.setName(list.get(0));
+                        else {
+                            prod.setName(doc.get("product_name").toString());
+                        }
+
+                        // 商品价格
+                        prod.setPrice(Float.parseFloat(doc.get("product_price").toString()));
+                        // 商品图片地址
+                        prod.setPicture(doc.get("product_picture").toString());
+
+                        products.add(prod);
+                    }
+
+                    // 封装ResultModel对象
+                    ResultModel rm = new ResultModel();
+                    rm.setProductList(products);
+                    rm.setCurPage(page);
+                    rm.setRecordCount(count);
+
+                    int pageCount = (int) (count / 20);
+
+                    if (count % 20 &gt; 0)
+                        pageCount++;
+                    // 设置总页数
+                    rm.setPageCount(pageCount);
+
+                    return rm;
+                }
+            }
+
+
+
+    6.4.3    Controller
+
+        6.4.3.1    代码</code></pre>
+<p><img src="/images/20170722/71.png"></p>
+<pre><code>        6.4.3.2    Jsp和静态资源
+                从资料中拷贝</code></pre>
+<p><img src="/images/20170722/72.png"></p>
+<p><img src="/images/20170722/73.png"></p>
+<pre><code>                图片信息放到以下目录</code></pre>
+<p><img src="/images/20170722/74.png"></p>
+<p><img src="/images/20170722/75.png"></p>
+<pre><code>        6.4.3.3    Web.xml</code></pre>
+<p><img src="/images/20170722/76.png"></p>
+<pre><code>        6.4.3.4    配置springmvc.xml</code></pre>
+<p><img src="/images/20170722/77.png"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2017/07/26/solr-xue-xi/">http://dtbox.com/2017/07/26/solr-xue-xi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/solr/">
+                                    <span class="chip bg-color">solr</span>
+                                </a>
+                            
+                                <a href="/tags/spring/">
+                                    <span class="chip bg-color">spring</span>
+                                </a>
+                            
+                                <a href="/tags/bean/">
+                                    <span class="chip bg-color">bean</span>
+                                </a>
+                            
+                                <a href="/tags/xml/">
+                                    <span class="chip bg-color">xml</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/07/27/mei-tian-2-ge-linux-ming-ling-df-du/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="每天2个Linux命令 df du">
+                        
+                        <span class="card-title">每天2个Linux命令 df du</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 df du
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-07-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/07/26/mei-tian-2-ge-linux-ming-ling-chown-gzip/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="每天2个Linux命令 chown gzip">
+                        
+                        <span class="card-title">每天2个Linux命令 chown gzip</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 chown gzip
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

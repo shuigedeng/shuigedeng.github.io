@@ -1,0 +1,2293 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="hadoop学习三之mapreduce加强">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>hadoop学习三之mapreduce加强 | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">hadoop学习三之mapreduce加强</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hadoop/">
+                                <span class="chip bg-color">hadoop</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">大数据学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                大数据学习
+                            </a>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hadoop/" class="post-category">
+                                hadoop
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-04-27
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="流量统计相关需求"><a href="#流量统计相关需求" class="headerlink" title="流量统计相关需求"></a>流量统计相关需求</h3><p>1、对流量日志中的用户统计总上、下行流量<br>技术点： 自定义javaBean用来在mapreduce中充当value<br>注意： javaBean要实现Writable接口，实现两个方法</p>
+<pre class="language-none"><code class="language-none">//序列化，将对象的字段信息写入输出流
+    @Override
+    public void write(DataOutput out) throws IOException {
+
+        out.writeLong(upflow);
+        out.writeLong(downflow);
+        out.writeLong(sumflow);
+
+    }
+
+    //反序列化，从输入流中读取各个字段信息
+    @Override
+    public void readFields(DataInput in) throws IOException {
+        upflow = in.readLong();
+        downflow = in.readLong();
+        sumflow = in.readLong();
+
+    }
+</code></pre>
+
+<p>2、统计流量且按照流量大小倒序排序</p>
+<p>技术点：这种需求，用一个mapreduce -job 不好实现，需要两个mapreduce -job<br>第一个job负责流量统计，跟上题相同<br>第二个job读入第一个job的输出，然后做排序<br>要将flowBean作为map的key输出，这样mapreduce就会自动排序<br>     此时，flowBean要实现接口WritableComparable<br>     要实现其中的compareTo()方法，方法中，我们可以定义倒序比较的逻辑</p>
+<p>3、统计流量且按照手机号的归属地，将结果数据输出到不同的省份文件中<br>技术点：自定义Partitioner</p>
+<pre class="language-none"><code class="language-none">    @Override
+    public int getPartition(Text key, FlowBean value, int numPartitions) {
+
+        String prefix = key.toString().substring(0,3);
+        Integer partNum = pmap.get(prefix);
+
+        return (partNum==null?4:partNum);
+    }
+
+自定义partition后，要根据自定义partitioner的逻辑设置相应数量的reduce task
+job.setNumReduceTasks(5);
+
+注意：如果reduceTask的数量&gt;= getPartition的结果数  ，则会多产生几个空的输出文件part-r-000xx
+如果     1&lt;reduceTask的数量&lt;getPartition的结果数 ，则有一部分分区数据无处安放，会Exception！！！
+如果 reduceTask的数量=1，则不管mapTask端输出多少个分区文件，最终结果都交给这一个reduceTask，最终也就只会产生一个结果文件 part-r-00000</code></pre>
+
+<h3 id="社交粉丝数据分析"><a href="#社交粉丝数据分析" class="headerlink" title="社交粉丝数据分析"></a>社交粉丝数据分析</h3><p>以下是qq的好友列表数据，冒号前是一个用，冒号后是该用户的所有好友（数据中的好友关系是单向的）<br>A:B,C,D,F,E,O<br>B:A,C,E,K<br>C:F,A,D,I<br>D:A,E,F,L<br>E:B,C,D,M,L<br>F:A,B,C,D,E,O,M<br>G:A,C,D,E,F<br>H:A,C,D,E,O<br>I:A,O<br>J:B,O<br>K:A,C,D<br>L:D,E,F<br>M:E,F,G<br>O:A,H,I,J</p>
+<p>求出哪些人两两之间有共同好友，及他俩的共同好友都有谁？<br>解题思路：</p>
+<pre class="language-none"><code class="language-none">第一步  
+map
+读一行   A:B,C,D,F,E,O
+输出    &lt;B,A&gt;&lt;C,A&gt;&lt;D,A&gt;&lt;F,A&gt;&lt;E,A&gt;&lt;O,A&gt;
+在读一行   B:A,C,E,K
+输出   &lt;A,B&gt;&lt;C,B&gt;&lt;E,B&gt;&lt;K,B&gt;
+
+
+REDUCE
+拿到的数据比如&lt;C,A&gt;&lt;C,B&gt;&lt;C,E&gt;&lt;C,F&gt;&lt;C,G&gt;......
+输出：  
+&lt;A-B,C&gt;
+&lt;A-E,C&gt;
+&lt;A-F,C&gt;
+&lt;A-G,C&gt;
+&lt;B-E,C&gt;
+&lt;B-F,C&gt;.....
+
+
+
+第二步
+map
+读入一行&lt;A-B,C&gt;
+直接输出&lt;A-B,C&gt;
+
+reduce
+读入数据  &lt;A-B,C&gt;&lt;A-B,F&gt;&lt;A-B,G&gt;.......
+输出： A-B  C,F,G,.....
+</code></pre>
+
+<h3 id="倒排索引建立"><a href="#倒排索引建立" class="headerlink" title="倒排索引建立"></a>倒排索引建立</h3><p>需求：有大量的文本（文档、网页），需要建立搜索索引</p>
+<h4 id="1-自定义inputFormat"><a href="#1-自定义inputFormat" class="headerlink" title="1.    自定义inputFormat"></a>1.    自定义inputFormat</h4><p>1.1 需求</p>
+<p>无论hdfs还是mapreduce，对于小文件都有损效率，实践中，又难免面临处理大量小文件的场景，此时，就需要有相应解决方案</p>
+<p>1.2 分析</p>
+<p>小文件的优化无非以下几种方式：<br>1、    在数据采集的时候，就将小文件或小批数据合成大文件再上传HDFS<br>2、    在业务处理之前，在HDFS上使用mapreduce程序对小文件进行合并<br>3、    在mapreduce处理时，可采用combineInputFormat提高效率</p>
+<p>1.3 实现<br>本节实现的是上述第二种方式<br>程序的核心机制：<br>自定义一个InputFormat<br>改写RecordReader，实现一次读取一个完整文件封装为KV<br>在输出时使用SequenceFileOutPutFormat输出合并文件</p>
+<p>代码如下：<br>自定义InputFromat</p>
+<pre class="language-none"><code class="language-none">public class WholeFileInputFormat extends
+        FileInputFormat&lt;NullWritable, BytesWritable&gt; {
+    //设置每个小文件不可分片,保证一个小文件生成一个key-value键值对
+    @Override
+    protected boolean isSplitable(JobContext context, Path file) {
+        return false;
+    }
+
+    @Override
+    public RecordReader&lt;NullWritable, BytesWritable&gt; createRecordReader(
+            InputSplit split, TaskAttemptContext context) throws IOException,
+            InterruptedException {
+        WholeFileRecordReader reader = new WholeFileRecordReader();
+        reader.initialize(split, context);
+        return reader;
+    }
+}
+
+
+自定义RecordReader
+class WholeFileRecordReader extends RecordReader&lt;NullWritable, BytesWritable&gt; {
+    private FileSplit fileSplit;
+    private Configuration conf;
+    private BytesWritable value = new BytesWritable();
+    private boolean processed = false;
+
+    @Override
+    public void initialize(InputSplit split, TaskAttemptContext context)
+            throws IOException, InterruptedException {
+        this.fileSplit = (FileSplit) split;
+        this.conf = context.getConfiguration();
+    }
+
+    @Override
+    public boolean nextKeyValue() throws IOException, InterruptedException {
+        if (!processed) {
+            byte[] contents = new byte[(int) fileSplit.getLength()];
+            Path file = fileSplit.getPath();
+            FileSystem fs = file.getFileSystem(conf);
+            FSDataInputStream in = null;
+            try {
+                in = fs.open(file);
+                IOUtils.readFully(in, contents, 0, contents.length);
+                value.set(contents, 0, contents.length);
+            } finally {
+                IOUtils.closeStream(in);
+            }
+            processed = true;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public NullWritable getCurrentKey() throws IOException,
+            InterruptedException {
+        return NullWritable.get();
+    }
+
+    @Override
+    public BytesWritable getCurrentValue() throws IOException,
+            InterruptedException {
+        return value;
+    }
+
+    @Override
+    public float getProgress() throws IOException {
+        return processed ? 1.0f : 0.0f;
+    }
+
+    @Override
+    public void close() throws IOException {
+        // do nothing
+    }
+}
+
+定义mapreduce处理流程
+public class SmallFilesToSequenceFileConverter extends Configured implements
+        Tool {
+    static class SequenceFileMapper extends
+            Mapper&lt;NullWritable, BytesWritable, Text, BytesWritable&gt; {
+        private Text filenameKey;
+
+        @Override
+        protected void setup(Context context) throws IOException,
+                InterruptedException {
+            InputSplit split = context.getInputSplit();
+            Path path = ((FileSplit) split).getPath();
+            filenameKey = new Text(path.toString());
+        }
+
+        @Override
+        protected void map(NullWritable key, BytesWritable value,
+                Context context) throws IOException, InterruptedException {
+            context.write(filenameKey, value);
+        }
+    }
+
+    @Override
+    public int run(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        System.setProperty("HADOOP_USER_NAME", "hdfs");
+        String[] otherArgs = new GenericOptionsParser(conf, args)
+                .getRemainingArgs();
+        if (otherArgs.length != 2) {
+            System.err.println("Usage: combinefiles &lt;in&gt; &lt;out&gt;");
+            System.exit(2);
+        }
+
+        Job job = Job.getInstance(conf,"combine small files to sequencefile");
+//        job.setInputFormatClass(WholeFileInputFormat.class);
+        job.setOutputFormatClass(SequenceFileOutputFormat.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(BytesWritable.class);
+        job.setMapperClass(SequenceFileMapper.class);
+        return job.waitForCompletion(true) ? 0 : 1;
+    }
+
+    public static void main(String[] args) throws Exception {
+        int exitCode = ToolRunner.run(new SmallFilesToSequenceFileConverter(),
+                args);
+        System.exit(exitCode);
+
+    }
+}
+</code></pre>
+
+<p>2    自定义outputFormat</p>
+<p>2.1 需求<br>现有一些原始日志需要做增强解析处理，流程：<br>1、    从原始日志文件中读取数据<br>2、    根据日志中的一个URL字段到外部知识库中获取信息增强到原始日志<br>3、    如果成功增强，则输出到增强结果目录；如果增强失败，则抽取原始数据中URL字段输出到待爬清单目录</p>
+<p>2.2 分析<br>程序的关键点是要在一个mapreduce程序中根据数据的不同输出两类结果到不同目录，这类灵活的输出需求可以通过自定义outputformat来实现</p>
+<p>2.3 实现<br>实现要点：<br>1、    在mapreduce中访问外部资源<br>2、    自定义outputformat，改写其中的recordwriter，改写具体输出数据的方法write()</p>
+<p>代码实现如下：<br>数据库获取数据的工具</p>
+<pre class="language-none"><code class="language-none">public class DBLoader {
+
+    public static void dbLoader(HashMap&lt;String, String&gt; ruleMap) {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet res = null;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://hdp-node01:3306/urlknowledge", "root", "root");
+            st = conn.createStatement();
+            res = st.executeQuery("select url,content from urlcontent");
+            while (res.next()) {
+                ruleMap.put(res.getString(1), res.getString(2));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        } finally {
+            try{
+                if(res!=null){
+                    res.close();
+                }
+                if(st!=null){
+                    st.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        DBLoader db = new DBLoader();
+        HashMap&lt;String, String&gt; map = new HashMap&lt;String,String&gt;();
+        db.dbLoader(map);
+        System.out.println(map.size());
+    }
+}
+
+
+自定义一个outputformat
+public class LogEnhancerOutputFormat extends FileOutputFormat&lt;Text, NullWritable&gt;{
+
+
+    @Override
+    public RecordWriter&lt;Text, NullWritable&gt; getRecordWriter(TaskAttemptContext context) throws IOException, InterruptedException {
+
+
+        FileSystem fs = FileSystem.get(context.getConfiguration());
+        Path enhancePath = new Path("hdfs://hdp-node01:9000/flow/enhancelog/enhanced.log");
+        Path toCrawlPath = new Path("hdfs://hdp-node01:9000/flow/tocrawl/tocrawl.log");
+
+        FSDataOutputStream enhanceOut = fs.create(enhancePath);
+        FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
+
+
+        return new MyRecordWriter(enhanceOut,toCrawlOut);
+    }
+
+
+
+    static class MyRecordWriter extends RecordWriter&lt;Text, NullWritable&gt;{
+
+        FSDataOutputStream enhanceOut = null;
+        FSDataOutputStream toCrawlOut = null;
+
+        public MyRecordWriter(FSDataOutputStream enhanceOut, FSDataOutputStream toCrawlOut) {
+            this.enhanceOut = enhanceOut;
+            this.toCrawlOut = toCrawlOut;
+        }
+
+        @Override
+        public void write(Text key, NullWritable value) throws IOException, InterruptedException {
+
+            //有了数据，你来负责写到目的地  —— hdfs
+            //判断，进来内容如果是带tocrawl的，就往待爬清单输出流中写 toCrawlOut
+            if(key.toString().contains("tocrawl")){
+                toCrawlOut.write(key.toString().getBytes());
+            }else{
+                enhanceOut.write(key.toString().getBytes());
+            }
+
+        }
+
+        @Override
+        public void close(TaskAttemptContext context) throws IOException, InterruptedException {
+
+            if(toCrawlOut!=null){
+                toCrawlOut.close();
+            }
+            if(enhanceOut!=null){
+                enhanceOut.close();
+            }
+
+        }
+
+
+    }
+}
+
+开发mapreduce处理流程
+/**
+ * 这个程序是对每个小时不断产生的用户上网记录日志进行增强(将日志中的url所指向的网页内容分析结果信息追加到每一行原始日志后面)
+ * 
+ * @author
+ * 
+ */
+public class LogEnhancer {
+
+    static class LogEnhancerMapper extends Mapper&lt;LongWritable, Text, Text, NullWritable&gt; {
+
+        HashMap&lt;String, String&gt; knowledgeMap = new HashMap&lt;String, String&gt;();
+
+        /**
+         * maptask在初始化时会先调用setup方法一次 利用这个机制，将外部的知识库加载到maptask执行的机器内存中
+         */
+        @Override
+        protected void setup(org.apache.hadoop.mapreduce.Mapper.Context context) throws IOException, InterruptedException {
+
+            DBLoader.dbLoader(knowledgeMap);
+
+        }
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            String line = value.toString();
+
+            String[] fields = StringUtils.split(line, "\t");
+
+            try {
+                String url = fields[26];
+
+                // 对这一行日志中的url去知识库中查找内容分析信息
+                String content = knowledgeMap.get(url);
+
+                // 根据内容信息匹配的结果，来构造两种输出结果
+                String result = "";
+                if (null == content) {
+                    // 输往待爬清单的内容
+                    result = url + "\t" + "tocrawl\n";
+                } else {
+                    // 输往增强日志的内容
+                    result = line + "\t" + content + "\n";
+                }
+
+                context.write(new Text(result), NullWritable.get());
+            } catch (Exception e) {
+
+            }
+        }
+
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = new Configuration();
+
+        Job job = Job.getInstance(conf);
+
+        job.setJarByClass(LogEnhancer.class);
+
+        job.setMapperClass(LogEnhancerMapper.class);
+
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(NullWritable.class);
+
+        // 要将自定义的输出格式组件设置到job中
+        job.setOutputFormatClass(LogEnhancerOutputFormat.class);
+
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+
+        // 虽然我们自定义了outputformat，但是因为我们的outputformat继承自fileoutputformat
+        // 而fileoutputformat要输出一个_SUCCESS文件，所以，在这还得指定一个输出目录
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        job.waitForCompletion(true);
+        System.exit(0);
+
+    }
+
+}
+</code></pre>
+
+<h3 id="3-自定义GroupingComparator"><a href="#3-自定义GroupingComparator" class="headerlink" title="3.    自定义GroupingComparator"></a>3.    自定义GroupingComparator</h3><p>3.1 需求</p>
+<pre class="language-none"><code class="language-none">有如下订单数据
+订单id    商品id    成交金额
+Order_0000001    Pdt_01    222.8
+Order_0000001    Pdt_05    25.8
+Order_0000002    Pdt_03    522.8
+Order_0000002    Pdt_04    122.4
+Order_0000003    Pdt_01    222.8
+
+现在需要求出每一个订单中成交金额最大的一笔交易</code></pre>
+
+<p>3.1 需求<br>有如下订单数据<br>订单id    商品id    成交金额<br>Order_0000001    Pdt_01    222.8<br>Order_0000001    Pdt_05    25.8<br>Order_0000002    Pdt_03    522.8<br>Order_0000002    Pdt_04    122.4<br>Order_0000003    Pdt_01    222.8</p>
+<p>现在需要求出每一个订单中成交金额最大的一笔交易</p>
+<p>3.2 分析</p>
+<p>1、利用“订单id和成交金额”作为key，可以将map阶段读取到的所有订单数据按照id分区，按照金额排序，发送到reduce<br>2、在reduce端利用groupingcomparator将订单id相同的kv聚合成组，然后取第一个即是最大值</p>
+<p>3.3 实现<br>自定义groupingcomparator</p>
+<pre class="language-none"><code class="language-none">/**
+ * 用于控制shuffle过程中reduce端对kv对的聚合逻辑
+ * @author duanhaitao@itcast.cn
+ *
+ */
+public class ItemidGroupingComparator extends WritableComparator {
+
+    protected ItemidGroupingComparator() {
+
+        super(OrderBean.class, true);
+    }
+
+
+    @Override
+    public int compare(WritableComparable a, WritableComparable b) {
+        OrderBean abean = (OrderBean) a;
+        OrderBean bbean = (OrderBean) b;
+
+        //将item_id相同的bean都视为相同，从而聚合为一组
+        return abean.getItemid().compareTo(bbean.getItemid());
+    }
+}
+
+
+定义订单信息bean
+/**
+ * 订单信息bean，实现hadoop的序列化机制
+ * @author duanhaitao@itcast.cn
+ *
+ */
+public class OrderBean implements WritableComparable&lt;OrderBean&gt;{
+    private Text itemid;
+    private DoubleWritable amount;
+
+    public OrderBean() {
+    }
+    public OrderBean(Text itemid, DoubleWritable amount) {
+        set(itemid, amount);
+    }
+
+    public void set(Text itemid, DoubleWritable amount) {
+
+        this.itemid = itemid;
+        this.amount = amount;
+
+    }
+
+    public Text getItemid() {
+        return itemid;
+    }
+
+    public DoubleWritable getAmount() {
+        return amount;
+    }
+
+    @Override
+    public int compareTo(OrderBean o) {
+        int cmp = this.itemid.compareTo(o.getItemid());
+        if (cmp == 0) {
+
+            cmp = -this.amount.compareTo(o.getAmount());
+        }
+        return cmp;
+    }
+
+    @Override
+    public void write(DataOutput out) throws IOException {
+        out.writeUTF(itemid.toString());
+        out.writeDouble(amount.get());
+
+    }
+
+    @Override
+    public void readFields(DataInput in) throws IOException {
+        String readUTF = in.readUTF();
+        double readDouble = in.readDouble();
+
+        this.itemid = new Text(readUTF);
+        this.amount= new DoubleWritable(readDouble);
+    }
+
+
+    @Override
+    public String toString() {
+        return itemid.toString() + "\t" + amount.get();
+    }
+}
+
+编写mapreduce处理流程
+/**
+ * 利用secondarysort机制输出每种item订单金额最大的记录
+ * @author duanhaitao@itcast.cn
+ *
+ */
+public class SecondarySort {
+
+    static class SecondarySortMapper extends Mapper&lt;LongWritable, Text, OrderBean, NullWritable&gt;{
+
+        OrderBean bean = new OrderBean();
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            String line = value.toString();
+            String[] fields = StringUtils.split(line, "\t");
+
+            bean.set(new Text(fields[0]), new DoubleWritable(Double.parseDouble(fields[1])));
+
+            context.write(bean, NullWritable.get());
+
+        }
+
+    }
+
+    static class SecondarySortReducer extends Reducer&lt;OrderBean, NullWritable, OrderBean, NullWritable&gt;{
+
+
+        //在设置了groupingcomparator以后，这里收到的kv数据 就是：  &lt;1001 87.6&gt;,null  &lt;1001 76.5&gt;,null  .... 
+        //此时，reduce方法中的参数key就是上述kv组中的第一个kv的key：&lt;1001 87.6&gt;
+        //要输出同一个item的所有订单中最大金额的那一个，就只要输出这个key
+        @Override
+        protected void reduce(OrderBean key, Iterable&lt;NullWritable&gt; values, Context context) throws IOException, InterruptedException {
+            context.write(key, NullWritable.get());
+        }
+    }
+
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf);
+
+        job.setJarByClass(SecondarySort.class);
+
+        job.setMapperClass(SecondarySortMapper.class);
+        job.setReducerClass(SecondarySortReducer.class);
+
+
+        job.setOutputKeyClass(OrderBean.class);
+        job.setOutputValueClass(NullWritable.class);
+
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        //指定shuffle所使用的GroupingComparator类
+        job.setGroupingComparatorClass(ItemidGroupingComparator.class);
+        //指定shuffle所使用的partitioner类
+        job.setPartitionerClass(ItemIdPartitioner.class);
+
+        job.setNumReduceTasks(3);
+
+        job.waitForCompletion(true);
+
+    }
+
+}
+</code></pre>
+
+<h3 id="4-Mapreduce中的DistributedCache应用"><a href="#4-Mapreduce中的DistributedCache应用" class="headerlink" title="4.    Mapreduce中的DistributedCache应用"></a>4.    Mapreduce中的DistributedCache应用</h3><p>4.1 需求</p>
+<p>实现两个“表”的join操作，其中一个表数据量小，一个表很大，这种场景在实际中非常常见，比如“订单日志” join “产品信息”</p>
+<p>4.1.2 分析</p>
+<p>–原理阐述<br>适用于关联表中有小表的情形；<br>可以将小表分发到所有的map节点，这样，map节点就可以在本地对自己所读到的大表数据进行join并输出最终结果<br>可以大大提高join操作的并发度，加快处理速度</p>
+<p>–示例：先在mapper类中预先定义好小表，进行join<br>–并用distributedcache机制将小表的数据分发到每一个maptask执行节点，从而每一个maptask节点可以从本地加载到小表的数据，进而在本地即可实现join</p>
+<p>4.1.3 实现</p>
+<pre class="language-none"><code class="language-none">public class TestDistributedCache {
+    static class TestDistributedCacheMapper extends Mapper&lt;LongWritable, Text, Text, Text&gt;{
+        FileReader in = null;
+        BufferedReader reader = null;
+        HashMap&lt;String,String&gt; b_tab = new HashMap&lt;String, String&gt;();
+        String localpath =null;
+        String uirpath = null;
+
+        //是在map任务初始化的时候调用一次
+        @Override
+        protected void setup(Context context) throws IOException, InterruptedException {
+            //通过这几句代码可以获取到cache file的本地绝对路径，测试验证用
+            Path[] files = context.getLocalCacheFiles();
+            localpath = files[0].toString();
+            URI[] cacheFiles = context.getCacheFiles();
+
+
+            //缓存文件的用法——直接用本地IO来读取
+            //这里读的数据是map task所在机器本地工作目录中的一个小文件
+            in = new FileReader("b.txt");
+            reader =new BufferedReader(in);
+            String line =null;
+            while(null!=(line=reader.readLine())){
+
+                String[] fields = line.split(",");
+                b_tab.put(fields[0],fields[1]);
+
+            }
+            IOUtils.closeStream(reader);
+            IOUtils.closeStream(in);
+
+        }
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            //这里读的是这个map task所负责的那一个切片数据（在hdfs上）
+             String[] fields = value.toString().split("\t");
+
+             String a_itemid = fields[0];
+             String a_amount = fields[1];
+
+             String b_name = b_tab.get(a_itemid);
+
+             // 输出结果  1001    98.9    banan
+             context.write(new Text(a_itemid), new Text(a_amount + "\t" + ":" + localpath + "\t" +b_name ));
+
+        }
+    }
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf);
+
+        job.setJarByClass(TestDistributedCache.class);
+
+        job.setMapperClass(TestDistributedCacheMapper.class);
+
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(LongWritable.class);
+
+        //这里是我们正常的需要处理的数据所在路径
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        //不需要reducer
+        job.setNumReduceTasks(0);
+        //分发一个文件到task进程的工作目录
+        job.addCacheFile(new URI("hdfs://hadoop-server01:9000/cachefile/b.txt"));
+
+        //分发一个归档文件到task进程的工作目录
+//        job.addArchiveToClassPath(archive);
+
+        //分发jar包到task节点的classpath下
+//        job.addFileToClassPath(jarfile);
+
+        job.waitForCompletion(true);
+    }
+}
+</code></pre>
+
+<h3 id="5-Mapreduce的其他补充"><a href="#5-Mapreduce的其他补充" class="headerlink" title="5.    Mapreduce的其他补充"></a>5.    Mapreduce的其他补充</h3><p>5.1 计数器应用<br>在实际生产代码中，常常需要将数据处理过程中遇到的不合规数据行进行全局计数，类似这种需求可以借助mapreduce框架中提供的全局计数器来实现<br>示例代码如下：</p>
+<pre class="language-none"><code class="language-none">public class MultiOutputs {
+    //通过枚举形式定义自定义计数器
+    enum MyCounter{MALFORORMED,NORMAL}
+
+    static class CommaMapper extends Mapper&lt;LongWritable, Text, Text, LongWritable&gt; {
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            String[] words = value.toString().split(",");
+
+            for (String word : words) {
+                context.write(new Text(word), new LongWritable(1));
+            }
+            //对枚举定义的自定义计数器加1
+            context.getCounter(MyCounter.MALFORORMED).increment(1);
+            //通过动态设置自定义计数器加1
+            context.getCounter("counterGroupa", "countera").increment(1);
+        }
+
+    }
+</code></pre>
+
+<p>5.2 多job串联<br>一个稍复杂点的处理逻辑往往需要多个mapreduce程序串联处理，多job的串联可以借助mapreduce框架的JobControl实现</p>
+<p>示例代码：</p>
+<pre class="language-none"><code class="language-none">ControlledJob cJob1 = new ControlledJob(job1.getConfiguration());
+        ControlledJob cJob2 = new ControlledJob(job2.getConfiguration());
+        ControlledJob cJob3 = new ControlledJob(job3.getConfiguration());
+
+        // 设置作业依赖关系
+        cJob2.addDependingJob(cJob1);
+        cJob3.addDependingJob(cJob2);
+
+        JobControl jobControl = new JobControl("RecommendationJob");
+        jobControl.addJob(cJob1);
+        jobControl.addJob(cJob2);
+        jobControl.addJob(cJob3);
+
+        cJob1.setJob(job1);
+        cJob2.setJob(job2);
+        cJob3.setJob(job3);
+
+        // 新建一个线程来运行已加入JobControl中的作业，开始进程并等待结束
+        Thread jobControlThread = new Thread(jobControl);
+        jobControlThread.start();
+        while (!jobControl.allFinished()) {
+            Thread.sleep(500);
+        }
+        jobControl.stop();
+
+        return 0;
+</code></pre>
+
+<h3 id="6-mapreduce参数优化"><a href="#6-mapreduce参数优化" class="headerlink" title="6.    mapreduce参数优化"></a>6.    mapreduce参数优化</h3><pre class="language-none"><code class="language-none">资源相关参数
+
+(1) mapreduce.map.memory.mb: 一个Map Task可使用的资源上限（单位:MB），默认为1024。如果Map Task实际使用的资源量超过该值，则会被强制杀死。
+
+(2) mapreduce.reduce.memory.mb: 一个Reduce Task可使用的资源上限（单位:MB），默认为1024。如果Reduce Task实际使用的资源量超过该值，则会被强制杀死。
+
+(3) mapreduce.map.java.opts: Map Task的JVM参数，你可以在此配置默认的java heap size等参数, e.g.
+“-Xmx1024m -verbose:gc -Xloggc:/tmp/@taskid@.gc” （@taskid@会被Hadoop框架自动换为相应的taskid）, 默认值: “”
+
+(4) mapreduce.reduce.java.opts: Reduce Task的JVM参数，你可以在此配置默认的java heap size等参数, e.g.
+“-Xmx1024m -verbose:gc -Xloggc:/tmp/@taskid@.gc”, 默认值: “”
+
+(5) mapreduce.map.cpu.vcores: 每个Map task可使用的最多cpu core数目, 默认值: 1
+
+(6) mapreduce.map.cpu.vcores: 每个Reduce task可使用的最多cpu core数目, 默认值: 1
+</code></pre>
+
+<pre class="language-none"><code class="language-none">容错相关参数
+
+(1) mapreduce.map.maxattempts: 每个Map Task最大重试次数，一旦重试参数超过该值，则认为Map Task运行失败，默认值：4。
+
+(2) mapreduce.reduce.maxattempts: 每个Reduce Task最大重试次数，一旦重试参数超过该值，则认为Map Task运行失败，默认值：4。
+
+(3) mapreduce.map.failures.maxpercent: 当失败的Map Task失败比例超过该值为，整个作业则失败，默认值为0. 如果你的应用程序允许丢弃部分输入数据，则该该值设为一个大于0的值，比如5，表示如果有低于5%的Map Task失败（如果一个Map Task重试次数超过mapreduce.map.maxattempts，则认为这个Map Task失败，其对应的输入数据将不会产生任何结果），整个作业扔认为成功。
+
+(4) mapreduce.reduce.failures.maxpercent: 当失败的Reduce Task失败比例超过该值为，整个作业则失败，默认值为0.
+
+(5) mapreduce.task.timeout: Task超时时间，经常需要设置的一个参数，该参数表达的意思为：如果一个task在一定时间内没有任何进入，即不会读取新的数据，也没有输出数据，则认为该task处于block状态，可能是卡住了，也许永远会卡主，为了防止因为用户程序永远block住不退出，则强制设置了一个该超时时间（单位毫秒），默认是300000。如果你的程序对每条输入数据的处理时间过长（比如会访问数据库，通过网络拉取数据等），建议将该参数调大，该参数过小常出现的错误提示是“AttemptID:attempt_14267829456721_123456_m_000224_0 Timed out after 300 secsContainer killed by the ApplicationMaster.”。
+</code></pre>
+
+<pre class="language-none"><code class="language-none">本地运行mapreduce 作业
+设置以下几个参数:
+mapreduce.framework.name=local
+mapreduce.jobtracker.addre
+</code></pre>
+
+<pre class="language-none"><code class="language-none">效率和稳定性相关参数
+
+(1) mapreduce.map.speculative: 是否为Map Task打开推测执行机制，默认为false
+
+(2) mapreduce.reduce.speculative: 是否为Reduce Task打开推测执行机制，默认为false
+
+(3) mapreduce.job.user.classpath.first &amp; mapreduce.task.classpath.user.precedence：当同一个class同时出现在用户jar包和hadoop jar中时，优先使用哪个jar包中的class，默认为false，表示优先使用hadoop jar中的class。
+
+(4) mapreduce.input.fileinputformat.split.minsize: 每个Map Task处理的数据量（仅针对基于文件的Inputformat有效，比如TextInputFormat，SequenceFileInputFormat），默认为一个block大小，即 134217728。
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2018/04/27/hadoop-xue-xi-san-zhi-mapreduce-jia-qiang/">http://dtbox.com/2018/04/27/hadoop-xue-xi-san-zhi-mapreduce-jia-qiang/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/hadoop/">
+                                    <span class="chip bg-color">hadoop</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">大数据学习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/08/21/hadoop-ha-gao-ke-yong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="hadoop HA高可用">
+                        
+                        <span class="card-title">hadoop HA高可用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            hadoop HA高可用
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    大数据学习
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hadoop/" class="post-category">
+                                    hadoop
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">大数据学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/04/27/hadoop-xue-xi-san-zhi-mapreduce/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hadoop学习三之mapreduce">
+                        
+                        <span class="card-title">hadoop学习三之mapreduce</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            hadoop学习三之mapreduce
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    大数据学习
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hadoop/" class="post-category">
+                                    hadoop
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">大数据学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

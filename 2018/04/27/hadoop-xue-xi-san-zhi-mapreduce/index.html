@@ -1,0 +1,2187 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="hadoop学习三之mapreduce">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>hadoop学习三之mapreduce | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">hadoop学习三之mapreduce</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hadoop/">
+                                <span class="chip bg-color">hadoop</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">大数据学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                大数据学习
+                            </a>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hadoop/" class="post-category">
+                                hadoop
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-04-27
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    28 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="1-MAPREDUCE原理篇（1）"><a href="#1-MAPREDUCE原理篇（1）" class="headerlink" title="1. MAPREDUCE原理篇（1）"></a>1. MAPREDUCE原理篇（1）</h3><p>Mapreduce是一个分布式运算程序的编程框架，是用户开发“基于hadoop的数据分析应用”的核心框架；<br>Mapreduce核心功能是将用户编写的业务逻辑代码和自带默认组件整合成一个完整的分布式运算程序，并发运行在一个hadoop集群上；</p>
+<h4 id="1-1-为什么要MAPREDUCE"><a href="#1-1-为什么要MAPREDUCE" class="headerlink" title="1.1 为什么要MAPREDUCE"></a>1.1 为什么要MAPREDUCE</h4><p>（1）海量数据在单机上处理因为硬件资源限制，无法胜任<br>（2）而一旦将单机版程序扩展到集群来分布式运行，将极大增加程序的复杂度和开发难度<br>（3）引入mapreduce框架后，开发人员可以将绝大部分工作集中在业务逻辑的开发上，而将分布式计算中的复杂性交由框架来处理</p>
+<p>设想一个海量数据场景下的wordcount需求：<br>单机版：内存受限，磁盘受限，运算能力受限<br>分布式：<br>1、文件分布式存储（HDFS）<br>2、运算逻辑需要至少分成2个阶段（一个阶段独立并发，一个阶段汇聚）<br>3、运算程序如何分发<br>4、程序如何分配运算任务（切片）<br>5、两阶段的程序如何启动？如何协调？<br>6、整个程序运行过程中的监控？容错？重试？</p>
+<p>可见在程序由单机版扩成分布式时，会引入大量的复杂工作。为了提高开发效率，可以将分布式程序中的公共功能封装成框架，让开发人员可以将精力集中于业务逻辑。</p>
+<p>而mapreduce就是这样一个分布式程序的通用框架，其应对以上问题的整体结构如下：<br>1、MRAppMaster(mapreduce application master)<br>2、MapTask<br>3、ReduceTask</p>
+<h4 id="1-2-MAPREDUCE框架结构及核心运行机制"><a href="#1-2-MAPREDUCE框架结构及核心运行机制" class="headerlink" title="1.2 MAPREDUCE框架结构及核心运行机制"></a>1.2 MAPREDUCE框架结构及核心运行机制</h4><pre class="language-none"><code class="language-none">1.2.1 结构
+
+一个完整的mapreduce程序在分布式运行时有三类实例进程：
+1、MRAppMaster：负责整个程序的过程调度及状态协调
+
+2、mapTask：负责map阶段的整个数据处理流程
+
+3、ReduceTask：负责reduce阶段的整个数据处理流程
+</code></pre>
+
+<pre class="language-none"><code class="language-none">流程解析
+
+1、    一个mr程序启动的时候，最先启动的是MRAppMaster，MRAppMaster启动后根据本次job的描述信息，计算出需要的maptask实例数量，然后向集群申请机器启动相应数量的maptask进程
+
+2、    maptask进程启动之后，根据给定的数据切片范围进行数据处理，主体流程为：
+a)    利用客户指定的inputformat来获取RecordReader读取数据，形成输入KV对
+b)    将输入KV对传递给客户定义的map()方法，做逻辑运算，并将map()方法输出的KV对收集到缓存
+c)    将缓存中的KV对按照K分区排序后不断溢写到磁盘文件
+
+3、    MRAppMaster监控到所有maptask进程任务完成之后，会根据客户指定的参数启动相应数量的reducetask进程，并告知reducetask进程要处理的数据范围（数据分区）
+
+4、    Reducetask进程启动之后，根据MRAppMaster告知的待处理数据所在位置，从若干台maptask运行所在机器上获取到若干个maptask输出结果文件，并在本地进行重新归并排序，然后按照相同key的KV为一个组，调用客户定义的reduce()方法进行逻辑运算，并收集运算输出的结果KV，然后调用客户指定的outputformat将结果数据输出到外部存储
+</code></pre>
+
+<h4 id="1-3-MapTask并行度决定机制"><a href="#1-3-MapTask并行度决定机制" class="headerlink" title="1.3 MapTask并行度决定机制"></a>1.3 MapTask并行度决定机制</h4><p>maptask的并行度决定map阶段的任务处理并发度，进而影响到整个job的处理速度<br>那么，mapTask并行实例是否越多越好呢？其并行度又是如何决定呢？</p>
+<pre class="language-none"><code class="language-none">1.3.1 mapTask并行度的决定机制
+一个job的map阶段并行度由客户端在提交job时决定
+而客户端对map阶段并行度的规划的基本逻辑为：
+将待处理数据执行逻辑切片（即按照一个特定切片大小，将待处理数据划分成逻辑上的多个split），然后每一个split分配一个mapTask并行实例处理
+
+这段逻辑及形成的切片规划描述文件，由FileInputFormat实现类的getSplits()方法完成</code></pre>
+
+<pre class="language-none"><code class="language-none">1.3.2 FileInputFormat切片机制
+
+、切片定义在InputFormat类中的getSplit()方法
+2、FileInputFormat中默认的切片机制：
+a)    简单地按照文件的内容长度进行切片
+b)    切片大小，默认等于block大小
+c)    切片时不考虑数据集整体，而是逐个针对每一个文件单独切片
+比如待处理数据有两个文件：
+file1.txt    320M
+file2.txt    10M
+
+经过FileInputFormat的切片机制运算后，形成的切片信息如下：  
+file1.txt.split1--  0~128
+file1.txt.split2--  128~256
+file1.txt.split3--  256~320
+file2.txt.split1--  0~10M
+
+3、FileInputFormat中切片的大小的参数配置
+通过分析源码，在FileInputFormat中，计算切片大小的逻辑：Math.max(minSize, Math.min(maxSize, blockSize));  切片主要由这几个值来运算决定
+minsize：默认值：1  
+      配置参数： mapreduce.input.fileinputformat.split.minsize    
+maxsize：默认值：Long.MAXValue  
+    配置参数：mapreduce.input.fileinputformat.split.maxsize
+blocksize
+因此，默认情况下，切片大小=blocksize
+maxsize（切片最大值）：
+参数如果调得比blocksize小，则会让切片变小，而且就等于配置的这个参数的值
+minsize （切片最小值）：
+参数调的比blockSize大，则可以让切片变得比blocksize还大
+
+
+选择并发数的影响因素：
+1、运算节点的硬件配置
+2、运算任务的类型：CPU密集型还是IO密集型
+3、运算任务的数据量
+</code></pre>
+
+<pre class="language-none"><code class="language-none">1.4 map并行度的经验之谈
+如果硬件配置为2*12core + 64G，恰当的map并行度是大约每个节点20-100个map，最好每个map的执行时间至少一分钟。
+
+    如果job的每个map或者 reduce task的运行时间都只有30-40秒钟，那么就减少该job的map或者reduce数，每一个task(map|reduce)的setup和加入到调度器中进行调度，这个中间的过程可能都要花费几秒钟，所以如果每个task都非常快就跑完了，就会在task的开始和结束的时候浪费太多的时间。
+配置task的JVM重用 可以改善该问题：
+（mapred.job.reuse.jvm.num.tasks，默认是1，表示一个JVM上最多可以顺序执行的task
+数目（属于同一个Job）是1。也就是说一个task启一个JVM）
+
+    如果input的文件非常的大，比如1TB，可以考虑将hdfs上的每个block size设大，比如设成256MB或者512MB
+</code></pre>
+
+<pre class="language-none"><code class="language-none">1.5 ReduceTask并行度的决定
+reducetask的并行度同样影响整个job的执行并发度和执行效率，但与maptask的并发数由切片数决定不同，Reducetask数量的决定是可以直接手动设置：
+
+//默认值是1，手动设置为4
+job.setNumReduceTasks(4);
+
+如果数据分布不均匀，就有可能在reduce阶段产生数据倾斜
+注意： reducetask数量并不是任意设置，还要考虑业务逻辑需求，有些情况下，需要计算全局汇总结果，就只能有1个reducetask
+
+尽量不要运行太多的reduce task。对大多数job来说，最好rduce的个数最多和集群中的reduce持平，或者比集群的 reduce slots小。这个对于小集群而言，尤其重要。
+</code></pre>
+
+<pre class="language-none"><code class="language-none">1.6 MAPREDUCE程序运行演示
+
+Hadoop的发布包中内置了一个hadoop-mapreduce-example-2.4.1.jar，这个jar包中有各种MR示例程序，可以通过以下步骤运行：
+启动hdfs，yarn
+然后在集群中的任意一台服务器上启动执行程序（比如运行wordcount）：
+hadoop jar hadoop-mapreduce-example-2.4.1.jar wordcount  /wordcount/data /wordcount/out
+</code></pre>
+
+<h3 id="2-MAPREDUCE实践篇（1）"><a href="#2-MAPREDUCE实践篇（1）" class="headerlink" title="2. MAPREDUCE实践篇（1）"></a>2. MAPREDUCE实践篇（1）</h3><h4 id="2-1-1-编程规范"><a href="#2-1-1-编程规范" class="headerlink" title="2.1.1 编程规范"></a>2.1.1 编程规范</h4><p>（1）用户编写的程序分成三个部分：Mapper，Reducer，Driver(提交运行mr程序的客户端)<br>（2）Mapper的输入数据是KV对的形式（KV的类型可自定义）<br>（3）Mapper的输出数据是KV对的形式（KV的类型可自定义）<br>（4）Mapper中的业务逻辑写在map()方法中<br>（5）map()方法（maptask进程）对每一个&lt;K,V&gt;调用一次<br>（6）Reducer的输入数据类型对应Mapper的输出数据类型，也是KV<br>（7）Reducer的业务逻辑写在reduce()方法中<br>（8）Reducetask进程对每一组相同k的&lt;k,v&gt;组调用一次reduce()方法<br>（9）用户自定义的Mapper和Reducer都要继承各自的父类<br>（10）整个程序需要一个Drvier来进行提交，提交的是一个描述了各种必要信息的job对象</p>
+<h4 id="2-1-2-wordcount示例编写"><a href="#2-1-2-wordcount示例编写" class="headerlink" title="2.1.2 wordcount示例编写"></a>2.1.2 wordcount示例编写</h4><p>需求：在一堆给定的文本文件中统计输出每一个单词出现的总次数<br>(1)定义一个mapper类</p>
+<pre class="language-none"><code class="language-none">//首先要定义四个泛型的类型
+//keyin:  LongWritable    valuein: Text
+//keyout: Text            valueout:IntWritable
+
+public class WordCountMapper extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt;{
+    //map方法的生命周期：  框架每传一行数据就被调用一次
+    //key :  这一行的起始点在文件中的偏移量
+    //value: 这一行的内容
+    @Override
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        //拿到一行数据转换为string
+        String line = value.toString();
+        //将这一行切分出各个单词
+        String[] words = line.split(" ");
+        //遍历数组，输出&lt;单词，1&gt;
+        for(String word:words){
+            context.write(new Text(word), new IntWritable(1));
+        }
+    }
+}</code></pre>
+
+<p>(2)定义一个reducer类</p>
+<pre class="language-none"><code class="language-none">    //生命周期：框架每传递进来一个kv 组，reduce方法被调用一次
+    @Override
+    protected void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context) throws IOException, InterruptedException {
+        //定义一个计数器
+        int count = 0;
+        //遍历这一组kv的所有v，累加到count中
+        for(IntWritable value:values){
+            count += value.get();
+        }
+        context.write(key, new IntWritable(count));
+    }
+}</code></pre>
+<p>(3)定义一个主类，用来描述job并提交job</p>
+<pre class="language-none"><code class="language-none">public class WordCountRunner {
+    //把业务逻辑相关的信息（哪个是mapper，哪个是reducer，要处理的数据在哪里，输出的结果放哪里……）描述成一个job对象
+    //把这个描述好的job提交给集群去运行
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        Job wcjob = Job.getInstance(conf);
+        //指定我这个job所在的jar包
+//        wcjob.setJar("/home/hadoop/wordcount.jar");
+        wcjob.setJarByClass(WordCountRunner.class);
+
+        wcjob.setMapperClass(WordCountMapper.class);
+        wcjob.setReducerClass(WordCountReducer.class);
+        //设置我们的业务逻辑Mapper类的输出key和value的数据类型
+        wcjob.setMapOutputKeyClass(Text.class);
+        wcjob.setMapOutputValueClass(IntWritable.class);
+        //设置我们的业务逻辑Reducer类的输出key和value的数据类型
+        wcjob.setOutputKeyClass(Text.class);
+        wcjob.setOutputValueClass(IntWritable.class);
+
+        //指定要处理的数据所在的位置
+        FileInputFormat.setInputPaths(wcjob, "hdfs://hdp-server01:9000/wordcount/data/big.txt");
+        //指定处理完成之后的结果所保存的位置
+        FileOutputFormat.setOutputPath(wcjob, new Path("hdfs://hdp-server01:9000/wordcount/output/"));
+
+        //向yarn集群提交这个job
+        boolean res = wcjob.waitForCompletion(true);
+        System.exit(res?0:1);
+    }
+</code></pre>
+
+<p>####2.2MAPREDUCE程序运行模式</p>
+<ul>
+<li>本地运行模式</li>
+</ul>
+<p>（1）mapreduce程序是被提交给LocalJobRunner在本地以单进程的形式运行<br>（2）而处理的数据及输出结果可以在本地文件系统，也可以在hdfs上<br>（3）怎样实现本地运行？写一个程序，不要带集群的配置文件（本质是你的mr程序的conf中是否有mapreduce.framework.name=local以及yarn.resourcemanager.hostname参数）<br>（4）本地模式非常便于进行业务逻辑的debug，只要在eclipse中打断点即可</p>
+<p>如果在windows下想运行本地模式来测试程序逻辑，需要在windows中配置环境变量：<br>％HADOOP_HOME％  =  d:/hadoop-2.6.1<br>%PATH% =  ％HADOOP_HOME％\bin<br>并且要将d:/hadoop-2.6.1的lib和bin目录替换成windows平台编译的版本</p>
+<ul>
+<li>集群运行模式<br>（1）将mapreduce程序提交给yarn集群resourcemanager，分发到很多的节点上并发执行<br>（2）处理的数据和输出结果应该位于hdfs文件系统<br>（3）提交集群的实现步骤：<br>A、将程序打成JAR包，然后在集群的任意一个节点上用hadoop命令启动<br>   $ hadoop jar wordcount.jar cn.itcast.bigdata.mrsimple.WordCountDriver inputpath outputpath<br>B、直接在linux的eclipse中运行main方法<br>（项目中要带参数：mapreduce.framework.name=yarn以及yarn的两个基本配置）<br>C、如果要在windows的eclipse中提交job给集群，则要修改YarnRunner类</li>
+</ul>
+<h4 id="2-3-MAPREDUCE中的Combiner"><a href="#2-3-MAPREDUCE中的Combiner" class="headerlink" title="2.3 MAPREDUCE中的Combiner"></a>2.3 MAPREDUCE中的Combiner</h4><p>（1）combiner是MR程序中Mapper和Reducer之外的一种组件<br>（2）combiner组件的父类就是Reducer<br>（3）combiner和reducer的区别在于运行的位置：<br>Combiner是在每一个maptask所在的节点运行<br>Reducer是接收全局所有Mapper的输出结果；<br>(4) combiner的意义就是对每一个maptask的输出进行局部汇总，以减小网络传输量<br>具体实现步骤：<br>1、    自定义一个combiner继承Reducer，重写reduce方法<br>2、    在job中设置：  job.setCombinerClass(CustomCombiner.class)<br>(5) combiner能够应用的前提是不能影响最终的业务逻辑<br>而且，combiner的输出kv应该跟reducer的输入kv类型要对应起来</p>
+<h3 id="3-MAPREDUCE原理篇（2）"><a href="#3-MAPREDUCE原理篇（2）" class="headerlink" title="3. MAPREDUCE原理篇（2）"></a>3. MAPREDUCE原理篇（2）</h3><h4 id="3-1-mapreduce的shuffle机制"><a href="#3-1-mapreduce的shuffle机制" class="headerlink" title="3.1 mapreduce的shuffle机制"></a>3.1 mapreduce的shuffle机制</h4><p>3.1.1 概述：</p>
+<pre class="language-none"><code class="language-none">mapreduce中，map阶段处理的数据如何传递给reduce阶段，是mapreduce框架中最关键的一个流程，这个流程就叫shuffle；
+shuffle: 洗牌、发牌——（核心机制：数据分区，排序，缓存）；
+具体来说：就是将maptask输出的处理结果数据，分发给reducetask，并在分发的过程中，对数据按key进行了分区和排序；</code></pre>
+<p>3.1.2 主要流程： Shuffle缓存流程：</p>
+<p>shuffle是MR处理流程中的一个过程，它的每一个处理步骤是分散在各个map task和reduce task节点上完成的，整体来看，分为3个操作：<br>1、分区partition<br>2、Sort根据key排序<br>3、Combiner进行局部value的合并</p>
+<p>3.1.3 详细流程<br>1、    maptask收集我们的map()方法输出的kv对，放到内存缓冲区中<br>2、    从内存缓冲区不断溢出本地磁盘文件，可能会溢出多个文件<br>3、    多个溢出文件会被合并成大的溢出文件<br>4、    在溢出过程中，及合并的过程中，都要调用partitoner进行分组和针对key进行排序<br>5、    reducetask根据自己的分区号，去各个maptask机器上取相应的结果分区数据<br>6、    reducetask会取到同一个分区的来自不同maptask的结果文件，reducetask会将这些文件再进行合并（归并排序）<br>7、    合并成大文件后，shuffle的过程也就结束了，后面进入reducetask的逻辑运算过程（从文件中取出一个一个的键值对group，调用用户自定义的reduce()方法）</p>
+<p>Shuffle中的缓冲区大小会影响到mapreduce程序的执行效率，原则上说，缓冲区越大，磁盘io的次数越少，执行速度就越快<br>缓冲区的大小可以通过参数调整,  参数：io.sort.mb  默认100M</p>
+<h4 id="3-2-MAPREDUCE中的序列化"><a href="#3-2-MAPREDUCE中的序列化" class="headerlink" title="3.2. MAPREDUCE中的序列化"></a>3.2. MAPREDUCE中的序列化</h4><p>3.2.1 概述</p>
+<p>Java的序列化是一个重量级序列化框架（Serializable），一个对象被序列化后，会附带很多额外的信息（各种校验信息，header，继承体系。。。。），不便于在网络中高效传输；<br>所以，hadoop自己开发了一套序列化机制（Writable），精简，高效</p>
+<p>3.2.2 自定义对象实现MR中的序列化接口<br>如果需要将自定义的bean放在key中传输，则还需要实现comparable接口，因为mapreduce框中的shuffle过程一定会对key进行排序,此时，自定义的bean实现的接口应该是：<br>public  class  FlowBean  implements  WritableComparable<flowbean><br>需要自己实现的方法是：</flowbean></p>
+<pre class="language-none"><code class="language-none">/**
+     * 反序列化的方法，反序列化时，从流中读取到的各个字段的顺序应该与序列化时写出去的顺序保持一致
+     */
+    @Override
+    public void readFields(DataInput in) throws IOException {
+
+        upflow = in.readLong();
+        dflow = in.readLong();
+        sumflow = in.readLong();
+
+
+    }
+
+    /**
+     * 序列化的方法
+     */
+    @Override
+    public void write(DataOutput out) throws IOException {
+
+        out.writeLong(upflow);
+        out.writeLong(dflow);
+        //可以考虑不序列化总流量，因为总流量是可以通过上行流量和下行流量计算出来的
+        out.writeLong(sumflow);
+
+    }
+
+    @Override
+    public int compareTo(FlowBean o) {
+
+        //实现按照sumflow的大小倒序排序
+        return sumflow&gt;o.getSumflow()?-1:1;
+    }
+</code></pre>
+
+<h3 id="3-3-MapReduce与YARN"><a href="#3-3-MapReduce与YARN" class="headerlink" title="3.3. MapReduce与YARN"></a>3.3. MapReduce与YARN</h3><p>3.3.1 YARN概述</p>
+<pre><code>Yarn是一个资源调度平台，负责为运算程序提供服务器运算资源，相当于一个分布式的操作系统平台，而mapreduce等运算程序则相当于运行于操作系统之上的应用程序</code></pre>
+<p>3.3.2 YARN的重要概念</p>
+<pre><code>1、    yarn并不清楚用户提交的程序的运行机制
+2、    yarn只提供运算资源的调度（用户程序向yarn申请资源，yarn就负责分配资源）
+3、    yarn中的主管角色叫ResourceManager
+4、    yarn中具体提供运算资源的角色叫NodeManager
+5、    这样一来，yarn其实就与运行的用户程序完全解耦，就意味着yarn上可以运行各种类型的分布式运算程序（mapreduce只是其中的一种），比如mapreduce、storm程序，spark程序，tez ……
+6、    所以，spark、storm等运算框架都可以整合在yarn上运行，只要他们各自的框架中有符合yarn规范的资源请求机制即可
+7、    Yarn就成为一个通用的资源调度平台，从此，企业中以前存在的各种运算集群都可以整合在一个物理集群上，提高资源利用率，方便数据共享</code></pre>
+<h3 id="4-MAPREDUCE实践篇（2）"><a href="#4-MAPREDUCE实践篇（2）" class="headerlink" title="4. MAPREDUCE实践篇（2）"></a>4. MAPREDUCE实践篇（2）</h3><h4 id="4-1-Mapreduce中的排序初步"><a href="#4-1-Mapreduce中的排序初步" class="headerlink" title="4.1. Mapreduce中的排序初步"></a>4.1. Mapreduce中的排序初步</h4><p>4.1.1 需求</p>
+<pre><code>对日志数据中的上下行流量信息汇总，并输出按照总流量倒序排序的结果
+数据如下：
+1363157985066     13726230503    00-FD-07-A4-72-B8:CMCC    120.196.100.82             24    27    2481    24681    200
+1363157995052     13826544101    5C-0E-8B-C7-F1-E0:CMCC    120.197.40.4            4    0    264    0    200
+1363157991076     13926435656    20-10-7A-28-CC-0A:CMCC    120.196.100.99            2    4    132    1512    200
+1363154400022     13926251106    5C-0E-8B-8B-B1-50:CMCC    120.197.40.4            4    0    240    0    200</code></pre>
+<p>4.1.2 分析</p>
+<p>基本思路：实现自定义的bean来封装流量信息，并将bean作为map输出的key来传输</p>
+<p>MR程序在处理数据的过程中会对数据排序(map输出的kv对传输到reduce之前，会排序)，排序的依据是map输出的key<br>所以，我们如果要实现自己需要的排序规则，则可以考虑将排序因素放到key中，让key实现接口：WritableComparable<br>然后重写key的compareTo方法</p>
+<p>4.1.3 实现</p>
+<pre class="language-none"><code class="language-none">1、    自定义的bean
+public class FlowBean implements WritableComparable&lt;FlowBean&gt;{
+
+    long upflow;
+    long downflow;
+    long sumflow;
+
+    //如果空参构造函数被覆盖，一定要显示定义一下，否则在反序列时会抛异常
+    public FlowBean(){}
+
+    public FlowBean(long upflow, long downflow) {
+        super();
+        this.upflow = upflow;
+        this.downflow = downflow;
+        this.sumflow = upflow + downflow;
+    }
+
+    public long getSumflow() {
+        return sumflow;
+    }
+
+    public void setSumflow(long sumflow) {
+        this.sumflow = sumflow;
+    }
+
+    public long getUpflow() {
+        return upflow;
+    }
+    public void setUpflow(long upflow) {
+        this.upflow = upflow;
+    }
+    public long getDownflow() {
+        return downflow;
+    }
+    public void setDownflow(long downflow) {
+        this.downflow = downflow;
+    }
+
+    //序列化，将对象的字段信息写入输出流
+    @Override
+    public void write(DataOutput out) throws IOException {
+
+        out.writeLong(upflow);
+        out.writeLong(downflow);
+        out.writeLong(sumflow);
+
+    }
+
+    //反序列化，从输入流中读取各个字段信息
+    @Override
+    public void readFields(DataInput in) throws IOException {
+        upflow = in.readLong();
+        downflow = in.readLong();
+        sumflow = in.readLong();
+
+    }
+
+
+    @Override
+    public String toString() {
+        return upflow + "\t" + downflow + "\t" + sumflow;
+    }
+    @Override
+    public int compareTo(FlowBean o) {
+        //自定义倒序比较规则
+        return sumflow &gt; o.getSumflow() ? -1:1;
+    }
+}
+
+
+
+2、    mapper 和 reducer
+public class FlowCount {
+
+    static class FlowCountMapper extends Mapper&lt;LongWritable, Text, FlowBean,Text &gt; {
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            String line = value.toString();
+            String[] fields = line.split("\t");
+            try {
+                String phonenbr = fields[0];
+
+                long upflow = Long.parseLong(fields[1]);
+                long dflow = Long.parseLong(fields[2]);
+
+                FlowBean flowBean = new FlowBean(upflow, dflow);
+
+                context.write(flowBean,new Text(phonenbr));
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
+    static class FlowCountReducer extends Reducer&lt;FlowBean,Text,Text, FlowBean&gt; {
+
+        @Override
+        protected void reduce(FlowBean bean, Iterable&lt;Text&gt; phonenbr, Context context) throws IOException, InterruptedException {
+
+            Text phoneNbr = phonenbr.iterator().next();
+
+            context.write(phoneNbr, bean);
+
+        }
+
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = new Configuration();
+
+        Job job = Job.getInstance(conf);
+
+        job.setJarByClass(FlowCount.class);
+
+        job.setMapperClass(FlowCountMapper.class);
+        job.setReducerClass(FlowCountReducer.class);
+
+         job.setMapOutputKeyClass(FlowBean.class);
+         job.setMapOutputValueClass(Text.class);
+
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(FlowBean.class);
+
+        // job.setInputFormatClass(TextInputFormat.class);
+
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        job.waitForCompletion(true);
+
+    }
+
+}
+</code></pre>
+
+<h4 id="4-2-Mapreduce中的分区Partitioner"><a href="#4-2-Mapreduce中的分区Partitioner" class="headerlink" title="4.2. Mapreduce中的分区Partitioner"></a>4.2. Mapreduce中的分区Partitioner</h4><p>4.2.1 需求</p>
+<p>根据归属地输出流量统计数据结果到不同文件，以便于在查询统计结果时可以定位到省级范围进行</p>
+<p>4.2.2 分析</p>
+<p>Mapreduce中会将map输出的kv对，按照相同key分组，然后分发给不同的reducetask<br>默认的分发规则为：根据key的hashcode%reducetask数来分发<br>所以：如果要按照我们自己的需求进行分组，则需要改写数据分发（分组）组件Partitioner<br>自定义一个CustomPartitioner继承抽象类：Partitioner<br>然后在job对象中，设置自定义partitioner： job.setPartitionerClass(CustomPartitioner.class)</p>
+<p>4.2.3 实现</p>
+<pre class="language-none"><code class="language-none">/**
+ * 定义自己的从map到reduce之间的数据（分组）分发规则 按照手机号所属的省份来分发（分组）ProvincePartitioner
+ * 默认的分组组件是HashPartitioner
+ * 
+ * @author
+ * 
+ */
+public class ProvincePartitioner extends Partitioner&lt;Text, FlowBean&gt; {
+
+    static HashMap&lt;String, Integer&gt; provinceMap = new HashMap&lt;String, Integer&gt;();
+
+    static {
+
+        provinceMap.put("135", 0);
+        provinceMap.put("136", 1);
+        provinceMap.put("137", 2);
+        provinceMap.put("138", 3);
+        provinceMap.put("139", 4);
+
+    }
+
+    @Override
+    public int getPartition(Text key, FlowBean value, int numPartitions) {
+
+        Integer code = provinceMap.get(key.toString().substring(0, 3));
+
+        return code == null ? 5 : code;
+    }
+
+}
+</code></pre>
+
+<h4 id="4-3-mapreduce数据压缩"><a href="#4-3-mapreduce数据压缩" class="headerlink" title="4.3. mapreduce数据压缩"></a>4.3. mapreduce数据压缩</h4><p>4.3.1 概述</p>
+<p>这是mapreduce的一种优化策略：通过压缩编码对mapper或者reducer的输出进行压缩，以减少磁盘IO，提高MR程序运行速度（但相应增加了cpu运算负担）</p>
+<p>1、    Mapreduce支持将map输出的结果或者reduce输出的结果进行压缩，以减少网络IO或最终输出数据的体积</p>
+<p>2、    压缩特性运用得当能提高性能，但运用不当也可能降低性能</p>
+<p>3、    基本原则：<br>运算密集型的job，少用压缩<br>IO密集型的job，多用压缩</p>
+<p>4.3.3 Reducer输出压缩</p>
+<pre><code>在配置参数或在代码中都可以设置reduce的输出压缩
+1、在配置参数中设置 
+mapreduce.output.fileoutputformat.compress=false
+mapreduce.output.fileoutputformat.compress.codec=org.apache.hadoop.io.compress.DefaultCodec
+mapreduce.output.fileoutputformat.compress.type=RECORD
+
+2、在代码中设置
+        Job job = Job.getInstance(conf);
+        FileOutputFormat.setCompressOutput(job, true);
+        FileOutputFormat.setOutputCompressorClass(job, (Class&lt;? extends CompressionCodec&gt;) Class.forName(""));</code></pre>
+<p>4.3.4 Mapper输出压缩</p>
+<pre><code>在配置参数或在代码中都可以设置reduce的输出压缩
+1、在配置参数中设置 
+mapreduce.map.output.compress=false
+mapreduce.map.output.compress.codec=org.apache.hadoop.io.compress.DefaultCodec
+
+2、在代码中设置：
+conf.setBoolean(Job.MAP_OUTPUT_COMPRESS, true);
+conf.setClass(Job.MAP_OUTPUT_COMPRESS_CODEC, GzipCodec.class, CompressionCodec.class);</code></pre>
+<p>4.3.5 压缩文件的读取</p>
+<pre><code>Hadoop自带的InputFormat类内置支持压缩文件的读取，比如TextInputformat类，在其initialize方法中：
+  public void initialize(InputSplit genericSplit,
+                     TaskAttemptContext context) throws IOException {
+    FileSplit split = (FileSplit) genericSplit;
+    Configuration job = context.getConfiguration();
+    this.maxLineLength = job.getInt(MAX_LINE_LENGTH, Integer.MAX_VALUE);
+    start = split.getStart();
+    end = start + split.getLength();
+    final Path file = split.getPath();
+
+    // open the file and seek to the start of the split
+    final FileSystem fs = file.getFileSystem(job);
+    fileIn = fs.open(file);
+    //根据文件后缀名创建相应压缩编码的codec
+    CompressionCodec codec = new CompressionCodecFactory(job).getCodec(file);
+    if (null!=codec) {
+      isCompressedInput = true;    
+      decompressor = CodecPool.getDecompressor(codec);
+      //判断是否属于可切片压缩编码类型
+      if (codec instanceof SplittableCompressionCodec) {
+    final SplitCompressionInputStream cIn =
+      ((SplittableCompressionCodec)codec).createInputStream(
+        fileIn, decompressor, start, end,
+        SplittableCompressionCodec.READ_MODE.BYBLOCK);
+         //如果是可切片压缩编码，则创建一个CompressedSplitLineReader读取压缩数据
+    in = new CompressedSplitLineReader(cIn, job,
+        this.recordDelimiterBytes);
+    start = cIn.getAdjustedStart();
+    end = cIn.getAdjustedEnd();
+    filePosition = cIn;
+      } else {
+        //如果是不可切片压缩编码，则创建一个SplitLineReader读取压缩数据，并将文件输入流转换成解压数据流传递给普通SplitLineReader读取
+    in = new SplitLineReader(codec.createInputStream(fileIn,
+        decompressor), job, this.recordDelimiterBytes);
+    filePosition = fileIn;
+      }
+    } else {
+      fileIn.seek(start);
+       //如果不是压缩文件，则创建普通SplitLineReader读取数据
+      in = new SplitLineReader(fileIn, job, this.recordDelimiterBytes);
+      filePosition = fileIn;
+    }</code></pre>
+<h4 id="4-4reduce端join算法实现"><a href="#4-4reduce端join算法实现" class="headerlink" title="4.4reduce端join算法实现"></a>4.4reduce端join算法实现</h4><pre class="language-none"><code class="language-none">1、需求：
+订单数据表t_order：
+id    date    pid    amount
+1001    20150710    P0001    2
+1002    20150710    P0001    3
+1002    20150710    P0002    3
+
+商品信息表t_product
+id    name    category_id    price
+P0001    小米5    C01    2
+P0002    锤子T1    C01    3
+
+假如数据量巨大，两表的数据是以文件的形式存储在HDFS中，需要用mapreduce程序来实现一下SQL查询运算： 
+select  a.id,a.date,b.name,b.category_id,b.price from t_order a join t_product b on a.pid = b.id
+</code></pre>
+
+<pre class="language-none"><code class="language-none">2、实现机制：
+通过将关联的条件作为map输出的key，将两表满足join条件的数据并携带数据所来源的文件信息，发往同一个reduce task，在reduce中进行数据的串联
+
+
+public class OrderJoin {
+
+    static class OrderJoinMapper extends Mapper&lt;LongWritable, Text, Text, OrderJoinBean&gt; {
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            // 拿到一行数据，并且要分辨出这行数据所属的文件
+            String line = value.toString();
+
+            String[] fields = line.split("\t");
+
+            // 拿到itemid
+            String itemid = fields[0];
+
+            // 获取到这一行所在的文件名（通过inpusplit）
+            String name = "你拿到的文件名";
+
+            // 根据文件名，切分出各字段（如果是a，切分出两个字段，如果是b，切分出3个字段）
+
+            OrderJoinBean bean = new OrderJoinBean();
+            bean.set(null, null, null, null, null);
+            context.write(new Text(itemid), bean);
+
+        }
+
+    }
+
+    static class OrderJoinReducer extends Reducer&lt;Text, OrderJoinBean, OrderJoinBean, NullWritable&gt; {
+
+        @Override
+        protected void reduce(Text key, Iterable&lt;OrderJoinBean&gt; beans, Context context) throws IOException, InterruptedException {
+
+             //拿到的key是某一个itemid,比如1000
+            //拿到的beans是来自于两类文件的bean
+            //  {1000,amount} {1000,amount} {1000,amount}   ---   {1000,price,name}
+
+            //将来自于b文件的bean里面的字段，跟来自于a的所有bean进行字段拼接并输出
+        }
+    }
+}
+
+
+缺点：这种方式中，join的操作是在reduce阶段完成，reduce端的处理压力太大，map节点的运算负载则很低，资源利用率不高，且在reduce阶段极易产生数据倾斜
+
+解决方案： map端join实现方式
+</code></pre>
+
+<p>####　4.4.2 map端join算法实现</p>
+<pre class="language-none"><code class="language-none">1、原理阐述
+适用于关联表中有小表的情形；
+可以将小表分发到所有的map节点，这样，map节点就可以在本地对自己所读到的大表数据进行join并输出最终结果，可以大大提高join操作的并发度，加快处理速度
+</code></pre>
+
+<pre class="language-none"><code class="language-none">2、实现示例
+--先在mapper类中预先定义好小表，进行join
+--引入实际场景中的解决方案：一次加载数据库或者用distributedcache
+public class TestDistributedCache {
+    static class TestDistributedCacheMapper extends Mapper&lt;LongWritable, Text, Text, Text&gt;{
+        FileReader in = null;
+        BufferedReader reader = null;
+        HashMap&lt;String,String&gt; b_tab = new HashMap&lt;String, String&gt;();
+        String localpath =null;
+        String uirpath = null;
+
+        //是在map任务初始化的时候调用一次
+        @Override
+        protected void setup(Context context) throws IOException, InterruptedException {
+            //通过这几句代码可以获取到cache file的本地绝对路径，测试验证用
+            Path[] files = context.getLocalCacheFiles();
+            localpath = files[0].toString();
+            URI[] cacheFiles = context.getCacheFiles();
+
+
+            //缓存文件的用法——直接用本地IO来读取
+            //这里读的数据是map task所在机器本地工作目录中的一个小文件
+            in = new FileReader("b.txt");
+            reader =new BufferedReader(in);
+            String line =null;
+            while(null!=(line=reader.readLine())){
+
+                String[] fields = line.split(",");
+                b_tab.put(fields[0],fields[1]);
+
+            }
+            IOUtils.closeStream(reader);
+            IOUtils.closeStream(in);
+
+        }
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            //这里读的是这个map task所负责的那一个切片数据（在hdfs上）
+             String[] fields = value.toString().split("\t");
+
+             String a_itemid = fields[0];
+             String a_amount = fields[1];
+
+             String b_name = b_tab.get(a_itemid);
+
+             // 输出结果  1001    98.9    banan
+             context.write(new Text(a_itemid), new Text(a_amount + "\t" + ":" + localpath + "\t" +b_name ));
+
+        }
+
+
+    }
+
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf);
+
+        job.setJarByClass(TestDistributedCache.class);
+
+        job.setMapperClass(TestDistributedCacheMapper.class);
+
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(LongWritable.class);
+
+        //这里是我们正常的需要处理的数据所在路径
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        //不需要reducer
+        job.setNumReduceTasks(0);
+        //分发一个文件到task进程的工作目录
+        job.addCacheFile(new URI("hdfs://hadoop-server01:9000/cachefile/b.txt"));
+
+        //分发一个归档文件到task进程的工作目录
+//        job.addArchiveToClassPath(archive);
+
+        //分发jar包到task节点的classpath下
+//        job.addFileToClassPath(jarfile);
+
+        job.waitForCompletion(true);
+    }
+}
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2018/04/27/hadoop-xue-xi-san-zhi-mapreduce/">http://dtbox.com/2018/04/27/hadoop-xue-xi-san-zhi-mapreduce/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/hadoop/">
+                                    <span class="chip bg-color">hadoop</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">大数据学习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/04/27/hadoop-xue-xi-san-zhi-mapreduce-jia-qiang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="hadoop学习三之mapreduce加强">
+                        
+                        <span class="card-title">hadoop学习三之mapreduce加强</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            hadoop学习三之mapreduce加强
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-04-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    大数据学习
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hadoop/" class="post-category">
+                                    hadoop
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">大数据学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/04/27/hadoop-xue-xi-er-zhi-hdfs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="hadoop学习二之hdfs">
+                        
+                        <span class="card-title">hadoop学习二之hdfs</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            hadoop学习二之hdfs
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    大数据学习
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hadoop/" class="post-category">
+                                    hadoop
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">大数据学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

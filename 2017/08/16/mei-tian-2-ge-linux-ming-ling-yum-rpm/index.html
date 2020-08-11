@@ -1,0 +1,2349 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="每天2个Linux命令 yum rpm">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>每天2个Linux命令 yum rpm | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">每天2个Linux命令 yum rpm</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
+                            </a>
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux2/" class="post-category">
+                                linux每天2个命令
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-08-16
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    34 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="2017-08-14-每天2个Linux命令-yum命令"><a href="#2017-08-14-每天2个Linux命令-yum命令" class="headerlink" title="2017-08-14 每天2个Linux命令 yum命令"></a><center>2017-08-14 每天2个Linux命令 yum命令</center></h2><p>用于添加/删除/更新RPM包,自动解决包的依赖问题以及系统更新升级。</p>
+<p>(1)用法:</p>
+<pre><code>用法:  yum  [参数] [软件名]</code></pre>
+<p>(2)功能:</p>
+<pre><code>功能:  yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令。
+简介:  yum命令是在Fedora和RedHat以及SUSE中基于rpm的软件包管理器，它可以使系统管理人员交互和自动化地更细与管理RPM软件包，
+能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。</code></pre>
+<p>(3)选项参数:</p>
+<pre><code>  info,check-update,search,clean
+
+  install,remove,update,list
+
+  groupinstall,groupremove,groupupdate,grouplist</code></pre>
+<p>(4)实例:</p>
+<pre><code>  1)[root@localhost sunjimeng]# yum check-update | more -15　　　　检查可以更新的软件包
+
+复制代码
+[root@localhost sunjimeng]# yum check-update | more -15
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+
+ModemManager.x86_64                    1.1.0-8.git20130913.el7         base     
+ModemManager-glib.x86_64               1.1.0-8.git20130913.el7         base     
+NetworkManager.x86_64                  1:1.0.6-29.el7_2                updates  
+NetworkManager-adsl.x86_64             1:1.0.6-29.el7_2                updates  
+NetworkManager-glib.x86_64             1:1.0.6-29.el7_2                updates  
+NetworkManager-libnm.x86_64            1:1.0.6-29.el7_2                updates  
+NetworkManager-libreswan.x86_64        1.0.6-3.el7                     base     
+NetworkManager-team.x86_64             1:1.0.6-29.el7_2                updates  
+NetworkManager-tui.x86_64              1:1.0.6-29.el7_2                updates  
+--More--</code></pre>
+<p>2)[root@localhost sunjimeng]# yum update　　　　　　　　　　　　检查并更新所有软件包，这个命令被用来升级系统</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum update
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+正在解决依赖关系
+--&gt; 正在检查事务
+---&gt; 软件包 ModemManager.x86_64.0.1.1.0-6.git20130913.el7 将被 升级
+---&gt; 软件包 ModemManager.x86_64.0.1.1.0-8.git20130913.el7 将被 更新
+---&gt; 软件包 ModemManager-glib.x86_64.0.1.1.0-6.git20130913.el7 将被 升级
+---&gt; 软件包 ModemManager-glib.x86_64.0.1.1.0-8.git20130913.el7 将被 更新
+......
+事务概要
+=====================================================
+安装   10 软件包 (+48 依赖软件包)
+升级  697 软件包
+
+总计：766 M
+Is this ok [y/d/N]: n
+Exiting on user command
+您的事务已保存，请执行：
+ yum load-transaction /tmp/yum_save_tx.2016-06-21.01-02.n0EVjx.yumtx 重新执行该事务</code></pre>
+<p>3)[root@localhost sunjimeng]# yum install yum-fastestmirror　　　自动搜索最快镜像插件并安装</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum install yum-fastestmirror
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+正在解决依赖关系
+--&gt; 正在检查事务
+---&gt; 软件包 yum-plugin-fastestmirror.noarch.0.1.1.31-29.el7 将被 升级
+---&gt; 软件包 yum-plugin-fastestmirror.noarch.0.1.1.31-34.el7 将被 更新
+--&gt; 解决依赖关系完成
+
+依赖关系解决
+========================================
+ Package                                   架构                    版本                              源                     大小
+============================================================
+正在更新:
+ yum-plugin-fastestmirror                  noarch                  1.1.31-34.el7                     base                   30 k
+
+事务概要
+===========================================
+升级  1 软件包
+
+总计：30 k
+Is this ok [y/d/N]: y
+Is this ok [y/d/N]: y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  正在更新    : yum-plugin-fastestmirror-1.1.31-34.el7.noarch                                                                
+  清理        : yum-plugin-fastestmirror-1.1.31-29.el7.noarch                                                                
+  验证中      : yum-plugin-fastestmirror-1.1.31-34.el7.noarch                                                                
+  验证中      : yum-plugin-fastestmirror-1.1.31-29.el7.noarch                                                                
+
+更新完毕:
+  yum-plugin-fastestmirror.noarch 0:1.1.31-34.el7                                                                                
+
+完毕！</code></pre>
+<p>4)[root@localhost sunjimeng]# yum search mysql-server　　　　　　根据名称搜索软件包</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum list | grep mysql-server
+[root@localhost sunjimeng]# yum search mysql-server
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+====================================================== 匹配：mysql-server =======================================================
+akonadi-mysql.x86_64 : Akonadi MySQL backend support
+[root@localhost sunjimeng]# yum list | grep mysql
+akonadi-mysql.x86_64                    1.9.2-4.el7                    base     
+apr-util-mysql.x86_64                   1.5.2-6.el7                    base     
+dovecot-mysql.x86_64                    1:2.2.10-5.el7                 base     
+freeradius-mysql.x86_64                 3.0.4-6.el7                    base     
+libdbi-dbd-mysql.x86_64                 0.8.3-16.el7                   base     
+mysql-connector-java.noarch             1:5.1.25-3.el7                 base     
+mysql-connector-odbc.x86_64             5.2.5-6.el7                    base     
+pcp-pmda-mysql.x86_64                   3.10.6-2.el7                   base     
+php-mysql.x86_64                        5.4.16-36.1.el7_2.1            updates  
+php-mysqlnd.x86_64                      5.4.16-36.1.el7_2.1            updates  
+qt-mysql.i686                           1:4.8.5-12.el7_2               updates  
+qt-mysql.x86_64                         1:4.8.5-12.el7_2               updates  
+redland-mysql.x86_64                    1.0.16-6.el7                   base     
+rsyslog-mysql.x86_64                    7.4.7-12.el7                   base     
+[root@localhost sunjimeng]# yum search mysql
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+====================================================== N/S matched: mysql =======================================================
+MySQL-python.x86_64 : An interface to MySQL
+akonadi-mysql.x86_64 : Akonadi MySQL backend support
+apr-util-mysql.x86_64 : APR utility library MySQL DBD driver
+dovecot-mysql.x86_64 : MySQL back end for dovecot
+freeradius-mysql.x86_64 : MySQL support for freeradius
+libdbi-dbd-mysql.x86_64 : MySQL plugin for libdbi
+mysql-connector-java.noarch : Official JDBC driver for MySQL
+mysql-connector-odbc.x86_64 : ODBC driver for MySQL
+pcp-pmda-mysql.x86_64 : Performance Co-Pilot (PCP) metrics for MySQL
+perl-DBD-MySQL.x86_64 : A MySQL interface for Perl
+php-mysql.x86_64 : A module for PHP applications that use MySQL databases
+php-mysqlnd.x86_64 : A module for PHP applications that use MySQL databases
+qt-mysql.i686 : MySQL driver for Qt's SQL classes
+qt-mysql.x86_64 : MySQL driver for Qt's SQL classes
+qt3-MySQL.i686 : MySQL drivers for Qt 3's SQL classes
+qt3-MySQL.x86_64 : MySQL drivers for Qt 3's SQL classes
+redland-mysql.x86_64 : MySQL storage support for Redland
+rsyslog-mysql.x86_64 : MySQL support for rsyslog
+mariadb.x86_64 : A community developed branch of MySQL
+mariadb-devel.i686 : Files for development of MariaDB/MySQL applications
+mariadb-devel.x86_64 : Files for development of MariaDB/MySQL applications
+mariadb-libs.i686 : The shared libraries required for MariaDB/MySQL clients
+mariadb-libs.x86_64 : The shared libraries required for MariaDB/MySQL clients
+
+  名称和简介匹配 only，使用“search all”试试。</code></pre>
+<p>5)[root@localhost sunjimeng]# yum install mysql　　　　　　　　安装指定的软件</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum install mysql
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+软件包 1:mariadb-5.5.47-1.el7_2.x86_64 已安装并且是最新版本
+无须任何处理
+[root@localhost sunjimeng]# yum install mysql-devel
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+软件包 1:mariadb-devel-5.5.47-1.el7_2.x86_64 已安装并且是最新版本
+无须任何处理
+[root@localhost sunjimeng]# yum install mysql-server
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+没有可用软件包 mysql-server。
+错误：无须任何处理　　　　　　　　　　　　　　//安装mysql数据库需要三个软件：mysql，mysql-deverl,和mysql-server。</code></pre>
+<p>6)[root@localhost sunjimeng]# yum remove httpd　　　　　　删除指定的软件包</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum remove httpd
+已加载插件：fastestmirror, langpacks
+正在解决依赖关系
+--&gt; 正在检查事务
+---&gt; 软件包 httpd.x86_64.0.2.4.6-40.el7.centos.1 将被 删除
+--&gt; 解决依赖关系完成
+
+依赖关系解决
+
+=================================================================================================================================
+ Package                  架构                      版本                                       源                           大小
+=================================================================================================================================
+正在删除:
+ httpd                    x86_64                    2.4.6-40.el7.centos.1                      @updates                    9.4 M
+
+事务概要
+=================================================================================================================================
+移除  1 软件包
+
+安装大小：9.4 M
+是否继续？[y/N]：y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  正在删除    : httpd-2.4.6-40.el7.centos.1.x86_64                                                                           1/1 
+  验证中      : httpd-2.4.6-40.el7.centos.1.x86_64                                                                           1/1 
+
+删除:
+  httpd.x86_64 0:2.4.6-40.el7.centos.1                                                                                           
+
+完毕！</code></pre>
+<p>7)[root@localhost sunjimeng]# yum -y install httpd　　　　　　　　给指定命令-y参数默认所有的询问都答Y。</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum -y install httpd
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+正在解决依赖关系
+--&gt; 正在检查事务
+---&gt; 软件包 httpd.x86_64.0.2.4.6-40.el7.centos.1 将被 安装
+--&gt; 解决依赖关系完成
+
+依赖关系解决
+
+=================================================================================================================================
+ Package                  架构                      版本                                        源                          大小
+=================================================================================================================================
+正在安装:
+ httpd                    x86_64                    2.4.6-40.el7.centos.1                       updates                    2.7 M
+
+事务概要
+=================================================================================================================================
+安装  1 软件包
+
+总下载量：2.7 M
+安装大小：9.4 M
+Downloading packages:
+httpd-2.4.6-40.el7.centos.1.x86_64.rpm                                                                    | 2.7 MB  00:00:21     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  正在安装    : httpd-2.4.6-40.el7.centos.1.x86_64                                                                           1/1 
+  验证中      : httpd-2.4.6-40.el7.centos.1.x86_64                                                                           1/1 
+
+已安装:
+  httpd.x86_64 0:2.4.6-40.el7.centos.1                                                                                           
+
+完毕！</code></pre>
+<p>8)[root@localhost sunjimeng]# yum deplist httpd　　　　　　　　　　获得指定软件包的依赖关系</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum deplist httpd
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+软件包：httpd.x86_64 2.4.6-40.el7.centos.1
+   依赖：/bin/sh
+   provider: bash.x86_64 4.2.46-19.el7
+   依赖：/etc/mime.types
+   provider: mailcap.noarch 2.1.41-2.el7
+   依赖：/usr/sbin/groupadd
+   provider: shadow-utils.x86_64 2:4.1.5.1-18.el7
+   依赖：/usr/sbin/useradd
+   provider: shadow-utils.x86_64 2:4.1.5.1-18.el7
+   依赖：httpd-tools = 2.4.6-40.el7.centos.1
+   provider: httpd-tools.x86_64 2.4.6-40.el7.centos.1
+   依赖：libapr-1.so.0()(64bit)
+   provider: apr.x86_64 1.4.8-3.el7
+   依赖：libaprutil-1.so.0()(64bit)
+   provider: apr-util.x86_64 1.5.2-6.el7
+   依赖：libc.so.6(GLIBC_2.4)(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libcrypt.so.1()(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libdb-5.3.so()(64bit)
+   provider: libdb.x86_64 5.3.21-19.el7
+   依赖：libdl.so.2()(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libexpat.so.1()(64bit)
+   provider: expat.x86_64 2.1.0-8.el7
+   依赖：liblua-5.1.so()(64bit)
+   provider: lua.x86_64 5.1.4-14.el7
+   依赖：libm.so.6()(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libpcre.so.1()(64bit)
+   provider: pcre.x86_64 8.32-15.el7_2.1
+   依赖：libpthread.so.0()(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libpthread.so.0(GLIBC_2.2.5)(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libselinux.so.1()(64bit)
+   provider: libselinux.x86_64 2.2.2-6.el7
+   依赖：libsystemd-daemon.so.0()(64bit)
+   provider: systemd-libs.x86_64 219-19.el7_2.9
+   依赖：libsystemd-daemon.so.0(LIBSYSTEMD_DAEMON_31)(64bit)
+   provider: systemd-libs.x86_64 219-19.el7_2.9
+   依赖：libz.so.1()(64bit)
+   provider: zlib.x86_64 1.2.7-15.el7
+   依赖：rtld(GNU_HASH)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   provider: glibc.i686 2.17-106.el7_2.6
+   依赖：system-logos &gt;= 7.92.1-1
+   provider: centos-logos.noarch 70.0.6-3.el7.centos
+   依赖：systemd-units
+   provider: systemd.x86_64 219-19.el7_2.9</code></pre>
+<p>9)[root@localhost sunjimeng]# yum info httpd　　　　　　　　　　　　查看指定软件包的信息</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum info httpd
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+已安装的软件包
+名称    ：httpd
+架构    ：x86_64
+版本    ：2.4.6
+发布    ：40.el7.centos.1
+大小    ：9.4 M
+源    ：installed
+来自源：updates
+简介    ： Apache HTTP Server
+网址    ：http://httpd.apache.org/
+协议    ： ASL 2.0
+描述    ： The Apache HTTP Server is a powerful, efficient, and extensible
+         : web server.</code></pre>
+<p>10)[root@localhost sunjimeng]# yum grouplist　　　　　　　　　　<br>    查看系统中已经安装的和可用的软件组，对于可用的软件组，你可以选择安装</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum grouplist
+已加载插件：fastestmirror, langpacks
+没有安装组信息文件
+Maybe run: yum groups mark convert (see man yum)
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+Available environment groups:
+   最小安装
+   基础设施服务器
+   计算节点
+   文件及打印服务器
+   基本网页服务器
+   虚拟化主机
+   带 GUI 的服务器
+   GNOME 桌面
+   KDE Plasma Workspaces
+   开发及生成工作站
+可用组：
+   传统 UNIX 兼容性
+   兼容性程序库
+   图形管理工具
+   安全性工具
+   开发工具
+   控制台互联网工具
+   智能卡支持
+   科学记数法支持
+   系统管理
+   系统管理工具
+完成</code></pre>
+<p>11)[root@localhost sunjimeng]# yum groupinstall GNOME 桌面　　　　　　安装上一个命令中显示的可用的软件组中的一个软件组</p>
+<pre><code>复制代码
+[root@localhost sunjimeng]# yum groupinstall GNOME 桌面                  //安装对应的删除和更新分别是groupremove，groupupdate
+已加载插件：fastestmirror, langpacks
+没有安装组信息文件
+Maybe run: yum groups mark convert (see man yum)
+Loading mirror speeds from cached hostfile
+ * base: mirrors.yun-idc.com
+ * extras: mirrors.yun-idc.com
+ * updates: mirrors.cug.edu.cn
+正在解决依赖关系
+--&gt; 正在检查事务
+---&gt; 软件包 NetworkManager-libreswan-gnome.x86_64.0.1.0.6-3.el7 将被 安装
+......
+事务概要
+=================================================================================================================================
+安装  7 软件包 (+ 24 依赖软件包)
+升级  3 软件包 (+145 依赖软件包)
+
+总计：204 M
+总下载量：7.7 M
+Is this ok [y/d/N]: y
+Downloading packages:
+......
+
+替代:
+  PackageKit-device-rebind.x86_64 0:0.8.9-11.el7.centos                  adwaita-gtk3-theme.x86_64 0:3.8.4-3.el7                 
+  gnome-settings-daemon-updates.x86_64 0:3.8.6.1-12.el7                  totem-mozplugin.x86_64 1:3.8.2-5.el7                    
+完毕！</code></pre>
+<ol start="12">
+<li><p>[root@localhost sunjimeng]# yum clean headers　　　　　　清除命令</p>
+<p>复制代码<br>[root@localhost sunjimeng]# yum clean headers　　　　　　　　　　//清除头文件<br>已加载插件：fastestmirror, langpacks<br>正在清理软件源： base extras updates<br>0 header 文件已移除<br>[root@localhost sunjimeng]# yum clean packages　　　　　　　　　 //清除包文件<br>已加载插件：fastestmirror, langpacks<br>正在清理软件源： base extras updates<br>580 package 文件已移除<br>[root@localhost sunjimeng]# yum clean　　　　　　　　　　　　　　  //必须加上参数<br>已加载插件：fastestmirror, langpacks<br>错误：清理命令需要参数：headers, packages, metadata, dbcache, plugins, expire-cache, rpmdb, all<br>[root@localhost sunjimeng]# yum clean all　　　　　　　　　　　　　//清除所有<br>已加载插件：fastestmirror, langpacks<br>正在清理软件源： base extras updates<br>Cleaning up everything<br>Cleaning up list of fastest mirrors</p>
+</li>
+</ol>
+<h2 id="2017-08-14-每天2个Linux命令-rpm命令"><a href="#2017-08-14-每天2个Linux命令-rpm命令" class="headerlink" title="2017-08-14 每天2个Linux命令 rpm命令"></a><center>2017-08-14 每天2个Linux命令 rpm命令</center></h2><p>rpm是一个功能十分强大的软件包管理系统。</p>
+<p>(1)用法:</p>
+<pre><code>用法:  rpm  [参数]  [包名]</code></pre>
+<p>(2)功能:</p>
+<pre><code>功能:  使得在Linux下安装、升级和删除软件包的工作变得容易，并且具有查询、验证软件包的功能。与图形化工具相比，使用命令行可以获得更大的灵活性。</code></pre>
+<p>(3)选项参数:     </p>
+<pre><code>  1) -l　　　　　　　　　　　　　　　　显示套件的文件列表　　　　　　　　　　　　
+
+  2) -h (or --hash) 　　　 　　　　　　安装时输出hash记号 ("#'')，用来显示安装进度
+
+  3) -i　　　　　　　　　　　　　　　　显示套件的相关信息
+  4) -U&lt;套件档&gt; --upgrade&lt;套件档&gt;  升级指定的套件档
+
+  5) -p&lt;套件档&gt; 　　　　　　　　　　  查询指定的RPM套件档
+
+  6) -q　　　　　　　　　　　　　　　  查看软件包是否被安装
+
+  7) -v　　　　　　　　　　　　　　　　显示指令执行过程
+
+  8) -a　　　　　　　　　　　　　　　　查询所有套件
+
+  9) -R　　　　　　　　　　　　　　　　显示套件的关联性信息</code></pre>
+<p>(4)实例:</p>
+<pre><code>1)[root@localhost sunmeng]rpm -q mariadb-5.5.47-1.el7_2.x86_64　　　　　　查询指定软件包是否被安装
+
+[root@localhost sunmeng]rpm -q mariadb-5.5.47-1.el7_2.x86_64
+mariadb-5.5.47-1.el7_2.x86_64
+[root@localhost sunmeng]# rpm -q httpd
+未安装软件包 httpd</code></pre>
+<p>2)[root@localhost packages]# rpm -qa | grep httpd　　　　　　　　　　　　　　 查询所有套件中已经安装的软件包(与httpd有关的软件包)</p>
+<pre><code>复制代码
+[root@localhost packages]# rpm -qa | grep httpd
+httpd-2.4.6-40.el7.centos.1.x86_64
+httpd-tools-2.4.6-40.el7.centos.1.x86_64
+[root@localhost packages]# yum search httpd-2.4.6-40.el7.centos.1.x86_64             //在网络软件库并没有这个包
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+警告：没有匹配 httpd-2.4.6-40.el7.centos.1.x86_64 的软件包
+No matches found
+[root@localhost packages]# yum info httpd-2.4.6-40.el7.centos.1.x86_64　　　　　　　　//但本地确实已经安装了这个软件包：系统自带
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+已安装的软件包
+名称    ：httpd
+架构    ：x86_64
+版本    ：2.4.6
+发布    ：40.el7.centos.1
+大小    ：9.4 M
+源    ：installed
+来自源：updates
+简介    ： Apache HTTP Server
+网址    ：http://httpd.apache.org/
+协议    ： ASL 2.0
+描述    ： The Apache HTTP Server is a powerful, efficient, and extensible
+         : web server.
+
+[root@localhost packages]# yum info httpd-tools-2.4.6-40.el7.centos.1.x86_64
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+已安装的软件包
+名称    ：httpd-tools
+架构    ：x86_64
+版本    ：2.4.6
+发布    ：40.el7.centos.1
+大小    ：168 k
+源    ：installed
+来自源：updates
+简介    ： Tools for use with the Apache HTTP Server
+网址    ：http://httpd.apache.org/
+协议    ： ASL 2.0
+描述    ： The httpd-tools package contains tools which can be used with
+         : the Apache HTTP Server.</code></pre>
+<p>3)[root@localhost packages]# rpm -e mariadb-5.5.47-1.el7_2.x86_64　　　　　　　　卸载指定的安装过的包</p>
+<pre><code>复制代码
+[root@localhost packages]# yum install mysql　　　　　　　　　　　　　　//已经安装过
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+软件包 1:mariadb-5.5.47-1.el7_2.x86_64 已安装并且是最新版本
+无须任何处理
+[root@localhost packages]# rpm -e mariadb-5.5.47-1.el7_2.x86_64　　 //卸载指定安装包　　
+[root@localhost packages]# yum install mysql　　　　　　　　　　　　　 //重新下载指定安装包
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+正在解决依赖关系
+--&gt; 正在检查事务
+---&gt; 软件包 mariadb.x86_64.1.5.5.47-1.el7_2 将被 安装
+--&gt; 解决依赖关系完成
+
+依赖关系解决
+
+==========================================================================================================================================
+ Package                       架构                         版本                                      源                             大小
+==========================================================================================================================================
+正在安装:
+ mariadb                       x86_64                       1:5.5.47-1.el7_2                          updates                       8.9 M
+
+事务概要
+==========================================================================================================================================
+安装  1 软件包
+
+总下载量：8.9 M
+安装大小：49 M
+Is this ok [y/d/N]: y
+Downloading packages:
+mariadb-5.5.47-1.el7_2.x86_64. FAILED                                          
+http://mirrors.cug.edu.cn/centos/7.2.1511/updates/x86_64/Packages/mariadb-5.5.47-1.el7_2.x86_64.rpm: [Errno 12] Timeout on http://mirrors.cug.edu.cn/centos/7.2.1511/updates/x86_64/Packages/mariadb-5.5.47-1.el7_2.x86_64.rpm: (28, 'Resolving timed out after 30419 milliseconds')
+正在尝试其它镜像。
+mariadb-5.5.47-1.el7_2.x86_64.rpm                                                                                  | 8.9 MB  00:01:35     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+警告：RPM 数据库已被非 yum 程序修改。
+  正在安装    : 1:mariadb-5.5.47-1.el7_2.x86_64                                                                                       1/1 
+  验证中      : 1:mariadb-5.5.47-1.el7_2.x86_64                                                                                       1/1 
+
+已安装:
+  mariadb.x86_64 1:5.5.47-1.el7_2                                                                                                         
+
+完毕！</code></pre>
+<p>4)[root@localhost packages]# rpm -qpR gnome-bluetooth-3.14.1-1.el7.x86_64.rpm　　　　　查看指定软件包的依赖关系</p>
+<pre><code>复制代码
+[root@localhost packages]# find -name "gnome-bluetooth-3.14.1-1.el7.x86_64.rpm" -exec ls -l {} \;　　　　　　//在当前目录下能够找到指定.rpm包
+-rw-r--r--. 1 root root 50740 11月 25 2015 ./gnome-bluetooth-3.14.1-1.el7.x86_64.rpm
+[root@localhost packages]# rpm -qpR gnome-bluetooth-3.14.1-1.el7.x86_64.rpm　　　　　　　　　　　　　　　　　　 //查看它依赖的文件
+/bin/sh
+/bin/sh
+/bin/sh
+bluez &gt;= 5.0
+desktop-file-utils
+desktop-file-utils
+gnome-bluetooth-libs = 1:3.14.1-1.el7
+libatk-1.0.so.0()(64bit)
+libc.so.6()(64bit)
+libc.so.6(GLIBC_2.2.5)(64bit)
+libc.so.6(GLIBC_2.4)(64bit)
+libcairo-gobject.so.2()(64bit)
+libcairo.so.2()(64bit)
+libgdk-3.so.0()(64bit)
+libgdk_pixbuf-2.0.so.0()(64bit)
+libgio-2.0.so.0()(64bit)
+libglib-2.0.so.0()(64bit)
+libgmodule-2.0.so.0()(64bit)
+libgnome-bluetooth.so.13()(64bit)
+libgobject-2.0.so.0()(64bit)
+libgtk-3.so.0()(64bit)
+libm.so.6()(64bit)
+libpango-1.0.so.0()(64bit)
+libpangocairo-1.0.so.0()(64bit)
+libpthread.so.0()(64bit)
+libudev.so.1()(64bit)
+pulseaudio-module-bluetooth
+rpmlib(CompressedFileNames) &lt;= 3.0.4-1
+rpmlib(FileDigests) &lt;= 4.6.0-1
+rpmlib(PayloadFilesHavePrefix) &lt;= 4.0-1
+rtld(GNU_HASH)
+rpmlib(PayloadIsXz) &lt;= 5.2-1
+[root@localhost packages]# yum deplist gnome-bluetooth-3.14.1-1.el7.x86_64.rpm　　　　　　　　//yum命令查询依赖关系
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+软件包：gnome-bluetooth.x86_64 1:3.14.1-1.el7
+   依赖：/bin/sh
+   provider: bash.x86_64 4.2.46-19.el7
+   依赖：bluez &gt;= 5.0
+   provider: bluez.x86_64 5.23-4.el7
+   依赖：desktop-file-utils
+   provider: desktop-file-utils.x86_64 0.22-1.el7
+   依赖：gnome-bluetooth-libs = 1:3.14.1-1.el7
+   provider: gnome-bluetooth-libs.x86_64 1:3.14.1-1.el7
+   provider: gnome-bluetooth-libs.i686 1:3.14.1-1.el7
+   依赖：libatk-1.0.so.0()(64bit)
+   provider: atk.x86_64 2.14.0-1.el7
+   依赖：libc.so.6()(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libc.so.6(GLIBC_2.2.5)(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libc.so.6(GLIBC_2.4)(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libcairo-gobject.so.2()(64bit)
+   provider: cairo-gobject.x86_64 1.14.2-1.el7
+   依赖：libcairo.so.2()(64bit)
+   provider: cairo.x86_64 1.14.2-1.el7
+   依赖：libgdk-3.so.0()(64bit)
+   provider: gtk3.x86_64 3.14.13-16.el7
+   依赖：libgdk_pixbuf-2.0.so.0()(64bit)
+   provider: gdk-pixbuf2.x86_64 2.31.6-3.el7
+   依赖：libgio-2.0.so.0()(64bit)
+   provider: glib2.x86_64 2.42.2-5.el7
+   依赖：libglib-2.0.so.0()(64bit)
+   provider: glib2.x86_64 2.42.2-5.el7
+   依赖：libgmodule-2.0.so.0()(64bit)
+   provider: glib2.x86_64 2.42.2-5.el7
+   依赖：libgnome-bluetooth.so.13()(64bit)
+   provider: gnome-bluetooth-libs.x86_64 1:3.14.1-1.el7
+   依赖：libgobject-2.0.so.0()(64bit)
+   provider: glib2.x86_64 2.42.2-5.el7
+   依赖：libgtk-3.so.0()(64bit)
+   provider: gtk3.x86_64 3.14.13-16.el7
+   依赖：libm.so.6()(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libpango-1.0.so.0()(64bit)
+   provider: pango.x86_64 1.36.8-2.el7
+   依赖：libpangocairo-1.0.so.0()(64bit)
+   provider: pango.x86_64 1.36.8-2.el7
+   依赖：libpthread.so.0()(64bit)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   依赖：libudev.so.1()(64bit)
+   provider: systemd-libs.x86_64 219-19.el7_2.9
+   依赖：pulseaudio-module-bluetooth
+   provider: pulseaudio-module-bluetooth.x86_64 6.0-7.el7
+   依赖：rtld(GNU_HASH)
+   provider: glibc.x86_64 2.17-106.el7_2.6
+   provider: glibc.i686 2.17-106.el7_2.6</code></pre>
+<p>5)[root@localhost packages]# rpm -Va　　　　　　　　校验所有的rpm包，查找丢失的文件</p>
+<pre><code>复制代码
+[root@localhost packages]# rpm -Va
+S.5....T.  c /etc/hba.conf
+....L....  c /etc/pam.d/fingerprint-auth
+....L....  c /etc/pam.d/password-auth
+....L....  c /etc/pam.d/postlogin
+....L....  c /etc/pam.d/smartcard-auth
+....L....  c /etc/pam.d/system-auth
+遗漏     /var/run/wpa_supplicant
+遗漏     /var/run/pluto
+S.5....T.  c /etc/plymouth/plymouthd.conf
+S.5....T.  c /etc/login.defs
+S.5....T.  c /etc/libuser.conf
+S.5....T.  c /etc/openldap/ldap.conf
+遗漏     /var/run/gluster
+.M.......  c /etc/cups/subscriptions.conf
+S.5....T.  c /etc/yum/pluginconf.d/langpacks.conf
+.M....G..    /var/log/gdm
+S.5....T.  c /etc/cgrules.conf
+S.5....T.  c /etc/cups/cups-browsed.conf
+.......T.    /lib/modules/3.10.0-229.el7.x86_64/modules.devname
+.......T.    /lib/modules/3.10.0-229.el7.x86_64/modules.softdep
+[root@localhost packages]# which mysql
+/usr/bin/mysql</code></pre>
+<p>6)[root@localhost packages]# rpm -ql mariadb-5.5.47-1.el7_2.x86_64　　　　查看指定软件包的安装的位置</p>
+<pre><code>复制代码
+[root@localhost packages]# yum install mysql
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+软件包 1:mariadb-5.5.47-1.el7_2.x86_64 已安装并且是最新版本
+无须任何处理
+[root@localhost packages]# rpm -ql mariadb-5.5.47-1.el7_2.x86_64
+/etc/my.cnf.d/client.cnf
+/usr/bin/aria_chk
+/usr/bin/aria_dump_log
+/usr/bin/aria_ftdump
+/usr/bin/aria_pack
+/usr/bin/aria_read_log
+/usr/bin/msql2mysql
+/usr/bin/my_print_defaults
+/usr/bin/mysql
+/usr/bin/mysql_find_rows
+/usr/bin/mysql_waitpid
+/usr/bin/mysqlaccess
+/usr/bin/mysqladmin
+/usr/bin/mysqlbinlog
+/usr/bin/mysqlcheck
+/usr/bin/mysqldump
+/usr/bin/mysqlimport
+/usr/bin/mysqlshow
+/usr/bin/mysqlslap
+/usr/share/doc/mariadb-5.5.47
+/usr/share/doc/mariadb-5.5.47/COPYING
+/usr/share/doc/mariadb-5.5.47/COPYING.Google
+/usr/share/doc/mariadb-5.5.47/COPYING.LESSER
+/usr/share/doc/mariadb-5.5.47/COPYING.Percona
+/usr/share/doc/mariadb-5.5.47/README
+/usr/share/doc/mariadb-5.5.47/README.mysql-docs
+/usr/share/doc/mariadb-5.5.47/README.mysql-license
+/usr/share/man/man1/aria_chk.1.gz
+/usr/share/man/man1/aria_dump_log.1.gz
+/usr/share/man/man1/aria_ftdump.1.gz
+/usr/share/man/man1/aria_pack.1.gz
+/usr/share/man/man1/aria_read_log.1.gz
+/usr/share/man/man1/my_print_defaults.1.gz
+/usr/share/man/man1/mysql.1.gz
+/usr/share/man/man1/mysql_find_rows.1.gz
+/usr/share/man/man1/mysql_waitpid.1.gz
+/usr/share/man/man1/mysqlaccess.1.gz
+/usr/share/man/man1/mysqladmin.1.gz
+/usr/share/man/man1/mysqldump.1.gz
+/usr/share/man/man1/mysqlshow.1.gz
+/usr/share/man/man1/mysqlslap.1.gz</code></pre>
+<p>7)[root@localhost packages]# rpm -qi ftp-0.17-66.el7.x86_64　　　　　　　查看指定软件包的信息</p>
+<pre><code>复制代码
+[root@localhost packages]# yum install ftp
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+软件包 ftp-0.17-66.el7.x86_64 已安装并且是最新版本
+无须任何处理
+[root@localhost packages]# rpm -qi ftp-0.17-66.el7.x86_64
+Name        : ftp
+Version     : 0.17
+Release     : 66.el7
+Architecture: x86_64
+Install Date: 2016年06月21日 星期二 11时26分00秒
+Group       : Applications/Internet
+Size        : 98691
+License     : BSD with advertising
+Signature   : RSA/SHA256, 2014年07月03日 星期四 18时25分20秒, Key ID 24c6a8a7f4a80eb5
+Source RPM  : ftp-0.17-66.el7.src.rpm
+Build Date  : 2014年06月09日 星期一 13时01分11秒
+Build Host  : worker1.bsys.centos.org
+Relocations : (not relocatable)
+Packager    : CentOS BuildSystem &lt;http://bugs.centos.org&gt;
+Vendor      : CentOS
+URL         : ftp://ftp.linux.org.uk/pub/linux/Networking/netkit
+Summary     : The standard UNIX FTP (File Transfer Protocol) client
+Description :
+The ftp package provides the standard UNIX command-line FTP (File
+Transfer Protocol) client.  FTP is a widely used protocol for
+transferring files over the Internet and for archiving files.
+
+If your system is on a network, you should install ftp in order to do
+file transfers.
+复制代码
+复制代码
+[root@localhost packages]# yum info ftp-0.17-66.el7.x86_64
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.cqu.edu.cn
+ * extras: mirrors.cqu.edu.cn
+ * updates: mirrors.cqu.edu.cn
+已安装的软件包
+名称    ：ftp
+架构    ：x86_64
+版本    ：0.17
+发布    ：66.el7
+大小    ：96 k
+源    ：installed
+来自源：anaconda
+简介    ： The standard UNIX FTP (File Transfer Protocol) client
+网址    ：ftp://ftp.linux.org.uk/pub/linux/Networking/netkit
+协议    ： BSD with advertising
+描述    ： The ftp package provides the standard UNIX command-line FTP (File
+         : Transfer Protocol) client.  FTP is a widely used protocol for
+         : transferring files over the Internet and for archiving files.
+         : 
+         : If your system is on a network, you should install ftp in order to do
+         : file transfers.</code></pre>
+<p>8)[root@localhost packages]# rpm -i <a href="ftp://ftp.linux.org.uk/pub/linux/Networking/netkit">ftp://ftp.linux.org.uk/pub/linux/Networking/netkit</a>　　　　　　　　直接从网址下载(-i参数)</p>
+<p>9)[root@localhost packages]# rpm -i -vv <a href="ftp://ftp.linux.org.uk/pub/linux/Networking/netkit">ftp://ftp.linux.org.uk/pub/linux/Networking/netkit</a>　　　　　　显示指令执行的细节(-vvc参数)</p>
+<pre><code>复制代码
+[root@localhost packages]# rpm -i ftp://ftp.linux.org.uk/pub/linux/Networking/netkit
+curl: (78) RETR response: 550
+错误：跳过 ftp://ftp.linux.org.uk/pub/linux/Networking/netkit - 传输失败
+[root@localhost packages]# rpm -i -vv ftp://ftp.linux.org.uk/pub/linux/Networking/netkit
+获取ftp://ftp.linux.org.uk/pub/linux/Networking/netkit
+curl: (78) RETR response: 550
+错误：跳过 ftp://ftp.linux.org.uk/pub/linux/Networking/netkit - 传输失败
+[root@localhost packages]# rpm -e ftp
+[root@localhost packages]# rpm -i -vv ftp://ftp.linux.org.uk/pub/linux/Networking/netkit
+获取ftp://ftp.linux.org.uk/pub/linux/Networking/netkit
+curl: (78) RETR response: 550
+错误：跳过 ftp://ftp.linux.org.uk/pub/linux/Networking/netkit - 传输失败
+[root@localhost packages]# wget ftp://ftp.linux.org.uk/pub/linux/Networking/netkit　//用wget测试是否能下载时，发现也是不行的，说明是网址的问题。
+--2016-06-22 08:23:18--  ftp://ftp.linux.org.uk/pub/linux/Networking/netkit
+           =&gt; “netkit”
+正在解析主机 ftp.linux.org.uk (ftp.linux.org.uk)... 195.92.253.2, 2002:c35c:fd02::1
+正在连接 ftp.linux.org.uk (ftp.linux.org.uk)|195.92.253.2|:21... 已连接。
+正在以 anonymous 登录 ... 登录成功！
+==&gt; SYST ... 完成。   ==&gt; PWD ... 完成。
+==&gt; TYPE I ... 完成。 ==&gt; CWD (1) /pub/linux/Networking ... 完成。
+==&gt; SIZE netkit ... 完成。
+==&gt; PASV ... 无法连接到 0.0.0.0 端口号 19392: 拒绝连接　　　　　　　　　　　　　　　//指定网站拒绝连接</code></pre>
+<p>(5)其它:</p>
+<pre><code>rpm的详细介绍:
+
+1)简介：
+
+RPM(Red Hat Package Manager)，是Red Hat 软件包管理器。RPM包里面包含有"可执行的二进制程序"；"程序运行时所需要的文件"。
+
+一个RPM 包中的应用程序，有时除了自身所带的附加文件保证其正常以外，还需要其它特定版本文件，这就是软件包的依赖关系。
+依赖关系并不是Linux特有的， Windows操作系统中也是同样存在的；比如我们在Windows系统中运行3D游戏，
+在安装的时候，他可能会提示，要安装Direct 9 ；Linux和Windows原理是差不多的。
+
+一个软件包安装的流程图:</code></pre>
+<p>2)RPM软件包管理器的全面用途：</p>
+<pre><code>1.可以安装、删除、升级和管理软件；当然也支持在线安装和升级软件；
+2.通过RPM包管理能知道软件包包含哪些文件，也能知道系统中的某个文件属于哪个软件包；
+3.可以在查询系统中的软件包是否安装以及其版本；
+4.作为开发者可以把自己的程序打包为RPM 包发布；
+5.软件包签名GPG和MD5的导入、验证和签名发布
+6.依赖性的检查，查看是否有软件包由于不兼容而扰乱了系统；
+
+3)RPM 的使用权限：
+
+  RPM软件的安装、删除、更新只有root权限才能使用；对于查询功能任何用户都可以操作；如果普通用户拥有安装目录的权限，也可以进行安装。
+
+  不是所有的软件包都能通过rpm 命令来安装，只有以.rpm结尾的软件包才可以。
+
+4)当rpm系统出了不能安装和查询的问题时:
+
+[root@localhost packages]rpm -initdb
+[root@localhost packages]rpm -rebuilddb            //这个命令需要执行很长时间</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2017/08/16/mei-tian-2-ge-linux-ming-ling-yum-rpm/">http://dtbox.com/2017/08/16/mei-tian-2-ge-linux-ming-ling-yum-rpm/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
+                                </a>
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/08/16/mei-tian-2-ge-linux-ming-ling-sudo-wget/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="每天2个Linux命令 sudo wget">
+                        
+                        <span class="card-title">每天2个Linux命令 sudo wget</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 sudo wget
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-08-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/08/14/mei-tian-2-ge-linux-ming-ling-chkconfig-systemctl/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="每天2个Linux命令 chkconfig systemctl">
+                        
+                        <span class="card-title">每天2个Linux命令 chkconfig systemctl</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 chkconfig systemctl
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-08-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

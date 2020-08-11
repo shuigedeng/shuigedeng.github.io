@@ -1,0 +1,2158 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="lucene学习">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>lucene学习 | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">lucene学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/bean/">
+                                <span class="chip bg-color">bean</span>
+                            </a>
+                        
+                            <a href="/tags/xml/">
+                                <span class="chip bg-color">xml</span>
+                            </a>
+                        
+                            <a href="/tags/lucene/">
+                                <span class="chip bg-color">lucene</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/lucene/" class="post-category">
+                                lucene
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-07-25
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    20 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="2017-07-21-Lucene"><a href="#2017-07-21-Lucene" class="headerlink" title=" 2017-07-21 Lucene"></a><center> 2017-07-21 Lucene</center></h2><p>1    课程计划</p>
+<pre><code>1、    Lucene介绍
+    a)    什么是lucene
+    b)    全文检索的应用场景
+    c)    全文检索定义
+2、    Luence实现全文检索的流程（重点）
+3、    入门程序
+4、    Field域（重点）
+5、    索引维护
+    a)    添加索引
+    b)    删除索引
+    c)    修改索引
+6、    搜索（重点）
+    a)    通过Query子类创建查询对象
+    b)    通过QueryParser创建查询对象
+7、    相关度排序
+8、    中文分词器（重点）</code></pre>
+<hr>
+<p>2    Lucene介绍</p>
+<pre><code>2.1    什么是lucene
+Lucene是Apache的一个全文检索引擎工具包，通过lucene可以让程序员快速开发一个全文检索功能。
+
+引擎：核心组件
+工具包：jar包、类库
+
+2.2    全文检索的应用场景
+
+    2.2.1    搜索引擎</code></pre>
+<p><img src="/images/20170721/1.png"></p>
+<pre><code>    2.2.2    站内搜索（关注）</code></pre>
+<p><img src="/images/20170721/2.png"></p>
+<pre><code>    2.2.3    文件系统的搜索</code></pre>
+<p><img src="/images/20170721/3.png"></p>
+<pre><code>    2.2.4    总结
+        Lucene和搜索引擎不是一回事
+
+        Lucene是一个工具包，它不能独立运行，不能单独对外提供服务。
+        搜索引擎可以独立运行对外提供搜索服务。
+
+
+2.3    全文检索的定义
+全文检索首先对要搜索的文档进行分词，然后形成索引，通过查询索引来查询文档。
+
+全文检索就是先创建索引，然后根据索引来进行搜索的过程，就叫全文检索。
+
+比如：字典，
+字典的偏旁部首页，就类似于luence的索引
+        字典的具体内容，就类似于luence的文档内容</code></pre>
+<hr>
+<p>3    Lucene实现全文检索的流程</p>
+<p><img src="/images/20170721/4.png"></p>
+<pre><code>全文检索的流程：索引流程、搜索流程
+
+索引流程：采集数据—》文档处理存储到索引库中
+搜索流程：输入查询条件—》通过lucene的查询器查询索引—》从索引库中取出结—》视图渲染
+
+Lucene本身不能进行视图渲染。</code></pre>
+<hr>
+<p>4    入门程序</p>
+<pre><code>4.1    需求
+    使用lucene完成对数据库中图书信息的索引和搜索功能
+
+4.2    环境准备
+        Jdk：1.7及以上
+        Lucene：4.10（从4.8版本以后，必须使用jdk1.7及以上）
+        Ide：indigo
+        数据库：mysql 5
+
+    4.2.1    数据库脚本初始化</code></pre>
+<p><img src="/images/20170721/5.png"></p>
+<pre><code>    4.2.2    Lucene下载
+
+        Lucene是开发全文检索功能的工具包，使用时从官方网站下载，并解压。
+
+        官方网站：http://lucene.apache.org/ 
+        目前最新版本：5.4.0
+
+        下载地址：http://archive.apache.org/dist/lucene/java/
+
+        下载版本：4.10.3
+        JDK要求：1.7以上（从版本4.8开始，不支持1.7以下）</code></pre>
+<p><img src="/images/20170721/6.png"></p>
+<p><img src="/images/20170721/7.png"></p>
+<p><img src="/images/20170721/8.png"></p>
+<p><img src="/images/20170721/9.png"></p>
+<pre><code>4.3    工程搭建
+        Mysql驱动包
+        Analysis的包
+        Core包
+        QueryParser包
+        Junit包（非必须）</code></pre>
+<p><img src="/images/20170721/10.png"></p>
+<pre><code>4.4    索引流程
+
+    4.4.1    为什么采集数据
+            全文检索搜索的内容的格式是多种多样的，比如：视频、mp3、图片、文档等等。
+            对于这种格式不同的数据，需要先将他们采集到本地，然后统一封装到lucene的文档对象中，
+            也就是说需要将存储的内容进行统一才能对它进行查询。
+
+    4.4.2    采集数据的方式
+            对于互联网中的数据，使用爬虫工具（http工具）将网页爬取到本地
+            对于数据库中的数据，使用jdbc程序进行数据采集
+            对于文件系统的数据，使用io流采集
+
+        因为目前搜索引擎主要搜索数据的来源是互联网，搜索引擎使用一种爬虫程序抓取网页（ 通过http抓取html网页信息），以下是一些爬虫项目：
+        Solr（http://lucene.apache.org/solr） ，solr是apache的一个子项目，支持从关系数据库、xml文档中提取原始数据。
+
+        Nutch（http://lucene.apache.org/nutch）, Nutch是apache的一个子项目，包括大规模爬虫工具，能够抓取和分辨web网站数据。
+
+        jsoup（http://jsoup.org/ ），jsoup 是一款Java 的HTML解析器，
+        可直接解析某个URL地址、HTML文本内容。它提供了一套非常省力的API，
+        可通过DOM，CSS以及类似于jQuery的操作方法来取出和操作数据。
+
+        heritrix（http://sourceforge.net/projects/archive-crawler/files/），
+        Heritrix 是一个由 java 开发的、开源的网络爬虫，用户可以使用它来从网上抓取想要的资源。
+        其最出色之处在于它良好的可扩展性，方便用户实现自己的抓取逻辑。
+
+    4.4.3    索引文件的逻辑结构</code></pre>
+<p><img src="/images/20170721/11.png"></p>
+<pre><code>        文档域
+    文档域存储的信息就是采集到的信息，通过Document对象来存储，具体说是通过Document对象中field域来存储数据。
+
+    比如：数据库中一条记录会存储一个一个Document对象，数据库中一列会存储成Document中一个field域。
+
+    文档域中，Document对象之间是没有关系的。而且每个Document中的field域也不一定一样。
+
+        索引域
+
+    索引域主要是为了搜索使用的。索引域内容是经过lucene分词之后存储的。
+
+
+        倒排索引表
+
+    传统方法是先找到文件，如何在文件中找内容，在文件内容中匹配搜索关键字，这种方法是顺序扫描方法，数据量大就搜索慢。
+        倒排索引结构是根据内容（词语）找文档，倒排索引结构也叫反向索引结构，包括索引和文档两部分，索引即词汇表，
+    它是在索引中匹配搜索关键字，由于索引内容量有限并且采用固定优化算法搜索速度很快，找到了索引中的词汇，
+    词汇与文档关联，从而最终找到了文档。</code></pre>
+<p><img src="/images/20170721/12.png"></p>
+<pre><code>    4.4.4    索引
+
+        4.4.4.1    采集数据</code></pre>
+<p><img src="/images/20170721/13.png"></p>
+<pre><code>        public class BookDaoImpl implements BookDao {
+
+                @Override
+                public List&lt;Book&gt; queryBooks() {
+                    // 数据库链接
+                    Connection connection = null;
+
+                    // 预编译statement
+                    PreparedStatement preparedStatement = null;
+
+                    // 结果集
+                    ResultSet resultSet = null;
+
+                    // 图书列表
+                    List&lt;Book&gt; list = new ArrayList&lt;Book&gt;();
+
+                    try {
+                        // 加载数据库驱动
+                        Class.forName("com.mysql.jdbc.Driver");
+                        // 连接数据库
+                        connection = DriverManager.getConnection(
+                                "jdbc:mysql://localhost:3306/solr", "root", "root");
+
+                        // SQL语句
+                        String sql = "SELECT * FROM book";
+                        // 创建preparedStatement
+                        preparedStatement = connection.prepareStatement(sql);
+
+                        // 获取结果集
+                        resultSet = preparedStatement.executeQuery();
+
+                        // 结果集解析
+                        while (resultSet.next()) {
+                            Book book = new Book();
+                            book.setId(resultSet.getInt("id"));
+                            book.setName(resultSet.getString("name"));
+                            book.setPrice(resultSet.getFloat("price"));
+                            book.setPic(resultSet.getString("pic"));
+                            book.setDescription(resultSet.getString("description"));
+                            list.add(book);
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    return list;
+                }
+
+            }
+
+
+    4.4.4.2    创建索引
+            创建索引流程：</code></pre>
+<p><img src="/images/20170721/14.png"></p>
+<pre><code>            IndexWriter是索引过程的核心组件，通过IndexWriter可以创建新索引、更新索引、删除索引操作。IndexWriter需要通过Directory对索引进行存储操作。
+            Directory描述了索引的存储位置，底层封装了I/O操作，负责对索引进行存储。
+            它是一个抽象类，它的子类常用的包括FSDirectory（在文件系统存储索引）、RAMDirectory（在内存存储索引）。
+
+            @Test
+            public void createIndex() throws Exception {
+                // 采集数据
+                BookDao dao = new BookDaoImpl();
+                List&lt;Book&gt; list = dao.queryBooks();
+
+                // 将采集到的数据封装到Document对象中
+                List&lt;Document&gt; docList = new ArrayList&lt;&gt;();
+                Document document;
+                for (Book book : list) {
+                    document = new Document();
+                    // store:如果是yes，则说明存储到文档域中
+                    // 图书ID
+                    Field id = new TextField("id", book.getId().toString(), Store.YES);
+                    // 图书名称
+                    Field name = new TextField("name", book.getName(), Store.YES);
+                    // 图书价格
+                    Field price = new TextField("price", book.getPrice().toString(),
+                            Store.YES);
+                    // 图书图片地址
+                    Field pic = new TextField("pic", book.getPic(), Store.YES);
+                    // 图书描述
+                    Field description = new TextField("description",
+                            book.getDescription(), Store.YES);
+
+                    // 将field域设置到Document对象中
+                    document.add(id);
+                    document.add(name);
+                    document.add(price);
+                    document.add(pic);
+                    document.add(description);
+
+                    docList.add(document);
+                }
+
+                // 创建分词器，标准分词器
+                Analyzer analyzer = new StandardAnalyzer();
+
+                // 创建IndexWriter
+                IndexWriterConfig cfg = new IndexWriterConfig(Version.LUCENE_4_10_3,
+                        analyzer);
+                // 指定索引库的地址
+                File indexFile = new File("E:\\11-index\\hm19\\");
+                Directory directory = FSDirectory.open(indexFile);
+                IndexWriter writer = new IndexWriter(directory, cfg);
+
+                // 通过IndexWriter对象将Document写入到索引库中
+                for (Document doc : docList) {
+                    writer.addDocument(doc);
+                }
+
+                // 关闭writer
+                writer.close();
+            }
+
+
+    4.4.4.3    分词
+
+            Lucene中分词主要分为两个步骤：分词、过滤
+
+            分词：将field域中的内容一个个的分词。
+            过滤：将分好的词进行过滤，比如去掉标点符号、大写转小写、词的型还原（复数转单数、过去式转成现在式）、停用词过滤
+
+            停用词：单独应用没有特殊意义的词。比如的、啊、等，英文中的this is a the等等。
+                要分词的内容
+            Lucene is a Java full-text search engine. 
+
+            分词
+            Lucene 
+            is 
+            a 
+            Java 
+            Full
+            -
+            text 
+            search 
+            engine
+            .
+
+            过滤
+
+            去掉标点符号
+            Lucene 
+            is 
+            a 
+            Java 
+            Full
+            text 
+            search 
+            engine
+
+            去掉停用词
+            Lucene 
+            Java 
+            Full
+            text 
+            search 
+            engine
+
+            大写转小写
+            lucene 
+            java 
+            full
+            text 
+            search 
+            engine
+
+            如下是org.apache.lucene.analysis.standard.standardAnalyzer的部分源码：
+            @Override
+              protected TokenStreamComponents createComponents(final String fieldName, final Reader reader) {
+                final StandardTokenizer src = new StandardTokenizer(getVersion(), reader);
+                src.setMaxTokenLength(maxTokenLength);
+                TokenStream tok = new StandardFilter(getVersion(), src);
+                tok = new LowerCaseFilter(getVersion(), tok);
+                tok = new StopFilter(getVersion(), tok, stopwords);
+                return new TokenStreamComponents(src, tok) {
+                  @Override
+                  protected void setReader(final Reader reader) throws IOException {
+                    src.setMaxTokenLength(StandardAnalyzer.this.maxTokenLength);
+                    super.setReader(reader);
+                  }
+                };
+              }
+
+            如下图是语汇单元的生成过程：</code></pre>
+<p><img src="/images/20170721/15.png"></p>
+<pre><code>            从一个Reader字符流开始，创建一个基于Reader的Tokenizer分词器，经过三个TokenFilter生成语汇单元Token。
+
+            同一个域中相同的语汇单元（Token）对应同一个Term（词），它记录了语汇单元的内容及所在域的域名等，
+            还包括来该token出现的频率及位置。
+                不同的域中拆分出来的相同的单词对应不同的term。
+                相同的域中拆分出来的相同的单词对应相同的term。
+            例如：图书信息里面，图书名称中的java和图书描述中的java对应不同的term
+
+    4.4.4.4    使用luke工具查看索引</code></pre>
+<p><img src="/images/20170721/16.png"></p>
+<p><img src="/images/20170721/17.png"></p>
+<p><img src="/images/20170721/18.png"></p>
+<pre><code>4.5    搜索流程
+
+        4.5.1    输入查询语句
+            同数据库的sql一样，lucene全文检索也有固定的语法：
+            最基本的有比如：AND, OR, NOT 等
+
+            举个例子，用户想找一个description中包括java关键字和lucene关键字的文档。
+            它对应的查询语句：description:java AND lucene
+            如下是使用luke搜索的例子</code></pre>
+<p><img src="/images/20170721/19.png"></p>
+<pre><code>        4.5.2    代码</code></pre>
+<p><img src="/images/20170721/20.png"></p>
+<pre><code>            @Test
+            public void indexSearch() throws Exception {
+                // 创建query对象
+                // 使用QueryParser搜索时，需要指定分词器，搜索时的分词器要和索引时的分词器一致
+                // 第一个参数：默认搜索的域的名称
+                QueryParser parser = new QueryParser("description",
+                        new StandardAnalyzer());
+
+                // 通过queryparser来创建query对象
+                // 参数：输入的lucene的查询语句(关键字一定要大写)
+                Query query = parser.parse("description:java AND lucene");
+
+                // 创建IndexSearcher
+                // 指定索引库的地址
+                File indexFile = new File("E:\\11-index\\hm19\\");
+                Directory directory = FSDirectory.open(indexFile);
+                IndexReader reader = DirectoryReader.open(directory);
+                IndexSearcher searcher = new IndexSearcher(reader);
+
+                // 通过searcher来搜索索引库
+                // 第二个参数：指定需要显示的顶部记录的N条
+                TopDocs topDocs = searcher.search(query, 10);
+
+                // 根据查询条件匹配出的记录总数
+                int count = topDocs.totalHits;
+                System.out.println("匹配出的记录总数:" + count);
+                // 根据查询条件匹配出的记录
+                ScoreDoc[] scoreDocs = topDocs.scoreDocs;
+
+                for (ScoreDoc scoreDoc : scoreDocs) {
+                    // 获取文档的ID
+                    int docId = scoreDoc.doc;
+
+                    // 通过ID获取文档
+                    Document doc = searcher.doc(docId);
+                    System.out.println("商品ID：" + doc.get("id"));
+                    System.out.println("商品名称：" + doc.get("name"));
+                    System.out.println("商品价格：" + doc.get("price"));
+                    System.out.println("商品图片地址：" + doc.get("pic"));
+                    System.out.println("==========================");
+                    // System.out.println("商品描述：" + doc.get("description"));
+                }
+                // 关闭资源
+                reader.close();
+            }</code></pre>
+<hr>
+<p>5.1    Field的属性</p>
+<pre><code>    是否分词（Tokenized）
+是：对该field存储的内容进行分词，分词的目的，就是为了索引。
+
+比如：商品名称、商品描述、商品价格
+
+否：不需要对field存储的内容进行分词，不分词，不代表不索引，而是将整个内容进行索引。
+
+比如：商品id
+
+    是否索引（Indexed）
+是：将分好的词进行索引，索引的目的，就是为了搜索。
+
+比如：商品名称、商品描述、商品价格、商品id
+
+否：不索引，也就是不对该field域进行搜索。
+
+    是否存储（Stored）
+是：将field域中的内容存储到文档域中。存储的目的，就是为了搜索页面显示取值用的。
+
+比如：商品名称、商品价格、商品id、商品图片地址
+
+否：不将field域中的内容存储到文档域中。不存储，则搜索页面中没法获取该field域的值。
+
+比如：商品描述，由于商品描述在搜索页面中不需要显示，再加上商品描述的内容比较多，所以就不需要进行存储。
+
+如果需要商品描述，则根据搜索出的商品ID去数据库中查询，然后显示出商品描述信息即可。</code></pre>
+<hr>
+<pre><code>5.2    Field的常用类型
+    下边列出了开发中常用 的Filed类型，注意Field的属性，根据需求选择：</code></pre>
+<p><img src="/images/20170721/21.png"></p>
+<pre><code>5.3    修改入门程序的代码</code></pre>
+<p><img src="/images/20170721/22.png"></p>
+<hr>
+<p>6    索引维护</p>
+<pre><code>6.1    需求
+    图书信息在数据库 发生变化，所以索引库相对应的也要发生增删改变化。
+
+6.2    添加索引
+    参考入门程序的索引流程
+    IndexWriter.addDocument(document);
+
+6.3    删除索引
+    增删改操作，都是需要通过IndexWriter对象来操作
+
+    6.3.1    根据条件删除
+        Term是索引域中最小的单位。根据条件删除时，建议根据唯一键来进行删除。在solr中就是根据ID来进行删除和修改操作的。</code></pre>
+<p><img src="/images/20170721/23.png"></p>
+<pre><code>    6.3.2    删除全部</code></pre>
+<p><img src="/images/20170721/24.png"></p>
+<pre><code>6.4    修改索引</code></pre>
+<p><img src="/images/20170721/25.png"></p>
+<hr>
+<p>7    搜索</p>
+<pre><code>7.1    创建查询对象的方式
+        通过Query子类来创建查询对象
+    Query子类常用的有：TermQuery、NumericRangeQuery、BooleanQuery
+
+    不能输入lucene的查询语法，不需要指定分词器
+        通过QueryParser来创建查询对象（常用）
+    QueryParser、MultiFieldQueryParser
+
+    可以输入lucene的查询语法、可以指定分词器
+
+7.2    通过Query子类来创建查询对象
+
+    7.2.1    TermQuery
+            精确的词项查询</code></pre>
+<p><img src="/images/20170721/26.png"></p>
+<pre><code>    7.2.2    NumericRangeQuery 数字范围查询</code></pre>
+<p><img src="/images/20170721/27.png"></p>
+<pre><code>    7.2.3    BooleanQuery  组合查询</code></pre>
+<p><img src="/images/20170721/28.png"></p>
+<pre><code>        组合关系代表的意思如下: 
+     1、MUST和MUST表示“与”的关系，即“并集”。 
+     2、MUST和MUST_NOT前者包含后者不包含。 
+     3、MUST_NOT和MUST_NOT没意义 
+     4、SHOULD与MUST表示MUST，SHOULD失去意义； 
+     5、SHOUlD与MUST_NOT相当于MUST与MUST_NOT。 
+     6、SHOULD与SHOULD表示“或”的概念。
+
+7.3    通过QueryParser创建查询对象
+
+    7.3.1    QueryParser
+        通过QueryParser来创建query对象，可以指定分词器，搜索时的分词器和创建该索引的分词器一定要一致。还可以输入查询语句。
+
+        参考入门程序之搜索流程。
+
+    7.3.2    MultiFieldQueryParser  多域查询</code></pre>
+<p><img src="/images/20170721/29.png"></p>
+<pre><code>    7.3.3    查询语法
+    1、基础的查询语法，关键词查询：
+    域名+“：”+搜索的关键字
+    例如：content:java
+    2、范围查询
+    域名+“:”+[最小值 TO 最大值]
+    例如：size:[1 TO 1000]
+    注意：QueryParser不支持对数字范围的搜索，它支持字符串范围。数字范围搜索建议使用NumericRangeQuery。
+    3、组合条件查询
+    Occur.MUST 查询条件必须满足，相当于and    +（加号）
+    Occur.SHOULD 查询条件可选，相当于or
+        空（不用符号）
+    Occur.MUST_NOT 查询条件不能满足，相当于not非    -（减号）
+
+    1）+条件1 +条件2：两个条件之间是并且的关系and
+    例如：+filename:apache +content:apache
+    2）+条件1 条件2：必须满足第一个条件，忽略第二个条件
+    例如：+filename:apache content:apache
+    3）条件1 条件2：两个条件满足其一即可。
+    例如：filename:apache content:apache
+    4）-条件1 条件2：必须不满足条件1，要满足条件2
+    例如：-filename:apache content:apache
+
+    第二种写法：
+    条件1 AND 条件2
+    条件1 OR 条件2
+    条件1 NOT 条件2
+
+7.4    TopDocs
+
+    Lucene搜索结果可通过TopDocs遍历，TopDocs类提供了少量的属性，如下：
+
+    方法或属性    说明
+    totalHits    匹配搜索条件的总记录数
+
+    scoreDocs    顶部匹配记录
+
+    注意：
+    Search方法需要指定匹配记录数量n：indexSearcher.search(query, n)
+    TopDocs.totalHits：是匹配索引库中所有记录的数量
+    TopDocs.scoreDocs：匹配相关度高的前边记录数组，scoreDocs的长度小于等于search方法指定的参数n</code></pre>
+<hr>
+<p>8    相关度排序</p>
+<pre><code>8.1    什么是相关度排序
+相关度排序就是查询关键字与查询结果的匹配相关度。匹配越高的越靠前。Lucene是通过打分来进行相关度排序的。
+
+打分分两步：
+1、    根据词计算词的权重
+2、    根据词的权重进行打分
+
+词的权重：词指的就是term。也就是说一个term对一个文档的重要性，就叫词的权重。
+
+影响词的权重的方式有两种：
+
+    Tf
+词在同一个文档中出现的频率
+    Tf越高，说明词的权重越高
+    Df
+词在多个文档中出现的频率
+Df越高，说明词的权重越低
+
+以上是自然打分的规则。</code></pre>
+<hr>
+<pre><code>8.2    设置boost值影响打分
+    Boost：加权值，默认是1.0f。
+
+    设置加权值可以在创建索引时设置，也可以在查询时设置。
+    Boost值是设置到Field域上的。
+
+    8.2.1    创建索引时设置boost值</code></pre>
+<p><img src="/images/20170721/30.png"></p>
+<pre><code>    8.2.2    搜索时设置boost值  在MultiFieldQueryParser创建时设置boost值。</code></pre>
+<p><img src="/images/20170721/31.png">            </p>
+<hr>
+<p>9    中文分词器</p>
+<pre><code>9.1    什么是中文分词器
+对于英文，是安装空格、标点符号进行分词
+对于中文，应该安装具体的词来分，中文分词就是将词，切分成一个个有意义的词。
+
+比如：“我的中国人”，分词：我、的、中国、中国人、国人。</code></pre>
+<hr>
+<pre><code>9.2    Lucene自带的中文分词器
+    StandardAnalyzer：
+单字分词：就是按照中文一个字一个字地进行分词。如：“我爱中国”，
+效果：“我”、“爱”、“中”、“国”。
+    CJKAnalyzer
+二分法分词：按两个字进行切分。如：“我是中国人”，效果：“我是”、“是中”、“中国”“国人”。
+
+上边两个分词器无法满足需求。</code></pre>
+<hr>
+<pre><code>9.3    第三方中文分词器
+    paoding： 庖丁解牛最新版在 https://code.google.com/p/paoding/ 中最多支持Lucene 3.0，
+且最新提交的代码在 2008-06-03，在svn中最新也是2010年提交，已经过时，不予考虑。
+
+    mmseg4j：最新版已从 https://code.google.com/p/mmseg4j/ 移至 https://github.com/chenlb/mmseg4j-solr，
+支持Lucene 4.10，且在github中最新提交代码是2014年6月，从09年～14年一共有：18个版本，
+也就是一年几乎有3个大小版本，有较大的活跃度，用了mmseg算法。
+
+    IK-analyzer： 最新版在https://code.google.com/p/ik-analyzer/上，
+支持Lucene 4.10从2006年12月推出1.0版开始， IKAnalyzer已经推出了4个大版本。
+最初，它是以开源项目Luence为应用主体的，结合词典分词和文法分析算法的中文分词组件。从3.0版本开 始，
+IK发展为面向Java的公用分词组件，独立于Lucene项目，同时提供了对Lucene的默认优化实现。在2012版本中，
+IK实现了简单的分词 歧义排除算法，标志着IK分词器从单纯的词典分词向模拟语义分词衍化。 但是也就是2012年12月后没有在更新。
+
+    ansj_seg：最新版本在 https://github.com/NLPchina/ansj_seg tags仅有1.1版本，
+从2012年到2014年更新了大小6次，但是作者本人在2014年10月10日说明：“可能我以后没有精力来维护ansj_seg了”，
+现在由”nlp_china”管理。2014年11月有更新。并未说明是否支持Lucene，是一个由CRF（条件随机场）算法所做的分词算法。
+
+    imdict-chinese-analyzer：最新版在 https://code.google.com/p/imdict-chinese-analyzer/ ，
+ 最新更新也在2009年5月，下载源码，不支持Lucene 4.10 。是利用HMM（隐马尔科夫链）算法。
+
+    Jcseg：最新版本在git.oschina.net/lionsoul/jcseg，支持Lucene 4.10，作者有较高的活跃度。利用mmseg算法。</code></pre>
+<hr>
+<pre><code>9.4    Ikanalyzer</code></pre>
+<p><img src="/images/20170721/32.png"></p>
+<pre><code>    9.4.1    添加ikanalyzer的jar包</code></pre>
+<p><img src="/images/20170721/33.png"></p>
+<pre><code>    9.4.2    代码</code></pre>
+<p><img src="/images/20170721/34.png"></p>
+<pre><code>    9.4.3    扩展中文词库 将以下文件拷贝到config目录下</code></pre>
+<p><img src="/images/20170721/35.png"></p>
+<pre><code>        从ikanalyzer包中拷贝配置文件到classpath下。
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        &lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;  
+        &lt;properties&gt;  
+
+            &lt;comment&gt;IK Analyzer 扩展配置&lt;/comment&gt;
+            &lt;!-- 用户可以在这里配置自己的扩展字典 --&gt;
+             &lt;entry key="ext_dict"&gt;dicdata/mydict.dic&lt;/entry&gt; 
+             &lt;!-- 用户可以在这里配置自己的扩展停用词字典    --&gt;
+            &lt;entry key="ext_stopwords"&gt;dicdata/ext_stopword.dic&lt;/entry&gt; 
+
+        &lt;/properties&gt;
+
+        如果想配置扩展词和停用词，就创建扩展词的文件和停用词的文件，文件的编码要是utf-8。
+        注意：不要用记事本保存扩展词文件和停用词文件，那样的话，格式中是含有bom的。
+
+
+    9.4.4    使用luke来查询中文分词效果
+            第一步：将ikanalyzer的jar包，拷贝到luke工具的目录</code></pre>
+<p><img src="/images/20170721/36.png"></p>
+<pre><code>            第二步：使用命令打开luke工具
+            java -Djava.ext.dirs=. -jar lukeall-4.10.3.jar</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2017/07/25/lucene-xue-xi/">http://dtbox.com/2017/07/25/lucene-xue-xi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/bean/">
+                                    <span class="chip bg-color">bean</span>
+                                </a>
+                            
+                                <a href="/tags/xml/">
+                                    <span class="chip bg-color">xml</span>
+                                </a>
+                            
+                                <a href="/tags/lucene/">
+                                    <span class="chip bg-color">lucene</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/07/26/mei-tian-2-ge-linux-ming-ling-tar-chgrp/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="每天2个Linux命令 tar chgrp">
+                        
+                        <span class="card-title">每天2个Linux命令 tar chgrp</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 tar chgrp
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-07-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/07/25/mei-tian-2-ge-linux-ming-ling-find-chmod/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="每天2个Linux命令 find chmod">
+                        
+                        <span class="card-title">每天2个Linux命令 find chmod</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 find chmod
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

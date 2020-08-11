@@ -1,0 +1,2017 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="每天2个Linux命令 cp nl">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>每天2个Linux命令 cp nl | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">每天2个Linux命令 cp nl</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
+                            </a>
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux2/" class="post-category">
+                                linux每天2个命令
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-07-18
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="2017-07-18-每天2个Linux命令-cp命令"><a href="#2017-07-18-每天2个Linux命令-cp命令" class="headerlink" title="2017-07-18 每天2个Linux命令 cp命令"></a><center>2017-07-18 每天2个Linux命令 cp命令</center></h2><p>cp命令用来将一个或多个源文件或者目录复制到指定的目的文件或目录。<br><br>它可以将单个源文件复制成一个指定文件名的具体的文件或一个已经存在的目录下。<br><br>cp命令还支持同时复制多个文件，当一次复制多个文件时，目标文件参数必须是一个已经存在的目录，否则将出现错误。</p>
+<hr>
+<p>(1)用法:</p>
+<pre><code>用法： cp [选项]... [-T]   源文件    目标文件
+
+  或： cp  [选项]...         源文件...  目录
+
+  或： cp  [选项]... -t      目录         源文件...</code></pre>
+<hr>
+<p>(2)功能:</p>
+<pre><code>将源文件复制至目标文件，或将多个源文件复制至目标目录。</code></pre>
+<hr>
+<p>(3)选项参数:</p>
+<pre><code>1) -f：                   　　　　　　强行复制文件或目录，不论目标文件或目录是否已存在
+
+2) -i：                   　　　　　　覆盖既有文件之前先询问用户
+
+3) -s：                  　　　　　　对源文件建立符号连接，而非复制文件
+
+4) -b：                  　　　　　　覆盖已存在的文件目标前将目标文件备份
+
+5) -v：                  　　　　　　详细显示命令执行的操作。
+
+6) -f：                   　　　　　　强行复制文件或目录，不论目标文件或目录是否已存在
+
+7) -i：                   　　　　　　覆盖既有文件之前先询问用户；
+
+8) -a：                  　　　　　　等于-dR --preserve=all
+
+9) -R, -r, --recursive               递归复制目录及其子目录内的所有内容
+
+  10) -d                                     等于--no-dereference --preserve=links   </code></pre>
+<hr>
+<p>(4)实例:</p>
+<pre><code>1)[root@localhost Document]# cp mytext cpDir                  将文档拷贝到另一个文件夹下，该文件夹下没有同名文档
+
+复制代码
+[root@localhost Document]# mkdir cpDir
+[root@localhost Document]# ll
+总用量 0
+drwxr-xr-x. 2 root root 6 5月   6 21:20 cpDir
+[root@localhost Document]# cat &gt;mytext &lt;&lt;EOF
+&gt; this is mytext!
+&gt; EOF
+[root@localhost Document]# ll
+总用量 4
+drwxr-xr-x. 2 root root  6 5月   6 21:20 cpDir
+-rw-r--r--. 1 root root 16 5月   6 21:21 mytext
+[root@localhost Document]# cp mytext cpDir
+[root@localhost Document]# ls -l ./cpDir
+总用量 4
+-rw-r--r--. 1 root root 16 5月   6 21:22 mytext
+[root@localhost Document]# cat mytext
+this is mytext!
+[root@localhost Document]# ll
+总用量 4
+drwxr-xr-x. 2 root root 19 5月   6 21:22 cpDir
+-rw-r--r--. 1 root root 16 5月   6 21:21 mytext</code></pre>
+<hr>
+<pre><code>2)[root@localhost Document]# cp mytext cpDir  将文档拷贝到另一个文件夹下，该文件夹下有同名文档，因此会提醒是否覆盖。
+
+复制代码
+[root@localhost Document]# ll
+总用量 4
+drwxr-xr-x. 2 root root 19 5月   6 21:22 cpDir
+-rw-r--r--. 1 root root 16 5月   6 21:21 mytext
+[root@localhost Document]# cat &gt;mytext &lt;&lt;EOF
+&gt; Modify the text !
+&gt; EOF
+[root@localhost Document]# cp mytext cpDir
+cp：是否覆盖"cpDir/mytext"？ y
+[root@localhost Document]# cat ./cpDir/mytext
+Modify the text !</code></pre>
+<hr>
+<pre><code>3)[root@localhost Document]# cp newDir Dir1  将newDir拷贝一份到Dir1目录下(当Dir1文件夹存在时);
+将newDir下的所有东西拷贝一份到新建的Dir2目录(Dir2不存在)
+
+复制代码
+[root@localhost Document]# ll
+总用量 0
+[root@localhost Document]# mkdir newDir
+[root@localhost Document]# touch ./newDir/{text1.txt,text2.txt}
+[root@localhost Document]# ll
+总用量 0
+drwxr-xr-x. 2 root root 38 5月   6 21:36 newDir
+[root@localhost Document]# mkdir Dir1
+[root@localhost Document]# cp newDir Dir1     //没加-a参数会报错
+cp: 略过目录"newDir"
+[root@localhost Document]# cp -a newDir Dir1  //Dir1存在 
+[root@localhost Document]# cp -a newDir Dir2  //Dir2不存在
+[root@localhost Document]# ll
+总用量 0
+drwxr-xr-x. 3 root root 19 5月   6 21:37 Dir1
+drwxr-xr-x. 2 root root 38 5月   6 21:36 Dir2
+drwxr-xr-x. 2 root root 38 5月   6 21:36 newDir
+[root@localhost Document]# ls ./Dir1        //存在的效果
+newDir
+[root@localhost Document]# ls ./Dir2        //不存在的效果
+text1.txt  text2.txt</code></pre>
+<hr>
+<pre><code>4)[root@localhost newDir]# cp -s text1.txt t1_link       建立一个指向text1.txt的快捷方式 ：t1_link
+
+复制代码
+[root@localhost Document]# cp -s newDir newDir_link                //貌似文件夹的快捷方式只用-s参数不能创建
+cp: 略过目录"newDir"
+[root@localhost Document]# ll
+总用量 0
+drwxr-xr-x. 3 root root 19 5月   6 21:37 Dir1
+drwxr-xr-x. 2 root root 38 5月   6 21:36 Dir2
+drwxr-xr-x. 2 root root 38 5月   6 21:36 newDir
+[root@localhost Document]# cd newDir
+[root@localhost newDir]# ll
+总用量 0
+-rw-r--r--. 1 root root 0 5月   6 21:36 text1.txt
+-rw-r--r--. 1 root root 0 5月   6 21:36 text2.txt
+[root@localhost newDir]# cp -s text1.txt t1_link
+[root@localhost newDir]# ll
+总用量 0
+lrwxrwxrwx. 1 root root 9 5月   6 21:43 t1_link -&gt; text1.txt
+-rw-r--r--. 1 root root 0 5月   6 21:36 text1.txt
+-rw-r--r--. 1 root root 0 5月   6 21:36 text2.txt</code></pre>
+<hr>
+<pre><code>5)[root@localhost Document]# cp -as newDir newDir_link        创建文件夹的快捷方式
+
+复制代码
+[root@localhost Document]# cp -as  newDir newDir_link     //a参数指定所有的newDir包括其内的内容创建快捷方式，但这里貌似有点限制
+cp: "newDir_link/text1.txt"：只能于当前目录中创建相对的符号链接
+cp: "newDir_link/text2.txt"：只能于当前目录中创建相对的符号链接
+cp: "newDir_link/t1_link"：只能于当前目录中创建相对的符号链接
+[root@localhost Document]# ll
+总用量 0
+drwxr-xr-x. 3 root root 19 5月   6 21:37 Dir1
+drwxr-xr-x. 2 root root 38 5月   6 21:36 Dir2
+drwxr-xr-x. 2 root root 52 5月   6 21:43 newDir
+drwxr-xr-x. 2 root root  6 5月   6 21:43 newDir_link     //文件夹快捷方式创建成功</code></pre>
+<hr>
+<pre><code>6)[root@localhost Document]# cp -a newDir text1与[root@localhost Document]# cp -r newDir text2
+
+复制代码
+[root@localhost Document]# ll
+总用量 0
+[root@localhost Document]# mkdir newDir
+[root@localhost Document]# touch ./newDir/{t1,t2}
+[root@localhost Document]# mkdir text1 text2
+[root@localhost Document]# cp -a newDir text1   //text1用-a参数
+[root@localhost Document]# cp -r newDir text2   //text2用-r参数
+[root@localhost Document]# ls -l text1/*
+总用量 0
+-rw-r--r--. 1 root root 0 5月   6 22:02 t1
+-rw-r--r--. 1 root root 0 5月   6 22:02 t2
+[root@localhost Document]# ls -l text2/*
+总用量 0
+-rw-r--r--. 1 root root 0 5月   6 22:03 t1
+-rw-r--r--. 1 root root 0 5月   6 22:03 t2
+[root@localhost Document]# cp -a newDir text3
+[root@localhost Document]# cp -r newDir text4
+[root@localhost Document]# ls -l text3/*
+-rw-r--r--. 1 root root 0 5月   6 22:02 text3/t1
+-rw-r--r--. 1 root root 0 5月   6 22:02 text3/t2
+[root@localhost Document]# ls -l text4/*
+-rw-r--r--. 1 root root 0 5月   6 22:04 text4/t1
+-rw-r--r--. 1 root root 0 5月   6 22:04 text4/t2
+[root@localhost Document]# ll
+总用量 0
+drwxr-xr-x. 2 root root 30 5月   6 22:02 newDir
+drwxr-xr-x. 3 root root 19 5月   6 22:03 text1
+drwxr-xr-x. 3 root root 19 5月   6 22:03 text2
+drwxr-xr-x. 2 root root 30 5月   6 22:02 text3
+drwxr-xr-x. 2 root root 30 5月   6 22:04 text4
+[root@localhost Document]# cd text1
+[root@localhost text1]# ll
+总用量 0
+drwxr-xr-x. 2 root root 30 5月   6 22:02 newDir
+[root@localhost text1]# cd ../text2
+[root@localhost text2]# ll
+总用量 0
+drwxr-xr-x. 2 root root 30 5月   6 22:03 newDir
+[root@localhost text2]# cd ../text3
+[root@localhost text3]# ll
+总用量 0
+-rw-r--r--. 1 root root 0 5月   6 22:02 t1
+-rw-r--r--. 1 root root 0 5月   6 22:02 t2
+[root@localhost text3]# cd ../text4
+[root@localhost text4]# ll
+总用量 0
+-rw-r--r--. 1 root root 0 5月   6 22:04 t1
+-rw-r--r--. 1 root root 0 5月   6 22:04 t2  //-a和-r没有差别，cp命令的差别主要集中在第二个参数是否存在上，
+与此同时，ls -l命令的效果也有所差别</code></pre>
+<hr>
+<pre><code>7)[root@localhost Document]# cp mytext{,.txt}   复制一份加上后缀存起来
+
+复制代码
+[root@localhost Document]# touch mytext
+[root@localhost Document]# cp mytext{,.txt}
+[root@localhost Document]# ll
+总用量 0
+-rw-r--r--. 1 root root  0 5月   6 22:15 mytext
+-rw-r--r--. 1 root root  0 5月   6 22:15 mytext.txt
+drwxr-xr-x. 2 root root 30 5月   6 22:02 newDir
+drwxr-xr-x. 3 root root 19 5月   6 22:03 text1
+drwxr-xr-x. 3 root root 19 5月   6 22:03 text2
+drwxr-xr-x. 2 root root 30 5月   6 22:02 text3
+drwxr-xr-x. 2 root root 30 5月   6 22:04 text4</code></pre>
+<hr>
+<pre><code>8)[root@localhost Document]# cp --help
+
+复制代码
+[root@localhost Document]# cp --help
+用法：cp [选项]... [-T] 源文件 目标文件
+　或：cp [选项]... 源文件... 目录
+　或：cp [选项]... -t 目录 源文件...
+Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -a, --archive            等于-dR --preserve=all
+      --attributes-only    仅复制属性而不复制数据      --backup[=CONTROL        为每个已存在的目标文件创建备份
+  -b                类似--backup 但不接受参数
+      --copy-contents        在递归处理是复制特殊文件内容
+  -d                等于--no-dereference --preserve=links
+  -f, --force                  if an existing destination file cannot be
+                                 opened, remove it and try again (this option
+                                 is ignored when the -n option is also used)
+  -i, --interactive            prompt before overwrite (overrides a previous -n
+                                  option)
+  -H                           follow command-line symbolic links in SOURCE
+  -l, --link                   hard link files instead of copying
+  -L, --dereference            always follow symbolic links in SOURCE
+  -n, --no-clobber        不要覆盖已存在的文件(使前面的 -i 选项失效)
+  -P, --no-dereference        不跟随源文件中的符号链接
+  -p                等于--preserve=模式,所有权,时间戳
+      --preserve[=属性列表    保持指定的属性(默认：模式,所有权,时间戳)，如果
+                    可能保持附加属性：环境、链接、xattr 等
+  -c                           deprecated, same as --preserve=context
+      --sno-preserve=属性列表    不保留指定的文件属性
+      --parents            复制前在目标目录创建来源文件路径中的所有目录
+  -R, -r, --recursive        递归复制目录及其子目录内的所有内容
+      --reflink[=WHEN]        控制克隆/CoW 副本。请查看下面的内如。
+      --remove-destination    尝试打开目标文件前先删除已存在的目的地
+                    文件 (相对于 --force 选项)
+      --sparse=WHEN        控制创建稀疏文件的方式
+      --strip-trailing-slashes    删除参数中所有源文件/目录末端的斜杠
+  -s, --symbolic-link        只创建符号链接而不复制文件
+  -S, --suffix=后缀        自行指定备份文件的后缀
+  -t,  --target-directory=目录    将所有参数指定的源文件/目录
+                                           复制至目标目录
+  -T, --no-target-directory    将目标目录视作普通文件
+  -u, --update            只在源文件比目标文件新，或目标文件
+                    不存在时才进行复制
+  -v, --verbose        显示详细的进行步骤
+  -x, --one-file-system    不跨越文件系统进行操作
+  -Z, --context[=CTX]          set SELinux security context of destination
+                                 file to default type, or to CTX if specified
+      --help        显示此帮助信息并退出
+      --version        显示版本信息并退出
+
+默认情况下，源文件的稀疏性仅仅通过简单的方法判断，对应的目标文件目标文件也
+被为稀疏。这是因为默认情况下使用了--sparse=auto 参数。如果明确使用
+--sparse=always 参数则不论源文件是否包含足够长的0 序列也将目标文件创文
+建为稀疏件。
+使用--sparse=never 参数禁止创建稀疏文件。
+
+当指定了--reflink[=always] 参数时执行轻量化的复制，即只在数据块被修改的
+情况下才复制。如果复制失败或者同时指定了--reflink=auto，则返回标准复制模式。
+
+The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.
+The version control method may be selected via the --backup option or through
+the VERSION_CONTROL environment variable.  Here are the values:
+
+  none, off       不进行备份(即使使用了--backup 选项)
+  numbered, t     备份文件加上数字进行排序
+  existing, nil   若有数字的备份文件已经存在则使用数字，否则使用普通方式备份
+  simple, never   永远使用普通方式备份
+
+有一个特别情况：如果同时指定--force 和--backup 选项，而源文件和目标文件
+是同一个已存在的一般文件的话，cp 会将源文件备份。
+
+GNU coreutils online help: &lt;http://www.gnu.org/software/coreutils/&gt;
+请向&lt;http://translationproject.org/team/zh_CN.html&gt; 报告cp 的翻译错误
+要获取完整文档，请运行：info coreutils 'cp invocation'    </code></pre>
+<hr>
+<pre><code>9)[root@localhost Document]# cp --version
+
+复制代码
+[root@localhost Document]# cp --version
+cp (GNU coreutils) 8.22
+Copyright (C) 2013 Free Software Foundation, Inc.
+许可证：GPLv3+：GNU 通用公共许可证第3 版或更新版本&lt;http://gnu.org/licenses/gpl.html&gt;。
+本软件是自由软件：您可以自由修改和重新发布它。
+在法律范围内没有其他保证。
+
+由Torbjörn Granlund、David MacKenzie 和Jim Meyering 编写。</code></pre>
+<hr>
+<p>(5)其他；</p>
+<pre><code>注意:   
+
+一般情况下，shell会设置一个别名，在命令行下复制文件时，如果目标文件已经存在，&lt;br/&gt;
+就会询问是否覆盖，不管你是否使用-i参数。但是如果是在shell脚本中执行cp时，没有-i参数时不会询问是否覆盖。&lt;br/&gt;
+这说明命令行和shell脚本的执行方式有些不同。&lt;br/&gt;
+
+命令行与shell脚本:&lt;br/&gt;
+
+shell命令就是你说的终端的命令，shell翻译成壳的意思，它是包裹在linux内核外层的，&lt;br/&gt;
+一个可通过一系列的linux命令对操作系统发出相关指令的人机界面。shell可以通过其条件语句和循环语句等，&lt;br/&gt;
+把一系列linux命令结合在一起，形成一个相当于面向过程的程序，shell script，来实现一些较为复杂的功能。 &lt;br/&gt;
+总括，shell是linux命令集的概称，是属于命令行的人机界面。linux的shell script 是由命令加一些条件组合起来的。&lt;br/&gt;
+
+shell命令就是终端命令，shell编程其实和windows的批处理差不多，区别的是，shell的语言功能比批处理强大&lt;br/&gt;</code></pre>
+<hr>
+<h2 id="2017-07-18-每天2个Linux命令-nl命令"><a href="#2017-07-18-每天2个Linux命令-nl命令" class="headerlink" title="2017-07-18 每天2个Linux命令 nl命令"></a><center>2017-07-18 每天2个Linux命令 nl命令</center></h2><p>nl命令读取 file 参数（缺省情况下标准输入），计算输入中的行号，将计算过的行号写入标准输出。</p>
+<p>其默认的结果与cat -n有点不太一样， nl 可以将行号做比较多的显示设计，包括位数与是否自动补齐0等等的功能。</p>
+<hr>
+<p>(1)用法:</p>
+<pre><code>用法:    nl  [选项]...  [文件]...</code></pre>
+<p> (2)功能:</p>
+<pre><code>功能:   nl命令在linux系统中用来计算文件中行号。nl 可以将输出的文件内容自动的加上行号！</code></pre>
+<p>(3)选项参数:</p>
+<pre><code>  1) -b:                                            指定行号指定的方式，主要有两种：
+
+           -b a:                                     表示不论是否为空行，也同样列出行号(类似 cat -n)
+
+           -b t:                                     如果有空行，空的那一行不要列出行号(默认值) 
+
+  2) -n:                                           列出行号表示的方法，主要有三种：
+
+          -n ln:                                    行号在萤幕的最左方显示
+
+          -n rn:                                    行号在自己栏位的最右方显示，且不加 0
+
+          -n rz:                                    行号在自己栏位的最右方显示，且加 0
+
+  3) -w:                                           行号栏位的占用的位数
+
+  4) -p:                                           在逻辑定界符处不重新开始计算</code></pre>
+<p>(4)实例:</p>
+<pre><code> 1)[root@localhost Documents]# nl nl_text1                     用nl列出文档中的内容，文件中的空白行不会加上行号
+
+复制代码
+[root@localhost Documents]# ll 
+总用量 0
+[root@localhost Documents]# cat &gt;nl_text1 &lt;&lt;EOF
+&gt; I am studing orders of Linux!
+&gt; I am MenAngel!
+&gt; 
+&gt; I am 19 years old!
+&gt; 
+&gt; 
+&gt; I am from AnHui HeFei!
+&gt; EOF
+[root@localhost Documents]# nl nl_text1
+     1    I am studing orders of Linux!
+     2    I am MenAngel!
+
+     3    I am 19 years old!
+
+
+     4    I am from AnHui HeFei!
+复制代码
+复制代码
+[root@localhost Documents]# cat -b nl_text1          //效果等于cat -b
+     1    I am studing orders of Linux!
+     2    I am MenAngel!
+
+     3    I am 19 years old!
+
+
+     4    I am from AnHui HeFei!
+复制代码</code></pre>
+<hr>
+<pre><code>2)[root@localhost Documents]# nl -b a nl_text1                                     用nl命令打开输出文档内容，空行也输出行号！
+
+复制代码
+[root@localhost Documents]# nl -b a nl_text1
+     1    I am studing orders of Linux!
+     2    I am MenAngel!
+     3    
+     4    I am 19 years old!
+     5    
+     6    
+     7    I am from AnHui HeFei!
+[root@localhost Documents]# cat -n nl_text1                               //与cat -n具有相同的效果
+     1    I am studing orders of Linux!
+     2    I am MenAngel!
+     3    
+     4    I am 19 years old!
+     5    
+     6    
+     7    I am from AnHui HeFei!</code></pre>
+<hr>
+<pre><code>3)[root@localhost Documents]# nl -b a -n rz nl_text1                            让行号前面自动补上0，统一输出格式
+
+复制代码
+[root@localhost Documents]# nl -b a -n rz nl_text1
+000001    I am studing orders of Linux!
+000002    I am MenAngel!
+000003    
+000004    I am 19 years old!
+000005    
+000006    
+000007    I am from AnHui HeFei!</code></pre>
+<hr>
+<pre><code>4)[root@localhost Documents]# nl -b a -n rz -w 3 nl_text1  nl -b a -n rz命令行号默认为六位，
+要调整位数可以加上参数-w 3调整为3位。
+
+复制代码
+[root@localhost Documents]# nl -b a -n rz -w 3 nl_text1
+001    I am studing orders of Linux!
+002    I am MenAngel!
+003    
+004    I am 19 years old!
+005    
+006    
+007    I am from AnHui HeFei!
+复制代码</code></pre>
+<hr>
+<pre><code>5)[root@localhost Documents]# nl --help
+
+复制代码
+[root@localhost Documents]# nl --help
+用法：nl [选项]... [文件]...
+Write each FILE to standard output, with line numbers added.
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -b, --body-numbering=样式    使用指定样式编号文件的正文行目
+  -d, --section-delimiter=CC    使用指定的CC 分割逻辑页数
+  -f, --footer-numbering=样式    使用指定样式编号文件的页脚行目
+  -h, --header-numbering=样式    使用指定样式编号文件的页眉行目
+  -i, --page-increment=数值    设置每一行遍历后的自动递增值
+  -l, --join-blank-lines=数值    设置数值为多少的若干空行被视作一行
+  -n, --number-format=格式    根据指定格式插入行号
+  -p, --no-renumber        在逻辑页数切换时不将行号值复位
+  -s, --number-separator=字符串    可能的话在行号后添加字符串
+  -v, --starting-line-number=数字    每个逻辑页上的第一行的行号
+  -w, --number-width=数字    为行号使用指定的栏数
+      --help        显示此帮助信息并退出
+      --version        显示版本信息并退出
+
+默认的选项设置是-v1 -i1 -l1 -sTAB -w6 -nrn -hn -bt -fn。CC 是用于分隔
+逻辑页数的两个分界符，其中缺失的第二个字符暗含了":"，如果您要指定"\"，
+请输入"\\"。可用的样式如下：
+
+  a    对所有行编号
+  t    对非空行编号
+  n    不编行号
+  pBRE    只对符合正则表达式BRE 的行编号
+
+FORMAT 是下列之一:
+
+  ln    左对齐，空格不用0 填充
+  rn     右对齐，空格不用0 填充
+  rz     右对齐，空格用0 填充
+
+
+GNU coreutils online help: &lt;http://www.gnu.org/software/coreutils/&gt;
+请向&lt;http://translationproject.org/team/zh_CN.html&gt; 报告nl 的翻译错误
+要获取完整文档，请运行：info coreutils 'nl invocation'
+复制代码</code></pre>
+<hr>
+<pre><code>6)[root@localhost Documents]# nl --version
+
+复制代码
+[root@localhost Documents]# nl --version
+nl (GNU coreutils) 8.22
+Copyright (C) 2013 Free Software Foundation, Inc.
+许可证：GPLv3+：GNU 通用公共许可证第3 版或更新版本&lt;http://gnu.org/licenses/gpl.html&gt;。
+本软件是自由软件：您可以自由修改和重新发布它。
+在法律范围内没有其他保证。
+
+由Scott Bartram 和David MacKenzie 编写。</code></pre>
+<hr>
+<p>(5)其他:</p>
+<pre><code>功能的详细介绍:
+
+在输出中，nl 命令根据您在命令行中指定的标志来计算左边的行。 输入文本必须写在逻辑页中。
+每个逻辑页有头、主体和页脚节（可以有空节）。 除非使用 -p 标志，nl 命令在每个逻辑页开始的地方重新设置行号。
+
+可以单独为头、主体和页脚节设置行计算标志（例如，头和页脚行可以被计算然而文本行不能）。</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2017/07/18/mei-tian-2-ge-linux-ming-ling-cp-nl/">http://dtbox.com/2017/07/18/mei-tian-2-ge-linux-ming-ling-cp-nl/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
+                                </a>
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/07/19/mei-tian-2-ge-linux-ming-ling-more-less/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="每天2个Linux命令 more less">
+                        
+                        <span class="card-title">每天2个Linux命令 more less</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            每天2个Linux命令 more less
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-07-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux2/" class="post-category">
+                                    linux每天2个命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/07/17/spring-shi-wu-guan-li-zheng-he-ssh-zheng-he-junit/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="spring事物管理、整合SSH、整合Junit">
+                        
+                        <span class="card-title">spring事物管理、整合SSH、整合Junit</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            spring事物管理、整合SSH、整合Junit
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/spring/" class="post-category">
+                                    spring
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
+                    </a>
+                    
+                    <a href="/tags/IOC/">
+                        <span class="chip bg-color">IOC</span>
+                    </a>
+                    
+                    <a href="/tags/DI/">
+                        <span class="chip bg-color">DI</span>
+                    </a>
+                    
+                    <a href="/tags/bean/">
+                        <span class="chip bg-color">bean</span>
+                    </a>
+                    
+                    <a href="/tags/xml/">
+                        <span class="chip bg-color">xml</span>
+                    </a>
+                    
+                    <a href="/tags/ssh/">
+                        <span class="chip bg-color">ssh</span>
+                    </a>
+                    
+                    <a href="/tags/junit/">
+                        <span class="chip bg-color">junit</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,2292 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="scala学习一">
+    <meta name="description" content="java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>scala学习一 | 邓滔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="邓滔" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">邓滔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">邓滔</div>
+        <div class="logo-desc">
+            
+            java | 前端 | 后端 | javascript | vue | spring | spring cloud | liunx | redis | mysql
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shuigedeng" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shuigedeng" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">scala学习一</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hadoop/">
+                                <span class="chip bg-color">hadoop</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">大数据学习</span>
+                            </a>
+                        
+                            <a href="/tags/scala/">
+                                <span class="chip bg-color">scala</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                大数据学习
+                            </a>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/scala/" class="post-category">
+                                scala
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-08-27
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    23 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="scala基础一"><a href="#scala基础一" class="headerlink" title="scala基础一"></a><center>scala基础一</center></h1><h2 id="1-目标"><a href="#1-目标" class="headerlink" title="1 目标"></a>1 目标</h2><pre class="language-none"><code class="language-none">目标1：（初级）熟练使用scala编写Spark程序
+
+目标2：（中级）动手编写一个简易Spark通信框架
+
+目标3：（高级）为阅读Spark内核源码做准备</code></pre>
+
+<h2 id="2-Scala概述"><a href="#2-Scala概述" class="headerlink" title="2 Scala概述"></a>2 Scala概述</h2><h3 id="2-1什么是Scala"><a href="#2-1什么是Scala" class="headerlink" title="2.1什么是Scala"></a>2.1什么是Scala</h3><p>Scala是一种多范式的编程语言，其设计的初衷是要集成面向对象编程和函数式编程的各种特性。Scala运行于Java平台（Java虚拟机），并兼容现有的Java程序。</p>
+<p><img src="/images/20180827/.png"></p>
+<h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><pre class="language-none"><code class="language-none">1. 优雅：这是框架设计师第一个要考虑的问题，框架的用户是应用开发程序员，API是否优雅直接影响用户体验。
+
+2. 速度快：Scala语言表达能力强，一行代码抵得上Java多行，开发速度快；Scala是静态编译的，所以和JRuby,Groovy比起来速度会快很多。
+
+3. &nbsp;能融合到Hadoop生态圈：Hadoop现在是大数据事实标准，Spark并不是要取代Hadoop，而是要完善Hadoop生态。JVM语言大部分可能会想到Java，但Java做出来的API太丑，或者想实现一个优雅的API太费劲。&nbsp;</code></pre>
+
+<h2 id="3-Scala编译器安装"><a href="#3-Scala编译器安装" class="headerlink" title="3 Scala编译器安装"></a>3 Scala编译器安装</h2><pre class="language-none"><code class="language-none">3.1. 安装JDK
+因为Scala是运行在JVM平台上的，所以安装Scala之前要安装JDK
+
+3.2. 安装Scala
+
+3.2.1. Windows安装Scala编译器
+访问Scala官网http://www.scala-lang.org/下载Scala编译器安装包，目前最新版本是2.12.x，但是目前大多数的框架都是用2.10.x编写开发的，所以这里推荐2.10.x版本，下载scala-2.10.6.msi后点击下一步就可以了
+
+3.2.2. Linux安装Scala编译器
+下载Scala地址http://downloads.typesafe.com/scala/2.10.6/scala-2.10.6.tgz然后解压Scala到指定目录
+tar -zxvf scala-2.10.6.tgz -C /usr/java
+配置环境变量，将scala加入到PATH中
+vi /etc/profile
+export JAVA_HOME=/usr/java/jdk1.7.0_45
+export PATH=$PATH:$JAVA_HOME/bin:/usr/java/scala-2.10.6/bin</code></pre>
+
+<h2 id="4-Scala基础"><a href="#4-Scala基础" class="headerlink" title="4 Scala基础"></a>4 Scala基础</h2><h3 id="4-1-声明变量"><a href="#4-1-声明变量" class="headerlink" title="4.1 声明变量"></a>4.1 声明变量</h3><pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/6.
+  */
+object VariableDemo {
+  def main(args: Array[String]) {
+    //使用val定义的变量值是不可变的，相当于java里用final修饰的变量
+    val i = 1
+    //使用var定义的变量是可变得，在Scala中鼓励使用val
+    var s = "hello"
+    //Scala编译器会自动推断变量的类型，必要的时候可以指定类型
+    //变量名在前，类型在后
+    val str: String = "itcast"
+  }
+}</code></pre>
+
+<h3 id="4-2-常用类型"><a href="#4-2-常用类型" class="headerlink" title="4.2. 常用类型"></a>4.2. 常用类型</h3><p>Scala和Java一样，有7种数值类型Byte、Char、Short、Int、Long、Float和Double（无包装类型）和一个Boolean类型</p>
+<h3 id="4-3-条件表达式"><a href="#4-3-条件表达式" class="headerlink" title="4.3. 条件表达式"></a>4.3. 条件表达式</h3><p>Scala的的条件表达式比较简洁，例如</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/7.
+  */
+object ConditionDemo {
+  def main(args: Array[String]) {
+    val x = 1
+    //判断x的值，将结果赋给y
+    val y = if (x &gt; 0) 1 else -1
+    //打印y的值
+    println(y)
+
+    //支持混合类型表达式
+    val z = if (x &gt; 1) 1 else "error"
+    //打印z的值
+    println(z)
+
+    //如果缺失else，相当于if (x &gt; 2) 1 else ()
+    val m = if (x &gt; 2) 1
+    println(m)
+
+    //在scala中每个表达式都有值，scala中有个Unit类，写做(),相当于Java中的void
+    val n = if (x &gt; 2) 1 else ()
+    println(n)
+
+    //if和else if
+    val k = if (x &lt; 0) 0
+    else if (x &gt;= 1) 1 else -1
+    println(k)
+  }
+}
+</code></pre>
+
+<h3 id="4-4-块表达式"><a href="#4-4-块表达式" class="headerlink" title="4.4 块表达式"></a>4.4 块表达式</h3><pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/7.
+  */
+object BlockExpressionDemo {
+  def main(args: Array[String]) {
+    val x = 0
+    //在scala中{}中课包含一系列表达式，块中最后一个表达式的值就是块的值
+    //下面就是一个块表达式
+    val result = {
+      if (x &lt; 0){
+        -1
+      } else if(x &gt;= 1) {
+        1
+      } else {
+        "error"
+      }
+    }
+    //result的值就是块表达式的结果
+    println(result)
+  }
+}</code></pre>
+
+<h3 id="4-5-循环"><a href="#4-5-循环" class="headerlink" title="4.5. 循环"></a>4.5. 循环</h3><p>在scala中有for循环和while循环，用for循环比较多<br>for循环语法结构：for (i &lt;- 表达式/数组/集合)</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/7.
+  */
+object ForDemo {
+  def main(args: Array[String]) {
+    //for(i &lt;- 表达式),表达式1 to 10返回一个Range（区间）
+    //每次循环将区间中的一个值赋给i
+    for (i &lt;- 1 to 10)
+      println(i)
+
+    //for(i &lt;- 数组)
+    val arr = Array("a", "b", "c")
+    for (i &lt;- arr)
+      println(i)
+
+    //高级for循环
+    //每个生成器都可以带一个条件，注意：if前面没有分号
+    for(i &lt;- 1 to 3; j &lt;- 1 to 3 if i != j)
+      print((10 * i + j) + " ")
+    println()
+
+    //for推导式：如果for循环的循环体以yield开始，则该循环会构建出一个集合
+    //每次迭代生成集合中的一个值
+    val v = for (i &lt;- 1 to 10) yield i * 10
+    println(v)
+
+  }
+
+}</code></pre>
+
+<h3 id="4-6-调用方法和函数"><a href="#4-6-调用方法和函数" class="headerlink" title="4.6. 调用方法和函数"></a>4.6. 调用方法和函数</h3><p>Scala中的+ - * / %等操作符的作用与Java一样，位操作符 &amp; | ^ &gt;&gt; &lt;&lt;也一样。只是有<br>一点特别的：这些操作符实际上是方法。例如：<br>a + b<br>是如下方法调用的简写：<br>    a. +(b)<br>a 方法 b可以写成 a.方法(b)</p>
+<h3 id="4-7定义方法和函数"><a href="#4-7定义方法和函数" class="headerlink" title="4.7定义方法和函数"></a>4.7定义方法和函数</h3><h4 id="4-7-1定义方法"><a href="#4-7-1定义方法" class="headerlink" title="4.7.1定义方法"></a>4.7.1定义方法</h4><p><img src="/images/20180827/36.png"></p>
+<p><code>方法的返回值类型可以不写，编译器可以自动推断出来，但是对于递归函数，必须指定返回类型</code></p>
+<h4 id="4-7-2定义函数"><a href="#4-7-2定义函数" class="headerlink" title="4.7.2定义函数"></a>4.7.2定义函数</h4><p><img src="/images/20180827/37.png"></p>
+<h4 id="4-7-3方法和函数的区别"><a href="#4-7-3方法和函数的区别" class="headerlink" title="4.7.3方法和函数的区别"></a>4.7.3方法和函数的区别</h4><p>在函数式编程语言中，函数是“头等公民”，它可以像任何其他数据类型一样被传递和操作<br>案例：首先定义一个方法，再定义一个函数，然后将函数传递到方法里面</p>
+<p><img src="/images/20180827/38.png"></p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/11.
+  */
+object MethodAndFunctionDemo {
+  //定义一个方法
+  //方法m2参数要求是一个函数，函数的参数必须是两个Int类型
+  //返回值类型也是Int类型
+  def m1(f: (Int, Int) =&gt; Int) : Int = {
+    f(2, 6)
+  }
+
+  //定义一个函数f1，参数是两个Int类型，返回值是一个Int类型
+  val f1 = (x: Int, y: Int) =&gt; x + y
+  //再定义一个函数f2
+  val f2 = (m: Int, n: Int) =&gt; m * n
+
+  //main方法
+  def main(args: Array[String]) {
+
+    //调用m1方法，并传入f1函数
+    val r1 = m1(f1)
+    println(r1)
+
+    //调用m1方法，并传入f2函数
+    val r2 = m1(f2)
+    println(r2)
+  }
+}</code></pre>
+
+<h4 id="4-7-4将方法转换成函数（神奇的下划线）"><a href="#4-7-4将方法转换成函数（神奇的下划线）" class="headerlink" title="4.7.4将方法转换成函数（神奇的下划线）"></a>4.7.4将方法转换成函数（神奇的下划线）</h4><p><img src="/images/20180827/39.png"></p>
+<h2 id="5-数组、映射、元组、集合"><a href="#5-数组、映射、元组、集合" class="headerlink" title="5 数组、映射、元组、集合"></a>5 数组、映射、元组、集合</h2><h3 id="5-1数组"><a href="#5-1数组" class="headerlink" title="5.1数组"></a>5.1数组</h3><h4 id="5-1-1定长数组和变长数组"><a href="#5-1-1定长数组和变长数组" class="headerlink" title="5.1.1定长数组和变长数组"></a>5.1.1定长数组和变长数组</h4><pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+import scala.collection.mutable.ArrayBuffer
+
+/**
+  * Created by ZX on 2015/11/11.
+  */
+object ArrayDemo {
+
+  def main(args: Array[String]) {
+
+    //初始化一个长度为8的定长数组，其所有元素均为0
+    val arr1 = new Array[Int](8)
+    //直接打印定长数组，内容为数组的hashcode值
+    println(arr1)
+    //将数组转换成数组缓冲，就可以看到原数组中的内容了
+    //toBuffer会将数组转换长数组缓冲
+    println(arr1.toBuffer)
+
+    //注意：如果new，相当于调用了数组的apply方法，直接为数组赋值
+    //初始化一个长度为1的定长数组
+    val arr2 = Array[Int](10)
+    println(arr2.toBuffer)
+
+    //定义一个长度为3的定长数组
+    val arr3 = Array("hadoop", "storm", "spark")
+    //使用()来访问元素
+    println(arr3(2))
+
+    //////////////////////////////////////////////////
+    //变长数组（数组缓冲）
+    //如果想使用数组缓冲，需要导入import scala.collection.mutable.ArrayBuffer包
+    val ab = ArrayBuffer[Int]()
+    //向数组缓冲的尾部追加一个元素
+    //+=尾部追加元素
+    ab += 1
+    //追加多个元素
+    ab += (2, 3, 4, 5)
+    //追加一个数组++=
+    ab ++= Array(6, 7)
+    //追加一个数组缓冲
+    ab ++= ArrayBuffer(8,9)
+    //打印数组缓冲ab
+
+    //在数组某个位置插入元素用insert
+    ab.insert(0, -1, 0)
+    //删除数组某个位置的元素用remove
+    ab.remove(8, 2)
+    println(ab)
+
+  }
+}</code></pre>
+
+<h4 id="5-1-2遍历数组"><a href="#5-1-2遍历数组" class="headerlink" title="5.1.2遍历数组"></a>5.1.2遍历数组</h4><p>1.增强for循环<br>2.好用的until会生成脚标，0 until 10 包含0不包含10</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/12.
+  */
+object ForArrayDemo {
+
+  def main(args: Array[String]) {
+    //初始化一个数组
+    val arr = Array(1,2,3,4,5,6,7,8)
+    //增强for循环
+    for(i &lt;- arr)
+      println(i)
+
+    //好用的until会生成一个Range
+    //reverse是将前面生成的Range反转
+    for(i &lt;- (0 until arr.length).reverse)
+      println(arr(i))
+  }
+}</code></pre>
+
+<h4 id="5-1-3-数组转换"><a href="#5-1-3-数组转换" class="headerlink" title="5.1.3. 数组转换"></a>5.1.3. 数组转换</h4><p>yield关键字将原始的数组进行转换会产生一个新的数组，原始的数组不变</p>
+<p><img src="/images/20180827/40.png"></p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/12.
+  */
+object ArrayYieldDemo {
+  def main(args: Array[String]) {
+    //定义一个数组
+    val arr = Array(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    //将偶数取出乘以10后再生成一个新的数组
+    val res = for (e &lt;- arr if e % 2 == 0) yield e * 10
+    println(res.toBuffer)
+
+    //更高级的写法,用着更爽
+    //filter是过滤，接收一个返回值为boolean的函数
+    //map相当于将数组中的每一个元素取出来，应用传进去的函数
+    val r = arr.filter(_ % 2 == 0).map(_ * 10)
+    println(r.toBuffer)
+
+  }
+}</code></pre>
+
+<h4 id="5-1-4-数组常用算法"><a href="#5-1-4-数组常用算法" class="headerlink" title="5.1.4. 数组常用算法"></a>5.1.4. 数组常用算法</h4><p>在Scala中，数组上的某些方法对数组进行相应的操作非常方便！</p>
+<p><img src="/images/20180827/41.png"></p>
+<h3 id="5-2-映射"><a href="#5-2-映射" class="headerlink" title="5.2. 映射"></a>5.2. 映射</h3><p>在Scala中，把哈希表这种数据结构叫做映射</p>
+<h4 id="5-2-1-构建映射"><a href="#5-2-1-构建映射" class="headerlink" title="5.2.1 构建映射"></a>5.2.1 构建映射</h4><p><img src="/images/20180827/42.png"></p>
+<h4 id="5-2-2获取和修改映射中的值"><a href="#5-2-2获取和修改映射中的值" class="headerlink" title="5.2.2获取和修改映射中的值"></a>5.2.2获取和修改映射中的值</h4><p><img src="/images/20180827/43.png"></p>
+<p><code>好用的getOrElse</code></p>
+<p><img src="/images/20180827/44.png"></p>
+<p><code>注意：在Scala中，有两种Map，一个是immutable包下的Map，该Map中的内容不可变；另一个是mutable包下的Map，该Map中的内容可变</code></p>
+<p><img src="/images/20180827/45.png"></p>
+<p>注意：通常我们在创建一个集合是会用val这个关键字修饰一个变量（相当于java中的final），那么就意味着该变量的引用不可变，该引用中的内容是不是可变，取决于这个引用指向的集合的类型</p>
+<h3 id="5-3-元组"><a href="#5-3-元组" class="headerlink" title="5.3. 元组"></a>5.3. 元组</h3><p>映射是K/V对偶的集合，对偶是元组的最简单形式，元组可以装着多个不同类型的值。</p>
+<h4 id="5-3-1创建元组"><a href="#5-3-1创建元组" class="headerlink" title="5.3.1创建元组"></a>5.3.1创建元组</h4><p><img src="/images/20180827/46.png"></p>
+<h4 id="5-3-2获取元组中的值"><a href="#5-3-2获取元组中的值" class="headerlink" title="5.3.2获取元组中的值"></a>5.3.2获取元组中的值</h4><p><img src="/images/20180827/47.png"></p>
+<h4 id="5-3-3将对偶的集合转换成映射"><a href="#5-3-3将对偶的集合转换成映射" class="headerlink" title="5.3.3将对偶的集合转换成映射"></a>5.3.3将对偶的集合转换成映射</h4><p><img src="/images/20180827/48.png"></p>
+<h4 id="5-3-4拉链操作"><a href="#5-3-4拉链操作" class="headerlink" title="5.3.4拉链操作"></a>5.3.4拉链操作</h4><p><img src="/images/20180827/48.png"></p>
+<p>注意：如果两个数组的元素个数不一致，拉链操作后生成的数组的长度为较小的那个数组的元素个数</p>
+<h3 id="5-4-集合"><a href="#5-4-集合" class="headerlink" title="5.4. 集合"></a>5.4. 集合</h3><p>Scala的集合有三大类：序列Seq、集Set、映射Map，所有的集合都扩展自Iterable特质<br>在Scala中集合有可变（mutable）和不可变（immutable）两种类型，immutable类型的集合初始化后就不能改变了（注意与val修饰的变量进行区别）</p>
+<h4 id="5-4-1-序列"><a href="#5-4-1-序列" class="headerlink" title="5.4.1. 序列"></a>5.4.1. 序列</h4><p>不可变的序列 import scala.collection.immutable._<br>在Scala中列表要么为空（Nil表示空列表）要么是一个head元素加上一个tail列表。</p>
+<p>9 :: List(5, 2)  :: 操作符是将给定的头和尾创建一个新的列表<br>注意：:: 操作符是右结合的，如9 :: 5 :: 2 :: Nil相当于 9 :: (5 :: (2 :: Nil))</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.collect
+
+object ImmutListDemo {
+
+  def main(args: Array[String]) {
+    //创建一个不可变的集合
+    val lst1 = List(1,2,3)
+    //将0插入到lst1的前面生成一个新的List
+    val lst2 = 0 :: lst1
+    val lst3 = lst1.::(0)
+    val lst4 = 0 +: lst1
+    val lst5 = lst1.+:(0)
+
+    //将一个元素添加到lst1的后面产生一个新的集合
+    val lst6 = lst1 :+ 3
+
+    val lst0 = List(4,5,6)
+    //将2个list合并成一个新的List
+    val lst7 = lst1 ++ lst0
+    //将lst1插入到lst0前面生成一个新的集合
+    val lst8 = lst1 ++: lst0
+
+    //将lst0插入到lst1前面生成一个新的集合
+    val lst9 = lst1.:::(lst0)
+
+    println(lst9)
+  }
+}</code></pre>
+
+<p><code>可变的序列 import scala.collection.mutable._</code></p>
+<pre class="language-none"><code class="language-none">package cn.itcast.collect
+import scala.collection.mutable.ListBuffer
+
+object MutListDemo extends App{
+  //构建一个可变列表，初始有3个元素1,2,3
+  val lst0 = ListBuffer[Int](1,2,3)
+  //创建一个空的可变列表
+  val lst1 = new ListBuffer[Int]
+  //向lst1中追加元素，注意：没有生成新的集合
+  lst1 += 4
+  lst1.append(5)
+
+  //将lst1中的元素最近到lst0中， 注意：没有生成新的集合
+  lst0 ++= lst1
+
+  //将lst0和lst1合并成一个新的ListBuffer 注意：生成了一个集合
+  val lst2= lst0 ++ lst1
+
+  //将元素追加到lst0的后面生成一个新的集合
+  val lst3 = lst0 :+ 5
+}</code></pre>
+
+<h3 id="5-5-Set"><a href="#5-5-Set" class="headerlink" title="5.5. Set"></a>5.5. Set</h3><p><code>不可变的Set</code></p>
+<pre class="language-none"><code class="language-none">package cn.itcast.collect
+import scala.collection.immutable.HashSet
+
+object ImmutSetDemo extends App{
+  val set1 = new HashSet[Int]()
+  //将元素和set1合并生成一个新的set，原有set不变
+  val set2 = set1 + 4
+  //set中元素不能重复
+  val set3 = set1 ++ Set(5, 6, 7)
+  val set0 = Set(1,3,4) ++ set1
+  println(set0.getClass)
+}</code></pre>
+
+<p><code>可变的Set</code></p>
+<pre class="language-none"><code class="language-none">package cn.itcast.collect
+import scala.collection.mutable
+
+object MutSetDemo extends App{
+  //创建一个可变的HashSet
+  val set1 = new mutable.HashSet[Int]()
+  //向HashSet中添加元素
+  set1 += 2
+  //add等价于+=
+  set1.add(4)
+  set1 ++= Set(1,3,5)
+  println(set1)
+  //删除一个元素
+  set1 -= 5
+  set1.remove(2)
+  println(set1)
+}</code></pre>
+
+<h3 id="5-6-Map"><a href="#5-6-Map" class="headerlink" title="5.6 Map"></a>5.6 Map</h3><pre class="language-none"><code class="language-none">package cn.itcast.collect
+import scala.collection.mutable
+
+object MutMapDemo extends App{
+  val map1 = new mutable.HashMap[String, Int]()
+  //向map中添加数据
+  map1("spark") = 1
+  map1 += (("hadoop", 2))
+  map1.put("storm", 3)
+  println(map1)
+
+  //从map中移除元素
+  map1 -= "spark"
+  map1.remove("hadoop")
+  println(map1)
+}</code></pre>
+
+<h2 id="6-类、对象、继承、特质"><a href="#6-类、对象、继承、特质" class="headerlink" title="6. 类、对象、继承、特质"></a>6. 类、对象、继承、特质</h2><p>Scala的类与Java、C++的类比起来更简洁，学完之后你会更爱Scala！！！</p>
+<h3 id="6-1-类"><a href="#6-1-类" class="headerlink" title="6.1. 类"></a>6.1. 类</h3><h4 id="6-1-1-类的定义"><a href="#6-1-1-类的定义" class="headerlink" title="6.1.1. 类的定义"></a>6.1.1. 类的定义</h4><pre class="language-none"><code class="language-none">//在Scala中，类并不用声明为public。
+//Scala源文件中可以包含多个类，所有这些类都具有公有可见性。
+class Person {
+  //用val修饰的变量是只读属性，有getter但没有setter
+  //（相当与Java中用final修饰的变量）
+  val id = "9527"
+
+  //用var修饰的变量既有getter又有setter
+  var age: Int = 18
+
+  //类私有字段,只能在类的内部使用
+  private var name: String = "唐伯虎"
+
+  //对象私有字段,访问权限更加严格的，Person类的方法只能访问到当前对象的字段
+  private[this] val pet = "小强"
+}</code></pre>
+
+<h4 id="6-1-2-构造器"><a href="#6-1-2-构造器" class="headerlink" title="6.1.2. 构造器"></a>6.1.2. 构造器</h4><p>注意：主构造器会执行类定义中的所有语句</p>
+<pre class="language-none"><code class="language-none">/**
+  *每个类都有主构造器，主构造器的参数直接放置类名后面，与类交织在一起
+  */
+class Student(val name: String, val age: Int){
+  //主构造器会执行类定义中的所有语句
+  println("执行主构造器")
+
+  try {
+    println("读取文件")
+    throw new IOException("io exception")
+  } catch {
+    case e: NullPointerException =&gt; println("打印异常Exception : " + e)
+    case e: IOException =&gt; println("打印异常Exception : " + e)
+  } finally {
+    println("执行finally部分")
+  }
+
+  private var gender = "male"
+
+  //用this关键字定义辅助构造器
+  def this(name: String, age: Int, gender: String){
+    //每个辅助构造器必须以主构造器或其他的辅助构造器的调用开始
+    this(name, age)
+    println("执行辅助构造器")
+    this.gender = gender
+  }
+}
+
+
+
+/**
+  *构造器参数可以不带val或var，如果不带val或var的参数至少被一个方法所使用，
+  *那么它将会被提升为字段
+  */
+//在类名后面加private就变成了私有的
+class Queen private(val name: String, prop: Array[String], private var age: Int = 18){
+
+  println(prop.size)
+
+  //prop被下面的方法使用后，prop就变成了不可变得对象私有字段，等同于private[this] val prop
+  //如果没有被方法使用该参数将不被保存为字段，仅仅是一个可以被主构造器中的代码访问的普通参数
+  def description = name + " is " + age + " years old with " + prop.toBuffer
+}
+
+object Queen{
+  def main(args: Array[String]) {
+    //私有的构造器，只有在其伴生对象中使用
+    val q = new Queen("hatano", Array("蜡烛", "皮鞭"), 20)
+    println(q.description())
+  }
+}</code></pre>
+
+<h3 id="6-2-对象"><a href="#6-2-对象" class="headerlink" title="6.2. 对象"></a>6.2. 对象</h3><h4 id="6-2-1-单例对象"><a href="#6-2-1-单例对象" class="headerlink" title="6.2.1. 单例对象"></a>6.2.1. 单例对象</h4><p>在Scala中没有静态方法和静态字段，但是可以使用object这个语法结构来达到同样的目的<br>    1. 存放工具方法和常量<br>    2. 高效共享单个不可变的实例<br>    3. 单例模式</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+import scala.collection.mutable.ArrayBuffer
+
+/**
+  * Created by ZX on 2015/11/14.
+  */
+object SingletonDemo {
+  def main(args: Array[String]) {
+    //单例对象，不需要new，用【类名.方法】调用对象中的方法
+    val session = SessionFactory.getSession()
+    println(session)
+  }
+}
+
+object SessionFactory{
+  //该部分相当于java中的静态块
+  var counts = 5
+  val sessions = new ArrayBuffer[Session]()
+  while(counts &gt; 0){
+    sessions += new Session
+    counts -= 1
+  }
+
+  //在object中的方法相当于java中的静态方法
+  def getSession(): Session ={
+    sessions.remove(0)
+  }
+}
+
+class Session{
+}</code></pre>
+
+<h4 id="6-2-2-伴生对象"><a href="#6-2-2-伴生对象" class="headerlink" title="6.2.2. 伴生对象"></a>6.2.2. 伴生对象</h4><p>在Scala的类中，与类名相同的对象叫做伴生对象，类和伴生对象之间可以相互访问私有的方法和属性</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/14.
+  */
+class Dog {
+  val id = 1
+  private var name = "itcast"
+
+  def printName(): Unit ={
+    //在Dog类中可以访问伴生对象Dog的私有属性
+    println(Dog.CONSTANT + name )
+  }
+}
+
+/**
+  * 伴生对象
+  */
+object Dog {
+
+  //伴生对象中的私有属性
+  private val CONSTANT = "汪汪汪 : "
+
+  def main(args: Array[String]) {
+    val p = new Dog
+    //访问私有的字段name
+    p.name = "123"
+    p.printName()
+  }
+}</code></pre>
+
+<h4 id="6-2-3-apply方法"><a href="#6-2-3-apply方法" class="headerlink" title="6.2.3. apply方法"></a>6.2.3. apply方法</h4><p>通常我们会在类的伴生对象中定义apply方法，当遇到类名(参数1,…参数n)时apply方法会被调用</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/14.
+  */
+object ApplyDemo {
+  def main(args: Array[String]) {
+    //调用了Array伴生对象的apply方法
+    //def apply(x: Int, xs: Int*): Array[Int]
+    //arr1中只有一个元素5
+    val arr1 = Array(5)
+    println(arr1.toBuffer)
+
+    //new了一个长度为5的array，数组里面包含5个null
+    var arr2 = new Array(5)
+  }
+}</code></pre>
+
+<h4 id="6-2-4-应用程序对象"><a href="#6-2-4-应用程序对象" class="headerlink" title="6.2.4. 应用程序对象"></a>6.2.4. 应用程序对象</h4><p>Scala程序都必须从一个对象的main方法开始，可以通过扩展App特质，不写main方法。</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/14.
+  */
+object AppObjectDemo extends App{
+  //不用写main方法
+  println("I love you Scala")
+}</code></pre>
+
+<h3 id="6-3-继承"><a href="#6-3-继承" class="headerlink" title="6.3. 继承"></a>6.3. 继承</h3><h4 id="6-3-1-扩展类"><a href="#6-3-1-扩展类" class="headerlink" title="6.3.1. 扩展类"></a>6.3.1. 扩展类</h4><p>在Scala中扩展类的方式和Java一样都是使用extends关键字</p>
+<h4 id="6-3-2-重写方法"><a href="#6-3-2-重写方法" class="headerlink" title="6.3.2. 重写方法"></a>6.3.2. 重写方法</h4><p>在Scala中重写一个非抽象的方法必须使用override修饰符</p>
+<h4 id="6-3-3类型检查和转换"><a href="#6-3-3类型检查和转换" class="headerlink" title="6.3.3类型检查和转换"></a>6.3.3类型检查和转换</h4><pre class="language-none"><code class="language-none">Scala                       Java
+obj.isInstanceOf[C]    obj instanceof C
+obj.asInstanceOf[C]    (C)obj
+classOf[C]                C.class</code></pre>
+
+<h4 id="6-3-4超类的构造"><a href="#6-3-4超类的构造" class="headerlink" title="6.3.4超类的构造"></a>6.3.4超类的构造</h4><pre class="language-none"><code class="language-none">package cn.itcast.scala
+
+/**
+  * Created by ZX on 2015/11/10.
+  */
+object ClazzDemo {
+  def main(args: Array[String]) {
+    //val h = new Human
+    //println(h.fight)
+  }
+}
+
+trait Flyable{
+  def fly(): Unit ={
+    println("I can fly")
+  }
+
+  def fight(): String
+}
+
+abstract class Animal {
+  def run(): Int
+  val name: String
+}
+
+class Human extends Animal with Flyable{
+
+  val name = "abc"
+
+  //打印几次"ABC"?
+  val t1,t2,(a, b, c) = {
+    println("ABC")
+    (1,2,3)
+  }
+
+  println(a)
+  println(t1._1)
+
+  //在Scala中重写一个非抽象方法必须用override修饰
+  override def fight(): String = {
+    "fight with 棒子"
+  }
+  //在子类中重写超类的抽象方法时，不需要使用override关键字，写了也可以
+  def run(): Int = {
+    1
+  }
+}</code></pre>
+
+<h2 id="7-模式匹配和样例类"><a href="#7-模式匹配和样例类" class="headerlink" title="7 模式匹配和样例类"></a>7 模式匹配和样例类</h2><p>Scala有一个十分强大的模式匹配机制，可以应用到很多场合：如switch语句、类型检查等。<br>并且Scala还提供了样例类，对模式匹配进行了优化，可以快速进行匹配</p>
+<h3 id="7-1匹配字符串"><a href="#7-1匹配字符串" class="headerlink" title="7.1匹配字符串"></a>7.1匹配字符串</h3><pre class="language-none"><code class="language-none">package cn.itcast.cases
+import scala.util.Random
+
+object CaseDemo01 extends App{
+  val arr = Array("YoshizawaAkiho", "YuiHatano", "AoiSola")
+  val name = arr(Random.nextInt(arr.length))
+  name match {
+    case "YoshizawaAkiho" =&gt; println("吉泽老师...")
+    case "YuiHatano" =&gt; println("波多老师...")
+    case _ =&gt; println("真不知道你们在说什么...")
+  }
+}</code></pre>
+
+<h3 id="7-2匹配类型"><a href="#7-2匹配类型" class="headerlink" title="7.2匹配类型"></a>7.2匹配类型</h3><pre class="language-none"><code class="language-none">package cn.itcast.cases
+import scala.util.Random
+
+object CaseDemo01 extends App{
+  //val v = if(x &gt;= 5) 1 else if(x &lt; 2) 2.0 else "hello"
+  val arr = Array("hello", 1, 2.0, CaseDemo)
+  val v = arr(Random.nextInt(4))
+  println(v)
+  v match {
+    case x: Int =&gt; println("Int " + x)
+    case y: Double if(y &gt;= 0) =&gt; println("Double "+ y)
+    case z: String =&gt; println("String " + z)
+    case _ =&gt; throw new Exception("not match exception")
+  }
+}</code></pre>
+
+<p>注意：case y: Double if(y &gt;= 0) =&gt; …<br>模式匹配的时候还可以添加守卫条件。如不符合守卫条件，将掉入case _中</p>
+<h3 id="7-3匹配数组、元组"><a href="#7-3匹配数组、元组" class="headerlink" title="7.3匹配数组、元组"></a>7.3匹配数组、元组</h3><pre class="language-none"><code class="language-none">package cn.itcast.cases
+
+object CaseDemo03 extends App{
+
+  val arr = Array(1, 3, 5)
+  arr match {
+    case Array(1, x, y) =&gt; println(x + " " + y)
+    case Array(0) =&gt; println("only 0")
+    case Array(0, _*) =&gt; println("0 ...")
+    case _ =&gt; println("something else")
+  }
+
+  val lst = List(3, -1)
+  lst match {
+    case 0 :: Nil =&gt; println("only 0")
+    case x :: y :: Nil =&gt; println(s"x: $x y: $y")
+    case 0 :: tail =&gt; println("0 ...")
+    case _ =&gt; println("something else")
+  }
+
+  val tup = (2, 3, 7)
+  tup match {
+    case (1, x, y) =&gt; println(s"1, $x , $y")
+    case (_, z, 5) =&gt; println(z)
+    case  _ =&gt; println("else")
+  }
+}</code></pre>
+
+<p>注意：在Scala中列表要么为空（Nil表示空列表）要么是一个head元素加上一个tail列表。<br>9 :: List(5, 2)  :: 操作符是将给定的头和尾创建一个新的列表<br>注意：:: 操作符是右结合的，如9 :: 5 :: 2 :: Nil相当于 9 :: (5 :: (2 :: Nil))</p>
+<h3 id="7-4-样例类"><a href="#7-4-样例类" class="headerlink" title="7.4. 样例类"></a>7.4. 样例类</h3><p>在Scala中样例类是一中特殊的类，可用于模式匹配。case class是多例的，后面要跟构造参数，case object是单例的</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.cases
+import scala.util.Random
+
+case class SubmitTask(id: String, name: String)
+case class HeartBeat(time: Long)
+case object CheckTimeOutTask
+
+object CaseDemo04 extends App{
+  val arr = Array(CheckTimeOutTask, HeartBeat(12333), SubmitTask("0001", "task-0001"))
+
+  arr(Random.nextInt(arr.length)) match {
+    case SubmitTask(id, name) =&gt; {
+      println(s"$id, $name")//前面需要加上s, $id直接取id的值
+    }
+    case HeartBeat(time) =&gt; {
+      println(time)
+    }
+    case CheckTimeOutTask =&gt; {
+      println("check")
+    }
+  }
+}</code></pre>
+
+
+<h3 id="7-5-Option类型"><a href="#7-5-Option类型" class="headerlink" title="7.5. Option类型"></a>7.5. Option类型</h3><p>在Scala中Option类型样例类用来表示可能存在或也可能不存在的值(Option的子类有Some和None)。Some包装了某个值，None表示没有值</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.cases
+
+object OptionDemo {
+  def main(args: Array[String]) {
+    val map = Map("a" -&gt; 1, "b" -&gt; 2)
+    val v = map.get("b") match {
+      case Some(i) =&gt; i
+      case None =&gt; 0
+    }
+    println(v)
+    //更好的方式
+    val v1 = map.getOrElse("c", 0)
+    println(v1)
+  }
+}</code></pre>
+
+<h3 id="7-6-偏函数"><a href="#7-6-偏函数" class="headerlink" title="7.6. 偏函数"></a>7.6. 偏函数</h3><p>被包在花括号内没有match的一组case语句是一个偏函数，它是PartialFunction[A, B]的一个实例，A代表参数类型，B代表返回类型，常用作输入模式匹配</p>
+<pre class="language-none"><code class="language-none">package cn.itcast.cases
+
+object PartialFuncDemo  {
+
+  def func1: PartialFunction[String, Int] = {
+    case "one" =&gt; 1
+    case "two" =&gt; 2
+    case _ =&gt; -1
+  }
+
+  def func2(num: String) : Int = num match {
+    case "one" =&gt; 1
+    case "two" =&gt; 2
+    case _ =&gt; -1
+  }
+
+  def main(args: Array[String]) {
+    println(func1("one"))
+    println(func2("one"))
+  }
+}</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">邓滔</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://dtbox.com/2018/08/27/scala-xue-xi-yi/">http://dtbox.com/2018/08/27/scala-xue-xi-yi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">邓滔</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/hadoop/">
+                                    <span class="chip bg-color">hadoop</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">大数据学习</span>
+                                </a>
+                            
+                                <a href="/tags/scala/">
+                                    <span class="chip bg-color">scala</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/weixinzhifuerweima.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Eje5NxxUnS9HdnLfjPqlqrOz-gzGzoHsz',
+        appKey: 'JvVDTisrIUpOSo3hRlTy67Gz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/08/27/scala-xue-xi-er/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="scala学习二">
+                        
+                        <span class="card-title">scala学习二</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            scala学习二
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    大数据学习
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/scala/" class="post-category">
+                                    scala
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">大数据学习</span>
+                    </a>
+                    
+                    <a href="/tags/scala/">
+                        <span class="chip bg-color">scala</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/08/27/mahout-xue-xi-yi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Mahout学习一">
+                        
+                        <span class="card-title">Mahout学习一</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Mahout学习一
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    大数据学习
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/mahout/" class="post-category">
+                                    mahout
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">大数据学习</span>
+                    </a>
+                    
+                    <a href="/tags/mahout/">
+                        <span class="chip bg-color">mahout</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('150')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 邓滔<br />'
+            + '文章作者: 邓滔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <style>
+    div.footer-music{
+        margin-left: 5px;
+    }
+    div.footer-music a{
+        margin-right: 10px;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m10 l10 27 copy-right">
+            &nbsp;&copy;
+            <span id="year">2017</span>
+            <a href="/about" target="_blank">邓滔</a>
+            
+                        <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                            <a href="/null" target="_blank">京ICP备18046333号</a>
+                        </span>
+                        
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">397.2k</span>&nbsp;字
+            
+            
+            
+            
+<!--             <span id="busuanzi_container_site_pv"> -->
+<!--                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" -->
+<!--                     class="white-color"></span>&nbsp;次 -->
+<!--             </span> -->
+            
+            
+<!--             <span id="busuanzi_container_site_uv"> -->
+<!--                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" -->
+<!--                     class="white-color"></span>&nbsp;人 -->
+<!--             </span> -->
+            
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "7";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+
+        </div>
+        <div class="footer-music">
+    <a href="https://github.com/shuigedeng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:981376577@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=981376577" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 981376577" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e497ff78f90ba33ace6f891bb1e42dbb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
