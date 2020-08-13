@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dtbox.com/404/index.html</loc>
+    
+    <lastmod>2020-08-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dtbox.com/contact/index.html</loc>
     
     <lastmod>2020-08-11</lastmod>
@@ -998,7 +1005,7 @@
 
   <url>
     <loc>http://dtbox.com/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1006,378 +1013,378 @@
   
   <url>
     <loc>http://dtbox.com/tags/hadoop/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/flume/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/mahout/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/centos7/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/ubuntu16-04LTS/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/mysql/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/fastdfs/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/jdk8/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/solr/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/nginx/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/redis/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/big-data/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/hbase/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/hexo/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/hive/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/JDK%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/string/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/ArrayList/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/LinkedList/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/LinkedHashMap/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/BlockingQueue/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/kafka/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/spring/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/IOC/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/DI/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/bean/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/xml/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/mybatis/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/python/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/scala/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/spark/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/sqoop/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/storm/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/ubunt18-04-%E9%85%8D%E7%BD%AEss/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/git/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/gradle/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/webservice/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/shell/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/linux/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/restful/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/JAVA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/%E7%BA%BF%E7%A8%8B%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%88%9B%E5%BB%BA/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/HashMap/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/ConcurrentHashMap/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/lucene/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/AOP/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/AspectJ/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/JdbcTemplate/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/ssh/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/junit/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/zookeeper/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/django/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/tags/spring-boot/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1386,203 +1393,203 @@
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://dtbox.com/categories/software/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <loc>http://dtbox.com/categories/centos%E5%92%8Cubuntu%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/flume/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/mahout/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hadoop/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hbase/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/hexo/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/hive/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://dtbox.com/categories/jdk/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <loc>http://dtbox.com/categories/JDK%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/kafka/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/mybatis/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/python/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/scala/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/spark/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/springMVC/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/spring/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/sqoop/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/storm/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/webservice/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://dtbox.com/categories/linux2/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <loc>http://dtbox.com/categories/linux%E6%AF%8F%E5%A4%A92%E4%B8%AA%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/restful/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://dtbox.com/categories/multi-threaded-concurrency/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <loc>http://dtbox.com/categories/JAVA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</loc>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/azkaban/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/django/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/lucene/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/solr/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/zookeeper/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/hadoop/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dtbox.com/categories/redis/</loc>
-    <lastmod>2020-08-11</lastmod>
+    <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
